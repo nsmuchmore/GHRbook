@@ -1,0 +1,5 @@
+--- 
+knit: "bookdown::preview_chapter"
+---
+
+# Qualitative and Mixed Methods {#qualmixed}

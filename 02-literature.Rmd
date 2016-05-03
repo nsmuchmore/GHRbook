@@ -1,0 +1,351 @@
+--- 
+knit: "bookdown::preview_chapter"
+---
+
+# Going Beyond Google {#literature}
+
+Repeat after me:
+
+> I will not start my research by Googling "deworming". I will not start my research by Googling "deworming". I will not start my research by Googling "deworming".
+
+Back in 2012, Google's CEO Eric Schmidt [said we create as much information in two days as we did from the beginning of time through 2003](http://techcrunch.com/2010/08/04/schmidt-data/). Two days! And that was back in 2003. Sure, 10% of this info is probably cat photos, but still. This is a lot of information to sift in search of a gold nugget.
+
+Without a very specific query, Google probably won't find this nugget. [Google Scholar](https://scholar.google.com/), the search giant's solution to the challenge of finding scholarly sources, will get you closer, but you'll have better luck if you know what you are looking for.
+
+Let's assume you don't. Where do you start?
+
+## Start with Systematic Reviews and Meta-Analyses
+
+If your topic is deworming and you have in mind the wiggly creatures that are great fish bait, then [Wikipedia](https://en.wikipedia.org/wiki/Mass_deworming) is probably a good first stop. No shame in that. Otherwise, it is always a good idea to start with a check for relevant systematic reviews or meta-analyses.
+
+```{r loe, fig.cap="Levels of evidence", echo=F}
+knitr::include_graphics(rep("images/levels.png"))
+```
+
+Meta-analyses and systematic reviews are 'studies of studies', and they sit atop the evidence hierarchy. They enjoy this status because they synthesize the best available evidence. 
+
+### Meta-Analyses
+
+A **meta-analysis** is a quantitative approach in which the results from multiple studies are combined to estimate an overall effect size. We'll talk more about effect sizes later, but the concept is pretty simple.
+
+There are several types of **effect sizes**, but we'll use mean difference in weight as an example. Here is a **forest plot** from a meta-analysis by Taylor-Robinson et al. (2015) with results from five similar deworming studies.[^taylorrob] These studies randomly assigned children infected with parasites—607 across all five studies—to receive a single dose of a deworming drug like albendazole (*n*=319) or a placebo (*n*=308). Each study examined the impact of the medication on child weight.
+
+```{r deworm, fig.cap="Source: Taylor-Robinson et al. (2015), http://bit.ly/1DLEu9o", echo=F}
+knitr::include_graphics(rep("images/deworming.png"))
+```
+
+In Yap (2014), a study of 194 children, the mean weight among the deworming group was 2.2 kg. This compared to 1.9 kg among the control group. The difference between the two means, 0.30 kg, is the effect size. On average, the medication increased child weight by 0.30 kg.[^statsig]
+
+[^statsig]: However, the 95% confidence interval crossed 0, and the effect is not statistically significant. We'll cover this concept in more detail in a later chapter.
+
+The effect size for each study is presented in the far right column and depicted graphically in the size of point estimate square. The mean difference in weight in each study was positive, suggesting that every study found that medication increased child weight. All of the point estimates fall to the right of the line of no effect running up from 0, thus favoring deworming. The overall effect size is shown last as 0.75 kg.
+
+The calculation that resulted in 0.75 kg was not as simple as averaging the five studies. This is because the studies were not given equal weight (emphasis, not kg), as you can see in the "weight" column. Freij (1979) only had a sample size of 13 children. As a result, the effect size estimate is very noisy. The 95% confidence interval is huge and crosses 0. Consequently, it's weight is a low 2.8%. 
+
+So here in one figure we get a summary of the best available evidence and an estimate of the overall effect size, with uncertainly intervals. You can't get that from a Google search.
+
+### Systematic Reviews
+
+You might be wondering how Taylor-Robinson et al. (2015) found these five studies in the first place. The answer is through a **systematic review** of the literature. Not all systematic reviews include meta-analyses, but most meta-analyses include systematic reviews.
+
+A capital S "Systematic review" is distinct from a literature review—even if you go about your lit review *systematically*.
+ 
+1. The goal of a systematic review is to to be comprehensive and include every relevant article. The literature review that you write for the introduction of your manuscript is not expected to be exhaustive.
+2. For this reason, most systematic reviews are conducted by teams given the large scope of the work, whereas literature reviews can be handled solo.
+3. Systematic reviews must define and follow a *method that can be replicated*, just like any other study. Literature reviews, on the other hand, don't have to follow such rigid methods or make the methods explicit.
+4. Most systematic reviews pre-register this plan, meaning that the authors submit their planned methods to a registry like [PROSPERO](http://www.crd.york.ac.uk/PROSPERO/) prior to conducting the study. Pre-registration gives other researchers confidence that the team is not cherry picking results at the end to make an interesting paper. It also lets other researchers know that a group is already working on the same review, thus signaling that their work might duplicate efforts and fail to get published.
+5. Included in these pre-registration plans will be a specific search strategy with exact search terms for individual scholarly databases so other researchers can recreate the search. It's a good idea to do the same for a literature review, even if not a strict requirement. 
+6. Similarly, a systematic review must also outline clear criteria for including and excluding studies (e.g., keep if assignment to study arms was random). With these criteria in place, team members screen all search results, usually starting with title and abstract reviews only and moving to full text reviews as the pool of eligible studies dwindles. Screening for a literature review is typically less intensive.
+7. Systematic reviews also develop and follow guidelines for extracting details from every included  study, such as numbers of participants and key outcomes. An annotated bibliography might suffice for a literature review.
+8. Finally, teams conducting systematic reviews formally assess the quality of each included study, including the potential for bias, and take these assessments into account when synthesizing the results. This process is more ad hoc for literature reviews. 
+
+#### Where to find systematic reviews{-}
+
+Three excellent sources for finding systematic reviews in global health are the [Cochrane Library](http://www.cochranelibrary.com/), the [Campbell Collaboration](http://www.campbellcollaboration.org/), and [3ie](http://www.3ieimpact.org/evidence/systematic-reviews/). You can also get to many of the reviews in these databases by searching within PubMed using the [Clinical Queries](http://www.ncbi.nlm.nih.gov/pubmed/clinical) feature.
+
+#### How to read systematic reviews{-}
+
+Cochrane reviews follow a standard format that can look overwhelming at first, but is actually quite easy to read and understand. As with most journal articles, Cochrane reviews begin with an abstract. Next comes a plain language summary which can be helpful for newcomers to a particular topic. Summary tables round out everything you need to make your initial judgment.
+
+In the Taylor-Robinson et al. (2015) deworming review, we find the following in the plain language summary:
+
+> In trials that treat only children known to be infected, deworming drugs may increase weight gain (low quality evidence), but we do not know if there is an effect on cognitive functioning or physical well-being (very low quality evidence).
+
+This one sentence brings us up to speed with the state of the science for treating infected kids (and points you to some gaps in the literature!). Google does not filter the evidence in this manner. Starting with systematic reviews pays off almost every time.
+
+## Devising a Search Strategy
+
+Of course not every topic has been the subject of a systematic review or a meta-analysis. In this case you need to search the literature. It helps to clearly define your research question before you begin your search.
+
+### Asking a research question
+
+Here's a helpful mnemonic for creating a good clinical question: [PICO](http://guides.mclibrary.duke.edu/c.php?g=158178&p=1035882).
+
+```{r pico, echo=FALSE}
+  pico <- data.frame(letter=c("**P**", "**I**", "**C**", "**O**"),
+                     label=c("Patient, Population, or Problem",
+                             "Intervention, Prognostic Factor, or Exposure",
+                             "Comparison",
+                             "Outcome"))
+  names(pico) <- NULL
+  knitr::kable(pico, col.names=NA)
+```
+
+Let's try to use PICO to create a research question for a portion of the Taylor-Robinson et al. (2015) systematic review.
+
+The **problem** we want to address is soil-transmitted intestinal worms. The **population** is children with infections.  
+
+Not every clinical question involves testing of a treatment or **intervention**, but we'll focus a lot on these types of questions in this book. For the example at hand, the intervention would be school-based deworming (single dose). [Prognostic factor refers to covariates that could influence the prognosis of the patient. An exposure would be something that we think might increase the risk of an outcome.]
+
+Similarly, not every question involves a **comparison** group. Clinical trials always will. In this example, the comparison is a placebo.
+
+The primary **outcome** of interest is child weight in kg.
+
+We can combine all of this into a research question: 
+
+> Among children infected with soil-transmitted intestinal worms, is a single dose of deworming medication delivered through a school-based program more effective than a placebo at increasing child weight?
+
+### Approaches
+
+With your basic research question outlined, you're ready to begin searching. At the beginning you might take a quick and dirty™ approach to get started. Eventually you'll need to graduate to a proper search strategy to be more systematic, even if your end goal is not a capital S Systematic review. 
+
+#### Quick and dirty{-}
+
+A reasonable initial approach is to find a few recent articles to get a quick sense of what is out there. Google Scholar *could* come in handy here. For instance, my advanced Google Scholar search for "deworming" identified a recent paper by Aiken et al. (2015) that attempted to replicate an earlier deworming study.[^aiken]
+
+```{block, type='rmdcomment'}
+Customize your Google Scholar experience by clicking on the gear icon. Enable use of a bibliography manager, and click on "Library links" to add your library to get links to full text.
+```
+
+A good starting point for future searching is to note an article's **keywords**. You'll often find them listed right after the abstract. Aiken and colleagues list several: helminth, worms parasitic, randomized controlled trial, primary schools, and Kenya.
+
+Next comes the **introduction**. Some journals and disciplines have very brief introduction sections and might not be of much help. This is often true in medicine and public health. It is definitely the case for Aiken et al., but we still get a few interesting leads:
+
+Worms are an important public health concern [2 references given]
+
+> Helminth infections cause substantial morbidity across the developing world. 
+
+There is some debate over the efficacy of deworming [1 reference given]
+
+> Opinions differ over whether deworming schoolchildren in such settings improves nutritional outcomes, school attendance or educational achievement. 
+
+A study on school-based deworming in Kenya is a particular source of debate and disagreement [2 references given]
+
+> Central to this debate is a study describing the impacts of a school-based deworming programme in Kenya on the health, school attendance and academic performance of school pupils. 
+
+The **discussion** section is also a place to look for new leads. Authors typically use the discussion to link the study results to the existing literature, demonstrating how the results add to what is already known.
+
+After looking at the introduction and discussion sections, it's often useful to skim the **references** to get a sense of which journals publish this type of work. If a certain journal appears to be a common outlet for this work, a scan of the journal's table of contents for recent issues could be useful.[^hand]
+
+
+```{block, type='rmdsupport'}
+If you have access to a university library, you can learn more about the scholarly journals in a field by looking up [*Journal Citation Reports*](https://en.wikipedia.org/wiki/Journal_Citation_Reports). This annual report ranks the journals in each field according to impact factors. [Impact factors](https://en.wikipedia.org/wiki/Impact_factor) are one metric used to evaluate the importance of a journal in its field.
+```
+
+#### More systematic{-}
+
+##### Plan and document your search strategy{-}
+
+Whether or not you are conducting a capital S Systematic review, it's a good idea to plan and document your search. You don't need to be as thorough in a lit review as you would for a systematic review, but it wouldn't hurt to take a page from the approach. Let's look at Taylor-Robinson et al. (2015) for some inspiration.
+
+Every good systematic review will include a table or appendix like this one to make the method reproducible. If you and I run this search query at the same time on two different computers, we should get the same results.
+
+```{r search, fig.cap="Source: Taylor-Robinson et al. (2015), http://bit.ly/1DLEu9o", echo=F}
+knitr::include_graphics(rep("images/search.png"))
+```
+
+For the purposes of your literature review, you don't necessarily need to ensure that other people can recreate your results, but you should make sure that *you* can. **Pro tip**: If you can create an account with the database, do it and login to save your searches. 
+
+```{block, type='rmdsupport'}
+Differences in the design of each database and interface often require you to customize your search. If you are conducting an actual systematic review that you wish to publish—as opposed to just searching the literature systematically—then you would benefit from consulting with a clinical librarian who will be familiar with the intricacies of building search strategies.
+```
+
+##### Selecting a database{-}
+
+As you can see from the table, Taylor-Robinson et al. searched five databases.[^time] MEDLINE is probably the most well known of this group. When you search in [PubMed](http://www.ncbi.nlm.nih.gov/pubmed), PubMed is searching the MEDLINE database. This is typically a good place to start to find health-related studies. Talk with a research librarian to understand if other databases might be a better choice for your topic.
+
+##### Generate search terms{-}
+
+Once you decide on a database, you need to generate search terms. A good place to start is the keywords published with the sample articles you dig up. 
+
+You can learn a lot about potential keywords by searching for [**MeSH**](http://www.ncbi.nlm.nih.gov/mesh) terms. MeSH, which stands for "Medical Subject Headings", is a controlled vocabulary thesaurus that is used to index articles in PubMed. This thesaurus is helpful because there are often many ways to refer to the same phenomenon. For instance, the MeSH term for "breast cancer" is "Breast Neoplasm". When you search for "breast cancer" in PubMed, the database helps you out by casting a wider net:
+
+`"breast neoplasms"[MeSH Terms] OR ("breast"[All Fields] AND "neoplasms"[All Fields]) OR "breast neoplasms"[All Fields] OR ("breast"[All Fields] AND "cancer"[All Fields]) OR "breast cancer"[All Fields]`
+
+Turns out there are a lot of ways that we refer to breast cancer! The following entry terms are indexed by PubMed humans to the MeSH term "breast neoplasms":
+
+* Breast Neoplasm
+* Neoplasm, Breast
+* Neoplasms, Breast
+* Tumors, Breast
+* Breast Tumors
+* Breast Tumor
+* Tumor, Breast
+* Mammary Neoplasms, Human
+* Human Mammary Neoplasm
+* Human Mammary Neoplasms
+* Neoplasm, Human Mammary
+* Neoplasms, Human Mammary
+* Mammary Neoplasm, Human
+* Mammary Carcinoma, Human
+* Carcinoma, Human Mammary
+* Carcinomas, Human Mammary
+* Human Mammary Carcinomas
+* Mammary Carcinomas, Human
+* Human Mammary Carcinoma
+* Breast Cancer
+* Cancer, Breast
+* Cancer of Breast
+* Mammary Cancer
+* Malignant Neoplasm of Breast
+* Malignant Tumor of Breast
+* Breast Carcinoma
+* Cancer of the Breast
+
+Back in the world of worms, the MeSH term for "helminths" is "helminths", conveniently, and a search for this term in PubMed actually searches:
+
+`("parasitology"[Subheading] OR "parasitology"[All Fields] OR "helminths"[All Fields] OR "helminths"[MeSH Terms])`
+
+The following entry terms are indexed to the MeSH term "helminths":
+
+* Helminth
+* Worms, Parasitic
+* Parasitic Worms
+* Parasitic Worm
+* Worm, Parasitic
+* Aschelminthes
+* Aschelminthe
+* Gordius
+* Nematomorpha
+* Nematomorphas
+
+##### Running your search{-}
+
+Once you have some initial search terms, it's time to build and run your query. This will be an iterative process, full of trial and error. You might start with 200,000 results. Some terms and combinations will fail to narrow this field. Others will trim too much. 
+
+```{r boo, fig.cap="Boolean operators: AND, OR, NOT", echo=F}
+knitr::include_graphics(rep("images/boolean.jpg"))
+```
+
+You'll need to know some basic Boolean operators to be an effective searcher: AND, OR, NOT. For instance, let's consider the search PubMed runs when you enter "helminths".
+
+`("parasitology"[Subheading] OR "parasitology"[All Fields] OR "helminths"[All Fields] OR "helminths"[MeSH Terms])`
+
+These four terms are combined with `OR`, meaning we keep results that match *any* of these terms. At the time of writing, PubMed returns 230,875 results.
+
+If we want to limit the results humans, we enclose our previous search terms in parentheses and add `AND "humans"[MeSH Terms]` to the end.[^humans] Doing so drops our pool of results to 85,102. The `AND` operator will always maintain or decrease the number of results.
+
+[^humans]: PubMed lets you limit results to humans or animals from the results page with one click, so it's not essential to use Boolean operators manually in this case. PubMed will do it behind the scenes for you.
+
+`(("parasitology"[Subheading] OR "parasitology"[All Fields] OR "helminths"[All Fields] OR "helminths"[MeSH Terms])) AND "humans"[MeSH Terms]`
+
+Alternatively, we could use the `NOT` operator to limit the results to non-humans. Not surprisingly, we get 145,773 records. (If you are making a surprised face, think about it this way: `145,773 + 85,102 = 230,875` or `non-human results + human results = all results`)
+
+`(("parasitology"[Subheading] OR "parasitology"[All Fields] OR "helminths"[All Fields] OR "helminths"[MeSH Terms])) NOT "humans"[MeSH Terms]`
+
+Let's return to our PICO question and use Boolean operators to combine the components. 
+
+> Among children infected with soil-transmitted intestinal worms, is a single dose of deworming medication delivered through a school-based program more effective than a placebo at increasing child weight?
+
+Here's what we want to do in plain English:
+
+* humans `AND` children (redundant, but we'll keep to show the strategy)
+* `AND` intestinal worms
+* `AND` deworming medication
+* `AND` randomized controlled trial
+* `AND` weight
+
+Within each group, we have several `ORs` to consider. The parentheses can get confusing, so let's build the search one line at a time. 
+
+* `(("child"[MeSH Terms] OR children[Text Word]) AND "humans"[MeSH Terms])`
+* `("parasitology"[Subheading] OR "parasitology"[All Fields] OR "helminths"[All Fields] OR "helminths"[MeSH Terms])`
+* `(deworming[All Fields] OR ("albendazole"[MeSH Terms] OR "albendazole"[All Fields]) OR ("mebendazole"[MeSH Terms] OR "mebendazole"[All Fields]) OR ("piperazine"[Supplementary Concept] OR "piperazine"[All Fields]) OR ("levamisole"[MeSH Terms] OR "levamisole"[All Fields]) OR ("pyrantel"[MeSH Terms] OR "pyrantel"[All Fields]) OR ("thiabendazole"[MeSH Terms] OR "thiabendazole"[All Fields]))`
+* `(("randomized controlled trial"[Publication Type] OR "randomized controlled trials as topic"[MeSH Terms] OR "randomized controlled trial"[All Fields] OR "randomised controlled trial"[All Fields]) OR ("clinical trial"[Publication Type] OR "clinical trials as topic"[MeSH Terms] OR "clinical trial"[All Fields]) OR (("random allocation"[MeSH Terms] OR ("random"[All Fields] AND "allocation"[All Fields]) OR "random allocation"[All Fields] OR "randomized"[All Fields]) AND ("Trials"[Journal] OR "trials"[All Fields])))`
+
+All together now with `ANDs`. As I tap out these words on my keyboard, this search returns 259 records in PubMed.
+
+`(("child"[MeSH Terms] OR children[Text Word]) AND "humans"[MeSH Terms]) AND ("parasitology"[Subheading] OR "parasitology"[All Fields] OR "helminths"[All Fields] OR "helminths"[MeSH Terms]) AND (deworming[All Fields] OR ("albendazole"[MeSH Terms] OR "albendazole"[All Fields]) OR ("mebendazole"[MeSH Terms] OR "mebendazole"[All Fields]) OR ("piperazine"[Supplementary Concept] OR "piperazine"[All Fields]) OR ("levamisole"[MeSH Terms] OR "levamisole"[All Fields]) OR ("pyrantel"[MeSH Terms] OR "pyrantel"[All Fields]) OR ("thiabendazole"[MeSH Terms] OR "thiabendazole"[All Fields])) AND (("randomized controlled trial"[Publication Type] OR "randomized controlled trials as topic"[MeSH Terms] OR "randomized controlled trial"[All Fields] OR "randomised controlled trial"[All Fields]) OR ("clinical trial"[Publication Type] OR "clinical trials as topic"[MeSH Terms] OR "clinical trial"[All Fields]) OR (("random allocation"[MeSH Terms] OR ("random"[All Fields] AND "allocation"[All Fields]) OR "random allocation"[All Fields] OR "randomized"[All Fields]) AND ("Trials"[Journal] OR "trials"[All Fields])))`
+
+Once you are satisfied with your results, you could choose to apply the same search to another database. This might be worth the effort if your topic crosses disciplinary boundaries, like economics and health. Best to check with a research librarian.
+
+##### Screening results{-}
+
+Even the best search queries return some rocks alongside the gold, so the next step is screening. We can return to Taylor-Robinson et al. (2015) to see what a thorough approach looks like. You would likely take some shortcuts for a regular literature review.
+
+Typically systematic review searches will return hundreds or thousands of potential hits, so a study team will screen titles and abstracts only to exclude obvious mistakes. When beginning this process, it's common to have team members screen some of the same records to establish **reliability**, a concept that we will discuss in more depth in the chapter on measurement. Basically, you want to know that everyone screening records would make the same inclusion/exclusion decision.
+
+The Taylor-Robinson et al. search strategy only turned up 59 records, and the authors excluded 49 of them after screening the abstracts. The excluded studies did not meet certain *pre-defined* criteria. For instance, the authors only wanted to include studies using RCTs and quasi-experimental designs.
+
+This left the team with 10 studies that required a full-text review. Only 4 of the 10 studies still met eligibility criteria after this review, so these four  were added to the bank of 41 studies included in the earlier systematic review.[^trplots] 
+
+##### Supplemental searches{-}
+
+It is customary in a systematic review–and helpful in general reviews—to augment database searches with reference reviews and hand searches to ensure that no key references were missed in the database query. A reference review is nothing more than a scan of an eligible article's bibliography. In a hand search, you would go to the website of journals that published the eligible articles and scan the tables of contents for each issue published during the search window. If you find that either supplemental method turns up a lot of new results, it could make sense to revise your systematic review search strategy to be more comprehensive.
+
+##### Extracting data{-}
+
+Depending on your objectives you might choose to systematically extract data from each study—key facts related to study design, methods, and results. Or you might take a shorter path and create an annotated bibliography. 
+
+If you need to be more systematic—an essential requirement for a capital S Systematic review—then you need to design a data extraction strategy. Your PICO research question can be a helpful guide to identifying the minimum data you should extract. Returning to ours: 
+
+> Among children infected with soil-transmitted intestinal worms, is a single dose of deworming medication delivered through a school-based program more effective than a placebo at increasing child weight?
+
+Some possibilities include:
+
+* study setting/population
+* sample size
+* sample demographics, including age range of children
+* study design
+* intervention details, such as specific deworming medication and key points about school-based implementation
+* primary outcome (e.g., weight in kg)
+* effect size
+
+There are numerous software options for storing your extracted data, but you'll likely find that a simple spreadsheet with rows of studies and columns of study variables will work just fine. Lots of teams use this approach for big systematic reviews, so it will probably serve you well for something more modest.
+
+## For the Love of Everything Holy Use a Reference Manager
+
+Even if you chose to ignore everything I've written up to this point, do yourself a favor and use a program for managing references. I'm amazed every year when I learn that students on the precipice of graduation manually type and format their in-text citations and bibliographies. What a waste of time!
+
+There are several reference managers you might consider. I'll mention one because it is free and open-source: [Zotero](https://www.zotero.org/). The concept of "free" does not need much explanation, but students often have several free options that are not really free. A good example is a program like EndNote. A university might make this program a free download for enrolled students, but the license expires upon graduation or soon becomes obsolete without a paid upgrade. Additionally, in global health it's common to work with colleagues who do not have access to a program like EndNote, which makes collaboration challenging. For these reasons, I highly recommend a program like Zotero that is free to use and open to improve.
+
+A tutorial is beyond the scope of this chapter, but it's worth mentioning some features that are common to many reference managers:
+
+* Easy importing of references from databases like PubMed. Go from your search results to reference manager in seconds.
+* Automatic retrieval of full-text PDF.
+* Sync PDFs in collection to tablets and phones
+* Connections to word processing software to make inserting references in papers a snap.
+* Automatic creation of bibliographies based on works cited.
+* Push button reformatting of in-text citations and references to different styles, such as APA and Harvard.
+* Shared collections with automatic syncing via the cloud to facilitate collaboration.
+* Easy export of references for migration to just about any other reference manager.
+
+So next time you see someone typing references and complaining about APA formatting, open your laptop and run your reference manager. **Pro tip**: Be prepared to offer tissues. Your colleague will either cry for joy or deep despair about wasted effort. You'll feel good about yourself regardless.
+
+## Chapter Review and Application {-}
+
+```{block, type='rmdquestion'}
+Review Questions
+```
+
+```{r quiz02, echo=FALSE, fig.cap="Example quiz.", eval=FALSE}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_3KpAVg8NzM4kHwp", height="700px")
+```
+
+```{block, type='rmdexercise'}
+Application
+```
+
+
+
+
+[^taylorrob]: Taylor‐Robinson, D. C., Maayan, N., Soares‐Weiser, K., Donegan, S., & Garner, P. (2012). Deworming drugs for soil‐transmitted intestinal worms in children: effects on nutritional indicators, haemoglobin and school performance. [*The Cochrane Library*](http://onlinelibrary.wiley.com/doi/10.1002/14651858.CD000371.pub6/abstract).
+
+[^aiken]: Aiken, A. M., Davey, C., Hargreaves, J. R., & Hayes, R. J. (2015). Re-analysis of health and educational impacts of a school-based deworming programme in western Kenya: a pure replication. [*International Journal of Epidemiology*](http://ije.oxfordjournals.org/content/early/2015/07/21/ije.dyv127.abstract).
+
+[^hand]: This is referred to as "hand searching".
+
+[^time]: The time period of their search spanned from only 2012 to 2015 since they were updating an earlier systematic review from 2012.
+
+[^gdb]: Yes, Google Scholar is a database. You got me.
+
+[^trplots]: Only the five studies represented in the earlier forest plot studied the impact of a single dose of deworming medication on sick kids, so the remaining 40 articles were dropped from this specific analysis. Take a look at Taylor-Robinson et al. (2015) to see forest plots of every key outcome tracked.

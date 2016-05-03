@@ -1,0 +1,5 @@
+--- 
+knit: "bookdown::preview_chapter"
+---
+
+# Publishing and Conferences {#sharing}

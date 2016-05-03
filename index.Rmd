@@ -1,0 +1,104 @@
+--- 
+title: "Global Health Research: Design and Methods"
+author: "Eric P. Green"
+date: "`r Sys.Date()`"
+knit: "bookdown::render_book"
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+```{r library, echo=F}
+  
+```
+
+
+# Preface{-}
+
+Does the world really need another book about research methods? I think so. But I spent a fair amount of time writing down the ideas in this book, so I'm biased. But here's my rationale.
+
+I went to graduate school for clinical psychology, and my classmates and I read all of the classic psychology texts on research design and methods. Books like "Experimental and Quasi-Experimental Designs for Generalized Causal Inference" by Shadish, Cook, and Campbell.[^scc] I still remember staying up late trying to memorize all of the different threats to internal validity outlined by Donald Campbell and colleagues. Meanwhile, across campus, my econ colleagues were reading the ideas of another Donald—Donald Rubin and what is now known as Rubin's causal model. But I didn't know this at the time.
+
+When I set off for Uganda in 2007, determined to learn more about this field called global health, I met some of these mini Donald Rubin's in the wild. I tried communicating with them, but they had a strange dialect that I couldn't quite understand. And they did not understand me and my Campbellian drawl. We were usually trying to say the same thing, just in the language of our peoples.
+
+But I couldn't put all of the blame on the economists and the disciplinary gap between us. There was a lot I didn't know that went far beyond differences in jargon. 
+
+I was a psychologist trained in clinical research, and nearly every applied example I read about came from the U.S. or Europe. The young field of global mental health was still an infant when I was in school. The first <a href="http://www.thelancet.com/series/global-mental-health" target="_blank">Lancet series on global mental health</a> that really put the field on the map was published in September 2007 as I was getting on a plane to fly back home. I really knew nothing about global health.
+
+Fortunately, students entering university today have many more opportunities to learn about global health through interdisciplinary studies. Duke University launched the first liberal arts global health major in the U.S. in 2013, and other universities have followed suit. The Duke program is unique because it requires global health students to co-major in another discipline, such as biology, economics, psychology, or public policy.
+
+I started teaching at Duke around the time the new co-major started, and I found myself in the position of needing to pick a textbook for a course called "Research Methods in Global Health". I reviewed a lot of excellent books that covered the basics, but none integrated examples from the very diverse and interdisciplinary field that is global health.
+
+I saw this as a real limitation. So I decided to write my own book.
+
+## About this Book{-}
+
+A guiding principle of this book is that a student of global health needs to be a student of medicine, biology, statistics, economics, psychology, public policy, and the list goes on. 
+
+Just take a topic like malaria. A literature search will return articles about the spread of the disease (epidemiology), the impact of illness on future productivity (economics), the merits of free or subsidized bed nets (public policy), mosquito habitats (ecology), the efficacy of vaccines to prevent the disease (medicine and statistics), rapid diagnostic tests (biomedical engineering), the adoption and use of bed nets (psychology), and the list goes on.
+
+No one book or author could ever hope to provide full disciplinary coverage of even one topic like malaria, so my goal was much more modest. I wanted to create a resource that would teach the basics of research design and methods by exposing readers to real world global health examples from different disciplines.
+
+Another guiding principle is openness. Whenever possible, the examples come from open access sources. Every reader should be able to access 90% of the references in this book.
+
+## Organization{-}
+
+The book is organized as follows. 
+
+Part 1 is Research 101. The chapters in this section lay the foundation for the rest of the book and take you through the initial steps of designing a research study. **[Chapter 1](#science)** reviews the fundamentals of scientific research, but with a global health spin. In **[Chapter 2](#literature)**, you'll learn how to develop a research question and search the literature for existing evidence. Better yet, you'll learn to let someone else do that for you in the form of a systematic review or meta-analysis. **[Chapter 3](#logic)** gives you practical advice on developing a theory of change to guide program development, monitoring, and evaluation. **[Chapter 4](#measurement)** explains how to define your measurement of key study outcomes and covers fundamental psychometric concepts such as reliability and validity. In **[Chapter 5](#sampling)**, you'll learn strategies for determining how many research subjects you should recruit and methods for selecting them. **[Chapter 6](#causeeffect)** examines strategies for building up causal arguments, and **[Chapter 7](#critical)** teaches you something about tearing them down.
+
+Part 2 introduces the research designs and methods you are most likely to encounter in global health. Some of the most interesting questions are ones about impact: what interventions, treatments, and policies "work" and why? To answer these impact questions, we often turn to randomized controlled trials, a mainstay of medical research. **[Chapter 8](#experimental)** reviews the rationale, process, and limitations of field experiments. Randomization is not always possible or advisable, however, and researchers must build a causal argument using non-experimental methods, the topic of **[Chapter 9](#quasi)** and **[Chapter 10](#observational)**. Part 2 wraps up with a discussion of qualitative and mixed methods in **[Chapter 11](#qualmixed)**.
+
+Part 3 aims to help you use this knowledge to have an impact. In **[Chapter 12](#protocol)** you will learn how to prepare a study protocol and prepare for ethical review. **[Chapter 13](#sharing)** will introduce you to the publication process and other opportunities for disseminating your work, such as professional conferences. **[Chapter 14](#impact)** pushes you to think beyond your study results to make an impact on policy and practice.
+
+One limitation of this book is that it does not teach statistics. Statistical concepts are discussed throughout, but not in great detail. Every statistician will tell you that you need to think through your analysis at the study design stage. Listen to this advice.
+
+While this book will not give you the technical tools you need to plan your analysis, I hope you will come away with more appreciation for the gaps in your knowledge that you need to fill with further study. A great resource for learning applied statistics is [OpenIntro Stats](https://www.openintro.org/stat/). If you are fortunate to be at a university with an applied statistics department, chances are you could get excellent consultation on your study protocol. This book WILL prepare you to narrow your options and have a smart conversation about how to meet your study objectives.
+
+## Icons {-}
+
+I’ve sprinkled several types of asides throughout the book. If you are a student in one of my courses, I recommend that you actually read them. Everyone else can flip the page and feel productive.
+
+```{block, type='rmdpuzzle'}
+Help piecing together the global health puzzle
+```
+
+```{block, type='rmdcomment'}
+Extended discussion of a special topic
+```
+
+```{block, type='rmdtip'}
+Tips
+```
+
+```{block, type='rmdplay'}
+Videos
+```
+
+```{block, type='rmdquestion'}
+Review questions
+```
+
+```{block, type='rmdexercise'}
+Application exercises
+```
+
+## Acknowledgements{-}
+
+I'd like to thank some folks for their helpful feedback at various points throughout my writing process. My graduate student teaching assistants, Kaitlin Saxton, Kathleen Perry, and Jenae Logan, read and commented on the initial drafts. This could not have been fun, so thanks!
+
+Thanks to Duke librarians Megan Von Isenburg and Hannah Rozear for setting me straight on literature searches. I still have a lot to learn! Liz Turner, biostatistican extraordinaire, kept me from making too many mistakes on technical details here and there.
+
+I'd also like to thank students in my undergraduate and graduate global health research courses for test driving the book before all the parts were in place. Your feedback was [placeholder], and the book would have been [placeholder] without you. Special shoutout to the following students for sharing written feedback: Kelsey Sumner, Karly Gregory, Qian Yudong, and Christina Schmidt.
+
+Despite everyone's best efforts to help me catch mistakes, I'm certain errors remain in the book. Blame me, not them.
+
+## Colophon{-}
+
+This book is a work in progress. If you find errors (gasp!), please create an issue on [Github](https://github.com/ericpgreen/GHR), [email me](eric.green@duke.edu), or shame me on Twitter (`@ericpgreen`). I'm writing the book in [R Markdown](http://rmarkdown.rstudio.com/) within [RStudio](https://www.rstudio.com/). The [`bookdown'](https://github.com/rstudio/bookdown) package from the makers of RStudio does most of the heavy lifting to compile the book. The source code for the book is available on [Github](https://github.com/ericpgreen/GHR).
+
+
+[^scc]: Shadish, W.R., Cook, T.D., & Campbell, D.T. (2003). [*Experimental and Quasi-Experimental Designs for Generalized Causal Inference*](http://amzn.to/1E8UYIG). Cengage Learning.
+
+[^kazdin]: Kazdin, A. (2001). [*Methodological Issues & Strategies in Clinical Research*](http://amzn.to/1h2esUR). American Psychological Association.

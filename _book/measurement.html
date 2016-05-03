@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Global Health Research: Design and Methods</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Global Health Research: Design and Methods">
+  <meta name="generator" content="bookdown 0.0.57 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Global Health Research: Design and Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+<meta name="author" content="Eric P. Green">
+
+<meta name="date" content="2016-04-03">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="logic.html">
+<link rel="next" href="sampling.html">
+
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Global Health Research</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About this Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i>Organization</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#icons"><i class="fa fa-check"></i>Icons</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i>Colophon</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="science.html"><a href="science.html"><i class="fa fa-check"></i><b>1</b> Science Fair Redux</a><ul>
+<li class="chapter" data-level="1.1" data-path="science.html"><a href="science.html#scientific-research"><i class="fa fa-check"></i><b>1.1</b> Scientific Research</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="science.html"><a href="science.html#all-about-inference"><i class="fa fa-check"></i><b>1.1.1</b> All about inference</a></li>
+<li class="chapter" data-level="1.1.2" data-path="science.html"><a href="science.html#research-as-a-public-act"><i class="fa fa-check"></i><b>1.1.2</b> Research as a public act</a></li>
+<li class="chapter" data-level="1.1.3" data-path="science.html"><a href="science.html#living-with-uncertainty"><i class="fa fa-check"></i><b>1.1.3</b> Living with uncertainty</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="science.html"><a href="science.html#the-fundamentals"><i class="fa fa-check"></i><b>1.2</b> The Fundamentals</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="science.html"><a href="science.html#the-nature-of-research"><i class="fa fa-check"></i><b>1.2.1</b> The nature of research</a></li>
+<li class="chapter" data-level="1.2.2" data-path="science.html"><a href="science.html#research-problems-and-questions"><i class="fa fa-check"></i><b>1.2.2</b> Research problems and questions</a></li>
+<li class="chapter" data-level="1.2.3" data-path="science.html"><a href="science.html#research-designs"><i class="fa fa-check"></i><b>1.2.3</b> Research designs</a></li>
+<li class="chapter" data-level="1.2.4" data-path="science.html"><a href="science.html#research-methods"><i class="fa fa-check"></i><b>1.2.4</b> Research methods</a></li>
+<li class="chapter" data-level="1.2.5" data-path="science.html"><a href="science.html#theories-and-hypotheses"><i class="fa fa-check"></i><b>1.2.5</b> Theories and hypotheses</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="science.html"><a href="science.html#chapter-review-and-application"><i class="fa fa-check"></i>Chapter Review and Application</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Going Beyond Google</a><ul>
+<li class="chapter" data-level="2.1" data-path="literature.html"><a href="literature.html#start-with-systematic-reviews-and-meta-analyses"><i class="fa fa-check"></i><b>2.1</b> Start with Systematic Reviews and Meta-Analyses</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="literature.html"><a href="literature.html#meta-analyses"><i class="fa fa-check"></i><b>2.1.1</b> Meta-Analyses</a></li>
+<li class="chapter" data-level="2.1.2" data-path="literature.html"><a href="literature.html#systematic-reviews"><i class="fa fa-check"></i><b>2.1.2</b> Systematic Reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="literature.html"><a href="literature.html#devising-a-search-strategy"><i class="fa fa-check"></i><b>2.2</b> Devising a Search Strategy</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="literature.html"><a href="literature.html#asking-a-research-question"><i class="fa fa-check"></i><b>2.2.1</b> Asking a research question</a></li>
+<li class="chapter" data-level="2.2.2" data-path="literature.html"><a href="literature.html#approaches"><i class="fa fa-check"></i><b>2.2.2</b> Approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="literature.html"><a href="literature.html#for-the-love-of-everything-holy-use-a-reference-manager"><i class="fa fa-check"></i><b>2.3</b> For the Love of Everything Holy Use a Reference Manager</a></li>
+<li class="chapter" data-level="" data-path="literature.html"><a href="literature.html#chapter-review-and-application-1"><i class="fa fa-check"></i>Chapter Review and Application</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="logic.html"><a href="logic.html"><i class="fa fa-check"></i><b>3</b> Theory of Change</a><ul>
+<li class="chapter" data-level="3.1" data-path="logic.html"><a href="logic.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="logic.html"><a href="logic.html#what-makes-a-good-theory-of-change"><i class="fa fa-check"></i><b>3.2</b> What Makes a Good Theory of Change?</a><ul>
+<li class="chapter" data-level="" data-path="logic.html"><a href="logic.html#a-plan-to-end-hunger-and-poverty"><i class="fa fa-check"></i>A plan to end hunger and poverty</a></li>
+<li class="chapter" data-level="" data-path="logic.html"><a href="logic.html#core-components"><i class="fa fa-check"></i>Core components</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="logic.html"><a href="logic.html#other-approaches"><i class="fa fa-check"></i><b>3.3</b> Other Approaches</a><ul>
+<li class="chapter" data-level="" data-path="logic.html"><a href="logic.html#results-framework"><i class="fa fa-check"></i>Results framework</a></li>
+<li class="chapter" data-level="" data-path="logic.html"><a href="logic.html#logic-models"><i class="fa fa-check"></i>Logic models</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="logic.html"><a href="logic.html#chapter-review-and-application-2"><i class="fa fa-check"></i>Chapter Review and Application</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="measurement.html"><a href="measurement.html"><i class="fa fa-check"></i><b>4</b> Measure Twice, Cut Once</a><ul>
+<li class="chapter" data-level="4.1" data-path="measurement.html"><a href="measurement.html#what-is-an-indicator"><i class="fa fa-check"></i><b>4.1</b> What is an Indicator?</a><ul>
+<li class="chapter" data-level="" data-path="measurement.html"><a href="measurement.html#process-indicators"><i class="fa fa-check"></i>Process indicators</a></li>
+<li class="chapter" data-level="" data-path="measurement.html"><a href="measurement.html#outcomeimpact-indicators"><i class="fa fa-check"></i>Outcome/impact indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="measurement.html"><a href="measurement.html#selecting-good-indicators"><i class="fa fa-check"></i><b>4.2</b> Selecting Good Indicators</a><ul>
+<li class="chapter" data-level="" data-path="measurement.html"><a href="measurement.html#dreamy-indicators"><i class="fa fa-check"></i>Dreamy indicators™</a></li>
+<li class="chapter" data-level="" data-path="measurement.html"><a href="measurement.html#use-international-standards"><i class="fa fa-check"></i>Use international standards</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="measurement.html"><a href="measurement.html#evaluating-data-collection-instruments-and-methods"><i class="fa fa-check"></i><b>4.3</b> Evaluating Data Collection Instruments and Methods</a><ul>
+<li class="chapter" data-level="" data-path="measurement.html"><a href="measurement.html#psychometrics"><i class="fa fa-check"></i>Psychometrics</a></li>
+<li class="chapter" data-level="" data-path="measurement.html"><a href="measurement.html#to-use-adapt-or-develop"><i class="fa fa-check"></i>To use, adapt, or develop?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="measurement.html"><a href="measurement.html#chapter-review-and-application-3"><i class="fa fa-check"></i>Chapter Review and Application</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sampling.html"><a href="sampling.html"><i class="fa fa-check"></i><b>5</b> Duck, Duck, Research Participant</a><ul>
+<li class="chapter" data-level="5.1" data-path="sampling.html"><a href="sampling.html#probability-sampling"><i class="fa fa-check"></i><b>5.1</b> Probability Sampling</a><ul>
+<li class="chapter" data-level="" data-path="sampling.html"><a href="sampling.html#sampling-error"><i class="fa fa-check"></i>Sampling error</a></li>
+<li class="chapter" data-level="" data-path="sampling.html"><a href="sampling.html#approaches-1"><i class="fa fa-check"></i>Approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="sampling.html"><a href="sampling.html#non-probability-sampling"><i class="fa fa-check"></i><b>5.2</b> Non-Probability Sampling</a><ul>
+<li class="chapter" data-level="" data-path="sampling.html"><a href="sampling.html#approaches-2"><i class="fa fa-check"></i>Approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sampling.html"><a href="sampling.html#chapter-review-and-application-4"><i class="fa fa-check"></i>Chapter Review and Application</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="causeeffect.html"><a href="causeeffect.html"><i class="fa fa-check"></i><b>6</b> Cause and Effect</a></li>
+<li class="chapter" data-level="7" data-path="critical.html"><a href="critical.html"><i class="fa fa-check"></i><b>7</b> Reading Between the Lines</a></li>
+<li class="chapter" data-level="8" data-path="science.html"><a href="science.html#experimental"><i class="fa fa-check"></i><b>8</b> Experimental</a></li>
+<li class="chapter" data-level="9" data-path="quasi.html"><a href="quasi.html"><i class="fa fa-check"></i><b>9</b> Quasi-Experimental</a></li>
+<li class="chapter" data-level="10" data-path="observational.html"><a href="observational.html"><i class="fa fa-check"></i><b>10</b> Observational</a></li>
+<li class="chapter" data-level="11" data-path="qualmixed.html"><a href="qualmixed.html"><i class="fa fa-check"></i><b>11</b> Qualitative and Mixed Methods</a></li>
+<li class="chapter" data-level="12" data-path="protocol.html"><a href="protocol.html"><i class="fa fa-check"></i><b>12</b> Planning a Study</a></li>
+<li class="chapter" data-level="13" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>13</b> Publishing and Conferences</a></li>
+<li class="chapter" data-level="14" data-path="impact.html"><a href="impact.html"><i class="fa fa-check"></i><b>14</b> From Research to Policy</a></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="divider"></li>
+<li><a href="http://www.ericpgreen.com" target="blank">Eric P. Green</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Global Health Research: Design and Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="measurement" class="section level1">
+<h1><span class="header-section-number">4</span> Measure Twice, Cut Once</h1>
+<div class="figure"><span id="fig:measure"></span>
+<img src="images/measure.jpg" alt="Source: http://bit.ly/1X5yjU2"  />
+<p class="caption">
+Figure 4.1: Source: <a href="http://bit.ly/1X5yjU2" class="uri">http://bit.ly/1X5yjU2</a>
+</p>
+</div>
+<p>This proverb, well known to carpenters everywhere, should be the motto of every aspiring researcher. Ignore it and you run the risk of severely limiting what you can learn from your study—or ruining the whole thing altogether.</p>
+<p>Despite its importance, however, measurement rarely gets the attention it deserves. One reason, I think, is that to really understand measurement issues in a particular sub-field you need to get deep into the weeds. It’s relatively easy to pick up a journal article outside of your major area of study and find something to say about the study design. Not so when it comes to the measurement.</p>
+<p>Take an issue like maternal mortality. Dead or alive. Easy, right? Not quite.</p>
+<p>What counts as a maternal death? What if a pregnant woman slips on a patch of ice and dies? Is that a maternal death? What if she dies from an infection 40 days after giving birth to a healthy baby girl? Is that a maternal death?</p>
+<p>No and yes. I’ll explain why. In the process, I’ll introduce some key measurement issues to consider when designing or reviewing a study. I’ll also introduce you to some population-level indicators that every global health data junkie should know.</p>
+<div id="what-is-an-indicator" class="section level2">
+<h2><span class="header-section-number">4.1</span> What is an Indicator?</h2>
+<p>Part of developing a good logic model is to identify indicators for each part of the causal chain.<a href="references.html#fn64" class="footnoteRef" id="fnref64"><sup>64</sup></a> An <strong>indicator</strong> is an observable measure of a concept.<a href="references.html#fn65" class="footnoteRef" id="fnref65"><sup>65</sup></a> For instance, a primary outcome in the Kenya “sugar daddy” intervention study discussed in Chapter 3 was “reduction in unprotected sex”. We can’t observe unprotected sex directly, so it is a concept in need of a measurable indicator. That indicator could be <em>self-reported</em> unprotected sex, but it might be hard to get people to report honestly. A potentially more accurate measure of unprotected sex among girls of reproductive age is the incidence of childbirth.</p>
+<hr />
+<p>Let’s look at another example and consider the importance of measuring indicators at each step of the causal chain.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Logic Model</th>
+<th align="left">Concept</th>
+<th align="left">Indicator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Input</td>
+<td align="left">Financial resources</td>
+<td align="left">Expenditures</td>
+</tr>
+<tr class="even">
+<td align="left">Activities</td>
+<td align="left">Treatment fidelity</td>
+<td align="left">Checklist score</td>
+</tr>
+<tr class="odd">
+<td align="left">Output</td>
+<td align="left">Compliance</td>
+<td align="left"># TBAs trained</td>
+</tr>
+<tr class="even">
+<td align="left">Outcomes</td>
+<td align="left">Fewer complications</td>
+<td align="left"># hemorrhage</td>
+</tr>
+<tr class="odd">
+<td align="left">Impacts</td>
+<td align="left">Reduced mortality</td>
+<td align="left"># maternal death</td>
+</tr>
+</tbody>
+</table>
+<p>Our example logic model comes from a study by Jokhio and colleagues (2005) of the impact of training traditional birth attendants on stillbirths, neonatal deaths, and maternal deaths.<a href="references.html#fn66" class="footnoteRef" id="fnref66"><sup>66</sup></a></p>
+<p>When this study was conducted in 1998, the maternal mortality ratio in Pakistan was more than 280 per 100,000 live births (compared to 170 in 2013).<a href="references.html#fn67" class="footnoteRef" id="fnref67"><sup>67</sup></a> This represents more than 13,000 women who died giving birth.</p>
+<p>The tragedy in this number is that maternal mortality is preventable. Women continue to die before, during, and after childbirth because of three major delays: (i) delays in seeking healthcare; (ii) delays in reaching healthcare; and (iii) delays in receiving high quality healthcare upon reaching a medical facility.<a href="references.html#fn68" class="footnoteRef" id="fnref68"><sup>68</sup></a> The most common proximate causes of death are postpartum hemorrhage, hypertensive disorders, and sepsis.<a href="references.html#fn69" class="footnoteRef" id="fnref69"><sup>69</sup></a></p>
+<p>It’s hard to predict who will suffer life threatening complications, so there is debate about how to best intervene. Some argue that we should invest in interventions to increase facility deliveries so that women would be better able to access emergency obstetric care if needed. Others point to the low frequency of complications and the high prevalence of poor quality care at medical facilities as a reason that women should be supported in their decision to stay at home where the family can better support them.</p>
+<p>At the time Jokhio and colleagues conducted this study, facility deliveries in Pakistan were rare. The authors cited descriptive studies showing that most women in Pakistan deliver at home (80%) without a skilled birth attendant (89%). Only 1 out of 20 women who experience complications makes it to a medical facility with emergency obstetric care.</p>
+<p>Given the high prevalence of home deliveries, Jokhio et al. tested an intervention that trained traditional birth attendants—the mothers, aunts, sisters, and neighbors who already help women through childbirth but have no formal medical training—and provided them with delivery kits. The training lasted 3 days and covered topics such as checking for danger signs, conducing a clean delivery using the provided kits, and making emergency referrals. Trained TBAs were asked to visit with women at least three times during the pregnancy to look for danger signs, and then again for the delivery.</p>
+<p>The study design was a cluster randomized trial. Seven subdisticts of a rural district were randomized to the TBA intervention or the standard of care. TBAs in subdistricts assigned to the control group did not receive any training or delivery kits. The primary endpoint was reduced perinatal deaths (stillbirths and neonatal deaths) and maternal deaths. Before discussing the study results, let’s think about measurement throughout the causal chain.</p>
+<div id="process-indicators" class="section level3 unnumbered">
+<h3>Process indicators</h3>
+<p>M&amp;E managers think long and hard about how to track inputs, activities, and outputs—process or monitoring indicators—and how to summarize the data in quarterly monitoring reports to donors or NGO/ministry supervisors. All of these stakeholders want to know how much was spent and for what purpose, whether the implementation plans were followed, and how many people benefitted.</p>
+<p>As researchers we also care about collecting good process data, but usually as a means to developing a better understanding why programs do or don’t work. Examples include program costs (to estimate cost-effectiveness), treatment fidelity (to judge the quality of implementation), and compliance with study protocols (to assess threats to internal validity).</p>
+<div id="inputs" class="section level4 unnumbered">
+<h4>Inputs</h4>
+<div id="cost-and-cost-effectiveness" class="section level5 unnumbered">
+<h5>Cost and cost-effectiveness</h5>
+<p>Impact evaluations produce estimates of the effectiveness of a program or intervention. Does the program “work”? For some public health and behavioral health nerds, evidence of impact is enough because they are narrowly focused on developing and testing new interventions. Not true for many economists and policymakers who are thinking about delivering programs at scale with limited public funding; they want to know whether the intervention is cost-effective, not just effective.<a href="references.html#fn70" class="footnoteRef" id="fnref70"><sup>70</sup></a> A cost-effectiveness analysis requires close tracking of the cost of all program inputs.<a href="references.html#fn71" class="footnoteRef" id="fnref71"><sup>71</sup></a> Unfortunately, Jokhio et al. don’t tell us about the cost, other than to say the intervention was designed to be “low cost and sustainable.”<a href="references.html#fn72" class="footnoteRef" id="fnref72"><sup>72</sup></a></p>
+<div class="rmdpuzzle">
+<p>
+Cost effectiveness analysis (CEA) is not the same thing as cost-benefit analysis (CBA). The latter involves putting a dollar amount to benefits, such as the benefit to society of averting a maternal death. This is hard to do and quite subjective. This is why you will come across CEA much more frequently in global health. The typical calculation is the effect size divided by the costs. There is no effort to put costs and effects on the same dollar metric.
+</p>
+</div>
+</div>
+</div>
+<div id="activitiesoutputs" class="section level4 unnumbered">
+<h4>Activities/Outputs</h4>
+<div id="treatment-fidelity" class="section level5 unnumbered">
+<h5>Treatment fidelity</h5>
+<p>The TBA intervention included a 3-day training and the provision of delivery kits. If a trainer decided to skip portions of the training or knock off a day, the program would not be delivered as intended (aka, without fidelity to the treatment). The consequence of low <strong>treatment fidelity</strong> is usually an attenuation of treatment effects.<a href="references.html#fn73" class="footnoteRef" id="fnref73"><sup>73</sup></a> This is a threat to internal validity. If the study shows no effect but treatment fidelity is low, we can’t be confident in the null result. Implementation failure rather than theory or program failure could be to blame. Low fidelity is also a threat to external validity because it isn’t possible to truly replicate the study.</p>
+<p>The first step in developing a measure of fidelity is to identify what constitutes the intervention. Then for each component of the intervention, you define the benchmark for success. If your intervention involves the distribution of goods such as delivery kits, this is relatively straightforward: count the kits delivered. When your intervention involves the delivery of a service, fidelity tracking is more complicated.</p>
+<p>Training is an example of a service. In the write-up of the TBA study, we’re told that TBAs were trained on the following topics:</p>
+<ul>
+<li>giving advice on antepartum, intrapartum, and postpartum care;</li>
+<li>how to conduct a clean delivery;</li>
+<li>how to use the disposable delivery kit;</li>
+<li>when to refer women for emergency obstetrical care;</li>
+<li>and care of the newborn.</li>
+</ul>
+<p>There are two levels of training we can evaluate: the training of the trainers (TOT) and the competency of the trainees.</p>
+<p>First, we want to make sure that the people leading the TBA training (i) adhere to the training manual (“do the facilitators deliver all of the training content?) and (ii) correctly present all of the training material (”do they present the training material correctly?“). We might do this by creating a TOT fidelity checklist that can be used to assess adherence and competence.<a href="references.html#fn74" class="footnoteRef" id="fnref74"><sup>74</sup></a> For instance:</p>
+<ul>
+<li>Adherence
+<ul>
+<li>trainer reviews didactic material on conducting a clean delivery</li>
+<li>trainer facilitates the demonstration activity on how to use the disposable delivery kit</li>
+</ul></li>
+<li>Competence
+<ul>
+<li>trainer correctly explains the key danger signs to look for during the antepartum period</li>
+<li>trainer demonstrates proper use of the delivery kits</li>
+</ul></li>
+</ul>
+<p>Second, we want to know that the TBAs learned something from the training. This could be as simple as administering a knowledge and practical test at the end of the training. To continually monitor fidelity over time, we could arrange to observe or record TBA interactions with patients and evaluate fidelity with another checklist. Depending on the situation, we could also use “mystery clients”—confederates who pose as real clients—to evaluate fidelity without the target’s knowledge.</p>
+</div>
+<div id="treatment-compliance" class="section level5 unnumbered">
+<h5>Treatment compliance</h5>
+<p>In a randomized trial, people (or other units like schools and clinics) are randomly assigned to different study arms. In Jokhio et al., subdistricts were randomly assigned to the TBA intervention group (treatment) or the no program group (control). Sometimes plans don’t work out and people or units are “non-compliant” with these assignments. For instance:</p>
+<ul>
+<li><p>Some people assigned to the <em>treatment</em> group are never treated or only partially treated. Maybe some TBAs never showed up for the training program or stopped attending before the end.</p></li>
+<li><p>Some people assigned to the <em>control</em> (comparison) group receive the treatment despite their assignment to the inactive control group. An example would be if TBAs in control subdistricts heard about the nearby training and decided to attend.</p></li>
+</ul>
+<p>Just like low-treatment fidelity, <strong>partial compliance</strong> with the study protocol can attenuate treatment effects. We’ll discuss these threats more in the chapter on experimental designs. The take home point for now is that close tracking of outputs can be critical for your analysis of treatment effects.</p>
+</div>
+</div>
+</div>
+<div id="outcomeimpact-indicators" class="section level3 unnumbered">
+<h3>Outcome/impact indicators</h3>
+<p>Researchers tend to spend the most time and effort defining measurement strategies for study outcomes and impacts. Jokhio et al. evaluated the effect of the TBA intervention on a set of outcomes that included the occurrence of major complications of pregnancy and referral to emergency obstetric care. The authors also examined the impact of the intervention on maternal mortality, but the study only had the statistical power—the topic of a later chapter—to detect a 90% drop in maternal deaths. Thus the authors were unlikely to find a statistically significant effect on maternal deaths, but the indictor made sense in the theory of change: better equipped TBAs who are present at deliveries will reduce the incidence of major complications that are most likely to lead to maternal deaths; better access to emergency referrals will have the same life saving effect.</p>
+<div class="rmdcomment">
+<p>
+So what did they find?
+</p>
+<p>
+The intervention reduced the odds of hemorrhage and sepsis by 39% and 83%, respectively. Women exposed to trained TBAs were also 1.5 times more likely to get a referral to emergency obstetric care.<a href="references.html#fn75" class="footnoteRef" id="fnref75"><sup>75</sup></a> Obstructed labor was more likely among the intervention group, but this can’t be caused by TBAs. So how do we interpret this finding given that the study design was an experiment, and we know experiments are made for causal inference? <em>Increased reporting</em>. TBAs were trained to recognize danger signs and make referrals. It’s likely that trained TBAs were more likely to see something and say something.
+</p>
+<p>
+So what about maternal mortality? The effect size estimate suggested a 26% reduction in maternal deaths, but the estimate was not very precise. The study was only designed to detect a reduction of 90% with precision, so this is not surprising. So no definitive evidence about the impact of the intervention on maternal mortality, but large effects on the intermediate outcomes supports the underlying theory of change.
+</p>
+</div>
+</div>
+</div>
+<div id="selecting-good-indicators" class="section level2">
+<h2><span class="header-section-number">4.2</span> Selecting Good Indicators</h2>
+<p>There are some people who say that indicators must be <a href="https://en.wikipedia.org/wiki/SMART_criteria">SMART</a>™:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>S</strong>ecific</td>
+<td align="left">clearly defined</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>M</strong>easurable</td>
+<td align="left">able to be quantified</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>A</strong>ttainable</td>
+<td align="left">target must be realistic</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>R</strong>elevant</td>
+<td align="left">related to the construct</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>T</strong>ime-bound</td>
+<td align="left">observed at specific times</td>
+</tr>
+</tbody>
+</table>
+<p>I think indicators should be DREAMY™:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>D</strong>efined</td>
+<td align="left">clearly specified</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>R</strong>elevant</td>
+<td align="left">related to the construct</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>E</strong>xpedient</td>
+<td align="left">feasible to obtain</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>A</strong>ccurate</td>
+<td align="left">valid measure of construct</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>M</strong>easurable</td>
+<td align="left">able to be quantified</td>
+</tr>
+<tr class="even">
+<td align="left">customar<strong>Y</strong><a href="references.html#fn76" class="footnoteRef" id="fnref76"><sup>76</sup></a></td>
+<td align="left">recognized standard</td>
+</tr>
+</tbody>
+</table>
+<div id="dreamy-indicators" class="section level3 unnumbered">
+<h3>Dreamy indicators™</h3>
+<p>Jokhio and colleagues wanted to develop and test an intervention that would make motherhood safer. The ultimate indicator of safe motherhood is reduced maternal mortality. Let’s put this indicator to the DREAMY test.</p>
+<div id="defined" class="section level5 unnumbered">
+<h5>Defined</h5>
+<p>The first step to becoming a good indicator is having a clear definition. Jokhio et al. used the following definition of a maternal death:</p>
+<blockquote>
+<p>Maternal deaths were defined as death of the mother during pregnancy, delivery, and up to six weeks post-partum, excluding deaths known to have been due to injury or accident.</p>
+</blockquote>
+</div>
+<div id="relevant" class="section level5 unnumbered">
+<h5>Relevant</h5>
+<p>Maternal deaths are clearly relevant to the construct of safe motherhood.</p>
+</div>
+<div id="expedient" class="section level5 unnumbered">
+<h5>Expedient</h5>
+<p>Data on maternal deaths are not easy to collect. Jokhio et al. relied on Lady Health Workers, a cadre of educated women with 3 to 6 months of training in primary health care and family planning who are an official part of Pakistan’s public health system. Despite the challenges of collecting data on maternal mortality, the Lady Health Workers were surprisingly effective; they successfully followed up with 99.8% of the 19,557 women recruited into the study.</p>
+</div>
+<div id="accurate" class="section level5 unnumbered">
+<h5>Accurate</h5>
+<p>Simply, yes. Maternal deaths measure what we think they measure—mortality.</p>
+</div>
+<div id="measurable" class="section level5 unnumbered">
+<h5>Measurable</h5>
+<p>Not such a simple yes. Maternal deaths can be quantified, but without a registry of death certificates indicating the cause of death, it’s easy to make mistakes. So what did Jokhio et al. do?</p>
+<blockquote>
+<p>In cases of maternal death, the cause was ascertained by Lady Health Workers on the basis of oral reports from relatives, neighbors, or traditional birth attendants.</p>
+</blockquote>
+<p>The authors do not use the term “<a href="https://en.wikipedia.org/wiki/Verbal_autopsy">verbal autopsy</a>”, but that is the inferred method. In this particular study, a VA is a reasonable choice because the timing of death was ascertainable for all women. It is possible that some deaths due to accident or injury were incorrectly labeled as maternal deaths, but there is no way to know.</p>
+<div class="rmdcomment">
+<p>
+Measurement can change over time, and these changes can impact your analysis. For instance, the U.S. revised the <a href="http://1.usa.gov/1UhYl7v">U.S. Standard Certificate of Death</a> in 2003 to include “late maternal deaths” (43 to 365 days) and “pregnancy-related deaths” to better align with the ICD-10 criteria. At the time, only 21 of 50 states recorded a woman’s pregnancy status; those that did used 1 of 6 different questions.<a href="references.html#fn77" class="footnoteRef" id="fnref77"><sup>77</sup></a>
+</p>
+<div class="figure">
+<img src="images/deathcert.jpg" alt="CDC, 2003; http://1.usa.gov/1UhYl7v" />
+<p class="caption">
+CDC, 2003; <a href="http://1.usa.gov/1UhYl7v" class="uri">http://1.usa.gov/1UhYl7v</a>
+</p>
+</div>
+</div>
+</div>
+<div id="customary" class="section level5 unnumbered">
+<h5>customarY</h5>
+<p>Jokhio et al.’s definition of maternal mortality will look familiar to folks who study reproductive health issues because it largely follows the authoritative definition that comes from a set of classification standards known as the <a href="http://www.who.int/classifications/icd/en/">“International Statistical Classification of Diseases and Related Health Problems”</a>, or ICD. According to the latest version, the ICD-10:<a href="references.html#fn78" class="footnoteRef" id="fnref78"><sup>78</sup></a></p>
+<blockquote>
+<p>A maternal death is the death of a woman while pregnant or within 42 days of termination of pregnancy, irrespective of the duration and the site of the pregnancy, from any cause related to or aggravated by the pregnancy or its management, but not from accidental or incidental causes.<a href="references.html#fn79" class="footnoteRef" id="fnref79"><sup>79</sup></a></p>
+</blockquote>
+</div>
+</div>
+<div id="use-international-standards" class="section level3 unnumbered">
+<h3>Use international standards</h3>
+<p>Whenever possible, you should seek out standard indicators and follow existing definitions and calculation methods. The WHO publishes a <em>Global Reference List</em> of the 100 core health indicators.<a href="references.html#fn80" class="footnoteRef" id="fnref80"><sup>80</sup></a> The 2015 version categorizes the indicators several ways:</p>
+<ul>
+<li>domain
+<ul>
+<li>health status</li>
+<li>risk factors</li>
+<li>service coverage</li>
+<li>health systems (service delivery, quality of care, health financing, essential medicines, the health workforce, health information)</li>
+</ul></li>
+<li>subdomains
+<ul>
+<li>communicable diseases (HIV/AIDS, sexually transmitted infections, tuberculosis, malaria, neglected tropical diseases, outbreaks, epidemic diseases)</li>
+<li>reproductive, maternal, newborn, child and adolescent health (including sexual health and reproductive rights and immunization),</li>
+<li>noncommunicable diseases (including chronic disease, health promotion, nutrition, mental health and substance abuse)</li>
+<li>injuries and violence and the environment</li>
+</ul></li>
+<li>levels of the results chain framework</li>
+</ul>
+<p>Here is the full list of indicators organized by steps in a logic model.</p>
+<div class="figure"><span id="fig:grl"></span>
+<img src="images/grl.png" alt="Source: http://bit.ly/1NgGeLh"  />
+<p class="caption">
+Figure 4.2: Source: <a href="http://bit.ly/1NgGeLh" class="uri">http://bit.ly/1NgGeLh</a>
+</p>
+</div>
+<p>In the entry for maternal mortality ratio, we find the following definition:</p>
+<blockquote>
+<p>The annual number of female deaths from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes) during pregnancy and childbirth or within 42 days of termination of pregnancy, irrespective of the duration and site of the pregnancy, expressed per 100 000 live births, for a specified time period.</p>
+</blockquote>
+<p>The calculation of the MMR is specified in this entry, as is the method of measurement and estimation.</p>
+</div>
+</div>
+<div id="evaluating-data-collection-instruments-and-methods" class="section level2">
+<h2><span class="header-section-number">4.3</span> Evaluating Data Collection Instruments and Methods</h2>
+<p>Sometimes it’s possible to use existing data sources, such as administrative or medical records.<a href="references.html#fn81" class="footnoteRef" id="fnref81"><sup>81</sup></a> It’s often the case, however, that administrative records are incomplete, unreliable, and unsuitable for constructing your specific outcome of interest—especially in developing countries.</p>
+<p>In all likelihood, especially in the case of program evaluations, part or all of your data will come from original data collection efforts. Potentially the most common forms of data collection in global health are interviews and surveys. Some less commonly used non-survey instruments include:<a href="references.html#fn82" class="footnoteRef" id="fnref82"><sup>82</sup></a></p>
+<ul>
+<li>direct observation</li>
+<li>random spot checks</li>
+<li>mystery clients</li>
+<li>incognito enumerators</li>
+<li>physical tests</li>
+<li>biomarkers</li>
+<li>mechanical tracking devices</li>
+<li>spatial demography</li>
+<li>participatory resource appraisals</li>
+<li>observe purchasing decisions</li>
+<li>games</li>
+<li>standardized tests</li>
+<li>vignettes</li>
+</ul>
+<div id="psychometrics" class="section level3 unnumbered">
+<h3>Psychometrics</h3>
+<p>In some fields such as psychology, it is common to measure outcomes by administering self-reported instruments to participants and calculating a score from their responses. Whether you are using an off-the-shelf instrument or developing your own, you want to be sure that the instrument is a reliable and valid measure of your indicator.</p>
+<p>A reliable measure is one that is capable of producing the same results when measuring the same thing repeatedly. Imagine your bathroom scale. If you stepped on, then off, then on again and the scale read 210 lbs and then 185 lbs, you would realize that you are the owner of a broken, unreliable scale.</p>
+<p>Undeterred, you head to the store and pick up a new scale—this time one that posts your weight to Facebook to keep you “accountable”. So you step on, off, and back on again. The scale reads 400 lbs then 402 lbs. As your Facebook wall updates, you whack the scale and get back on again. It reads 399. Your mom posts a comment congratulating you on dropping out of the 400s and 50 people like it. Meanwhile, you call customer support and explain that your scale is very reliable (precise), but also very inaccurate. You actually tell the customer service rep that the scale is an “invalid measure of your current weight”. He’s heard it before, but it’s actually true in your case.</p>
+<p>Rule #1: Don’t get a scale that posts to Facebook.</p>
+<p>Rule #2: An instrument can be reliable but not valid.</p>
+<p>Rule #3: But an instrument cannot be valid without being reliable.</p>
+<div id="reliability" class="section level4 unnumbered">
+<h4>Reliability</h4>
+<p>There are several methods for assessing the <strong>reliability</strong> of an instrument. Let’s imagine that you developed a new 8-item measure of anxiety in which people have the following response options: (0) never, (1) rarely, (2) sometimes, or (3) often. This means that possible scores could range from 0 to 24.</p>
+<div id="test-retest-reliability" class="section level5 unnumbered">
+<h5>Test-retest reliability</h5>
+<p>This is when scores are correlated on repeat administrations of the instrument. Participants complete your survey today and then again in a week. If each person’s score is the exactly the same the second time, your instrument would be perfectly reliable. It won’t be, but you’ll hope for a high correlation coefficient (conventionally higher than 0.70).</p>
+<p>For instance, let’s say we survey 50 people and enter their data. Here are the responses for the first 6 people in the dataset. Each row consists of data for 1 person. The last column is the sum of the the person’s responses to the instrument’s 8 items.</p>
+<pre><code>&gt; head(datT1)
+  q1 q2 q3 q4 q5 q6 q7 q8 t1.sum
+1  1  1  1  0  2  2  2  2     11
+2  2  2  2  1  3  2  2  3     17
+3  3  3  3  0  2  3  3  3     20
+4  2  3  3  0  2  2  2  2     16
+5  2  3  3  1  3  3  2  3     20
+6  2  2  2  0  3  3  2  2     16</code></pre>
+<p>Then we go back and survey these same people again and enter their data once more. Here’s the data for the first 6 people in the re-test dataset.</p>
+<pre><code>&gt; head(datT2)
+  q1 q2 q3 q4 q5 q6 q7 q8 t2.sum
+1  0  1  0  0  0  3  2  3      9
+2  3  1  3  2  3  3  3  3     21
+3  3  3  2  2  3  1  3  3     20
+4  3  3  3  1  2  3  2  3     20
+5  3  3  3  3  3  3  2  3     23
+6  3  3  3  1  3  2  2  2     19</code></pre>
+<p>To calculate the test-retest reliability, we’ll correlate the sum scores for each administration: <code>t1.sum</code> and <code>t2.sum</code>. We find a high correlation of 0.78, suggesting that the instrument has good test-retest reliability.</p>
+<pre><code>&gt; cor(datT1$t1.sum, datT2$t2.sum)
+[1] 0.7753866</code></pre>
+</div>
+<div id="interitem-reliability" class="section level5 unnumbered">
+<h5>Interitem reliability</h5>
+<p>This is when responses to items in your instrument are consistent. If not, you have to wonder if they are measuring the same underlying construct of anxiety.</p>
+<p><em>Item total correlation</em>: One approach to finding ugly ducklings in your instrument is to calculate item-total correlations. It’s easy: correlate scores on each item with the total scores. Generally item-total correlations exceeding 0.30 are sufficient.</p>
+<p>Returning to our dataset from the first administration, we see that most items have an acceptable item-total correlation, except <code>q4</code>. This item seems to be measuring something different than the others. Maybe the rest are clearly tapping into the construct of anxiety, whereas <code>q4</code> asks people about how often they feel sad. Maybe it would fit better in an instrument assessing depression.</p>
+<pre><code>&gt; library(multilevel)
+&gt; item.total(datT1[,1:8])
+  Variable Item.Total Alpha.Without  N
+1       q1  0.6021512     0.8033555 50
+2       q2  0.5914340     0.8044035 50
+3       q3  0.7402437     0.7808027 50
+4       q4  0.1452794     0.8458352 50
+5       q5  0.5295935     0.8127216 50
+6       q6  0.5636561     0.8081818 50
+7       q7  0.5369509     0.8117495 50
+8       q8  0.6430992     0.7967467 50</code></pre>
+<p><em>Cronbach’s alpha</em>: Instruments are imperfect. Even your new anxiety instrument that you worked so hard to create. Flawed. The result is that every person’s observed score is actually a function of their ‘true’ score (which we can’t know) plus some amount of measurement error.</p>
+<p>Cronbach’s alpha gives you an estimate of how much variance in people’s scores on your instrument is measurement error. When you calculate Cronbach’s alpha in a program like R, behind the scenes R does the equivalent of splitting the dataset into two halves over and over again and calculating the correlation between total scores for the first half with total scores for the second half. Cronbach’s alpha is the average of all possible correlation coefficients. If alpha is 0.70—a rough guide for the low-end of acceptable—it means that only 30% of the variance in scores is measurement error. In our sample dataset, alpha is 0.81, meaning that 19% of the variance is error.</p>
+<pre><code>&gt; library(psych)
+&gt; a &lt;- alpha(datT1[,1:8])
+&gt; a[[1]][2]
+ std.alpha
+  0.814491</code></pre>
+</div>
+<div id="interrater-reliability" class="section level5 unnumbered">
+<h5>Interrater reliability</h5>
+<p>This is another type of reliability that indicates whether two observers are consistent in their ratings of the same thing. Instead of using an 8-item self-report instrument, we might want to have two observers watch a video of a parent and child interacting and rate each behavior as “warm” or “cold”. If the observers agree a lot, they would be reliable.</p>
+<p>Percent agreement is one way to measure interrater reliability, but it’s not the best. It does not account for agreement that can happen by chance. Cohen’s kappa coefficient does, and you generally want a value greater than 0.40.</p>
+</div>
+</div>
+<div id="validity" class="section level4 unnumbered">
+<h4>Validity</h4>
+<p>Does your measure measure what you intend to measure with your measure? (unrelated bonus: how many metrics could your measure measure if your measure could measure metrics?).</p>
+<p>In other, less annoying words: Does your 8-item anxiety instrument actually measure this thing called anxiety? If not, it’s not a valid measure of anxiety. There are several types of <strong>validity</strong> that you can use to determine whether your instrument is valid.</p>
+<div id="face-validity" class="section level5 unnumbered">
+<h5>Face validity</h5>
+<p>This is the weakest form of validity. The basic idea is: if it looks like a duck, quacks like a duck, it’s a duck. If people think your anxiety instrument asks about anxiety, it has face validity as a measure of anxiety.</p>
+<p>This is a weak standard, however. A great looking instrument can perform very poorly in practice, and an instrument that appears to lack face validity might perform very well.</p>
+<p>The bottom line is that if you read an article and the only mention of validity is face validity, it’s a lame duck.</p>
+</div>
+<div id="construct-validity" class="section level5 unnumbered">
+<h5>Construct validity</h5>
+<p>Anxiety is a hypothetical construct. If your 8-item anxiety instrument has construct validity, it will be related to other instruments that are also thought to measure anxiety (<strong>convergent validity</strong>), but it will not be related to other instruments that have nothing to do with anxiety (<strong>discriminant validity</strong>).</p>
+<p>For instance, your anxiety instrument would have convergent validity if participant scores on your measure are correlated with their scores on an existing measure like the <a href="http://www.mhs.com/product.aspx?gr=cli&amp;id=overview&amp;prod=masc2">Multidimensional Anxiety Scale for Children (MASC)</a>. Your instrument would have discriminant validity if scores were <em>not</em> strongly correlated with scores on a measure of narcissism.</p>
+<p>If your instrument has both convergent and discriminant validity, you have more confidence that it measures the construct of anxiety that you think it measures.</p>
+</div>
+<div id="criterion-related-validity" class="section level5 unnumbered">
+<h5>Criterion-related validity</h5>
+<p>An even more robust form of validity is criterion validity. Do scores on your 8-item anxiety instrument correctly predict which participants will be diagnosed as suffering from an anxiety disorder when evaluated independently by a psychologist or psychiatrist? In this case, the mental health professional’s judgement—made completely independent of the data generated by your instrument—is the “gold standard”.</p>
+<p>A valid instrument will produce accurate predictions. This is easier to understand with a figure.</p>
+<div class="figure"><span id="fig:cm"></span>
+<img src="images/cm.png" alt="Confusion matrix"  />
+<p class="caption">
+Figure 4.3: Confusion matrix
+</p>
+</div>
+<p>Your anxiety instrument has a possible range in scores from 0 to 24. Let’s say we have reason to believe that the cutoff for anxiety is a score of 15. Anyone with a result greater than or equal to 15 will be classified by your instrument as “anxious”. Everyone else is classified as “not anxious”. These are the two possible test results.</p>
+<p>There are also two possible diagnostic results from the gold standard mental health professional: has anxiety and doesn’t have anxiety.</p>
+<p>Taken together, there are four possible combinations of test and gold standard results:</p>
+<ul>
+<li><strong>true positive (a)</strong>: both the test result and the gold standard indicate that the person is anxious</li>
+<li><strong>true negative (d)</strong>: both the test result and the gold standard indicate that the person is NOT anxious</li>
+<li><strong>false positive (b)</strong>: the test result suggests anxiety, but the gold standard disagrees</li>
+<li><strong>false negative (c)</strong>: the test result suggest no anxiety, but the gold standard disagrees</li>
+</ul>
+<p>The true positive rate is known as <strong>sensitivity</strong>. It is calculated as follows:</p>
+<p><code>true positive / all positives = a / (a + c)</code></p>
+<div class="figure"><span id="fig:sen"></span>
+<img src="images/sen.png" alt="Sensitivity"  />
+<p class="caption">
+Figure 4.4: Sensitivity
+</p>
+</div>
+<p><code>30 / (30 + 3) = 91%</code> 91% of patients with anxiety correctly screened positive. 9% of patients did not (false negative rate).</p>
+<p>The true negative rate is known as <strong>specificity</strong>. It is calculated as follows:</p>
+<p><code>true negatives / all negatives = d / (b + d)</code></p>
+<div class="figure"><span id="fig:spe"></span>
+<img src="images/spe.png" alt="Specificity"  />
+<p class="caption">
+Figure 4.5: Specificity
+</p>
+</div>
+<p><code>10 / (5 + 10) = 67%</code> 67% of patients with no anxiety correctly screened negative. 33% incorrectly screened positive (false positive rate).</p>
+<p>There is often a tradeoff between sensitivity and specificity. The tradeoff can be visualized with a <strong>receiver operating characteristic</strong> (ROC) analysis. ROC curves plot sensitivity (the true positive rate) against 1 minus specificity for a range of different cutoff points.</p>
+<p>Earlier I mentioned that the cutoff score for your anxiety measure was 15. To determine if 15 is the best cut point, we could calculate the sensitivity and specificity again for several different cutoff points and plot the relationship in a ROC curve.</p>
+<p>For instance, Rathore et al. (2014) evaluated different cut scores for the Patient Health Questionnaire 9 (<a href="http://phqscreeners.com/pdfs/02_phq-9/english.pdf">PHQ-9</a>) when administered to adults with epilepsy and displayed the results on a ROC curve.<a href="references.html#fn83" class="footnoteRef" id="fnref83"><sup>83</sup></a></p>
+<div class="figure"><span id="fig:roc"></span>
+<img src="images/roc2.png" alt="ROC. Source: http://1.usa.gov/1EHevjO"  />
+<p class="caption">
+Figure 4.6: ROC. Source: <a href="http://1.usa.gov/1EHevjO" class="uri">http://1.usa.gov/1EHevjO</a>
+</p>
+</div>
+<p>The area under the ROC curve was 0.90, generally considered to be a very accurate benchmark. It appears that a cut score of 12 on the PHQ-9 balances sensitivity and specificity. Decreasing false positives (higher specificity) could be favored to avoid labeling non-depressed patients as depressed and using resources for unnecessary additional evaluations. Doing so would mean missing more true positives, but it could be a defensible tradeoff.</p>
+</div>
+</div>
+</div>
+<div id="to-use-adapt-or-develop" class="section level3 unnumbered">
+<h3>To use, adapt, or develop?</h3>
+<p>When you design a new study that includes new data collection, you have to decide whether to use or adapt existing instruments that measure your indicators, or to develop your own. There are pros and cons to each approach.</p>
+<p>There is a good chance that the off-the-shelf instrument you want to use in Country Z was developed in Country A and never used or at least never validated in Country Z. Using it would enable some cross-cultural and cross-national comparisons, but without running your own validity study first, you don’t have much confidence that the instrument is valid or reliable in Country Z.</p>
+<p>An alternative approach is to start with the off-the-shelf measure and adapt it for your needs. You translate it from one language to another, and you have someone else translate it back to the original language before you and your colleagues attempt to resolve discrepancies. Maybe you conduct some formative qualitative research to determine if there are some constructs not represented in the existing instrument that you could add. Or you pilot test the existing instrument and ask people to explain to you their understanding of the questions and response choices (cognitive interviewing). Then you ask yourself these six questions about cross-cultural validity:<a href="references.html#fn84" class="footnoteRef" id="fnref84"><sup>84</sup></a></p>
+<ol style="list-style-type: decimal">
+<li>What is the purpose of the instrument?</li>
+<li>What is the construct to be measured?</li>
+<li>What are the contents of the construct?</li>
+<li>What are the idioms used to identify psychological symptoms and behaviors?</li>
+<li>How should questions and responses be structured?</li>
+<li>What does a score on the instrument mean?</li>
+</ol>
+<p>Or at the other end of the continuum, you believe that your instrument should be completely grounded in the lived experience of where you are working in Country Z, so you start from scratch with formative qualitative work. It is only through this work that a new instrument emerges.<a href="references.html#fn85" class="footnoteRef" id="fnref85"><sup>85</sup></a></p>
+</div>
+</div>
+<div id="chapter-review-and-application-3" class="section level2 unnumbered">
+<h2>Chapter Review and Application</h2>
+<div class="rmdquestion">
+<p>
+Review Questions
+</p>
+</div>
+<div class="rmdexercise">
+<p>
+Application
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="logic.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sampling.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ericpgreen/GHR",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+</body>
+
+</html>
