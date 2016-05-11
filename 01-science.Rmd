@@ -116,7 +116,7 @@ One type of clinical research is a clinical trial. Drugs and vaccines have to pa
 * Phase I
 * Phase II
 * Phase III
-* Phase IV
+* Phase IV 
 
 Let's take the development of a vaccine for malaria as an example of the clinical trial life-cycle. A vaccine candidate called RTS,S, or Mosquirix™, [recently made news](http://money.cnn.com/2015/07/24/news/malaria-vaccine-bill-gates/) for getting one step closer to becoming a licensed vaccine after a successful Phase III trial. This moment was more than 30 years in the making.
 
