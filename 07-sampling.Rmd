@@ -9,7 +9,7 @@ Now that you have a good, evidence-based research question and a primary outcome
 1. How will you find, recruit, and select them? (sampling)
 2. How many do you need to include to meet your study objectives? (power)
 
-We'll tackle the first question in this chapter.
+We'll tackle both questions in this chapter.
 
 * * * 
 
