@@ -5,9 +5,9 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Global Health Research</a></li>
       after: |
-        <li><a href="http://www.ericpgreen.com" target="blank">Eric P. Green</a></li>
+        <li><a href="http://www.designsandmethods.com" target="blank">Eric P. Green</a></li>
     edit:
-      link: https://github.com/ericpgreen/GHR
+      link: https://github.com/ericpgreen/GHRbook
       text: "Edit"
 bookdown::tufte_html_book:
   css: [style.css, toc.css]
