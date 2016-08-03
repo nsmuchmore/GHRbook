@@ -1,0 +1,39 @@
+--- 
+knit: "bookdown::preview_chapter"
+---
+
+# Critical Appraisal {#critical}
+
+In the last chapter you learned how to find evidence. In this chapter you'll learn how to evaluate it. A side effect of becoming a good consumer of research is that you will gain a new awareness of what it takes to produce high quality evidence yourself.
+
+## Evidence-Based Practice
+
+Scholars in every discipline have their own ways of reading and evaluating the literature. In medicine, this process is called **critical appraisal** and it's part of this larger approach called **evidence-based medicine** or, more generally, **evidence-based practice** (EBP). 
+
+In EBM, the goal is to integrate the best available evidence with clinical judgment and context, such as a patient's preferences and values. Sackett [-@sackett:1996] offers a more formal definition:
+
+> The conscientious, explicit and judicious use of current best evidence in making decisions about the care of the individual patient. It means integrating individual clinical expertise with the best available external clinical evidence from systematic research.
+
+There are several steps in EBM: 
+
+1. **ASSESS the patient**: What is the clinical problem?
+2. **ASK the question**: Develop a clinical question using tools like PICO that we introduced in the previous chapter.
+3. **ACQUIRE the evidence**: Search the literature or find systematic reviews or meta-analyses.
+4. **APPRAISE the evidence**: Evaluate the quality and applicability of the research evidence.
+5. **APPLY this to the patient's case**: Combine the best empirical evidence with clinical judgement and the patient's preferences.
+
+EBM is focused on patient care, but the approach has been extended to evidence-based public health [@brownson:2009] and evidence-based global health policy [@yamey:2011]. Just as in EBM, the aim of these two new EB__'s is to adopt policies and programs that have been shown to save lives at scale. But before policymakers can make evidence-based decisions, the scientific community must evaluate the strength of the evidence. So let's dive into step 4, critical appraisal.
+
+## Want to avoid malaria? Just wear a chicken.
+
+> Are you worried about getting malaria? Well, according to [this study](http://malariajournal.biomedcentral.com/articles/10.1186/s12936-016-1386-3), you might be able to avoid it by carrying a chicken everywhere you go. Here, scientists report that Anopheles arabiensis mosquitoes — the species that carries malaria — do not bite chickens, and are actually repelled by their odor...These findings may lead to insect repellents based on chicken odor, and give “tastes like chicken” a whole new meaning!
+
+Much of what we learn about scientific results from the media comes in the form of clickbait, such as [this article in Discover Magazine](http://blogs.discovermagazine.com/seriouslyscience/2016/07/27/your-next-mosquito-repellant-could-be-made-from-chicken-odor/#.V6HRqJMrLwc). Would you be surprised if I told you that this study did not actually require people to wear chickens? Probably not. So what did the study do and find?
+
+Jaleta et al. [-@jaleta:2016] placed [CDC mini-light traps](http://www.cdc.gov/museum/history/mosquito.html) at the foot of a bed in 11 homes in an Ethiopian village called Wama Kusaye and introduced 11 "treatments" over 11 days in a [Latin Square](https://en.wikipedia.org/wiki/Latin_square) experimental design and recorded the number of mosquitos caught in the traps overnight. One of the treatments was indeed a live chicken, but fortunately no human participants were asked to carry around a chicken or let it crawl into bed. 
+
+```{r chicken, fig.cap="Source: Jaleta et al. (2016), http://bit.ly/2aIqZwg. 'CDC suction traps used in the field experiment were placed at the foot of a bed with a volunteer sleeping under a bed net. Dispenser vials, releasing test compounds at a rate of 1 mg h−1, were suspended next to the traps (a). As a control, a live caged chicken was used in lieu of the dispenser (b).'", echo=F}
+knitr::include_graphics(rep("images/chicken.png"))
+```
+
+Interestingly, a blood meal analysis suggested that *An. arabiensis* avoids biting chickens, and sticking a live chicken in a cage resulted in a significant reduction in the number of mosquitos caught in the traps. So did odor compounds specific to the air around chickens. Despite the outlandish title, this news report got it mostly right. This is better than most! If you turn on the news or read a university press release, you'll often find summaries and claims that go far beyond the conclusions of the original article. This is because most studies give us a small glimpse at the "truth", but the measured and careful language of scientific articles does not always capture the attention of the public. Hence the apparent need for phrases like "tastes like chicken".

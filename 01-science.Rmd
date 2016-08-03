@@ -4,15 +4,6 @@ knit: "bookdown::preview_chapter"
 
 # Science Fair Redux {#science}
 
-```{r video, echo=FALSE, fig.cap="Example of intended style of overview video."}
-knitr::include_url("http://www.youtube.com/embed/8c7qTsVVxXw?rel=0")
-```
-
-<br>
-<br>
-<br>
-<br>
-
 Believe it or not, you already know the basics of the research process. You probably have a yellowing, tri-fold piece of cardboard tucked in the back of the closet in your parents' house that would prove me right. Just like Jimmy.[^jimmy]
 
 [^jimmy]: OK, Jimmy is not this kid's real name, and his poster is not really about the observation that birds are everywhere. The internet had a little fun with Photoshop and re-imagined a number of science fair posters like little Jimmy's.
