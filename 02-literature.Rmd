@@ -20,13 +20,7 @@ Repeat after me:
 > I will not start my research by Googling "malaria". 
 > I will not start my research by Googling "malaria".
 
-If your topic is malaria and you're not sure if the vector is mosquitos or monkeys, then [Wikipedia](https://en.wikipedia.org/wiki/Malaria) is probably a good first stop. There's no shame in that. Otherwise, it is always a good idea to start with a check for relevant systematic reviews or meta-analyses.
-
-```{r loe, fig.cap="Levels of evidence", echo=F}
-knitr::include_graphics(rep("images/levels.png"))
-```
-
-Meta-analyses and systematic reviews are 'studies of studies', and they sit atop the evidence hierarchy. They enjoy this status because they synthesize the best available evidence. Finding a good review beats Googling "malaria" any day.  
+If your topic is malaria and you're not sure if the vector is mosquitos or monkeys, then [Wikipedia](https://en.wikipedia.org/wiki/Malaria) is probably a good first stop. There's no shame in that. Otherwise, it is always a good idea to start with a check for relevant systematic reviews or meta-analyses. Finding a good review beats Googling "malaria" any day.  
 
 ### Meta-Analyses
 
