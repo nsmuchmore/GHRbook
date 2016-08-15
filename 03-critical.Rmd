@@ -4,7 +4,7 @@ knit: "bookdown::preview_chapter"
 
 # Critical Appraisal {#critical}
 
-Scholars in every discipline have their own ways of reading and evaluating the literature. In medicine, this process is called **critical appraisal** and it's part of this larger approach called **evidence-based medicine** or, more generally, **evidence-based practice** (EBP). 
+Scholars in every discipline have their own ways of reading and evaluating the literature. In medicine, this process is called **critical appraisal** and it's part of a larger approach called **evidence-based medicine** or, more generally, **evidence-based practice** (EBP). 
 
 In EBM, the goal is to integrate the best available evidence with clinical judgment and context, such as a patient's preferences and values. Sackett [-@sackett:1996] offers a more formal definition:
 
@@ -105,9 +105,11 @@ This book focuses mainly on how to read and write sections 1 and 2. I think you'
 
 ### Introduction
 
-A good *Introduction* will explain the aim of the paper and put the research question in context.[^hyp] In public health and medicine, this section will often be very short compared to what you'll find in other disciplines like economics. As a reader, you want to focus on understanding the research question. If you are familiar with the research area, you might also read the *Introduction* with a critical eye toward the literature reviewed. Did the authors miss any key references that could signal that they are unaware of developments in the field? Most journal articles will print the date of submission and acceptance, so very recent work might be missing due to the long publication timeline.
+A good *Introduction* will explain the aim of the paper and put the research question in context.[^hyp] In public health and medicine, this section will often be very short compared to what you'll find in other disciplines like economics. As a reader, you want to focus on understanding the research question. If you are familiar with the research area, you might also read the *Introduction* with a critical eye toward the literature reviewed. Did the authors miss any key references that could signal that they are unaware of developments in the field?[^pubdate]
 
 [^hyp]: If the paper adopts a hypothesis-testing framework, you might find the hypothesis stated at the end of the Introduction or the beginning of the Method section.
+
+[^pubdate]: Very recent work might be missing due to the long publication timeline. Most journal articles will print the date of submission and acceptance, so you can get a sense of whether the authors would have had an opportunity to include other published work.
 
 ### Method
 
@@ -265,7 +267,7 @@ Pronyk [-@pronyk:2012e] published a correction that was noted by [Retraction Wat
 
 #### Is each claim linked to a finding presented in the Results?{-}
 
-Each claim (e.g., the world is flat) should be supported by results that are reported in the paper (e.g., summary of altitude data). If you don't find a link between a claim in the Discussion section with a finding in the Results section, you should begin to wonder if the author is "going beyond the data". For instance, if I present results on the efficacy of a new treatment for malaria but do not present any data on cost, then it would be inappropriate for me to claim that the treatment is "cost-effective". It's legitimate to speculate a bit in the Discussion section based on documented findings, but authors should be careful to label all speculation as such—and these thought exercises should never find their way into the article's Abstract.
+Each claim (e.g., the world is flat) should be supported by results that are reported in the paper (e.g., summary of altitude data). If you don't find a link between a claim in the *Discussion* section with a finding in the *Results* section, you should begin to wonder if the author is "going beyond the data". For instance, if I present results on the efficacy of a new treatment for malaria but do not present any data on cost, then it would be inappropriate for me to claim that the treatment is "cost-effective". It's legitimate to speculate a bit in the Discussion section based on documented findings, but authors should be careful to label all speculation as such—and these thought exercises should never find their way into the article's Abstract.
 
 #### Is each claim justified?{-}
 
@@ -284,6 +286,14 @@ That's Shadish et al. [-@scc] writing about the importance of **generalizability
 One approach to promoting generalizability is to use formal probability sampling. We'll cover this more in **[Chapter 7](sampling)**, but randomly sampling participants from the population of interest is one way to increase the external validity of a study. 
 
 For instance, Wanzira et al. [-@wanzira:2016] analyzed data from the 2014 Uganda Malaria Indicator Survey, a large national survey, and found that women who knew that sulfadoxine/pyrimethamine (SP) is a medication used to prevent malaria during pregnancy had greater odds of taking at least two doses as compared to women who did not have this knowledge. Since the UMIS is nationally representative, we could assume that the results could apply to Ugandan women who did not participate in the study. Would the results generalize to women in Tanzania? Yes, one could make an argument that they would. Would the results generalize to women in France? No, probably not. For one, malaria is not an issue there.
+
+#### Are the claims put in context?{-}
+
+A good *Discussion* section will put the study's findings in context by suggesting how the study adds to the literature. Do the results replicate or support other work? Or do the findings run contrary to other published studies? 
+
+#### What are the limitations?{-}
+
+No study is perfect, so there's no need to pretend that yours is any different. In addition to knowing how the results fit into the bigger research landscape, it's also important for readers to understand potential limitations of your design and method. 
 
 ## Additional Resources{-}
 
