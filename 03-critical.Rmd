@@ -179,17 +179,17 @@ The key word here is "typically". Things can still go wrong in an experimental d
 * attrition bias
 * reporting bias
 
-We'll discuss these sources of bias more in **[Chapter 12](experimental)**, but the takeaway should be that every study has a potential for bias and, as a review or general research consumer, you should assess the risks of bias that might challenge the validity of the results. As you'll see later, this type of validity—are the study results "correct"?—is typically referred to as **internal validity** [@cochrane]. At the end of this chapter you'll read about another dimension of validity called external validity. 
+We'll discuss these sources of bias more in **[Chapter 12](experimental)**, but the takeaway should be that every study has a potential for bias and, as a reviewer or general research consumer, you should assess the risks of bias that might challenge the validity of the results. As you'll see later, this type of validity—are the study results "correct"?—is typically referred to as **internal validity** [@cochrane]. At the end of this chapter you'll read about another dimension of validity called external validity. 
 
 #### Who (or what) was the subject of study and how were these subjects recruited and/or selected?{-}
 
-Studies of human subjects typically have a subsection of the *Method* section labeled "Participants". As you read through this subsection, look for details about how the participants were recruited. What made someone eligible or ineligible to participate? Who was excluded, intentionally or not. These details help to define the population of interest and will inform the study's generalizability, a concept we'll discuss shortly.
+Studies of human subjects typically have a subsection of the *Method* section that describe participant selection and recruitment. What made someone eligible or ineligible to participate? Who was excluded, intentionally or not? These details help to define the population of interest and will inform the study's generalizability, a concept we'll discuss shortly.
 
-Once identified, how were eligible participants selected and recruited? Was this process random, or did the researchers invite who was available? As you'll learn in **[Chapter 7](sampling)**, the method of sampling has implications for what inferences are possible about the population.
+Once eligible participants were identified, how were they selected and recruited? Was this process random, or did the researchers invite who was available? As you'll learn in **[Chapter 7](sampling)**, the method of sampling has implications for what inferences are possible about the population.
 
 #### What materials and/or measures were used in the course of the study?{-}
 
-Almost every study uses some type of materials or measures. Diagnostic studies, for instance, evaluate a diagnostic test or a piece of hardware that analyzes the test samples. Environmental studies might use sophisticated instruments to take atmospheric measurements. Expect studies like these to provide specific details about materials and equipment.
+Almost every study uses some type of materials or measures. Diagnostic studies, for instance, evaluate a diagnostic test or a piece of hardware that analyzes the test samples. Environmental studies might use sophisticated instruments to take atmospheric measurements. Expect studies like these to provide specific details about the materials and equipment.
 
 Study variables also need to be precisely defined. For instance, hyperparasitemia describes a condition of many malaria parasites in the blood. But what constitutes "many"? The WHO defines it as "a parasite density > 4% (~200,000/µL)" [@whomalaria:2015]. Does the study use this definition? Another one?
 
@@ -197,11 +197,15 @@ In studies measuring social or psychological constructs such as anxiety, you'd e
 
 #### How was the study conducted and how were the data collected?{-}
 
-This part of a *Method* section should describe what happened after participants were recruited and enrolled. What happened first, second, third? If the study is observational, the procedures might be limited to data collection. Who collected the data, and how were they trained? Where were the data collected? For intervention studies, the procedures will describe how participants are randomized to study arms and what happens (or does not happen) in each arm. Are the participants, data collectors, and/or patients **blind** to the treatment assignment?
+This part of a *Method* section should describe what happened after participants were recruited and enrolled. What happened first, second, third? If the study is observational, the procedures might be limited to data collection. Who collected the data, and how were they trained? Where were the data collected? For intervention studies, the procedures will describe how participants were randomized to study arms and what happened (or did not happen) in each arm. Were the participants, data collectors, and/or patients **blind** to the treatment assignment?
 
 #### How were the data analyzed?{-}
 
-If not included in the *Introduction*, the *Method* section should be where you find details about the study hypotheses (not all studies use a hypothesis-testing framework). The *Method* section should also detail how the analysis will be carried out. For instance, if you are reading an intervention study, how will the effect size be estimated? Ordinary least squares regression? Logistic regression? The list goes on and on.
+If the study uses a hypothesis-testing framework (and not all do), then you'll find details about study hypotheses in the *Introduction* or *Method* section, depending on the journal. The *Method* section should also detail how the analysis will be carried out. For instance, if you are reading an intervention study, how was the effect size be estimated? Ordinary least squares regression? Logistic regression? The list goes on and on. 
+
+```{block, type='rmdtip'}
+When you are preparing your own manuscript, remember that the *Method* section is where you should define variables and specify your analysis. Your *Results* section should just get to the business of reporting the findings. There's no need to re-explain your analysis.
+```
 
 #### Was the study pre-registered and approved by an ethics board?{-}
 
@@ -211,10 +215,17 @@ The [US Federal Policy for the Protection of Human Subjects](http://www.hhs.gov/
 knitr::include_graphics("images/chart2exemptions2016.gif")
 ```
 
-Increasingly researchers are taking the additional step of registering a study protocol prior to the study launch in a clearinghouse like [https://clinicaltrials.gov/](https://clinicaltrials.gov/). This is a requirement for investigations of drugs that are regulated by the FDA, and now it's an expectation of many journals.[^icmje] Pre-registration does not ensure trustworthy results, but the practice is a welcome increase in research transparency. If the analysis described in an article deviates from the planned analysis, you would expect the authors to provide a compelling justification. 
+Increasingly researchers are taking the additional step of registering a study protocol prior to the study launch in a clearinghouse like [https://clinicaltrials.gov/](https://clinicaltrials.gov/). This is a requirement for investigations of drugs that are regulated by the FDA, and now it's an expectation of many journals.[^icmje] Pre-registration does not ensure trustworthy results, but the practice is a [welcome increase in research transparency](http://www.vox.com/2016/3/14/11219446/psychology-replication-crisis). If the analysis described in an article deviates from the planned analysis, you would expect the authors to provide a compelling justification. 
 
 [^icmje]: From the [International Committee of Medical Journal Editors](http://www.icmje.org/recommendations/browse/publishing-and-editorial-issues/clinical-trial-registration.html): "Briefly, the ICMJE requires, and recommends that all medical journal editors require, registration of clinical trials in a public trials registry at or before the time of first patient enrollment as a condition of consideration for publication."  
 
+```{block, type='rmdpuzzle'}
+Studies often measure a number of outcomes (sometimes in a number of different ways), and it's easy to cherry-pick results and find something to present. Sometimes authors will actually deviate from the pre-registered protocol and present different results when the pre-registered plan does not work out. This is called **outcome switching**. Some medical journals [don't seem to care](http://www.vox.com/2016/2/25/11113420/outcomes-switching-medicine-compare-project), but the [COMPare Trials Project](http://compare-trials.org/) thinks they should.
+```
+
+```{r compare, fig.cap="Is outcome switching a problem in medical trials?; Source: http://compare-trials.org/.", echo=F}
+knitr::include_graphics("images/compare.png")
+```
 
 ### Results
 
