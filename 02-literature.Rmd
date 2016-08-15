@@ -86,9 +86,10 @@ lr=c("The literature review that you write for the introduction of your manuscri
 "This process is more ad hoc for literature reviews."))
 names(sysrev) <- c("Systematic Reviews", "Literature Reviews")
 
-knitr::kable(sysrev, booktabs = TRUE,
+knitr::kable(sysrev, format = "html", 
 caption = 'Comparing systematic reviews and literature reviews.'
-)
+) %>%
+  html_table_width(c(300,300))
 ```
  
 #### Where to find systematic reviews{-}
