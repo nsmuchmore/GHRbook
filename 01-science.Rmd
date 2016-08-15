@@ -9,7 +9,7 @@ Believe it or not, you already know the basics of the research process. You prob
 [^jimmy]: OK, Jimmy is not this kid's real name, and his poster is not really about the observation that birds are everywhere. The internet had a little fun with Photoshop and re-imagined a number of science fair posters like little Jimmy's.
 
 ```{r jimmy, fig.cap="What you see here is the scientific method in action. Jimmy asked a question, made a hypothesis, collected and analyzed data, and ultimately, made some conclusions based on the results. Science!. Source: http://bit.ly/1HbluM4", echo=F}
-knitr::include_graphics(rep("images/jimmy.png"))
+knitr::include_graphics("images/jimmy.png")
 ```
 
 Even if you have not been as productive as Jimmy, I'm certain that you've had years of practice consuming research. We're exposed to popular press accounts of research every day on TV, the radio, and the internet. Much of it might be wrong—"new study proves that eating chocolate prevents all cancer"—but it's a start.
@@ -35,7 +35,7 @@ In **deductive** reasoning, we start from general theories, make hypotheses, col
 For instance, Singla et al. [-@singla:2015] report the results of a cluster randomized trial of a parenting intervention in rural Uganda. This study used quantitative methods; the primary outcomes of this study were cognitive and receptive language development of the children of participating caregivers measured with the [Bayley Scales of Infant Development](https://en.wikipedia.org/wiki/Bayley_Scales_of_Infant_Development). The authors hypothesized that the intervention would improve child development. As you can see in the following table from the article, the program increased cognitive and receptive language scores, but did not have an effect on height-for-age, thus partially supporting the hypothesis.
 
 ```{r singla, fig.cap="Source: Singla et al. (2015), http://bit.ly/1UcVtoZ", echo=F}
-knitr::include_graphics(rep("images/singla.png"))
+knitr::include_graphics("images/singla.png", dpi = NA)
 ```
 
 Later in the book we'll get into the nitty gritty details of how you read and interpret results like you see here. For now, let's focus on the approach to reasoning. Singla et al. is an example of deductive reasoning. The authors started with a hypothesis, collected quantitative data (i.e., scores on a measure called the Bayley), and inferred something about the impact of the intervention.[^inf] 
@@ -51,7 +51,7 @@ We can contrast the Singla et al. trial with a qualitative study by Sahoo et al.
 [^sahooresults]: Sahoo et al. observed that "sanitation" encompassed much more than defecation and urination, such as washing, bathing, and menstrual management. These sanitation activities brought numerous challenges that could be classified as environmental, social, or sexual and understood in the context of a woman's life stage, living environment, and access to sanitation facilities.  
 
 ```{r sahoo, fig.cap="Source: Sahoo et al. (2015), http://bit.ly/1JB6nSs", echo=F}
-knitr::include_graphics(rep("images/sahoo.jpg"))
+knitr::include_graphics("images/sahoo.jpg", dpi = NA)
 ```
 
 The point to take away about inference is that, regardless of the approach to reasoning, the goal of scientific research is to use what we observe to make conclusions about what we do not observe directly. This is sometimes referred to as **empiricism**, and our systematic observations as **empirical evidence**. Empiricism is at the heart of scientific research.
@@ -75,13 +75,13 @@ Every method has limitations, every measurement has error, and every model is wr
 A good example of uncertainty comes from the estimation of maternal mortality. Hogan et al. [-@hogan:2010] published estimates for 181 countries. Some countries like the United States have vast amounts of data; vital registries that attempt to track all births and deaths. Countries with vital registries struggle with changing definitions over time, but the uncertainty interval around their estimates is typically tight, as shown in the figure below from the Hogan et al.'s supplementary webappendix, because there is a lot of good data. 
 
 ```{r hogan, fig.cap="Source: Hogan et al. (2010), http://bit.ly/1JBCelO", echo=F}
-knitr::include_graphics(rep("images/usa.png"))
+knitr::include_graphics("images/usa.png")
 ```
 
 In many low-income countries the situation is very different. Here is the estimate and uncertainly interval for maternal mortality in Afghanistan. There are only four data points! No wonder the uncertainty interval is so great.[^est] 
 
 ```{r hogan2, fig.cap="Source: Hogan et al. (2010), http://bit.ly/1JBCelO", echo=F}
-knitr::include_graphics(rep("images/afg.png"))
+knitr::include_graphics("images/afg.png")
 ```
 
 [^est]: You might be wondering how they even come up with any estimates without much data. The answer is statistical modeling. Afghanistan may not have much data on maternal mortality, but there are data on other indicators like total fertility rate, gross domestic product per head, HIV seroprevalence, female education, etc. Using the data we do have from all countries and all years, we can model how these variables are related to maternal mortality. We take this equation, plug in values for Afghanistan, and solve for maternal mortality. More or less.
@@ -222,7 +222,7 @@ Here is the relevant table from the 2014 Kenya DHS Key Indicators Report for des
 [^rep]: As we will discuss later, DHS surveys include enough people to be **representative** for different subgroups, such as urban and rural settings or wealth quintiles (the rich, the poor, and everyone in between). 
 
 ```{r kdhs, fig.cap="Source: Kenya 2014 DHS Key Indicators Report, http://bit.ly/1g4NYS5", echo=F}
-knitr::include_graphics(rep("images/kenyaitn.png"))
+knitr::include_graphics("images/kenyaitn.png")
 ```
 
 The data summarized in this table describes the problem of bed net use. Descriptive questions are well-suited for **needs assessments**. Before we can design a program or policy to increase bed net usage, for instance, we must to understand the need. In Kenya, almost half of children under 5 are not sleeping under insecticide treated nets according to the DHS. This is a particular concern for children living in areas of high risk. 
@@ -248,7 +248,7 @@ You'll encounter different labels for variables, and it can be confusing to keep
 Noor and colleagues reported that only 15% of children in the rural study sample slept under a net the previous night—a much lower percentage than the national prevalence reported by recent DHS surveys. As shown in the table below, they also found that several factors were associated with higher odds of bed net use, including: greater household wealth, living closer to a market center, not having older children present in the household, having a mother who is married and not pregnant, being younger than 1 year old, and having an immunization card.
 
 ```{r noor2, fig.cap="Source: Noor et al. (2006), http://bit.ly/1HoltVo", echo=F}
-knitr::include_graphics(rep("images/noor2006t4.png"))
+knitr::include_graphics("images/noor2006t4.png")
 ```
 
 
@@ -323,7 +323,7 @@ Agha et al. [-@agha:2007] used a quasi-experimental design to estimate the impac
 To estimate the impact of the intervention, the authors analyzed data from post-intervention surveys in three intervention and two comparison districts. This study design was quasi-experimental because the districts were not randomized to the intervention or control arms. 
 
 ```{r agha, fig.cap="Source: Agha et al. (2007), http://bit.ly/1MkO5a0", echo=F}
-knitr::include_graphics(rep("images/agha.png"))
+knitr::include_graphics("images/agha.png")
 ```
 
 Agha and colleagues reported that ITN ownership and use was higher in intervention districts according to the post-intervention data, but were careful to avoid going 'beyond the data' to claim evidence of a causal relationship. There are several design limitations to consider here, and you will learn more about how to spot these issues as we go.

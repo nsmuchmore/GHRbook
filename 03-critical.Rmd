@@ -126,7 +126,7 @@ Include the completed checklist as an appendix with your article submission to h
 This book will introduce you to common research designs in global health. What you should know at this point in your reading is that there are many different designs that could potentially answer most research questions, but not all designs are created equal. And it's not always possible to use the design that would produce the highest quality evidence. 
 
 ```{r loe, fig.cap="Levels of evidence", echo=F}
-knitr::include_graphics(rep("images/levels.png"))
+knitr::include_graphics("images/levels.png")
 ```
 
 ```{block, type='rmdpuzzle'}
@@ -158,7 +158,7 @@ Webster et al. [-@webster:2003] wanted to look at potential selection effects wi
 To determine if this misclassification of cases as controls could introduce selection bias, the authors looked at chloroquine use in bednet users and non-users. They found that the use of chloroquine prior to clinic testing was LESS common among patients who reported using bednets compared to non-users. If chloroquine use was less common among bednet users, it would underestimate the estimated effect of bednets. Consider the following example.
 
 ```{r selectionbias, fig.cap="Selection bias", echo=F}
-knitr::include_graphics(rep("images/selectionbias.png"))
+knitr::include_graphics("images/selectionbias.png", dpi = NA)
 ```
 
 Panels A and B show cases (those who tested positive for malaria) and controls by their reported bednet usage. In Panel A, there are 4 patients who are misclassified as controls, meaning that they tested negative for malaria but only because they treated themselves with chloroquine prior to the test. You can see that chloroquine use is less common among net users.
@@ -208,7 +208,7 @@ If not included in the *Introduction*, the *Method* section should be where you 
 The [US Federal Policy for the Protection of Human Subjects](http://www.hhs.gov/ohrp/regulations-and-policy/regulations/common-rule/index.html) (aka, the “Common Rule”) defines research as “a systematic investigation, including research development, testing and evaluation, designed to develop or contribute to generalizable knowledge...” If the research involves human subjects, it must be reviewed and approved by an Institutional Review Board before any subjects can be enrolled. Most studies fall under IRB oversight, but some might qualify as exempt.
 
 ```{r exempt, fig.cap="Is the human subjects research eligible for exemption?; Source: http://bit.ly/2brlbKR.", echo=F}
-knitr::include_graphics(rep("images/chart2exemptions2016.gif"))
+knitr::include_graphics("images/chart2exemptions2016.gif")
 ```
 
 Increasingly researchers are taking the additional step of registering a study protocol prior to the study launch in a clearinghouse like [https://clinicaltrials.gov/](https://clinicaltrials.gov/). This is a requirement for investigations of drugs that are regulated by the FDA, and now it's an expectation of many journals.[^icmje] Pre-registration does not ensure trustworthy results, but the practice is a welcome increase in research transparency. If the analysis described in an article deviates from the planned analysis, you would expect the authors to provide a compelling justification. 
@@ -241,7 +241,7 @@ First, Pronyk et al. [-@pronyk:2012] annualized (aka, divided) the 21.7% cumulat
 Second, Pronyk et al. [-@pronyk:2012] compared their estimated annual decline after 2006 (7.8%) to the results of national surveys in MVP countries from 2001-10. A more appropriate comparison using all of the available post-2006 data suggests an average annual rate of decline of 6.4% across the 9 MVP countries.
 
 ```{r mvp, fig.cap="Correcting the MVP estimate of impact on child mortality; Source: http://bit.ly/2aGSk2m", echo=F}
-knitr::include_graphics(rep("images/mvpredo.png"))
+knitr::include_graphics("images/mvpredo.png", dpi = NA)
 ```
 
 Bump et al. [-@bump:2012] conclude:
@@ -261,7 +261,7 @@ Each claim (e.g., the world is flat) should be supported by results that are rep
 Once you establish that there is a link between a claim and a set of results, you want to make sure that the claim represents a correct interpretation of these findings. For instance, do the authors tell you that the results should not be interpreted as a causal relationship and then go on to recommend that we impose a tax on margarine in order to strengthen the American family?
 
 ```{r corr, fig.cap="Divorce rate in Maine correlates with per capita consumption of margarine, r=0.99; Source: http://www.tylervigen.com/spurious-correlations", echo=F}
-knitr::include_graphics(rep("images/chart.png"))
+knitr::include_graphics("images/chart.png")
 ```
 
 #### Are the claims generalizable?{-}
