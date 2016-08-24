@@ -415,3 +415,10 @@ So, where do we go from here? Answer: the literature! No one study is enough to 
 Of course you see the challenge here. How do researchers know that several studies have failed to support a certain theory if journals are reluctant to publish null results? And if negative evidence is missing, won't the positive evidence be over-represented in the literature? Yes. This is the problem of publication bias, or the **file drawer problem**, and there is not an easy answer. Efforts like [AllTrials](http://www.alltrials.net/) to register and report the results of all trials, regardless of outcome, seem like a step in the right direction.
 
 So, to the literature we go.
+
+## Test Yourself{-}
+
+ ```{r, echo=F}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_eDkamxmS5xhIcD3",
+height="1000px")
+```
