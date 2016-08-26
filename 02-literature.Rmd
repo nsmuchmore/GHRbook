@@ -2,7 +2,7 @@
 knit: "bookdown::preview_chapter"
 ---
 
-# Search and Ye Shall Find {#literature}
+# Searching the Literature {#literature}
 
 The starting point of every research study is a literature review. To know where you are going, you need to know where the field has been. Technology makes this easier in some ways than it has been in the past, but we're swimming in information, and the pool gets deeper every day. 
 

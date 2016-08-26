@@ -2,7 +2,7 @@
 knit: "bookdown::preview_chapter"
 ---
 
-# Science Fair Redux {#science}
+# Research 101 {#science}
 
 Believe it or not, you already know the basics of the research process. You probably have a yellowing, tri-fold piece of cardboard tucked in the back of the closet in your parents' house that would prove me right. Just like Jimmy.[^jimmy]
 
@@ -418,7 +418,8 @@ So, to the literature we go.
 
 ## Test Yourself{-}
 
- ```{r, echo=F}
+```{r CH01review, echo=F}
 knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_eDkamxmS5xhIcD3",
 height="1000px")
 ```
+

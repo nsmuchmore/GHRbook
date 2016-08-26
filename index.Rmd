@@ -41,7 +41,7 @@ I saw this as a real limitation. So I decided to write my own book.
 
 A guiding principle of this book is that a student of global health needs to be a student of medicine, biology, statistics, economics, psychology, public policy, and the list goes on. 
 
-Just take a topic like malaria. A literature search will return articles about the spread of the disease (epidemiology), the impact of illness on future productivity (economics), the merits of free or subsidized bed nets (public policy), mosquito habitats (ecology), the efficacy of vaccines to prevent the disease (medicine and statistics), rapid diagnostic tests (biomedical engineering), the adoption and use of bed nets (psychology), and the list goes on.
+Just take a topic like malaria. A literature search will return articles about the spread of the disease (epidemiology), the impact of illness on future productivity (economics), the merits of free or subsidized bed nets (public policy), mosquito habitats (ecology), the efficacy of vaccines to prevent the disease (medicine and statistics), rapid diagnostic tests (biomedical engineering), the adoption and use of bed nets (psychology), and many others.
 
 No one book or author could ever hope to provide full disciplinary coverage of even one topic like malaria, so my goal was much more modest. I wanted to create a resource that would teach the basics of research design and methods by exposing readers to real world global health examples from different disciplines.
 
@@ -83,10 +83,6 @@ Tips
 
 ```{block, type='rmdplay'}
 Videos
-```
-
-```{block, type='rmdquestion'}
-Review questions
 ```
 
 ```{block, type='rmdexercise'}
