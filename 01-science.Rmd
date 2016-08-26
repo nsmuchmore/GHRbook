@@ -2,6 +2,8 @@
 knit: "bookdown::preview_chapter"
 ---
 
+# (PART) Part I: The Big Picture {-}
+
 # Research 101 {#science}
 
 Believe it or not, you already know the basics of the research process. You probably have a yellowing, tri-fold piece of cardboard tucked in the back of the closet in your parents' house that would prove me right. Just like Jimmy.[^jimmy]

@@ -2,5 +2,9 @@
 knit: "bookdown::preview_chapter"
 ---
 
+# (PART) Part III: Fundamentals of Research Design {-}
+
 # Cause and Effect {#causeeffect}
+
+Do bednets prevent malaria? Do vouchers increase access to treatment? Do cash transfers improve mental health?
 

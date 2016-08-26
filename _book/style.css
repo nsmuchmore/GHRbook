@@ -231,3 +231,7 @@ pre code {
     top:0px;
     font-size: 45px;
  }
+
+li.part span {
+  opacity: 1;
+}
