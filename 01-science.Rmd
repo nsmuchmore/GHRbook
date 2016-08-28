@@ -418,6 +418,15 @@ Of course you see the challenge here. How do researchers know that several studi
 
 So, to the literature we go.
 
+## Share Feedback{-}
+
+This book is a work in progress. You'd be doing me a big favor by taking a moment to tell me what you think about this chapter.
+
+```{r CH01feedback, echo=F}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_bykt6KZav947UwJ",
+height="600px")
+```
+
 ## Test Yourself{-}
 
 ```{r CH01review, echo=F}

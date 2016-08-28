@@ -426,3 +426,16 @@ So next time you see someone typing references and complaining about APA formatt
 ```{block, type='rmdtip'}
 Be prepared to offer tissues. Your colleague will either cry for joy or deep despair about wasted effort. You'll feel good about yourself regardless.
 ```
+
+## Share Feedback{-}
+
+This book is a work in progress. You'd be doing me a big favor by taking a moment to tell me what you think about this chapter.
+
+```{r CH02feedback, echo=F}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_737a1xu4Igskgxn",
+height="600px")
+```
+
+## Test Yourself{-}
+
+
