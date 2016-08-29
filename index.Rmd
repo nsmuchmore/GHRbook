@@ -51,11 +51,9 @@ Another guiding principle is openness. Whenever possible, the examples come from
 
 The book is organized as follows.
 
-One objective of my course on global health research—and thus this book—is to make students better consumers of research. I wrote the first three chapters with this end in mind. **[Chapter 1](science)** reviews the fundamentals of scientific research, but with a global health spin. In **[Chapter 2](literature)**, you'll learn how to search the literature for existing evidence. Better yet, you'll learn to let someone else do that for you in the form of a systematic review or meta-analysis. You'll also learn how to begin asking your own research questions. **[Chapter 3](critical)** on critical appraisal will teach you how to read and evaluate scientific evidence. One of the most important claims you'll need to assess as a consumer of research is causality. **[Chapter 4](causeeffect)** examines strategies for building up causal arguments.
+One objective of my course on global health research—and thus this book—is to make students better consumers of research. I wrote the first few chapters with this end in mind. **[Chapter 1](science)** reviews the fundamentals of scientific research, but with a global health spin. In **[Chapter 2](literature)**, you'll learn how to search the literature for existing evidence. Better yet, you'll learn to let someone else do that for you in the form of a systematic review or meta-analysis. You'll also learn how to begin asking your own research questions. **[Chapter 3](critical)** on critical appraisal will teach you how to read and evaluate scientific evidence. One of the most important claims you'll need to assess as a consumer of research is causality. **[Chapter 4](causeeffect)** examines strategies for building up causal arguments.
 
-A second objective of my course is to give students the tools they need to begin careers as producers of research. The next few chapters lay this foundation. **[Chapter 5](logic)** gives you practical advice on developing a theory of change to guide program development, monitoring, and evaluation. It also helps to organize your approach to measurement, the topic of **[Chapter 6](measurement)**. This chapter explains how to define the measurement of your key study outcomes and covers fundamental psychometric concepts such as reliability and validity. In **[Chapter 7](sampling)**, you'll learn strategies for determining how many research subjects you should recruit and methods for selecting them.
-
-The next two chapters introduce methods for collecting data. **[Chapter 8](quant)** covers quantitative methods, and **[Chapter 9](qualmixed)** covers qualitative and approaches to mixing qualitative and quantitative methods.
+A second objective of my course is to give students the tools they need to begin careers as producers of research. The next few chapters lay this foundation. **[Chapter 5](logic)** gives you practical advice on developing a theory of change to guide program development, monitoring, and evaluation. It also helps to organize your approach to measurement, the topic of **[Chapter 6](measurement)**. This chapter explains how to define the measurement of your key study outcomes and covers fundamental psychometric concepts such as reliability and validity. The next three chapters address the fundamentals of data collection **[Chapter 7](methods)**, sampling (**[Chapter 8](sampling)**), and power (**[Chapter 9](power)**).  
 
 With the basics out of the way, we turn to designs that you can use to answer your research questions. Chapters 10 and 11 cover non-experimental designs. **[Chapter 10](observational)** focuses on the observational designs you typically find in epidemiology (e.g., cohort, case-control) and psychology (e.g., correlational). **[Chapter 11](quasi)** introduces several "quasi-experimental" designs that manipulate a cause that comes before an effect, but without the benefit of randomization, the topic of **[Chapter 12](experimental)**. All of these chapters will refer back to the foundation in cause and effect we set in **[Chapter 4](causeeffect)**.
 
@@ -83,10 +81,6 @@ Tips
 
 ```{block, type='rmdplay'}
 Videos
-```
-
-```{block, type='rmdexercise'}
-Application exercises
 ```
 
 ## Acknowledgements{-}

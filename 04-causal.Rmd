@@ -2,7 +2,7 @@
 knit: "bookdown::preview_chapter"
 ---
 
-# (PART) Part III: Fundamentals of Research Design {-}
+# (PART) Part III: Causal Impact and Theories of Change {-}
 
 # Cause and Effect {#causeeffect}
 
