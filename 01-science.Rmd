@@ -18,6 +18,14 @@ Even if you have not been as productive as Jimmy, I'm certain that you've had ye
 
 So it's a safe bet that just about every reader has some research foundation to build upon. The goal of this chapter, therefore, is to re-introduce familiar concepts about scientific research from a global health perspective. We'll come back to these fundamentals throughout the book and explore them in more detail. By the end you'll be ready to move your work from primary school cafeteria to academic conferences, policy debates, and real world program design and delivery.
 
+```{block, type='rmdplay'}
+Chapter overview ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxubFJ4SGlGNDdoTHM))
+```
+
+```{r ch1overview, echo=F}
+knitr::include_url("https://warpwire.duke.edu/w/F5wAAA/")
+```
+
 ## Scientific Research
 
 Let's start with what we mean by **"scientific research"**. King et al. [-@king:1994] offer a useful definition in their book, "Designing Social Inquiry". They point to several main characteristics:
