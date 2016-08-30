@@ -22,7 +22,7 @@ Repeat after me:
 > I will not start my research by Googling "malaria". 
 > I will not start my research by Googling "malaria".
 
-If your topic is malaria and you're not sure if the vector is mosquitos or monkeys, then [Wikipedia](https://en.wikipedia.org/wiki/Malaria) is probably a good first stop. There's no shame in that. Otherwise, it is always a good idea to start with a check for relevant systematic reviews or meta-analyses. Finding a good review beats Googling "malaria" any day.  
+If your topic is malaria and you're not sure if the vector is mosquitos or monkeys, then [Wikipedia](https://en.wikipedia.org/wiki/Malaria) is probably a good place to start. There's no shame in that. Otherwise, it is always a good idea to begin with a check for relevant systematic reviews or meta-analyses. Finding a good review beats Googling "malaria" any day.  
 
 ### Meta-Analyses
 
@@ -30,7 +30,7 @@ A **meta-analysis** is a quantitative approach in which the results from multipl
 
 The authors reviewed 17 studies of the effects of chemoprevention on pregnant women living in malaria-endemic areas. The basic question they set out to answer with their review was as follows: Do women who take antimalarial medication during pregnancy have a lower risk of getting infected with malaria, and thus a lower risk of experiencing the bad health outcomes that are associated with malaria?
 
-One **indicator** of malaria infection is parasitaemia, or the presence of malaria parasites in the blood. If chemoprevention has some preventive effect, you'd expect to see less parasitaemia among women exposed to the medication (aka, treatment). Few interventions are 100% effective, so we often talk about reductions in the risk of bad outcomes like malaria. This is one type of **effect size**, a measure of the strength or magnitude of a relationship, such as a the relationship between taking a medicine and experiencing a bad outcome.
+One **indicator** of malaria infection is parasitaemia, or the presence of malaria parasites in the blood. If chemoprevention has some preventive effect, you'd expect to see less parasitaemia among women exposed to the medication (aka, treatment). Few interventions are 100% effective, so we often talk about reductions in the risk of bad outcomes like malaria. This is one type of **effect size**, a measure of the strength or magnitude of a relationship, such as the relationship between taking a medicine and experiencing a bad outcome.
 
 Here is a **forest plot** from Radeva-Petrova et al. [-@radevapetrova:2014] that shows the results of 10 studies (8 trials) that compared cases of parasitaemia among 3,663 pregnant women who were randomized to an **intervention group** (*n*=2,053) that received some preventive antimalarial drug or to a control group (*n*=1,610) that received a **placebo** (or nothing). 
 
@@ -41,7 +41,7 @@ knitr::include_graphics("images/rpforest.png", dpi = NA)
 ```{block, type='rmdcomment'}
 Here's how Lewis and Clarke [-@lewis:2001] describe a forest plot:
 
-> In a typical forest plot, the results of component studies are shown as squares centred on the point estimate of the result of each study. A horizontal line runs through the square to show its confidence interval—usually, but not always, a 95% confidence interval. The overall estimate from the meta-analysis and its confidence interval are put at the bottom, represented as a diamond. The centre of the diamond represents the pooled point estimate, and its horizontal tips represent the confidence interval. Significance is achieved at the set level if the diamond is clear of the line of no effect.
+> In a typical forest plot, the results of component studies are shown as squares centered on the point estimate of the result of each study. A horizontal line runs through the square to show its confidence interval—usually, but not always, a 95% confidence interval. The overall estimate from the meta-analysis and its confidence interval are put at the bottom, represented as a diamond. The center of the diamond represents the pooled point estimate, and its horizontal tips represent the confidence interval. Significance is achieved at the set level if the diamond is clear of the line of no effect.
  
 > The plot allows readers to see the information from the individual studies that went into the meta-analysis at a glance. It provides a simple visual representation of the amount of variation between the results of the studies, as well as an estimate of the overall result of all the studies together. Forest plots increasingly feature in medical journals, and the growth of the Cochrane Collaboration has seen the publication of thousands in recent years.
 
@@ -52,7 +52,7 @@ Details about each study are reported as rows in this figure. Take a look at the
 
 The effect size for each study is presented in the far right column and depicted graphically in the size of point estimate square. All of the point estimates fall to the left of the line of no effect (<1), thus favoring chemoprevention because you want to reduce the risk of this bad outcome. [A risk ratio of 1 would indicate no difference in risk, and a ratio >1 would mean the risk is higher among the intervention group, thus favoring the control group.] The overall (pooled) effect size is shown last as 0.39, or a 61% reduction in the risk of parasitaemia.
 
-We won't bother ourselves with the calculation of this pooled effect size, other than to note that it's not as simple as averaging the 10 studies. This is because the studies were not given equal weight, as you can see in the "weight" column. For instance, Greenwood et al. [-@greenwood:1989] only had a sample size of `21+13=34` children. As a result, the effect size estimate is very noisy. The 95% confidence interval is wide and crosses 1. Consequently, it's weight is lower than others at 6.7%. Simply put, studies weaker research designs get less weight in the analysis.
+We won't bother ourselves with the calculation of this pooled effect size, other than to note that it's not as simple as averaging the 10 studies. This is because the studies were not given equal weight, as you can see in the "weight" column. For instance, Greenwood et al. [-@greenwood:1989] only had a sample size of `21+13=34` children. As a result, the effect size estimate is very noisy. The 95% confidence interval is wide and crosses 1. Consequently, its weight of 6.7% is lower than the others. Simply put, studies weaker research designs get less weight in the analysis.
 
 So here in one figure we get a summary of the best available evidence and an estimate of the overall effect size, with uncertainly intervals. You can't get that from a Google search.
 
@@ -70,10 +70,10 @@ As you can see from the table below, a systematic review requires a number of st
 
 ```{r sysrev, echo=F}
 sysrev <- data.frame(sr=c(
-"The goal of a systematic review is to to be comprehensive and include every relevant article.",
+"The goal of a systematic review is to be comprehensive and include every relevant article.",
 "For this reason, most systematic reviews are conducted by teams given the large scope of the work.",
 "Systematic reviews must define and follow a method that can be replicated, just like any other study.",
-"Most systematic reviews pre-register this plan, meaning that the authors submit their planned methods to a registry like PROSPERO prior to conducting the study. Pre-registration gives other researchers confidence that the team is not cherry picking results at the end to make an interesting paper. It also lets other researchers know that a group is already working on the same review, thus signaling that their work might duplicate efforts and fail to get published.",
+"Most systematic reviews pre-register this plan, meaning that the authors submit their planned methods to a registry like [PROSPERO](http://www.crd.york.ac.uk/PROSPERO/) prior to conducting the study. Pre-registration gives other researchers confidence that the team is not cherry picking results at the end to make an interesting paper. It also lets other researchers know that a group is already working on the same review, thus signaling that their work might duplicate efforts and fail to get published.",
 "Included in these pre-registration plans will be a specific search strategy with exact search terms for individual scholarly databases so other researchers can recreate the search.",
 "Similarly, a systematic review must also outline clear criteria for including and excluding studies (e.g., keep if assignment to study arms was random). With these criteria in place, team members screen all search results, usually starting with title and abstract reviews only and moving to full text reviews as the pool of eligible studies dwindles.",
 "Systematic reviews also develop and follow guidelines for extracting details from every included  study, such as numbers of participants and key outcomes.",
@@ -81,7 +81,7 @@ sysrev <- data.frame(sr=c(
 lr=c("The literature review that you write for the introduction of your manuscript is not expected to be exhaustive.",
 "literature reviews can be handled solo.",
 "Literature reviews, on the other hand, don't have to follow such rigid methods or make the methods explicit.",
-"Not the case of for literature reviews.",
+"Not the case for literature reviews.",
 "It's a good idea to do the same for a literature review, even if not a strict requirement.",
 "Screening for a literature review is typically less intensive.",
 "An annotated bibliography might suffice for a literature review.",
@@ -104,7 +104,7 @@ Three excellent sources for finding systematic reviews (and meta-analyses) in gl
 
 Cochrane reviews follow a standard format that can look overwhelming at first, but is actually quite easy to read and understand. As with most journal articles, Cochrane reviews begin with an *Abstract*. Next comes a *Plain language summary* which can be helpful for newcomers to a particular topic. Radeva-Petrova et al. [-@radevapetrova:2014] include the following passage in their plain language summary:
 
-> For women in their first or second pregnancy, malaria chemoprevention prevents moderate to severe anaemia (high quality evidence); and prevents malaria parasites being detected in the blood (high quality evidence). It may also prevent malaria illness. We don't know if it prevents maternal deaths, as this would require very large studies to detect an effect.
+> For women in their first or second pregnancy, malaria chemoprevention prevents moderate to severe anemia (high quality evidence); and prevents malaria parasites being detected in the blood (high quality evidence). It may also prevent malaria illness. We don't know if it prevents maternal deaths, as this would require very large studies to detect an effect.
 
 This one paragraph brings us up to speed with the state of the science for preventing malaria and its effects among pregnant women living in malaria-endemic areas (and points you to some gaps in the literature!). Google does not filter the evidence in this manner. Starting with systematic reviews pays off almost every time.
 
@@ -170,7 +170,7 @@ Discussion sections are often followed by a brief statement of the authors' conc
 
 Radeva-Petrova et al. [-@radevapetrova:2014] conclude:
 
-> Routine chemoprevention to prevent malaria and its consequences has been extensively tested in RCTs, with clinically important benefits on anaemia and parasitaemia in the mother, and on birth-weight in infants.
+> Routine chemoprevention to prevent malaria and its consequences has been extensively tested in RCTs, with clinically important benefits on anemia and parasitaemia in the mother, and on birth-weight in infants.
 
 In other words, "chemoprevention works" in this context.
 
@@ -196,15 +196,15 @@ Here's a helpful mnemonic for creating a good clinical question: [PICO](http://g
   knitr::kable(pico, col.names=NA)
 ```
 
-Let's try to use PICO to create a research question for a portion of the Radeva-Petrova et al. [-@radevapetrova:2014] systematic review.
-
-The **problem** we want to address is malaria infections. The **population** is pregnant women living in malaria-endemic areas.  
+Let's use PICO to develop a well-focused, searchable research question on treating malaria during pregnancy. The **problem** we want to address is malaria infections. The **population** is pregnant women living in malaria-endemic areas.  
 
 Not every clinical question involves testing of a treatment or **intervention**, but we'll focus a lot on these types of questions in this book. For the example at hand, the intervention would be malaria chemoprevention. [Prognostic factor refers to covariates that could influence the prognosis of the patient. An exposure would be something that we think might increase the risk of an outcome.]
 
-Similarly, not every question involves a **comparison** group. Randomized trials always will. In this example, the comparison is nothing or a placebo.
+Similarly, not every question involves a **comparison** group.[^RCTcomp] In this example, the comparison is nothing or a placebo.
 
-Radeva-Petrova et al. [-@radevapetrova:2014] examine a number of **outcomes**. We'll focus on parasitaemia.
+[^RCTcomp]: Randomized trials always will.
+
+There are many potential **outcomes** for treating malaria. In this case, let's focus on parasitaemia.
 
 We can combine all of this into a research question: 
 
@@ -216,7 +216,7 @@ With your basic research question outlined, you're ready to begin searching. At 
 
 #### Quick and dirty{-}
 
-A reasonable initial approach is to find a few recent articles to get a quick sense of what is out there. Google Scholar *could* come in handy here. For instance, my advanced Google Scholar search for "malaria chemoprevention pregnant parasitaemia" (limited to recent years) identified a paper by Braun et al. [-@braun:2015] on the use of intermittent preventive treatment in pregnancy (IPTp) with sulfadoxine–pyrimethamine (SP)—a specific type of chemoprevention—on malaria infections among pregnant women in western Uganda.
+A reasonable initial approach is to find a few recent articles to get a quick sense of what is out there. Google Scholar *could* come in handy here. For instance, my advanced Google Scholar search for PICO terms "malaria pregnant chemoprevention parasitaemia" (limited to recent years) identified a paper by Braun et al. [-@braun:2015] on the use of intermittent preventive treatment in pregnancy (IPTp) with sulfadoxine–pyrimethamine (SP)—a specific type of chemoprevention—on malaria infections among pregnant women in western Uganda.
 
 ```{block, type='rmdtip'}
 Customize your Google Scholar experience by clicking on the gear icon. Enable use of a bibliography manager, and click on "Library links" to add your library to get links to full text.
@@ -251,22 +251,22 @@ knitr::include_graphics("images/search.png")
 For the purposes of your literature review, you don't necessarily need to ensure that other people can recreate your results, but you should make sure that *you* can. 
 
 ```{block, type='rmdtip'}
-If you can create an account with the database, do it and login to save your searches. Also, differences in the design of each database and interface often require you to customize your search. If you are conducting an actual systematic review that you wish to publish—as opposed to just searching the literature systematically—then you would benefit from consulting with a clinical librarian who will be familiar with the intricacies of building search strategies.
+Create an account within the database you are searching to login and save your search approaches and make it easier to retrace your steps at a later date. Also, differences in the design of each database and interface often require you to customize your search. If you are conducting an actual systematic review that you wish to publish—as opposed to just searching the literature systematically—then you should consult with a librarian who will be familiar with the intricacies of building search strategies.
 ```
 
 ##### Selecting a database{-}
 
-As you can see from the table, Radeva-Petrova et al. [-@radevapetrova:2014] searched five databases. MEDLINE is probably the most well known of this group. When you search in [PubMed](http://www.ncbi.nlm.nih.gov/pubmed), PubMed is searching the MEDLINE database. This is typically a good place to start to find health-related studies. Talk with a research librarian to understand if other databases might be a better choice for your topic.
+As you can see from the table, Radeva-Petrova et al. [-@radevapetrova:2014] searched five databases. MEDLINE is probably the most well known of this group. When you search [PubMed](http://www.ncbi.nlm.nih.gov/pubmed), you are searching the MEDLINE database. This is typically a good place to start to find health-related studies. Talk with a research librarian to understand if other databases might be a better choice for your topic.
 
 ##### Generate search terms{-}
 
 Once you decide on a database, you need to generate search terms. Start with the keywords published with the sample articles you dig up.
 
-You can learn a lot about potential keywords by searching for [**MeSH**](http://www.ncbi.nlm.nih.gov/mesh) terms. MeSH, which stands for "Medical Subject Headings", is a controlled vocabulary thesaurus that is used to index articles in PubMed. This thesaurus is helpful because there are often many ways to refer to the same phenomenon. For instance, the MeSH term for "breast cancer" is "Breast Neoplasm". When you search for "breast cancer" in PubMed, the database helps you out by casting a wider net:
+You can learn a lot about potential keywords by searching for [**MeSH**](http://www.ncbi.nlm.nih.gov/mesh) terms. MeSH, which stands for "Medical Subject Headings", is a controlled vocabulary thesaurus that is used to index articles in PubMed. This thesaurus is helpful because there are often many ways to refer to the same phenomenon. For instance, the MeSH term for "breast cancer" is "Breast Neoplasm". When you search for "breast cancer" in PubMed, the database helps you out by casting a wider net by including the MeSH term automatically behind the scenes (note: it doesn't always do this! You can check up on what PubMed includes in the search by clicking on the search details link after running a search):
 
 `"breast neoplasms"[MeSH Terms] OR ("breast"[All Fields] AND "neoplasms"[All Fields]) OR "breast neoplasms"[All Fields] OR ("breast"[All Fields] AND "cancer"[All Fields]) OR "breast cancer"[All Fields]`
 
-Turns out there are a lot of ways that we refer to breast cancer! The following entry terms are indexed by PubMed humans to the MeSH term "breast neoplasms":
+Turns out there are a lot of ways that we refer to breast cancer! The following entry terms are indexed to the MeSH term "breast neoplasms" by humans at PubMed:
 
 * Breast Neoplasm
 * Neoplasm, Breast
@@ -298,7 +298,7 @@ Turns out there are a lot of ways that we refer to breast cancer! The following 
 
 Back in the world of mosquitos, the MeSH term for "malaria" is "malaria", conveniently, and a search for this term in PubMed actually searches:
 
-`"malaria"[MeSH Terms] OR malaria[Text Word]`
+`"malaria"[MeSH Terms] OR malaria[All fields]`
 
 The following entry terms are indexed to the MeSH term "malaria":
 
@@ -338,9 +338,7 @@ If we want to limit the results humans, we can add `AND "humans"[MeSH Terms]` to
 
 `("malaria"[MeSH Terms] OR "malaria"[All Fields]) AND ("pregnancy"[MeSH Terms] OR "pregnancy"[All Fields]) AND "humans"[MeSH Terms]`
 
-Alternatively, we could use the `NOT` operator to limit the results to non-humans. Not surprisingly, we get 405 records. (If you are making a surprised face, think about it this way: `405 + 3,798 = 4,203` or `non-human results + human results = all results`)
-
-`(("malaria"[MeSH Terms] OR "malaria"[All Fields]) AND ("pregnancy"[MeSH Terms] OR "pregnancy"[All Fields])) NOT "humans"[MeSH Terms]`
+Alternatively, we could use the `NOT` operator to limit the results to non-humans, but `NOT` is not commonly used. No it's not.
 
 Let's return to our PICO question and use Boolean operators to combine the components. 
 
@@ -348,25 +346,25 @@ Let's return to our PICO question and use Boolean operators to combine the compo
 
 Here's what we want to do in plain English:
 
-* humans `AND` pregnant women (redundant, but we'll keep to show the strategy)
+* pregnancy `OR` pregnant women
 * `AND` malaria endemic
-* `AND` chemoprevention
+* `AND` chemoprevention (if you know specific drugs to search, string together with `OR`s)
 * `AND` randomized controlled trial
 * `AND` parasitaemia
 
-Within each group, we have several `ORs` to consider. The parentheses can get confusing, so let's build the search one line at a time. 
+As I tap out these words on my keyboard, this search returns 513 records in PubMed. 
 
-* `("humans"[MeSH Terms] OR "humans"[All Fields]) AND ("pregnant women"[MeSH Terms] OR ("pregnant"[All Fields] AND "women"[All Fields]) OR "pregnant women"[All Fields])`
-* `("malaria"[MeSH Terms] OR "malaria"[All Fields]) AND endemic[All Fields]`
-* `("chemoprevention"[MeSH Terms] OR "chemoprevention"[All Fields]) OR ("chloroquine"[MeSH Terms] OR "chloroquine"[All Fields]) OR ("pyrimethamine"[MeSH Terms] OR "pyrimethamine"[All Fields]) OR ("proguanil"[MeSH Terms] OR "proguanil"[All Fields]) OR (Pyrimethamine-dapsone[All Fields]) OR ("fanasil, pyrimethamine drug combination"[Supplementary Concept] OR "fanasil, pyrimethamine drug combination"[All Fields] OR "sulfadoxine pyrimethamine"[All Fields]) OR ("mefloquine"[MeSH Terms] OR "mefloquine"[All Fields])`
-* `[Publication Type] OR "randomized controlled trials as topic"[MeSH Terms] OR "randomized controlled trial"[All Fields] OR "randomised controlled trial"[All Fields]`
-* `parasitaemia[All Fields] OR "parasites"[MeSH Terms] OR "parasites"[All Fields] OR "parasite"[All Fields]`
+Once you are satisfied with your results, you could choose to apply the same search to another database. This might be worth the effort if your topic crosses disciplinary boundaries, like economics and health. Best to check with a research librarian. 
 
-All together now with `ANDs`. As I tap out these words on my keyboard, this search returns 513 records in PubMed.
+Oh hey, here's one now:
 
-`(("humans"[MeSH Terms] OR "humans"[All Fields]) AND ("pregnant women"[MeSH Terms] OR ("pregnant"[All Fields] AND "women"[All Fields]) OR "pregnant women"[All Fields])) AND (("malaria"[MeSH Terms] OR "malaria"[All Fields]) AND endemic[All Fields]) AND ("chemoprevention"[MeSH Terms] OR "chemoprevention"[All Fields]) OR ("chloroquine"[MeSH Terms] OR "chloroquine"[All Fields]) OR ("pyrimethamine"[MeSH Terms] OR "pyrimethamine"[All Fields]) OR ("proguanil"[MeSH Terms] OR "proguanil"[All Fields]) OR (Pyrimethamine-dapsone[All Fields]) OR ("fanasil, pyrimethamine drug combination"[Supplementary Concept] OR "fanasil, pyrimethamine drug combination"[All Fields] OR "sulfadoxine pyrimethamine"[All Fields]) OR ("mefloquine"[MeSH Terms] OR "mefloquine"[All Fields]) AND ([Publication Type] OR "randomized controlled trials as topic"[MeSH Terms] OR "randomized controlled trial"[All Fields] OR "randomised controlled trial"[All Fields]) AND (parasitaemia[All Fields] OR "parasites"[MeSH Terms] OR "parasites"[All Fields] OR "parasite"[All Fields])`
+```{block, type='rmdplay'}
+5 tips for PubMed searching
+```
 
-Once you are satisfied with your results, you could choose to apply the same search to another database. This might be worth the effort if your topic crosses disciplinary boundaries, like economics and health. Best to check with a research librarian.
+```{r fivetips, echo=F}
+knitr::include_url("https://www.youtube.com/embed/6wWeeCBBlk4")
+```
 
 ##### Screening results{-}
 
@@ -421,11 +419,7 @@ A tutorial is beyond the scope of this chapter, but it's worth mentioning some f
 * Shared collections with automatic syncing via the cloud to facilitate collaboration.
 * Easy export of references for migration to just about any other reference manager.
 
-So next time you see someone typing references and complaining about APA formatting, open your laptop and run your reference manager.
-
-```{block, type='rmdtip'}
-Be prepared to offer tissues. Your colleague will either cry for joy or deep despair about wasted effort. You'll feel good about yourself regardless.
-```
+So next time you see someone typing references and complaining about APA formatting, open your laptop and run your reference manager. Watch them weep!
 
 ## Share Feedback{-}
 

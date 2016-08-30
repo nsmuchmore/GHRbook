@@ -16,7 +16,7 @@ knitr::include_graphics("images/jimmy.png")
 
 Even if you have not been as productive as Jimmy, I'm certain that you've had years of practice consuming research. We're exposed to popular press accounts of research every day on TV, the radio, and the internet. Much of it might be wrong—"new study proves that eating chocolate prevents all cancer"—but it's a start.
 
-So it's a safe bet that just about every reader has some foundation to build upon. The goal of this chapter, therefore, is to re-introduce familiar concepts about scientific research from a global health perspective. We'll come back to these fundamentals throughout the book and explore them in more detail. By the end you'll be ready to move your work from primary school cafeteria to academic conferences, policy debates, and real world program design and delivery.
+So it's a safe bet that just about every reader has some research foundation to build upon. The goal of this chapter, therefore, is to re-introduce familiar concepts about scientific research from a global health perspective. We'll come back to these fundamentals throughout the book and explore them in more detail. By the end you'll be ready to move your work from primary school cafeteria to academic conferences, policy debates, and real world program design and delivery.
 
 ## Scientific Research
 
@@ -28,7 +28,7 @@ Let's start with what we mean by **"scientific research"**. King et al. [-@king:
 
 ### All about inference
 
-By stating that the goal of scientific research is inference, we mean that science goes beyond the collection of facts. You've probably seen the word **inference** used in several different contexts in your global health studies. At the most basic level, when we talk about inference, we are referring to the process of making conclusions about some unobserved or unmeasured phenomenon based on our direct observations of the world. We use what we know to infer something about the things we don't know. This process can be deductive or inductive. 
+By stating that the goal of scientific research is inference, we mean that science goes beyond the collection of facts. When we talk about **inference**, we are referring to the process of making conclusions about some unobserved or unmeasured phenomenon based on our direct observations of the world. We use what we know to infer something about the things we don't know. This process can be deductive or inductive. 
 
 In **deductive** reasoning, we start from general theories, make hypotheses, collect data, and make conclusions based on the data. **Inductive** reasoning flows the other direction, from specific observations to the generation of hypotheses and theories. Remember it this way: if you are testing a specific hypothesis, you are using deductive reasoning. If you are starting with your observations and making more general statements, then you are using inductive reasoning. To say that quantitative research is deductive and qualitative research is inductive is not quite right, but it's often true.[^box]
 
@@ -56,7 +56,7 @@ We can contrast the Singla et al. trial with a qualitative study by Sahoo et al.
 knitr::include_graphics("images/sahoo.jpg", dpi = NA)
 ```
 
-The point to take away about inference is that, regardless of the approach to reasoning, the goal of scientific research is to use what we observe to make conclusions about what we do not observe directly. This is sometimes referred to as **empiricism**, and our systematic observations as **empirical evidence**. Empiricism is at the heart of scientific research.
+The point to take away about inference is that, regardless of the approach to reasoning, the goal of scientific research is to use what we observe to make conclusions about what we do not or cannot observe directly. This is sometimes referred to as **empiricism**, and our systematic observations as **empirical evidence**. Empiricism is at the heart of scientific research.
 
 ### Research as a public act
 
@@ -126,7 +126,7 @@ Let's take the development of a vaccine for malaria as an example of the clinica
 
 Clinical research on humans began in 1992. To obtain regulatory approval, the vaccine had to complete three phases of testing. Doherty et al. [-@doherty:1999] conducted a **Phase I** safety and immunogenicity trial with 20 adults in The Gambia in 1997. This small sample size is typical of Phase I trials where the objective is usually to find a safe dosing range and look for side effects. The authors reported that the vaccine did not have any significant toxicity but did produce the expected antibodies. 
 
-Several **Phase II** studies conducted over a decade (Phase IIa and Phase IIb) demonstrated **efficacy** of the vaccine against several endpoints (a.k.a. outcomes) [@moorthy:2009]. A Phase IIb trial began in Mozambique in 2003 with more than 2,000 children aged 1 to 4 [@alonso:2004]. Children were randomly assigned to receive three doses of RTS,S or a control vaccine. At 6-months, the prevalence of malaria was 37% lower in the treatment group compared to the control group. A follow-up study with 214 infants also showed partial protection [@aponte:2007]. This was an important proof-of-concept.
+Several **Phase II** studies conducted over a decade (Phase IIa and Phase IIb) demonstrated **efficacy** of the vaccine against several endpoints (a.k.a. outcomes) [@moorthy:2009]. A Phase IIb trial began in Mozambique in 2003 with more than 2,000 children aged 1 to 4 [@alonso:2004]. Children were randomly assigned to receive three doses of RTS,S or a control vaccine. At 6-months, the prevalence of malaria was 37% lower in the treatment group compared to the control group. A follow-up study with 214 infants also showed partial protection [@aponte:2007]. This Phase II trial was an important proof-of-concept.
 
 Final results of a large **Phase III** trial with more than 15,000 infants and young children in seven African countries were published in *The Lancet* in 2015 [@rts:2015]. Children in the study were randomly assigned to 1 of 3 arms: 3 doses of RTS,S and a booster dose at month 20; 3 doses of RTS,S and a booster dose of a comparator vaccine at month 20; or 4 doses of a comparator vaccine. The study reported that RTS,S reduced clinical malaria cases by 28% and 18% among young children and infants, respectively, over a 3 to 4 year period. This is the goal of a Phase III trial—to show that a treatment is efficacious.
 
@@ -159,7 +159,7 @@ Campbell had an outsized impact on the field. It's no surprise that an organizat
 A good candidate for Donald Campbell's successor is French economist and MIT researcher [Esther Duflo](http://economics.mit.edu/faculty/eduflo). Together with Abhijit Banerjee and Sendhil Mullainathan, she co-founded [JPAL](http://www.povertyactionlab.org/), which stands for the Abdul Latif Jameel Poverty Action Lab. JPAL is a global research organization headquartered at MIT that uses randomized evaluations (i.e., experiments) to answer policy questions related to poverty alleviation. The JPAL website, [http://www.povertyactionlab.org](http://www.povertyactionlab.org), contains excellent resources about the methods of randomized evaluations, published studies, and policy briefs. Interested readers should also check out [Innovations for Poverty Action](http://www.poverty-action.org/), or IPA, a sister organization of sorts that is also a leader in the use of randomized evaluations to study important policy questions about global poverty.
 ```
 
-Yet, not everyone agrees. Educational psychologist [Lee Cronbach](https://en.wikipedia.org/wiki/Lee_Cronbach) certainly did not.[^cron] Cronbach recognized the overlap in methods and designs, but he thought that program evaluation was really designed for program implementers and funders, and that the messy nature of programs required a loosening of research standards [@cronbach:1982]. Just learn what you can.
+Yet, not everyone agrees. Educational psychologist [Lee Cronbach](https://en.wikipedia.org/wiki/Lee_Cronbach), for one, certainly did not.[^cron] Cronbach thought that program evaluation is really designed for program implementers and funders, and that the messy nature of programs required a loosening of research standards [@cronbach:1982]. The goal is just to learn what you can. 
 
 [^cron]: You might know Cronbach from that statistic you report for reliability but don't really know what it means—[Cronbach's alpha](https://en.wikipedia.org/wiki/Cronbach%27s_alpha).
 
@@ -198,12 +198,13 @@ Let's stick with the bed net example. If we want to study uptake or use of bed n
 
 ### Research designs
 
-As Glennerster and Takavarasha [-@glennerster:2013] explain in their excellent practical guide to running randomized evaluations, different research questions require different research designs. We'll spend most of our time in this book looking at strategies for answering the "why" questions. I lump them into three categories and differentiate them from descriptive designs: 
+As Glennerster and Takavarasha [-@glennerster:2013] explain in their excellent practical guide to running randomized evaluations, different research questions require different research designs.  
 
-* descriptive
-* correlational
-* quasi-experimental
-* experimental
+* descriptive (what)
+* explanatory (why)
+	* correlational
+	* quasi-experimental
+	* experimental
 
 #### Descriptive research{-}
 
@@ -257,7 +258,7 @@ knitr::include_graphics("images/noor2006t4.png")
 ```{block, type='rmdcomment'}
 We'll review in detail how to read tables like this in later chapters, but it might be helpful to preview some concepts here. The results in this table come from a multivariable logistic regression. The authors describe the model they fit in the article, but we won't worry ourselves with these details. Instead, let's highlight a few key points. 
 
-The table starts with household-level predictors of net use, specifically household wealth quintile. The first two columns show us the number and percentages of households that have or do not have retail sector nets, disaggregated by wealth quintile. So of all the households without retail sector nets, 690 or 21.6% were classified as being the most poor. The distribution looks a bit different for households with nets; 40.1% of households with retail sector nets were classified as being the least poor. This makes intuitive sense: if you are poor, you are less likely to purchase a net from the market.
+The table starts with household-level predictors of net use, specifically household wealth quintile. The first two columns show us the number and percentages of households that have or do not have retail sector nets, disaggregated by wealth quintile. So of all the households without retail sector nets, 690 or 21.6% were classified as being the most poor. The distribution looks a bit different for households with nets; only 5.5% of households with retail sector nets were classified as being the most poor. This makes intuitive sense: if you are poor, you are less likely to purchase a net from the market.
 
 The next three columns give us the results of the regression. Since wealth quintiles have different categories, the authors set one category—the most poor—to be the reference category. So the results will be relative to the poorest households. 
 
@@ -274,7 +275,7 @@ Observational studies are the bread and butter of epidemiology. Epidemiologists 
 
 ##### Prospective cohort{-}
 
-In a **prospective cohort** study, healthy participants are recruited and followed into the future for a period of time. For instance, Lindblade and colleagues [-@lindblade:2015] conducted a prospective cohort study in Malawi to test the efficacy of ITNs in an area of moderate resistance to pyrethroids, a common class of insecticide. A prospective cohort of 1,199 healthy children aged 6-59 months was followed for a year. This group of children make up the cohort, and the fact that they were recruited and followed for a period of time into the future makes the design prospective.
+In a **prospective cohort** study, healthy participants are recruited and followed into the future for a period of time. For instance, Lindblade and colleagues [-@lindblade:2015] conducted a prospective cohort study in Malawi to test the efficacy of ITNs in an area of moderate resistance to pyrethroids, a common class of insecticide. A prospective cohort of 1,199 healthy children aged 6-59 months was followed for one year. This group of children make up the cohort, and the fact that they were recruited and followed for a period of time into the future makes the design prospective.
 
 [^retro]: In a retrospective cohort design, researchers would find a cohort of people without the disease at some point in the past and assess available records to determine each person's exposure status and outcome.
 
@@ -316,7 +317,7 @@ An important global health policy question that has been studied using experimen
 
 The flip side is that the provision of some health goods, in economics-speak, creates "positive externalities" and should therefore be financed with public dollars. What this means is that some interventions have spillover effects whereby people who are not treated still experience some indirect effect. A good example of a spillover effect is vaccines and the resulting [herd immunity](https://en.wikipedia.org/wiki/Herd_immunity). Hawley et al. [-@hawley:2003] showed a similar protective effect of ITN use on child mortality and other malaria-related outcomes among households without ITNs that were located within 300 meters of households with ITNs.
 
-So we know that there is evidence that ITNs have direct [@phillipshoward:2003] and indirect benefits. The research question is then how to increase coverage and use of nets. Is free distribution the best strategy, or should users have to spend something to get a bed net that might retail for a price that is out of reach for many poor households?
+So we know that there is evidence that ITNs have direct [@phillipshoward:2003] and indirect benefits. The research problem is then how to increase coverage and use of nets. Is free distribution the best strategy, or should users have to spend something to get a bed net that might retail for a price that is out of reach for many poor households?
 
 ##### Quasi-experimental{-}
 
@@ -392,7 +393,7 @@ It helps to state the theory and hypothesis as an if-then statement. For example
 
 What happens if you flip this statement? If you find evidence that the hypothesis is true—as you might in a study—does it mean that the theory is true?
 
-Cohen and Dupas [-@cohen:2012] did not find support for the hypothesis that people who paid a non-zero price for an ITN would use the ITN more than those who received the ITN for free. But let's pretend for a moment that they did. Would that prove the sunk cost theory? 
+Cohen and Dupas [-@cohen:2010] did not find support for the hypothesis that people who paid a non-zero price for an ITN would use the ITN more than those who received the ITN for free. But let's pretend for a moment that they did. Would that prove the sunk cost theory? 
 
 No, logically it can't. 
 
@@ -408,7 +409,7 @@ What if the hypothesis was not supported, and I was not bitten by mosquitos? Cou
 
 No. And logic would support this. If the hypothesis is derived from the theory, and if the hypothesis is not supported, the logical inference is that the theory is wrong.
 
-Yet, we still shy away from concluding that the theory is wrong. The reason is simple: complexity. A study like Cohen and Dupas [-@cohen:2012] could fail to reject the null hypothesis that use does not differ between free and subsidized clients—thus not supporting the hypothesis of different use rates—but there are many practical reasons for this. For instance, maybe their measure of bed net use was systematically flawed and hid the difference as a result. The possibilities are endless. This is partly why journals are hesitant to publish **null results**.
+Yet, we still shy away from concluding that the theory is wrong. The reason is simple: complexity. A study like Cohen and Dupas [-@cohen:2010] could fail to reject the null hypothesis that use does not differ between free and subsidized clients—thus not supporting the hypothesis of different use rates—but there are many practical reasons for this. For instance, maybe their measure of bed net use was systematically flawed and hid the difference as a result. The possibilities are endless. This is partly why journals are hesitant to publish **null results**.
 
 #### Science marches on{-}
 

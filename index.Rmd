@@ -65,7 +65,7 @@ While this book will not give you the technical tools you need to plan your anal
 
 ## Icons {-}
 
-I’ve sprinkled several types of asides throughout the book. If you are a student enrolled in my course, I recommend that you actually read them. Everyone else can flip the page and feel productive.
+I’ve sprinkled several types of asides throughout the book:
 
 ```{block, type='rmdpuzzle'}
 Help piecing together the global health puzzle
