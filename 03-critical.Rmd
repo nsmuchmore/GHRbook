@@ -4,7 +4,7 @@ knit: "bookdown::preview_chapter"
 
 # Critical Appraisal {#critical}
 
-Scholars in every discipline have their own ways of reading and evaluating the literature. In medicine, this process is called **critical appraisal** and it's part of a larger approach called **evidence-based medicine** or, more generally, **evidence-based practice** (EBP). 
+Scholars in every discipline have their own ways of reading and evaluating the literature. In medicine, this process is called **critical appraisal** and it's part of a larger approach called **evidence-based medicine** (EBM) or, more generally, **evidence-based practice** (EBP). 
 
 In EBM, the goal is to integrate the best available evidence with clinical judgment and context, such as a patient's preferences and values. Sackett [-@sackett:1996] offers a more formal definition:
 
@@ -66,7 +66,7 @@ You'll probably never know. Most journals use a blind review process by which yo
 
 ### What happens during the review process?
 
-Once your paper arrives on a reviewer's desk, he or she will take a few weeks (or months!) to recommend that your paper be rejected or accepted with no, minor, or major revisions. Some reviewers enumerate your perceived flaws in painstaking detail. Others give high-level comments that might be too vague to be helpful to your or the editor.
+Once your paper arrives on a reviewer's desk, he or she will take a few weeks (or months!) to recommend that your paper be rejected or accepted with no, minor, or major revisions. Some reviewers enumerate your perceived flaws in painstaking detail. Others give high-level comments that might be too vague to be helpful to you or the editor.
 
 The editorial team reviews these reviews, and it's up to them to make a decision. Most academics are happy to get a "revise and resubmit" letter (aka, "R&R"). The editor will usually give some indication that a revised paper would have a good chance of publication, but it's not a guarantee. Sometimes the revised paper will go back out for further review, but the editor can also make the decision to accept the revision without additional input.
 
@@ -97,9 +97,9 @@ Here's a [nice framework for how to be a good peer reviewer](https://github.com/
 
 Leek offers a helpful recommendation about how to approach a new paper:
 
-> Your prior belief about [2-3] should start with the assumption that the scientists in question are reasonable people who made efforts to be correct, thorough, transparent, and not exaggerate. 
+> Your prior belief about [#2-3] above should start with the assumption that the scientists in question are reasonable people who made efforts to be correct, thorough, transparent, and not exaggerate. 
 
-[^leek]: [Jeffrey Leek](http://jtleek.com/) is a member of the biostatistics faculty at the Johns Hopkins Bloomberg School of Public Health and teaches a number of very popular MOOCs on data science. He has written several books on data analysis, and has created a few helpful guides like [this one on peer review](https://github.com/jtleek/reviews) that might be helpful for folks just starting out in the field.  
+[^leek]: [Jeffrey Leek](http://jtleek.com/) is a member of the biostatistics faculty at the Johns Hopkins Bloomberg School of Public Health and teaches a number of very popular MOOCs (Massive Open Online Courses) on data science. He has written several books on data analysis, and has created a few helpful guides like [this one on peer review](https://github.com/jtleek/reviews) that might be helpful for folks just starting out in the field.  
 
 This book focuses mainly on how to read and write sections 1 and 2. I think you'll gain new insight into how to evaluate research results and claims if you make it to the end, but it's probably safe to say that you'll need more background in analysis to feel confident in your ability to critique findings and plan your own analysis.
 
@@ -197,11 +197,11 @@ Study variables also need to be precisely defined. For instance, hyperparasitemi
 
 In studies measuring social or psychological constructs such as anxiety, you'd expect to read about how this thing called "anxiety" is defined and measured. Is anxiety diagnosed by a psychiatrist (if so what is the basis for this diagnosis?) or is anxiety inferred from a participant's self-reported symptoms on a checklist or screening instrument (if so, what are the questions and how is the instrument scored?)? We'll dive into measurement issues in **[Chapter 6](measurement)**.
 
-#### How was the study conducted and how were the data collected?{-}
+#### How was the study conducted and how was the data collected?{-}
 
 This part of a *Method* section should describe what happened after participants were recruited and enrolled. What happened first, second, third? If the study is observational, the procedures might be limited to data collection. Who collected the data, and how were they trained? Where were the data collected? For intervention studies, the procedures will describe how participants were randomized to study arms and what happened (or did not happen) in each arm. Were the participants, data collectors, and/or patients **blind** to the treatment assignment?
 
-#### How were the data analyzed?{-}
+#### How was the data analyzed?{-}
 
 If the study uses a hypothesis-testing framework (and not all do), then you'll find details about study hypotheses in the *Introduction* or *Method* section, depending on the journal. The *Method* section should also detail how the analysis will be carried out. For instance, if you are reading an intervention study, how was the effect size be estimated? Ordinary least squares regression? Logistic regression? The list goes on and on. 
 
