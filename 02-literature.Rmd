@@ -16,6 +16,10 @@ In this chapter we'll discuss a strategy for quickly getting a sense for the sta
 
 ## Start with Systematic Reviews and Meta-Analyses
 
+```{r ch2systematic, echo=F}
+knitr::include_url("https://warpwire.duke.edu/w/BFYBAA/")
+```
+
 Repeat after me:
 
 > I will not start my research by Googling "malaria". 

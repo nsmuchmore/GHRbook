@@ -314,3 +314,11 @@ height="600px")
 
 ## Test Yourself{-}
 
+```{r CH03quiz, echo=F}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_a33UqRjZErKqRLf",
+height="1000px")
+```
+
+
+
+
