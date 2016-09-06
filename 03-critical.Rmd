@@ -138,7 +138,7 @@ A graphic like this is commonly used in the EBM literature to convey the point t
 ##### Is there a risk of bias and confounding?{-}
 
 ```{block, type='rmdplay'}
-Chapter overview ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuNW1XM21PT1ZQTGM))
+Risk of bias and confounding ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuNW1XM21PT1ZQTGM))
 ```
 
 ```{r ch3bias, echo=F}

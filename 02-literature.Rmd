@@ -17,7 +17,7 @@ In this chapter we'll discuss a strategy for quickly getting a sense for the sta
 ## Start with Systematic Reviews and Meta-Analyses
 
 ```{block, type='rmdplay'}
-Chapter overview ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuU2lYSXZ4NWpndEE))
+Systematic reviews and meta-analyses ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuU2lYSXZ4NWpndEE))
 ```
 
 ```{r ch2systematic, echo=F}
