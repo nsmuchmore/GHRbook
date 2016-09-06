@@ -137,6 +137,14 @@ A graphic like this is commonly used in the EBM literature to convey the point t
 
 ##### Is there a risk of bias and confounding?{-}
 
+```{block, type='rmdplay'}
+Chapter overview ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuNW1XM21PT1ZQTGM))
+```
+
+```{r ch3bias, echo=F}
+knitr::include_url("https://warpwire.duke.edu/w/SFYBAA/")
+```
+
 Some study designs are better than others *in theory* because of their ability to address potential bias when conducted properly. As we discussed in **[Chapter 1](science)**, the goal of scientific research is inference and we must live with some error and uncertainty. As a consumer of research, you have to accept this as fact and assess the extent to which a study's design and methods might lead us away from the "truth". 
 
 ```{block, type='rmdtip'}
