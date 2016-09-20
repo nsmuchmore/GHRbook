@@ -25,7 +25,7 @@
 
 <meta name="author" content="Eric P. Green">
 
-<meta name="date" content="2016-09-06">
+<meta name="date" content="2016-09-19">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -124,7 +124,25 @@
 <li class="chapter" data-level="" data-path="critical.html"><a href="critical.html#test-yourself-2"><i class="fa fa-check"></i>Test Yourself</a></li>
 </ul></li>
 <li class="part"><span><b>Part III: Causal Impact and Theories of Change</b></span></li>
-<li class="chapter" data-level="4" data-path="causeeffect.html"><a href="causeeffect.html"><i class="fa fa-check"></i><b>4</b> Cause and Effect</a></li>
+<li class="chapter" data-level="4" data-path="causeeffect.html"><a href="causeeffect.html"><i class="fa fa-check"></i><b>4</b> Cause and Effect</a><ul>
+<li class="chapter" data-level="4.1" data-path="causeeffect.html"><a href="causeeffect.html#fundamental-challenge-of-causal-inference"><i class="fa fa-check"></i><b>4.1</b> Fundamental Challenge of Causal Inference</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="causeeffect.html"><a href="causeeffect.html#understanding-causal-relationships"><i class="fa fa-check"></i><b>4.1.1</b> Understanding Causal Relationships</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="causeeffect.html"><a href="causeeffect.html#threats-to-internal-validity"><i class="fa fa-check"></i><b>4.2</b> Threats to Internal Validity</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="causeeffect.html"><a href="causeeffect.html#ambiguous-temporal-precedence"><i class="fa fa-check"></i><b>4.2.1</b> Ambiguous Temporal Precedence</a></li>
+<li class="chapter" data-level="4.2.2" data-path="causeeffect.html"><a href="causeeffect.html#selection"><i class="fa fa-check"></i><b>4.2.2</b> Selection</a></li>
+<li class="chapter" data-level="4.2.3" data-path="causeeffect.html"><a href="causeeffect.html#history"><i class="fa fa-check"></i><b>4.2.3</b> History</a></li>
+<li class="chapter" data-level="4.2.4" data-path="causeeffect.html"><a href="causeeffect.html#maturation"><i class="fa fa-check"></i><b>4.2.4</b> Maturation</a></li>
+<li class="chapter" data-level="4.2.5" data-path="causeeffect.html"><a href="causeeffect.html#regression-artifacts"><i class="fa fa-check"></i><b>4.2.5</b> Regression Artifacts</a></li>
+<li class="chapter" data-level="4.2.6" data-path="causeeffect.html"><a href="causeeffect.html#attrition"><i class="fa fa-check"></i><b>4.2.6</b> Attrition</a></li>
+<li class="chapter" data-level="4.2.7" data-path="causeeffect.html"><a href="causeeffect.html#testing"><i class="fa fa-check"></i><b>4.2.7</b> Testing</a></li>
+<li class="chapter" data-level="4.2.8" data-path="causeeffect.html"><a href="causeeffect.html#instrumentation"><i class="fa fa-check"></i><b>4.2.8</b> Instrumentation</a></li>
+<li class="chapter" data-level="4.2.9" data-path="causeeffect.html"><a href="causeeffect.html#additive-and-interactive-effects"><i class="fa fa-check"></i><b>4.2.9</b> Additive and Interactive Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="causeeffect.html"><a href="causeeffect.html#research-designs-to-estimate-causal-impact"><i class="fa fa-check"></i><b>4.3</b> Research Designs to Estimate Causal Impact</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="causeeffect.html"><a href="causeeffect.html#when-life-gives-you-non-experimental-data"><i class="fa fa-check"></i><b>4.3.1</b> When Life Gives You Non-Experimental Data</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
 <li class="divider"></li>
 <li><a href="http://www.designsandmethods.com" target="blank">Eric P. Green</a></li>
@@ -148,8 +166,263 @@
             <section class="normal" id="section-">
 <div id="causeeffect" class="section level1">
 <h1><span class="header-section-number">4</span> Cause and Effect</h1>
-<p>Do bednets prevent malaria? Do vouchers increase access to treatment? Do cash transfers improve mental health?</p>
+<p>Do bednets prevent malaria? Do vouchers increase access to treatment? Do cash transfers improve mental health? What these research questions share in common is a focus on <strong>causal impact</strong>—a difference in outcomes that can be attributed to a treatment, intervention, policy, or exposure. In many ways, as an applied field global health <em>is</em> the study of causal impact.</p>
+<div id="fundamental-challenge-of-causal-inference" class="section level2">
+<h2><span class="header-section-number">4.1</span> Fundamental Challenge of Causal Inference</h2>
+<p>In an ideal research world we could answer the question, “Do bednets prevent malaria?”, by cloning you and simultaneously giving a bednet to you but not your clone. This would help us to understand what really happens in the absence of the intervention because the only difference between you and your clone would be that one of you received the intervention.<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a></p>
+<p>Of course we don’t have clones, and we can’t <em>simultaneously</em> give you a bednet and not give you a bednet. We only get to observe what happens to you, not a clone of you who did not receive the intervention. So we have to ask, hypothetically, what would have happened if you had not been given a bednet. This hypothetical situation—<em>what would have happened in the absence of the intervention</em>—is referred to as the <strong>counterfactual</strong> (or “potential outcome” in the language of the <a href="https://en.wikipedia.org/wiki/Rubin_causal_model">Neyman–Rubin causal model</a>).</p>
+<p>Not being able to observe the counterfactual directly is the so called “fundamental challenge of causal inference”. So you could also say that this is the primary reason we need books about research designs. Much of what follows in this book deals with strategies for causal inference in the absence of a true counterfactual.</p>
+<div id="understanding-causal-relationships" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Understanding Causal Relationships</h3>
+<p>Humans like you and me have a pretty decent understanding of cause and effect (hand touch fire. fire hot. fire burn hand.). Philosopher humans, on the other hand, have spent centuries convincing us that causality is actually much more complicated than it might seem on the surface. They did a good job because causal inference is a vibrant field of study today, and researchers continue to develop new techniques for drawing causal inferences from experimental and non-experimental data. Let’s review some of the basics.</p>
+<div id="causes" class="section level4 unnumbered">
+<h4>Causes</h4>
+<p>In his book <em>Causal Inference in Statistics</em>, computer scientist Judea Pearl provides a simple definition of <strong>causes</strong>: “A variable X is a cause of a variable Y if Y in any way relies on X for its value”. The phrase “in any way” is a reminder that most of the causal relationships we investigate in global health are not deterministic and effects can have more than one cause.</p>
+<p>Think about it this way: you give an experimental treatment to 100 people suffering from a disease and only 60 get better. If the causal relationship between the drug and disease state were deterministic, all 100 patients would have recovered. This is not what happened, however. The causal relationship only increased the probability that the effect would occur.</p>
+</div>
+<div id="effects" class="section level4 unnumbered">
+<h4>Effects</h4>
+<p><strong>Causal impact</strong> is the difference in counterfactual outcomes (aka, “potential outcomes”) caused by some exposure, program, intervention, or policy. Sounds simple enough, but we’re back to our fundamental problem: we can only observe <em>one</em> counterfactual outcome for an individual; we don’t get to observe someone in two states simultaneously, e.g., treatment <em>and</em> control. This means we can’t observe an effect of the program on an <em>individual</em>. We have to turn instead to groups of individuals. The best we can do is hope to infer the counterfactual by comparing some people who get some treatment to other people who do not.<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a></p>
+<div class="rmdtip">
+<p>
+Most often we think about comparing two different sets of people who who exist in either a treatment or an intervention group, but the logic also extends to (a) more than two groups (aka, study arms) and (b) just one group of people observed at different time points.
+</p>
+<p>
+“But I thought you said an individual like me can’t exist in two states at once!”
+</p>
+<p>
+That’s correct. We can only observe someone in one state (e.g., treatment <em>or</em> control), but we could chose to compare YOU <em>before</em> you receive a treatment to YOU <em>after</em> you receive a treatment. This is a “pre-post” or “before/after” comparison. We’ll talk more about specific designs soon.
+</p>
+</div>
+<p>The most common estimate of causal impact is the <strong>average treatment effect</strong> (ATE). We can’t observe an effect of X on Y for any specific individual (who can only exist in one state at a time), but we can determine if X causes Y <em>on average</em>. This is possible because the average difference in potential outcomes (which we can’t observe) is equal to the difference of averages. The following graphic might help.<a href="#fn31" class="footnoteRef" id="fnref31"><sup>31</sup></a></p>
+<div class="figure"><span id="fig:potentialoutcomes"></span>
+<img src="images/potentialoutcomes.png" alt="Average causal effects can be estimated even though individual effects cannot be observed."  />
+<p class="caption">
+Figure 4.1: Average causal effects can be estimated even though individual effects cannot be observed.
+</p>
+</div>
+<p>Panel A shows hypothetical results when all subjects are assigned to treatment <code>T(1)</code> or control <code>T(0)</code>. There are two data points for each person corresponding to their hypothetical potential outcomes (remember that in reality we can only observe one point per person since it’s not possible to be in two states at once). Both sets of points have an average value, depicted by the dashed lines that you see in Panel A and Panel C.</p>
+<p>In the middle Panel B, the differences between each pair of outcomes in A are plotted as individual effect sizes (e.g., <code>1.0-(-1.5)=2.5</code> for person 6). The dashed green line depicts the average causal effect. Notice that this average of individual differences in B is equal to the difference in averages in Panel C.</p>
+<p>The point is that we cannot observe effects on individuals since we cannot measure <em>both</em> potential outcomes for any one person; however, we can estimate the average causal effect by comparing the average value from a group of people who receive the intervention to the average value from a group of people who do not.</p>
+</div>
+<div id="causal-relationships" class="section level4 unnumbered">
+<h4>Causal Relationships</h4>
+<p>OK, so we’ve established that it’s possible to estimate the average difference between two groups, but can we claim that this difference is a valid estimate of the causal impact of X on Y? In other words, how do we know that X and Y causally related? Shadish et al. <span class="citation">(<a href="#ref-scc">2003</a>)</span> point to three characteristics of causal relationships that we should be on the lookout for:</p>
+<ol style="list-style-type: decimal">
+<li>The cause is related (aka, associated) to the effect.</li>
+<li>The cause comes before the effect.</li>
+<li>There are no <em>plausible</em> alternative explanations for the effect aside from the cause.</li>
+</ol>
+<p>Condition #1 is easy to establish. Is X correlated with Y? In fact it’s so easy to establish that someone came up with the maxim, “correlation does not prove causation”, to remind us that the burden of proof is greater than the output of <code>correlate x y</code> or <code>cor(x, y)</code>, or whatever command your favorite statistical software package would have you run. But it’s a start.</p>
+<p>Condition #2 is a bit harder to demonstrate conclusively because X and Y might be correlated, but maybe the causal relationship runs in the opposite direction—maybe Y causes X. Correlations don’t tell us which comes first, X or Y.</p>
+<p>Let’s take malaria and poverty as an example. Jeffrey Sachs and Pia Malaney <span class="citation">(<a href="#ref-sachs:2002">2002</a>)</span> published a paper in <em>Nature</em> in which they wrote:</p>
+<blockquote>
+<p>As a general rule of thumb, where malaria prospers most, human societies have prospered least…This correlation can, of course, be explained in several possible ways. Poverty may promote malaria transmission; malaria may cause poverty by impeding economic growth; or causality may run in both directions.</p>
+</blockquote>
+<p>Condition #3 is the trickiest of all: ruling out plausible alternative explanations. As Sachs and Malaney note, the literature on poverty and malaria has not found a way to do so conclusively. They write that it’s “possible that the correlation [between malaria and poverty] is at least partly spurious, with the tropical climate causing poverty for reasons unrelated to malaria.” The authors are proposing that climate is a potential cause of both poverty and malaria. If true, that would make climate a confounding (aka, lurking) variable that accounts for the observed relationship between poverty and malaria.</p>
+</div>
+</div>
+</div>
+<div id="threats-to-internal-validity" class="section level2">
+<h2><span class="header-section-number">4.2</span> Threats to Internal Validity</h2>
+<p>The possibility of plausible alternative explanations is what keeps researchers up at night, particularly non-experimentalists. They are always on the lookout for threats to making valid causal inferences—aka, threats to internal validity.</p>
+<p>The <a href="http://www.wsj.com/articles/the-anti-poverty-experiment-1433517539">“randomistas”</a>, on the other hand, tuck themselves in early after a glass of warm milk knowing that random assignment will generally make plausible alternative explanations implausible. To be sure, the randomistas will have bias-filled nightmares on occasion when they learn that an experiment did not quite go as planned, but they are generally heavy sleepers.</p>
+<p>You’ll recall that internal validity is Campbell’s <span class="citation">(<a href="#ref-campbell:1957">1957</a>)</span> notion about whether an observed association between X and Y represents a causal relationship. If X comes before Y, and if there are no other plausible explanations for the covariation between X and Y then causal inference about X and Y is valid. Threats to causal inference are threats to internal validity. Shadish, Cook, and Campbell <span class="citation">(<a href="#ref-scc">2003</a>)</span> outlined nine primary reasons why it might not be valid to assume a relationship between X and Y is causal.</p>
+<table>
+<col width="300">
+<col width="300">
+<caption>
+<span id="tab:threats">Table 4.1: </span>Threats to internal validity. Source: Shadish et al. (2002), <a href="http://amzn.to/2cBaAM1" class="uri">http://amzn.to/2cBaAM1</a>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Threats
+</th>
+<th style="text-align:left;">
+Definitions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>Ambiguous temporal precedence</strong>
+</td>
+<td style="text-align:left;">
+Lack of clarity about which variable occurred first may yield confusion about which variable is the cause and which is the effect.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Selection</strong>
+</td>
+<td style="text-align:left;">
+Systematic differences over conditions in respondent characteristics that could also cause the observed effect.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>History</strong>
+</td>
+<td style="text-align:left;">
+Events occurring concurrently with treatment could cause the observed effect.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Maturation</strong>
+</td>
+<td style="text-align:left;">
+Naturally occurring changes over time could be confused with a treatment effect
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Regression</strong>
+</td>
+<td style="text-align:left;">
+When units are selected for their extreme scores, they will often have less extreme scores on other variables, an occurrence that can be confused with a treatment effect.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Attrition</strong>
+</td>
+<td style="text-align:left;">
+Loss of respondents to treatment or to measurement can produce artifactual effects if that loss is systematically correlated with conditions.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Testing</strong>
+</td>
+<td style="text-align:left;">
+Exposure to a test can affect scores on subsequent exposures to that test, an occurrence that can be confused with a treatment effect.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Instrumentation</strong>
+</td>
+<td style="text-align:left;">
+The nature of a measure may change over time or conditions in a way that could be confused with a treatment effect.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Additive and interactive effects</strong>
+</td>
+<td style="text-align:left;">
+The impact of a threat can be added to that of another threat or may depend on the level of another threat.
+</td>
+</tr>
+</tbody>
+</table>
+<div id="ambiguous-temporal-precedence" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Ambiguous Temporal Precedence</h3>
+<p>Correlational studies can establish that X and Y are related, but often it’s not clear that X occurred before Y. Uncertainty about which way a causal effect might flow is referred to as <strong>ambiguous temporal precedence</strong>—or simply the chicken and egg problem.</p>
+<p>Sometimes the direction is clear because it’s not possible for Y to cause X. For instance, hot weather (X) might drive ice cream sales (Y), but ice cream sales (Y) cannot cause the temperature to rise (X).</p>
+<p>Most relationships we care about in global health are not so clear, however. Take bednet use and education as an example. Does bednet use prevent malaria and allow for greater educational attainment? Or does greater education lead to a better understanding and appreciation of the importance of preventive behaviors like bednet use?<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a></p>
+</div>
+<div id="selection" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Selection</h3>
+<p>As we discussed earlier, the fundamental challenge of causal inference is that we cannot observe the counterfactual directly. So often we look to compare a group of people who were exposed to the potential cause to a group of people who were not exposed. No matter how hard we try to make sure that these two groups of people are equivalent <em>before</em> the treatment occurs, there can be observable and unobservable ways in which these groups differ. These differences represent <strong>selection</strong> bias, a threat to internal validity.</p>
+<p>For instance, Bradley et al. <span class="citation">(<a href="#ref-bradley:1986">1986</a>)</span> compared parasite and spleen rates among bednet users and non-users in The Gambia and concluded that bednets had a “strong protective effect” against malaria; however, the authors also observed that bednet use and malaria prevalence were also associated with ethnic group and place of residence. This makes ethnic group and place of residence confounding variables—plausible alternative explanations for the relationship between bednet use and malaria.</p>
+<p>Identifying selection bias and trying to account for it in the analysis is like squashing an ant on your countertop. You got that one, good for you, but there are probably many more hiding in the walls. You just can’t see them. It’s the same with selection threats. You might measure some of them, but many confounding variables will probably go unobserved. The only way to be certain that you are free of such threats is to randomly assign people to conditions.</p>
+</div>
+<div id="history" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> History</h3>
+<p><strong>History</strong> threats pick up where selection threats leave off. Whereas selection threats are reasons that the groups might differ <em>before</em> the treatment occurs, history threats occur between the start of the treatment and the posttest observation.</p>
+<p>Before/after studies (aka, pre-post studies) are particularly susceptible to history threats. In these designs researchers assess the same group of people before and after some intervention. There is no separate control or comparison group. The assumed counterfactual for what would have happened in the absence of the intervention is simply the pre-intervention observation of the group.</p>
+<p>Okabayashi et al. <span class="citation">(<a href="#ref-okabayashi:2006">2006</a>)</span> is a good example. In this study, the researchers conducted a baseline survey and then began a school-based malaria control program. Nine months later, they conducted a post-program survey with the same principals, teachers, and students. On the basis of the pre-post differences they observed, the authors concluded the educational program had a positive impact on preventive behaviors. For instance, student-reported use of bednets (“always”) increased from 81.8% before the program to 86.5% after the program.</p>
+<p>It’s possible that the program changed behavior, but without evidence to the contrary, it’s also possible that something else was responsible for the change. Maybe another program was active at the same time. Maybe there was a marketing campaign for a new type of bednet just hitting the market. Maybe the posttest occurred during the rainy season when people know the risk of malaria is greater. These are all examples of possible history threats that could invalidate causal inference about the impact of the program on behavior change.</p>
+</div>
+<div id="maturation" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Maturation</h3>
+<p>Single group designs like Okabayashi et al. <span class="citation">(<a href="#ref-okabayashi:2006">2006</a>)</span> are also subject to <strong>maturation</strong> threats. The basic issue is that people, things, and places change over time, even in the absence of any treatment. This is easy to imagine if you picture the learning that happens in one year of school for young kids. Comparing kids at the end of the year to their younger selves a year earlier and making a causal inference about some program or intervention is problematic because kids gain new cognitive skills as they age. Maybe the change you observe is due to a specific program or intervention, or maybe it is just the passage of time. Without a comparison group of similar aged kids it can be hard to know the difference.</p>
+</div>
+<div id="regression-artifacts" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> Regression Artifacts</h3>
+<p>This threat occurs most often when people are selected for a study because they have very high or very low scores on some outcome. It’s often the case that scores will be less extreme at retest, independent of any intervention. This statistical phenomenon is called <strong>regression to the mean</strong>. It happens because of measurement error and imperfect correlation.</p>
+</div>
+<div id="attrition" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> Attrition</h3>
+<p><strong>Attrition</strong> happens when study participants do not participate in outcome assessments. When attrition is uneven between study groups, it can be described as systematic attrition. Just like selection bias makes groups unequal at the beginning of a study, <em>attrition bias makes groups unequal at the end of the study</em> for reasons other than the treatment under investigation.</p>
+<p>For instance, let’s say that researchers recruit depressed patients to take part in an RCT of a new psychotherapy that is delivered over the course of 10 weekly sessions. If the most depressed patients in the treatment group drop out because the schedule is too demanding, then the analysis would compare the control group (with the most depressed patients still enrolled) to a treatment group that is missing the most depressed patients.<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a> It would appear as if the treatment group got better on average, but part or all of the observed treatment effect would be due to attrition of the most depressed patients from the treatment group, not because of the treatment.</p>
+</div>
+<div id="testing" class="section level3">
+<h3><span class="header-section-number">4.2.7</span> Testing</h3>
+<p>Repeated administrations of the same test can have an effect on test scores, independent of the program that the test is designed to evaluate. For instance, practice can lead to better performance on cognitive assessments, and this improved performance can be mistaken as a treatment effect if there is not a comparison group. <strong>Testing</strong> threats decrease as the interval between administrations increases.</p>
+</div>
+<div id="instrumentation" class="section level3">
+<h3><span class="header-section-number">4.2.8</span> Instrumentation</h3>
+<p>Testing threats describe changes to how participants perform on tests over time due to repeated administrations. When the tests themselves change over time we call this an <strong>instrumentation</strong> threat. For instance, if a study uses different microscopes or changes measurement techniques for the posttest assessment, it’s possible that differences in blood smear results could be incorrectly attributed to an intervention.</p>
+</div>
+<div id="additive-and-interactive-effects" class="section level3">
+<h3><span class="header-section-number">4.2.9</span> Additive and Interactive Effects</h3>
+<p>Unfortunately, a study can be subject to more than one of these threats to internal validity. It’s possible for threats to work in opposite directions, or to interact and make matters a lot worse. For instance, if Okabayashi et al. <span class="citation">(<a href="#ref-okabayashi:2006">2006</a>)</span> had decided to compare students who received the program to students from another part of the country who did not receive the program, they might have observed a selection x history threat. The two groups of students might have been different to begin with (selection) and might have had different experiences over the study period unrelated to their treatment or non-treatment status (history).</p>
+</div>
+</div>
+<div id="research-designs-to-estimate-causal-impact" class="section level2">
+<h2><span class="header-section-number">4.3</span> Research Designs to Estimate Causal Impact</h2>
+<p>If given the choice, most researchers would choose an experimental design to estimate causal impact. Experiments are subject to bias when things don’t go as planned (e.g., systematic attrition), but a good experiment is subject to fewer threats to internal validity compared to every other design for two main reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p>The cause always comes before the effect in an experiment (and quasi-experiment) because the treatment is “manipulated”; some people get the treatment but others don’t. After the treatment is administered to some people, outcomes are observed. Cause before effect.</p></li>
+<li><p>Random assignment makes plausible alternative explanations implausible. This is the big one. Whereas other designs require stronger assumptions about selection threats, experiments dismiss them by distributing observable and unobservable differences approximately equally across study arms.</p></li>
+</ol>
+<div class="rmdplay">
+<p>
+RCTs are not without serious critics. They don’t come more serious than <a href="https://en.wikipedia.org/wiki/Angus_Deaton">Professor Sir Angus Deaton</a>. In 2015 Deaton was awarded the Nobel Prize in Economics for his work on the measurement of poverty and inequality. In this video he presents a counterargument to <a href="https://en.wikipedia.org/wiki/Abhijit_Banerjee">Abhijit Banerjee’s</a> defense of RCTs. Video from the entire 2012 “Debates in Development” conference can be viewed <a href="https://www.youtube.com/playlist?list=PLYZdiPCblNEULWpJALSk_nNIJcn51bazU">here</a>.
+</p>
+</div>
+<iframe src="https://youtu.be/yiqbmiEalRU" width="672" height="400px">
+</iframe>
+<div id="when-life-gives-you-non-experimental-data" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> When Life Gives You Non-Experimental Data</h3>
+<p>As great as experiments are for mimicking the counterfactual, it’s not always logistically possible, politically feasible, or ethically justified to run an RCT. Most often, researchers have to infer causal inference from non-experimental data. How this is done in practice is shaped in part by disciplinary traditions.</p>
+<p>For instance, psychologists trained in the tradition of Campbell tend to focus on design choices you can make <em>before</em> a study is launched to improve causal inference by ruling out alternative explanations <span class="citation">(Shadish, Cook, and Campbell <a href="#ref-scc">2003</a>)</span>. This is the idea of the <em>primacy of control by design</em>—try to prevent confounding or at least investigate the plausibility of alternative explanations by adding design elements like more pre-test observations and comparison groups.</p>
+<p>Economists have a similar preference for strong designs, but their approach to causal inference tends to focus more on the analysis that comes <em>after</em> data collection. Whereas psychologists might ask about threats to internal validity, economists are likely to ask “what’s your identification strategy?”. Econometricians Angrist and Krueger <span class="citation">(<a href="#ref-angrist:1999">1999</a>)</span> defined <strong>identification strategies</strong> as “the combination of a clearly labeled source of identifying variation in a causal variable and the use of a particular econometric technique to exploit this information.” For instance, economists spend a lot of time thinking about the returns on schooling. The most common identification strategy to estimate the impact of schooling (the proposed causal variable) uses regression to control for potential confounds.</p>
+<p>In addition to regression, the econometrics (or ’metrics, if you are cool) toolkit for non-experimental data also includes instrumental variables, regression discontinuity, and differences-in-differences <span class="citation">(Angrist and Pischke <a href="#ref-angrist:2015">2015</a>)</span>. Let’s add interrupted time series to the list. Psychologists would label these <strong>quasi-experimental</strong> designs because they involve some manipulable cause that occurs before an effect is measured but <em>lack random assignment</em>.</p>
+<p>Let’s not forget about epidemiology. Epidemiologists are typically associated with observational designs such as cross-sectional surveys, case-control studies, and cohort studies, though plenty of epidemiologists design and implement RCTs. Epidemiologists do not typically distinguish between quasi-experimental and other non-experimental (or observational) designs like case-control or cohort studies.</p>
+<p>As you can see, practitioners within every discipline working on global health challenges are interested causal relationships, even when RCTs are not possible. So when life gives you non-experimental data, make causal inference! (and assumptions!)</p>
 
+</div>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-scc">
+<p>Shadish, W. R., T. D. Cook, and D. T. Campbell. 2003. <em>Experimental and Quasi-Experimental Designs for Generalized Causal Inference</em>. Cengage Learning. <a href="http://amzn.to/1E8UYIG" class="uri">http://amzn.to/1E8UYIG</a>.</p>
+</div>
+<div id="ref-sachs:2002">
+<p>Sachs, Jeffrey, and Pia Malaney. 2002. “The Economic and Social Burden of Malaria.” <em>Nature</em> 415 (6872): 680–85.</p>
+</div>
+<div id="ref-campbell:1957">
+<p>Campbell, Donald T. 1957. “Factors Relevant to the Validity of Experiments in Social Settings.” <em>Psychological Bulletin</em> 54 (4): 297.</p>
+</div>
+<div id="ref-bradley:1986">
+<p>Bradley, AK, AM Greenwood, P Byass, BM Greenwood, K Marsh, S Tulloch, and R Hayes. 1986. “Bed-Nets (Mosquito-Nets) and Morbidity from Malaria.” <em>The Lancet</em> 328 (8500): 204–7.</p>
+</div>
+<div id="ref-okabayashi:2006">
+<p>Okabayashi, Hironori, Pimpimon Thongthien, Pratap Singhasvanon, Jitra Waikagul, Sornchai Looareesuwan, Masamine Jimba, Shigeyuki Kano, et al. 2006. “Keys to Success for a School-Based Malaria Control Program in Primary Schools in Thailand.” <em>Parasitology International</em> 55 (2): 121–26.</p>
+</div>
+<div id="ref-angrist:1999">
+<p>Angrist, Joshua D, and Alan B Krueger. 1999. “Empirical Strategies in Labor Economics.” In, edited by Orley C. Ashenfelter and David Card. Vol. 3. North Holland, Amsterdam: Elsevier.</p>
+</div>
+<div id="ref-angrist:2015">
+<p>Angrist, Joshua D, and J. Pischke. 2015. <em>Mastering ’Metrics: The Path from Cause to Effect</em>. Princeton; Oxford: Princeton University Press.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="29">
+<li id="fn29"><p>In econometrics you might see this referred to as <em>ceteris paribus</em> conditions, or <em>other things equal</em>.<a href="causeeffect.html#fnref29">↩</a></p></li>
+<li id="fn30"><p>We could also talk about effects on other units like schools, clinics, etc, but it’s easier to think about “subjects” as being people.<a href="causeeffect.html#fnref30">↩</a></p></li>
+<li id="fn31"><p>This figure is based on <a href="https://raw.githubusercontent.com/egap/methods-guides/master/causal-inference/PO.jpg">an illustration</a> created by egap. See their <a href="http://egap.org/methods-guides/10-things-you-need-know-about-causal-inference">helpful guide to causal inference</a>.<a href="causeeffect.html#fnref31">↩</a></p></li>
+<li id="fn32"><p>We won’t consider possible bidirectonal (reciprocal) causation in this book.<a href="causeeffect.html#fnref32">↩</a></p></li>
+<li id="fn33"><p>Recruiting depressed patients sounds like it could be a situation of regression to the mean, but there’s no cause for concern because there is a control group that would experience the same phenomenon.<a href="causeeffect.html#fnref33">↩</a></p></li>
+</ol>
 </div>
             </section>
 
