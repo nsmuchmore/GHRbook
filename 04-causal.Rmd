@@ -163,7 +163,7 @@ RCTs are not without serious critics. They don't come more serious than [Profess
 ```
 
 ```{r deaton, echo=F}
-knitr::include_url("https://youtu.be/yiqbmiEalRU")
+knitr::include_url("https://www.youtube.com/embed/yiqbmiEalRU")
 ```
 
 ### When Life Gives You Non-Experimental Data
