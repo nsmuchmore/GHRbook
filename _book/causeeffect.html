@@ -25,8 +25,13 @@
 
 <meta name="author" content="Eric P. Green">
 
-<meta name="date" content="2016-09-19">
+<meta name="date" content="2016-09-23">
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -154,7 +159,21 @@
 <li class="chapter" data-level="5.3.2" data-path="logic.html"><a href="logic.html#logic-models"><i class="fa fa-check"></i><b>5.3.2</b> Logic Models</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="6" data-path="measurement.html"><a href="measurement.html"><i class="fa fa-check"></i><b>6</b> Measure Twice, Cut Once</a><ul>
+<li class="chapter" data-level="6.1" data-path="measurement.html"><a href="measurement.html#what-is-an-indicator"><i class="fa fa-check"></i><b>6.1</b> What is an Indicator?</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="measurement.html"><a href="measurement.html#process-indicators"><i class="fa fa-check"></i><b>6.1.1</b> PROCESS INDICATORS</a></li>
+<li class="chapter" data-level="6.1.2" data-path="measurement.html"><a href="measurement.html#outcomeimpact-indicators"><i class="fa fa-check"></i><b>6.1.2</b> OUTCOME/IMPACT INDICATORS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="measurement.html"><a href="measurement.html#selecting-good-indicators"><i class="fa fa-check"></i><b>6.2</b> Selecting Good Indicators</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="measurement.html"><a href="measurement.html#dreamy-indicators"><i class="fa fa-check"></i><b>6.2.1</b> DREAMY INDICATORS™</a></li>
+<li class="chapter" data-level="6.2.2" data-path="measurement.html"><a href="measurement.html#use-international-standards"><i class="fa fa-check"></i><b>6.2.2</b> USE INTERNATIONAL STANDARDS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="measurement.html"><a href="measurement.html#evaluating-data-collection-instruments-and-methods"><i class="fa fa-check"></i><b>6.3</b> Evaluating Data Collection Instruments and Methods</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="measurement.html"><a href="measurement.html#psychometrics"><i class="fa fa-check"></i><b>6.3.1</b> PSYCHOMETRICS</a></li>
+<li class="chapter" data-level="6.3.2" data-path="measurement.html"><a href="measurement.html#to-use-adapt-or-develop"><i class="fa fa-check"></i><b>6.3.2</b> TO USE, ADAPT, OR DEVELOP?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <li><a href="http://www.designsandmethods.com" target="blank">Eric P. Green</a></li>
 
@@ -180,6 +199,13 @@
 <p>Do bednets prevent malaria? Do vouchers increase access to treatment? Do cash transfers improve mental health? What these research questions share in common is a focus on <strong>causal impact</strong>—a difference in outcomes that can be attributed to a treatment, intervention, policy, or exposure. In many ways, as an applied field global health <em>is</em> the study of causal impact.</p>
 <div id="fundamental-challenge-of-causal-inference" class="section level2">
 <h2><span class="header-section-number">4.1</span> Fundamental Challenge of Causal Inference</h2>
+<div class="rmdplay">
+<p>
+The fundamental challenge of causal inference (<a href="https://drive.google.com/open?id=0Bxn_jkXZ1lxubkpSdUd2M2RON1k">PDF slide deck</a>)
+</p>
+</div>
+<iframe src="https://warpwire.duke.edu/w/E2IBAA/" width="672" height="400px">
+</iframe>
 <p>In an ideal research world we could answer the question, “Do bednets prevent malaria?”, by cloning you and simultaneously giving a bednet to you but not your clone. This would help us to understand what really happens in the absence of the intervention because the only difference between you and your clone would be that one of you received the intervention.<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a></p>
 <p>Of course we don’t have clones, and we can’t <em>simultaneously</em> give you a bednet and not give you a bednet. We only get to observe what happens to you, not a clone of you who did not receive the intervention. So we have to ask, hypothetically, what would have happened if you had not been given a bednet. This hypothetical situation—<em>what would have happened in the absence of the intervention</em>—is referred to as the <strong>counterfactual</strong> (or “potential outcome” in the language of the <a href="https://en.wikipedia.org/wiki/Rubin_causal_model">Neyman–Rubin causal model</a>).</p>
 <p>Not being able to observe the counterfactual directly is the so called “fundamental challenge of causal inference”. So you could also say that this is the primary reason we need books about research designs. Much of what follows in this book deals with strategies for causal inference in the absence of a true counterfactual.</p>
@@ -479,6 +505,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

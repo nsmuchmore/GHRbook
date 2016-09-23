@@ -25,8 +25,13 @@
 
 <meta name="author" content="Eric P. Green">
 
-<meta name="date" content="2016-09-19">
+<meta name="date" content="2016-09-23">
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -154,7 +159,21 @@
 <li class="chapter" data-level="5.3.2" data-path="logic.html"><a href="logic.html#logic-models"><i class="fa fa-check"></i><b>5.3.2</b> Logic Models</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="6" data-path="measurement.html"><a href="measurement.html"><i class="fa fa-check"></i><b>6</b> Measure Twice, Cut Once</a><ul>
+<li class="chapter" data-level="6.1" data-path="measurement.html"><a href="measurement.html#what-is-an-indicator"><i class="fa fa-check"></i><b>6.1</b> What is an Indicator?</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="measurement.html"><a href="measurement.html#process-indicators"><i class="fa fa-check"></i><b>6.1.1</b> PROCESS INDICATORS</a></li>
+<li class="chapter" data-level="6.1.2" data-path="measurement.html"><a href="measurement.html#outcomeimpact-indicators"><i class="fa fa-check"></i><b>6.1.2</b> OUTCOME/IMPACT INDICATORS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="measurement.html"><a href="measurement.html#selecting-good-indicators"><i class="fa fa-check"></i><b>6.2</b> Selecting Good Indicators</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="measurement.html"><a href="measurement.html#dreamy-indicators"><i class="fa fa-check"></i><b>6.2.1</b> DREAMY INDICATORS™</a></li>
+<li class="chapter" data-level="6.2.2" data-path="measurement.html"><a href="measurement.html#use-international-standards"><i class="fa fa-check"></i><b>6.2.2</b> USE INTERNATIONAL STANDARDS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="measurement.html"><a href="measurement.html#evaluating-data-collection-instruments-and-methods"><i class="fa fa-check"></i><b>6.3</b> Evaluating Data Collection Instruments and Methods</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="measurement.html"><a href="measurement.html#psychometrics"><i class="fa fa-check"></i><b>6.3.1</b> PSYCHOMETRICS</a></li>
+<li class="chapter" data-level="6.3.2" data-path="measurement.html"><a href="measurement.html#to-use-adapt-or-develop"><i class="fa fa-check"></i><b>6.3.2</b> TO USE, ADAPT, OR DEVELOP?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <li><a href="http://www.designsandmethods.com" target="blank">Eric P. Green</a></li>
 
@@ -560,6 +579,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

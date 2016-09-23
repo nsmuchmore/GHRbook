@@ -10,6 +10,14 @@ Do bednets prevent malaria? Do vouchers increase access to treatment? Do cash tr
 
 ## Fundamental Challenge of Causal Inference
 
+```{block, type='rmdplay'}
+The fundamental challenge of causal inference ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxubkpSdUd2M2RON1k))
+```
+
+```{r ch4causal, echo=F}
+knitr::include_url("https://warpwire.duke.edu/w/E2IBAA/")
+```
+
 In an ideal research world we could answer the question, "Do bednets prevent malaria?", by cloning you and simultaneously giving a bednet to you but not your clone. This would help us to understand what really happens in the absence of the intervention because the only difference between you and your clone would be that one of you received the intervention.[^ceteris] 
 
 [^ceteris]: In econometrics you might see this referred to as *ceteris paribus* conditions, or *other things equal*.
