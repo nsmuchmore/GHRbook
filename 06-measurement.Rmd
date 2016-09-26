@@ -1,12 +1,6 @@
 # Indicators {#indicators}
 
-**Indicators** are observable measures of study constructs. Part of developing a good logic model is to identify indicators for each part of the hypothesized causal chain. 
-
-In the Kenya "sugar daddies" study described in [previous chapter](#logic), the authors tracked program processes—such as ***inputs*** (expenditures) and ***outputs*** (number of discussion groups conducted)—and measured study ***outcomes*** such as "reduction in unprotected sex". Since they could not observe unprotected sex directly (and doubted that *self-reported* unprotected sex in the past 9 months would be honest), they used a proxy indicator—the incidence of childbirth. 
-
-Of course in the context of a generalized HIV epidemic, reducing unprotected sex is an important outcome, but it's not the ultimate goal. The desired ***impact*** of national HIV prevention programs is to reduce HIV incidence. The indicator of progress at the national level is thus the rate of new HIV infections, defined as the number of new HIV infections per 1,000 uninfected population [@whohiv:2015].
-
-To define a construct in terms of an indicator and to specify its measurement is to **operationalize** the construct. This is a key step in the design of every study. In this chapter we'll frame the discussion of how to operationalize study constructs in terms of causal chains, but the lessons apply more broadly.
+**Indicators** are observable measures of study constructs. Part of developing a good logic model is identifing indicators for each part of the hypothesized causal chain.  To define a construct in terms of an indicator and to specify its measurement is to **operationalize** the construct. In this chapter we'll frame the discussion of how to operationalize study constructs in terms of causal chains, but the lessons apply more broadly.
 
 ## Indicators Throughout the Causal Chain
 
@@ -18,7 +12,7 @@ To demonstrate how to identify indicators throughout the causal chain, we'll use
 
 It's hard to predict who will suffer life threatening complications, so there is debate about how to best intervene. Some argue that we should invest in interventions to increase facility deliveries so that women would be better able to access emergency obstetric care if needed. Others point to the low frequency of complications and the high prevalence of poor quality care at medical facilities as a reason that women should be supported in their decision to stay at home where the family can better support them.
 
-At the time Jokhio and colleagues conducted this study, facility deliveries in Pakistan were rare. The authors cited descriptive studies showing that most women in Pakistan deliver at home (80%) without a skilled birth attendant (89%). Only 1 out of 20 women who experience complications makes it to a medical facility with emergency obstetric care.
+At the time Jokhio and colleagues conducted this study, facility deliveries in Pakistan were rare. The authors cited descriptive studies showing that most women in Pakistan delivered at home (80%) without a skilled birth attendant (89%). Only 1 out of 20 women who experienced complications made it to a medical facility with emergency obstetric care.
 
 Given the high prevalence of home deliveries, Jokhio et al. tested an intervention that trained traditional birth attendants—the mothers, aunts, sisters, and neighbors who already help women through childbirth but have no formal medical training—and provided them with delivery kits. The training lasted 3 days and covered topics such as checking for danger signs, conducing a clean delivery using the provided kits, and making emergency referrals. Trained TBAs were asked to visit with women at least three times during the pregnancy to look for danger signs, and then again for the delivery.
 
@@ -30,15 +24,15 @@ knitr::include_graphics("images/JokhioLogic.png", dpi = NA)
 
 ### PROCESS INDICATORS{-}
 
-Indicators that define inputs, activities, and outputs in a logic model can be decribed as **process indicators**. These steps in a logic model capture how a program is implemented. In short, the "M" (monitoring) in M&E. 
+Indicators that define inputs, activities, and outputs in a logic model can be decribed as **process indicators**. These steps in a logic model capture how a program is implemented. In short, the "M" (monitoring) in M&E.
 
-As researchers we also care about collecting good process data, but usually as a means to developing a better understanding why programs do or don't work. For instance, we might want to track costs to be able to estimate cost-effectiveness. Or we might want to know if the intervention was delivered according to plan or not. Researchers often rely on program parnters to deliver the intervention under investigation, so issues like fidelity to treatment and compliance with study protocols are important to track closely. Let's review a few examples of process indicators that intervention researchers often care about.
+As researchers we care about collecting good process/monitoring data in order to develop a better understanding why programs do or don't work. For instance, we might want to track program costs so that we can estimate cost-effectiveness. Or we might want to know if the intervention was delivered according to plan or not. Researchers often rely on program parnters to deliver the intervention under investigation, so issues like fidelity to treatment and compliance with study protocols are important to track closely. Let's review a few examples of process indicators that intervention researchers often care about.
 
 #### Inputs{-}
 
 As you'll recall from the previous chapter, inputs are the resources needed to implement the program. The most basic input of all is money, therefore one indicator is program cost.
 
-Impact evaluations produce estimates of the effectiveness of a program or intervention. Does the program "work"? For some public health and behavioral health nerds, evidence of impact is enough because they are narrowly focused on developing and testing new interventions. Not true for policymakers who are thinking about delivering programs at scale with limited public funding; they want to know whether the intervention is *cost-effective*, not just effective.[^T4] A cost-effectiveness analysis requires close tracking of the cost of all program inputs. Unfortunately, Jokhio et al. don't tell us about the cost of the TBA training program, other than to say the intervention was designed to be "low cost and sustainable".
+Impact evaluations produce estimates of the effectiveness of a program or intervention. Does the program "work"? For some public health and behavioral health nerds, evidence of impact is enough because they are narrowly focused on developing and testing new interventions. Not true for policymakers who are thinking about delivering programs at scale with limited public funding; they want to know whether the intervention is *cost-effective*, not just effective.[^T4] A cost-effectiveness analysis requires close tracking of the cost of all program inputs. Jokhio et al. don't tell us about the cost of the TBA training program, other than to say the intervention was designed to be "low cost and sustainable".
 
 [^T4]: As discussed in Chapter 1, the gap between developing evidence of effective programs and actually implementing them at scale is an example of a "T4" translational research bottleneck.
 
@@ -60,7 +54,7 @@ The first step in developing a measure of fidelity is to identify what constitut
 care; 
 * and care of the newborn. 
 
-There are two levels of training we could evaluate: the "training of the trainers" (TOT) and the competency of the trainees.
+There are two levels of training we could evaluate: the quality of the training and the resulting knowledge of the TBAs who were trained.
 
 First, we want to make sure that the people training the TBAs (i) adhere to the training manual and (ii) correctly present all of the training material. We might do this by creating a TOT fidelity checklist that can be used to assess adherence and competence [@breitenstein:2010]. For instance:
 
@@ -217,8 +211,15 @@ tp=c("Roll Back Malaria (2013). [Household Survey Indicators for Malaria](http:/
      ))
 names(addres) <- c("Topic", "Resource")
 
-knitr::kable(addres, format = "html", 
-#caption = ''
-) %>%
+knitr::kable(addres, format = "html") %>%
   html_table_width(c(100,500))
+```
+
+## Share Feedback{-}
+
+This book is a work in progress. You'd be doing me a big favor by taking a moment to tell me what you think about this chapter.
+
+```{r CH06feedback, echo=F}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_2gGmY5g1TTEPl3v",
+height="600px")
 ```
