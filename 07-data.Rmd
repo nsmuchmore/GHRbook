@@ -75,7 +75,7 @@ Without a "neutral" middle option, this response set would be referred to as **f
 It's also possible to position the two extremes of a scale on either end of a horizontal line and ask respondents to draw an intersecting vertical line somewhere along the line. This is called a **visual analogue scale**. Web or tablet administration makes it possible to ask the respondent to move a virtual slider to the desired position between the two anchors. Such scales blur the lines between ordinal and continuous measurement. 
 ```
 
-##### Translating the survey{-}
+#### Translating the survey{-}
 
 It's essential to prepare a high quality translation when materials are presented to participants in a different language. There are various approaches to translation, but one that seems to work well is forward translation by a skilled translator and then blind back-translation by a second skilled translator. The key word here is *blind*; the back translation is worthless if the translator has access to the original version. This process makes it possible to look for problems by comparing the original version and the back-translated version. Whenever a potential loss or change of meaning is detected, it's necessary to review all three versions (original, translated, back-translated) and determine the cause. Once discrepancies are resolved, it is ideal to have translated instrument reviewed by language experts and subject matter experts. Avoid plans to translate 'on-the-fly'.
 
@@ -233,7 +233,7 @@ One measure of depression is the Beck Depression Inventory [@beck:1996]. The BDI
 
 Each item is a manifest variable—something that we measure directly by asking the question. The latent variable depression is measured indirectly by summing a person's responses to all 21 manifest variables to create the BDI-II scale score. 
 
-#### Determine factor structure{-}
+#### Determining the factor structure of scales{-}
 
 ##### Exploratory factor analysis{-}
 
@@ -269,7 +269,7 @@ Well, you have a few options. distefano:2009 lump them into two buckets: refined
 	* **Sum standardized scores.** With this method you would first standardize each item to have the same mean and standard deviation. It might be a good idea if the standard deviations of the items vary quite a bit. 
 2. **Refined methods** may produce more exact scores since items are weighted empirically (vs equal weighting in non-refined methods) and relationships between factors are reflected in the scoring, but they are more complex and require the analyst to make a number of decisions along the way that can produce very different results. 
 
-#### Evaluate psychometrics{-}
+#### Evaluating psychometrics{-}
 
 When it comes to evaluating scales like the BDI-II, we often look at several **psychometric** properties that we can group generally into two buckets: reliability and validity. Here's a simple example that highlights the basic difference between these terms.
 
@@ -385,7 +385,7 @@ To evaluate the overall accuracy of the test, we can calculate the **area under 
 ***What is the difference between overall accuracy `((true positives + true negatives) / total)` and AUC?*** Recall that the numbers you can calculate in a confusion matrix are dependent on the threshold you set for what counts as a positive test. Different thresholds (cutoffs) result in different patters of misclassification. AUC, on the other hand, takes into account sensitivity and specificity associated with all possible cutoffs. 
 ```
 
-#### Adapt instruments for new settings{-}
+#### Adapting instruments for new settings{-}
 
 The BDI-II appeared to be an accurate measure of depression among HIV-positive adolescents in Malawi according to @kim:2014. This is not always the case, however, when exporting scales developed and validated in one cultural context to another. Whenever you are considering using or adapting a survey instrument like the BDI-II for use in a new context, you should determine if the instrument is a valid measure of the construct in that new context. *Translation alone does not make an instrument a valid tool for measuring a construct in a new socio-cultural setting.* This advice from Kohrt et al. [-@kohrt:2011] just about says it all:
 
