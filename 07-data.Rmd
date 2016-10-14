@@ -261,7 +261,7 @@ knitr::include_graphics("images/3factor.jpg", dpi = NA)
 
 An under-appreciated question when it comes to scales is how to actually construct scale scores. Let's say you come up with a bunch of items that you think measure this thing—this latent construct—called depression, administer the survey with these items to a few hundred people, and conduct EFA and CFA to determine the factor structure. Now what?
 
-Well, you have a few options. distefano:2009 lump them into two buckets: refined and non-refined. 
+Well, you have a few options. @distefano:2009 lump them into two buckets: refined and non-refined. 
 
 1. **Non-refined methods** are most commonly used because they are simple to compute and easy to compare across samples.
 	* **Sum raw scores.** If there are 21 items each with a possible range of 0 to 3, you just add up the scores on each item. This is what the BDI-II does, which gives it a possible range of 0 to 63.
