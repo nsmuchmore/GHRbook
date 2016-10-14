@@ -1,3 +1,5 @@
+# (PART) Part IV: Indicators and Data Colletion {-}
+
 # Indicators {#indicators}
 
 **Indicators** are observable measures of study constructs. Part of developing a good logic model is identifing indicators for each part of the hypothesized causal chain.  To define a construct in terms of an indicator and to specify its measurement is to **operationalize** the construct. In this chapter we'll frame the discussion of how to operationalize study constructs in terms of causal chains, but the lessons apply more broadly.
