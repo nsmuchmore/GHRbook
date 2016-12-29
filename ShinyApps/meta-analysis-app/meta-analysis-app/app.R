@@ -49,7 +49,24 @@ raw$IOR <- raw$In/raw$IN
 raw$COR <- raw$Cn/raw$CN
 raw$RR <- round(raw$IOR/raw$COR, 2)
 
+## confidence interval
+# http://www.biostat.umn.edu/~susant/Fall10ph6414/Lesson14_complete.pdf
 
+
+#1. estimate RR
+raw$RR
+#2. find log(RR) which is point est for CI
+raw$lnRR <- log(raw$RR)
+#3. 1.96*se
+#4. calculate se of ln(RR)
+raw$se <- sqrt((Io/(In*IN)) + (Co/(Cn*CN)))
+#5. calculate lower and upper limits
+# ln(RR) +/- 1.96* SE LN(RR)
+raw$ul <- raw$lnRR+1.96*raw$se
+raw$ll <- raw$lnRR-1.96*raw$se
+# 6. find limits on the original scale exp(ll), exp(ul)
+raw$ciUpper <- round(exp(raw$ul), 2)
+raw$ciLower <- round(exp(raw$ll), 2)
 
 
 # Define UI for application that draws a histogram
@@ -117,11 +134,14 @@ server <- function(input, output) {
      # plot
      ggplot(raw, aes(x=RR, y=reorder(study, -weight))) +
        geom_point(shape=15, size=(weight*100)/2, color="blue") +
+       geom_errorbarh(aes(xmax=raw$ciUpper, xmin=raw$ciLower, height=0)) +
        xlim(0,2.5) +
        labs(title=paste0("Risk Ratio & 95% CI\n",
             "Outcome: Parasitaemia (mother)"),
             y="Study", 
             x="Risk Ratio") +
+       
+       
        theme_bw() +
        theme(
          panel.grid.major = element_blank(),
