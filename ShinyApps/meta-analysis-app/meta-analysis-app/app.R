@@ -11,12 +11,8 @@
 
 require(dplyr)
 require(magrittr)
-require(xlsx)
-require(reshape2)
 require(ggplot2)
-require(RColorBrewer)
 library(shiny)
-library(data.table)
 
 
 # default data ================================================================
@@ -36,10 +32,8 @@ study <- c("Fleming (1986)",
 
 In <- c(2, 4, 6, 34, 22, 30, 28, 22, 18, 18)
 IN <- c(106, 21, 23, 348, 327, 567, 172, 148, 208, 133)
-
 Cn <- c(5, 5, 6, 48, 48, 199, 35, 45, 40, 30)
 CN <- c(22, 13, 22, 178, 177, 564, 170, 134, 203, 127)
-
 weight <- c(0.045, 0.067, 0.077, 0.12, 0.115, 0.122, 0.116, 0.116, 0.111, 0.11)
 
 raw <- data.frame(
@@ -69,88 +63,25 @@ ui <- fluidPage(
    sidebarLayout(
       sidebarPanel(
         
-         # Fleming 
-         sliderInput("A",
-                     "Fleming (1986)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.08),
-         
-         # Greenwood
-         sliderInput("B",
-                     "Greenwood (1989)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.50),
-         
-         # Nahlen 
-         sliderInput("C",
-                     "Nahlen (1989)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.96),
-         
-         # Parise I
-         sliderInput("D",
-                     "Parise I (1998)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.36),
-         
-         # Parise II 
-         sliderInput("E",
-                     "Parise II (1998)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.25),
-         
-         # Shulman 
-         sliderInput("F",
-                     "Shulman (1999)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.15),
-         
-         # Njagi I
-         sliderInput("G",
-                     "Njagi I (2003)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.79),
-         
-         # Njagi II
-         sliderInput("H",
-                     "Njagi II (2003)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.44),
-         
-         # Challis 
-         sliderInput("I",
-                     "Challis (2004)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.44),
-         
-         # Menendez 
-         sliderInput("J",
-                     "Menendez (2008)",
-                     min = 0,
-                     max = 10,
-                     step = 0.01,
-                     value = 0.57)
-         
-         
-         
+        helpText("Use the dropdown menu and slider to change
+                 the risk ratio (RR) for a study.  The table
+                 and graphic will update with new values."),
+        
+        # select a study
+        selectInput("study", "Choose study::",
+                    choices=levels(raw$study),
+                    selectize=TRUE,
+                    selected=NULL),
+        
+        sliderInput("RR",
+                    "Change Risk Ratio (RR)",
+                    min = 0,
+                    max = 10,
+                    step = 0.01,
+                    value = 0.08),
+        
+        actionButton("update", "Update")
+        
       ),
       
       
@@ -161,9 +92,11 @@ ui <- fluidPage(
       # Show a plot of the generated distribution
       mainPanel(
         
-        dataTableOutput("table"),
+        plotOutput("forestPlot"),
         
-         plotOutput("forestPlot")
+        dataTableOutput("table")
+        
+
          
       )
    )
@@ -185,7 +118,8 @@ server <- function(input, output) {
      ggplot(raw, aes(x=RR, y=reorder(study, -weight))) +
        geom_point(shape=15, size=(weight*100)/2, color="blue") +
        xlim(0,2.5) +
-       labs(title="Risk Ratio for Change in Parasitaemia (mother)",
+       labs(title=paste0("Risk Ratio & 95% CI\n",
+            "Outcome: Parasitaemia (mother)"),
             y="Study", 
             x="Risk Ratio") +
        theme_bw() +
