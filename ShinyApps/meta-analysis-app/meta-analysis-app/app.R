@@ -9,67 +9,92 @@
 
 # setup =======================================================================
 
-require(dplyr)
-require(magrittr)
-require(ggplot2)
+library(dplyr)
+library(magrittr)
+library(ggplot2)
 library(shiny)
-
 
 # default data ================================================================
 
 
-#study <- rep(LETTERS[1:10], length=10)
+# default data set
+
+
 study <- c("Fleming (1986)", 
-          "Greenwood (1989)",
-          "Nahlen (1989)",
-          "Parise I (1998)",
-          "Parise II (1998)",
-          "Shulman (1999)",
-          "Njagi I (2003)",
-          "Njagi II (2003)",
-          "Challis (2004)",
-          "Menendez (2008)")          
+           "Greenwood (1989)",
+           "Nahlen (1989)",
+           "Parise I (1998)",
+           "Parise II (1998)",
+           "Shulman (1999)",
+           "Njagi I (2003)",
+           "Njagi II (2003)",
+           "Challis (2004)",
+           "Menendez (2008)")
 
-In <- c(2, 4, 6, 34, 22, 30, 28, 22, 18, 18)
-IN <- c(106, 21, 23, 348, 327, 567, 172, 148, 208, 133)
-Cn <- c(5, 5, 6, 48, 48, 199, 35, 45, 40, 30)
-CN <- c(22, 13, 22, 178, 177, 564, 170, 134, 203, 127)
-weight <- c(0.045, 0.067, 0.077, 0.12, 0.115, 0.122, 0.116, 0.116, 0.111, 0.11)
 
-raw <- data.frame(
+year <- c(1986, 1989, 1989, 1998,
+          1998, 1999, 2003, 2003,
+          2004, 2008)
+
+# treatment - yes, no, N
+Ty <- c(2, 4, 6, 34, 
+        22, 30, 28, 22, 
+        18, 18)
+TN <- c(106, 21, 23, 348, 
+        327, 567, 172, 148, 
+        208, 133)
+Tno <- TN-Ty
+
+# control - yes, no, N
+Cy <- c(5, 5, 6, 48, 
+        48, 199, 35, 45, 
+        40, 30)
+CN <- c(22, 13, 22, 178, 
+        177, 564, 170, 134, 
+        203, 127)
+Cno <- CN-Cy
+
+# weight
+weight <- c(0.045, 0.067, 0.077, 0.12, 
+            0.115, 0.122, 0.116, 0.116, 
+            0.111, 0.11)
+
+
+
+default <- data.frame(
   study=study,
-  In=as.numeric(In),
-  IN=as.numeric(IN),
-  Cn=as.numeric(Cn),
+  year=year,
+  Ty=as.numeric(Ty),
+  Tno=as.numeric(Tno),
+  TN=as.numeric(TN),
+  Cy=as.numeric(Cy),
+  Cno=as.numeric(Cno),
   CN=as.numeric(CN),
   weight=as.numeric(weight)
 )
 
-raw$IOR <- raw$In/raw$IN
-raw$COR <- raw$Cn/raw$CN
-raw$RR <- round(raw$IOR/raw$COR, 2)
 
-## confidence interval
-# http://www.biostat.umn.edu/~susant/Fall10ph6414/Lesson14_complete.pdf
+# this does all the pieces needed for the plot --------------------------------
+default <- 
+  default %>%
+  mutate(RR = round((Ty/TN)/(Cy/CN), 2),
+         ciUpper=round(exp(log(RR)+1.96*(sqrt((Tno/(Ty*TN)) + ((Cno/(Cy*CN)))))), 2),
+         ciLower=round(exp(log(RR)-1.96*(sqrt((Tno/(Ty*TN)) + ((Cno/(Cy*CN)))))), 2)
+  )
 
-
-#1. estimate RR
-raw$RR
-#2. find log(RR) which is point est for CI
-raw$lnRR <- log(raw$RR)
-#3. 1.96*se
-#4. calculate se of ln(RR)
-raw$se <- sqrt((Io/(In*IN)) + (Co/(Cn*CN)))
-#5. calculate lower and upper limits
-# ln(RR) +/- 1.96* SE LN(RR)
-raw$ul <- raw$lnRR+1.96*raw$se
-raw$ll <- raw$lnRR-1.96*raw$se
-# 6. find limits on the original scale exp(ll), exp(ul)
-raw$ciUpper <- round(exp(raw$ul), 2)
-raw$ciLower <- round(exp(raw$ll), 2)
+# this calculates the summary -------------------------------------------------
+# make a summary matrix that will be updated based on the default data frame
+# when the default data frame changes, the summary value should change too
+  summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
+  colnames(summary) <- colnames(default)
+  summary$study <- c("Summary")
+  summary$RR <- round(sum(default$RR*(default$Ty+default$CN))/sum(default$TN+default$CN), 2)
+  
+  # data frame of prior + summary
+  toPlot <- as.data.frame(rbind(default, summary))
 
 
-# Define UI for application that draws a histogram
+# Define UI for application that ddefaults a histogram
 ui <- fluidPage(
    
    # Application title
@@ -80,24 +105,41 @@ ui <- fluidPage(
    sidebarLayout(
       sidebarPanel(
         
-        helpText("Use the dropdown menu and slider to change
-                 the risk ratio (RR) for a study.  The table
-                 and graphic will update with new values."),
+        # helpText("Use the dropdown menu and slider to change
+        #          the risk ratio (RR) for a study.  The table
+        #          and graphic will update with new values."),
         
-        # select a study
-        selectInput("study", "Choose study::",
-                    choices=levels(raw$study),
-                    selectize=TRUE,
-                    selected=NULL),
+        helpText("Use the check boxes to exclude a study a 
+                 study from the meta-analysis.  Watch as the summary updates."),
         
-        sliderInput("RR",
-                    "Change Risk Ratio (RR)",
-                    min = 0,
-                    max = 10,
-                    step = 0.01,
-                    value = 0.08),
+        # # select a study
+        # selectInput("study", "Choose study to exclude:",
+        #             choices=c("Fleming (1986)", 
+        #                       "Greenwood (1989)",
+        #                       "Nahlen (1989)",
+        #                       "Parise I (1998)",
+        #                       "Parise II (1998)",
+        #                       "Shulman (1999)",
+        #                       "Njagi I (2003)",
+        #                       "Njagi II (2003)",
+        #                       "Challis (2004)",
+        #                       "Menendez (2008)"),
+        #             selected=NULL,
+        #             selectize=TRUE),
         
-        actionButton("update", "Update")
+        checkboxGroupInput("study",
+                           label = "Check studies to exclude",
+                           choices=levels(default$study),
+                           selected=levels(default$study))
+        
+        # sliderInput("RR",
+        #             "Change Risk Ratio (RR)",
+        #             min = 0,
+        #             max = 10,
+        #             step = 0.01,
+        #             value = 0.44),
+        
+
         
       ),
       
@@ -119,25 +161,46 @@ ui <- fluidPage(
    )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic to draw forestplot and table
+
 server <- function(input, output) {
+  
+  
+  # group of studies to consider
+  toPlot <- reactive({
+    a <- subset(default, default$study %in% input$study)
+    a <- droplevels(a)
+    return(a)
+  })
+  
+  
+  # recalculate summary w/excluded study
+
   
   output$table <- renderDataTable({
     
-    raw %>%
+    
+    toPlot() %>%
       select(study, weight, RR)
+                  
     
   })
    
    output$forestPlot <- renderPlot({
 
      # plot
-     ggplot(raw, aes(x=RR, y=reorder(study, -weight))) +
-       geom_point(shape=15, size=(weight*100)/2, color="blue") +
-       geom_errorbarh(aes(xmax=raw$ciUpper, xmin=raw$ciLower, height=0)) +
-       xlim(0,2.5) +
+     
+    toPlot() %>%
+     ggplot(., aes(x=RR, y=factor(study, levels=toPlot()$study))) +
+       geom_point(shape=15, size=(toPlot()$weight*20), color="blue") +
+       
+       # summary has 0 weight so this prints over it
+       geom_point(aes(x=summary$RR, y=summary$study), shape=18, size=10, color="black") +
+       
+       geom_errorbarh(aes(xmax=toPlot()$ciUpper, xmin=toPlot()$ciLower, height=0)) +
+       xlim(0,10) +
        labs(title=paste0("Risk Ratio & 95% CI\n",
-            "Outcome: Parasitaemia (mother)"),
+                         "Outcome: Parasitaemia (mother)"),
             y="Study", 
             x="Risk Ratio") +
        
@@ -146,7 +209,8 @@ server <- function(input, output) {
        theme(
          panel.grid.major = element_blank(),
          panel.grid.minor = element_blank(),
-         panel.background = element_blank()
+         panel.background = element_blank(),
+         plot.title = element_text(hjust=0.5)
        ) +
        geom_vline(xintercept=1)
      
