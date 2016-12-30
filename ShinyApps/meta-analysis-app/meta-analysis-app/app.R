@@ -69,8 +69,7 @@ default <- data.frame(
   weight=as.numeric(weight)
 )
 
-
-# this does all the pieces needed for the plot --------------------------------
+# calculate RR, and 95% ci
 default <- 
   default %>%
   mutate(RR = round((Ty/TN)/(Cy/CN), 2),
@@ -81,61 +80,32 @@ default <-
 
 
 
-# Define UI for application that ddefaults a histogram
+# Define UI for application 
 ui <- fluidPage(
    
    # Application title
    titlePanel("Meta-Analysis"),
    
-   # sliders for impact of each study
+   # check boxes to select studies to exclude
    
    sidebarLayout(
       sidebarPanel(
         
-        # helpText("Use the dropdown menu and slider to change
-        #          the risk ratio (RR) for a study.  The table
-        #          and graphic will update with new values."),
         
-        helpText("Use the check boxes to exclude a study a 
-                 study from the meta-analysis.  Watch as the summary updates."),
-        
-        # # select a study
-        # selectInput("study", "Choose study to exclude:",
-        #             choices=c("Fleming (1986)", 
-        #                       "Greenwood (1989)",
-        #                       "Nahlen (1989)",
-        #                       "Parise I (1998)",
-        #                       "Parise II (1998)",
-        #                       "Shulman (1999)",
-        #                       "Njagi I (2003)",
-        #                       "Njagi II (2003)",
-        #                       "Challis (2004)",
-        #                       "Menendez (2008)"),
-        #             selected=NULL,
-        #             selectize=TRUE),
+        helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
+                 Watch as the summary updates.  
+                 How does the overall summary Risk Ratio depend on the included studies?"),
         
         checkboxGroupInput("study",
                            label = "Check studies to exclude",
                            choices=levels(default$study),
                            selected=levels(default$study))
         
-        # sliderInput("RR",
-        #             "Change Risk Ratio (RR)",
-        #             min = 0,
-        #             max = 10,
-        #             step = 0.01,
-        #             value = 0.44),
-        
-
-        
       ),
       
       
       
-      
-      
-      
-      # Show a plot of the generated distribution
+      # Show a forest plot and a table of included values
       mainPanel(
         
         plotOutput("forestPlot"),
@@ -183,8 +153,6 @@ server <- function(input, output) {
    
    output$forestPlot <- renderPlot({
      
-
-
   # plot
      
     toPlot() %>%
