@@ -16,10 +16,6 @@ library(shiny)
 
 # default data ================================================================
 
-
-# default data set
-
-
 study <- c("Fleming (1986)", 
            "Greenwood (1989)",
            "Nahlen (1989)",
@@ -82,16 +78,7 @@ default <-
          ciLower=round(exp(log(RR)-1.96*(sqrt((Tno/(Ty*TN)) + ((Cno/(Cy*CN)))))), 2)
   )
 
-# this calculates the summary -------------------------------------------------
-# make a summary matrix that will be updated based on the default data frame
-# when the default data frame changes, the summary value should change too
-  summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
-  colnames(summary) <- colnames(default)
-  summary$study <- c("Summary")
-  summary$RR <- round(sum(default$RR*(default$Ty+default$CN))/sum(default$TN+default$CN), 2)
-  
-  # data frame of prior + summary
-  toPlot <- as.data.frame(rbind(default, summary))
+
 
 
 # Define UI for application that ddefaults a histogram
@@ -170,32 +157,42 @@ server <- function(input, output) {
   toPlot <- reactive({
     a <- subset(default, default$study %in% input$study)
     a <- droplevels(a)
+    
+    # recalculate the summary according to the subset
+    summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
+    colnames(summary) <- colnames(default)
+    summary$study <- c("Summary")
+    summary$RR <- round(sum(a$RR*(a$Ty+a$CN))/sum(a$TN+a$CN), 2)
+    
+    # and bind the result to toPlot
+    a <- as.data.frame(rbind(summary, a))
+    
     return(a)
   })
   
   
-  # recalculate summary w/excluded study
 
-  
   output$table <- renderDataTable({
     
     
     toPlot() %>%
-      select(study, weight, RR)
+      select(study, weight, RR, ciLower, ciUpper)
                   
     
   })
    
    output$forestPlot <- renderPlot({
+     
 
-     # plot
+
+  # plot
      
     toPlot() %>%
      ggplot(., aes(x=RR, y=factor(study, levels=toPlot()$study))) +
        geom_point(shape=15, size=(toPlot()$weight*20), color="blue") +
        
        # summary has 0 weight so this prints over it
-       geom_point(aes(x=summary$RR, y=summary$study), shape=18, size=10, color="black") +
+       geom_point(aes(x=toPlot()$RR[toPlot()$study=="Summary"], y=toPlot()$study[toPlot()$study=="Summary"]), shape=18, size=10, color="black") +
        
        geom_errorbarh(aes(xmax=toPlot()$ciUpper, xmin=toPlot()$ciLower, height=0)) +
        xlim(0,10) +
