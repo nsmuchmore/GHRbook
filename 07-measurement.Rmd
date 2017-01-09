@@ -6,91 +6,6 @@ knit: "bookdown::preview_chapter"
 
 **Indicators** are observable measures of study constructs. Part of developing a good logic model is identifing indicators for each part of the hypothesized causal chain.  To define a construct in terms of an indicator and to specify its measurement is to **operationalize** the construct. In this chapter we'll frame the discussion of how to operationalize study constructs in terms of causal chains, but the lessons apply more broadly.
 
-## Indicators Throughout the Causal Chain
-
-To demonstrate how to identify indicators throughout the causal chain, we'll use an example from Jokhio and colleagues [-@jokhio:2005] about the impact of training traditional birth attendants (TBA) in Pakistan on the occurrence of stillbirths, neonatal deaths, and maternal deaths. When this study was conducted in 1998, the maternal mortality ratio in Pakistan was more than 280 per 100,000 live births [@whomm:2014].[^mm2013] This represents more than 13,000 women who died giving birth.[^tragedy]
-
-[^mm2013]: The maternal mortality ratio in Pakistan was 170 in 2013.
-
-[^tragedy]: The tragedy in this number is that maternal mortality is preventable. Women continue to die before, during, and after childbirth because of three major delays: (i) delays in seeking healthcare; (ii) delays in reaching healthcare; and (iii) delays in receiving high quality healthcare upon reaching a medical facility [@thaddeus:1994]. The most common proximate causes of death are postpartum hemorrhage, hypertensive disorders, and sepsis [@say:2014]. 
-
-It's hard to predict who will suffer life threatening complications, so there is debate about how to best intervene. Some argue that we should invest in interventions to increase facility deliveries so that women would be better able to access emergency obstetric care if needed. Others point to the low frequency of complications and the high prevalence of poor quality care at medical facilities as a reason that women should be supported in their decision to stay at home where the family can better support them.
-
-At the time Jokhio and colleagues conducted this study, facility deliveries in Pakistan were rare. The authors cited descriptive studies showing that most women in Pakistan delivered at home (80%) without a skilled birth attendant (89%). Only 1 out of 20 women who experienced complications made it to a medical facility with emergency obstetric care.
-
-Given the high prevalence of home deliveries, Jokhio et al. tested an intervention that trained traditional birth attendants—the mothers, aunts, sisters, and neighbors who already help women through childbirth but have no formal medical training—and provided them with delivery kits. The training lasted 3 days and covered topics such as checking for danger signs, conducing a clean delivery using the provided kits, and making emergency referrals. Trained TBAs were asked to visit with women at least three times during the pregnancy to look for danger signs, and then again for the delivery.
-
-The study design was a cluster randomized trial. Seven subdisticts of a rural district were randomized to the TBA intervention or the standard of care. TBAs in subdistricts assigned to the control group did not receive any training or delivery kits. The primary outcome was reduced perinatal deaths (stillbirths and neonatal deaths) and maternal deaths. Let's think about measurement throughout this causal chain.
-
-```{r jokhiologic, fig.cap="Logic model developed for Jokhio et al. (2005).", echo=F}
-knitr::include_graphics("images/JokhioLogic.png", dpi = NA)
-```
-
-### PROCESS INDICATORS
-
-Indicators that define inputs, activities, and outputs in a logic model can be decribed as **process indicators**. These steps in a logic model capture how a program is implemented. In short, the "M" (monitoring) in M&E.
-
-As researchers we care about collecting good process/monitoring data in order to develop a better understanding why programs do or don't work. For instance, we might want to track program costs so that we can estimate cost-effectiveness. Or we might want to know if the intervention was delivered according to plan or not. Researchers often rely on program parnters to deliver the intervention under investigation, so issues like fidelity to treatment and compliance with study protocols are important to track closely. Let's review a few examples of process indicators that intervention researchers often care about.
-
-#### Inputs{-}
-
-As you'll recall from the previous chapter, inputs are the resources needed to implement the program. The most basic input of all is money, therefore one indicator is program cost.
-
-Impact evaluations produce estimates of the effectiveness of a program or intervention. Does the program "work"? For some public health and behavioral health nerds, evidence of impact is enough because they are narrowly focused on developing and testing new interventions. Not true for policymakers who are thinking about delivering programs at scale with limited public funding; they want to know whether the intervention is *cost-effective*, not just effective.[^T4] A cost-effectiveness analysis requires close tracking of the cost of all program inputs. Jokhio et al. don't tell us about the cost of the TBA training program, other than to say the intervention was designed to be "low cost and sustainable".
-
-[^T4]: As discussed in Chapter 1, the gap between developing evidence of effective programs and actually implementing them at scale is an example of a "T4" translational research bottleneck.
-
-```{block, type='rmdpuzzle'}
-Cost effectiveness analysis (CEA) is not the same thing as cost-benefit analysis (CBA). The latter involves putting a dollar amount to benefits, such as the benefit to society of averting a maternal death. This is hard to do and quite subjective. This is why you will come across CEA much more frequently in global health. The typical calculation is the effect size divided by the costs. There is no effort to put costs and effects on the same dollar metric. See the ["WHO guide to cost-effectiveness analysis"](http://www.who.int/choice/publications/p_2003_generalised_cea.pdf) for additional guidance.
-```
-#### Activities/Outputs{-}
-
-##### Treatment fidelity{-}
-
-**Treatment fidelity** is a measure of how closely the actual implementation of a treatment or program reflects the intended design. The TBA intervention studied in Jokhio et al. included a 3-day training and the provision of delivery kits. If a trainer decided to skip portions of the training or knock off a day, the program would not be delivered as intended (aka, without fidelity to the treatment). The consequence of low treatment fidelity is usually an attenuation (aka, shrinking) of treatment effects. This is a threat to internal validity. If the study shows no effect but treatment fidelity is low, we can't be confident in the null result. *Implementation failure* rather than *theory or program failure* could be to blame. Low fidelity is also a threat to external validity because it isn't possible to truly replicate the study.
-
-The first step in developing a measure of fidelity is to identify what constitutes the intervention. Jokhio et al. did not discuss fidelity, but we can develop a basic plan based on what we know. The study involved training TBAs on the following topics:
-
-* giving advice on antepartum, intrapartum, and postpartum care; 
-* how to conduct a clean delivery; 
-* how to use the disposable delivery kit; 
-* when to refer women for emergency obstetrical
-care; 
-* and care of the newborn. 
-
-There are two levels of training we could evaluate: the quality of the training and the resulting knowledge of the TBAs who were trained.
-
-First, we want to make sure that the people training the TBAs (i) adhere to the training manual and (ii) correctly present all of the training material. We might do this by creating a TOT fidelity checklist that can be used to assess adherence and competence [@breitenstein:2010]. For instance:
-
-* **Adherence**
-	* trainer reviews didactic material on conducting a clean delivery
-	* trainer facilitates the demonstration activity on how to use the disposable delivery kit
-* **Competence**
-	* trainer correctly explains the key danger signs to look for during the antepartum period
-	* trainer demonstrates proper use of the delivery kits
-
-Second, we want to know that the TBAs learned something from the training. This could be as simple as administering a knowledge and practical test at the end of the training. To continually monitor fidelity over time, we could arrange to observe or record TBA interactions with patients and evaluate fidelity with another checklist. Depending on the situation, we could also use "mystery clients"—confederates who pose as real clients—to evaluate fidelity without the target's knowledge.
-
-##### Treatment compliance{-}
-
-**Treatment compliance** is a measure of the extent to which people (or units) were treated or not treated according to their study assignment. In a randomized trial, people (or other units like schools and clinics) are randomly assigned to different study arms. In Jokhio et al., subdistricts were randomly assigned to the TBA intervention group (treatment) or the no program group (control). Sometimes plans don't work out and people or units are "non-compliant" with these assignments. For instance:
-
-*  Some people assigned to the *treatment* group are never treated or only partially treated. Maybe some TBAs never showed up for the training program or stopped attending before the end.   
-
-*  Some people assigned to the *control* group receive the treatment despite their assignment to the inactive control group. An example would be if TBAs in control subdistricts heard about the nearby training and decided to attend.
-
-Just like low-treatment fidelity, non-compliance with the study protocol can attenuate treatment effects. We'll discuss these threats more in the chapter on experimental designs. The take home point for now is that close tracking of outputs can be critical for your analysis of treatment effects.
-
-### OUTCOME/IMPACT INDICATORS
-
-While process indicators are important to track for research purposes, researchers tend to spend the most time and effort defining measurement strategies for study outcomes and impacts. Jokhio et al. evaluated the effect of the TBA intervention on a set of outcomes that included the occurrence of major complications of pregnancy and referral to emergency obstetric care. The authors also examined the impact of the intervention on maternal mortality. 
-
-Jokhio et al. reported that the intervention reduced the odds of hemorrhage by 39%, but they did not provide the definition of postpartum hemorrhage used in their study. Commonly this is defined as vaginal bleeding greater than 500 mL after vaginal delivery or 1000 mL after cesarean delivery [@knight:2009]. Accurate measurement of postpartum hemorrhage is a challenge, but that's a topic for the next chapter.
-
-Jokhio et al. also reported a 26% reduction in maternal deaths, but the estimate was not very precise.[^mm] The authors defined maternal deaths as "deaths during pregnancy and up to 6 weeks postpartum, excluding those known to have been due to injury or accident".
-
-[^mm]: The study was only designed to detect a reduction in maternal deaths of 90%, so it is not surprising that they did not find a statistically significant effect. This indictor made sense in the theory of change, however: better equipped TBAs who are present at deliveries will reduce the incidence of major complications that are most likely to lead to maternal deaths; better access to emergency referrals will have the same life saving effect. So no definitive evidence about the impact of the intervention on maternal mortality, but large effects on the intermediate outcomes supports the underlying theory of change. 
-
 ## Selecting Good Indicators
 
 When designing a new program, the common advice is to create [SMART](https://en.wikipedia.org/wiki/SMART_criteria)™ targets and objectives:
@@ -218,6 +133,98 @@ names(addres) <- c("Topic", "Resource")
 knitr::kable(addres, format = "html") %>%
   html_table_width(c(100,500))
 ```
+
+
+## Indicators Throughout the Causal Chain
+
+To demonstrate how to identify indicators throughout the causal chain, we'll use an example from Jokhio and colleagues [-@jokhio:2005] about the impact of training traditional birth attendants (TBA) in Pakistan on the occurrence of stillbirths, neonatal deaths, and maternal deaths. When this study was conducted in 1998, the maternal mortality ratio in Pakistan was more than 280 per 100,000 live births [@whomm:2014].[^mm2013] This represents more than 13,000 women who died giving birth.[^tragedy]
+
+[^mm2013]: The maternal mortality ratio in Pakistan was 170 in 2013.
+
+[^tragedy]: The tragedy in this number is that maternal mortality is preventable. Women continue to die before, during, and after childbirth because of three major delays: (i) delays in seeking healthcare; (ii) delays in reaching healthcare; and (iii) delays in receiving high quality healthcare upon reaching a medical facility [@thaddeus:1994]. The most common proximate causes of death are postpartum hemorrhage, hypertensive disorders, and sepsis [@say:2014]. 
+
+It's hard to predict who will suffer life threatening complications, so there is debate about how to best intervene. Some argue that we should invest in interventions to increase facility deliveries so that women would be better able to access emergency obstetric care if needed. Others point to the low frequency of complications and the high prevalence of poor quality care at medical facilities as a reason that women should be supported in their decision to stay at home where the family can better support them.
+
+At the time Jokhio and colleagues conducted this study, facility deliveries in Pakistan were rare. The authors cited descriptive studies showing that most women in Pakistan delivered at home (80%) without a skilled birth attendant (89%). Only 1 out of 20 women who experienced complications made it to a medical facility with emergency obstetric care.
+
+Given the high prevalence of home deliveries, Jokhio et al. tested an intervention that trained traditional birth attendants—the mothers, aunts, sisters, and neighbors who already help women through childbirth but have no formal medical training—and provided them with delivery kits. The training lasted 3 days and covered topics such as checking for danger signs, conducing a clean delivery using the provided kits, and making emergency referrals. Trained TBAs were asked to visit with women at least three times during the pregnancy to look for danger signs, and then again for the delivery.
+
+The study design was a cluster randomized trial. Seven subdisticts of a rural district were randomized to the TBA intervention or the standard of care. TBAs in subdistricts assigned to the control group did not receive any training or delivery kits. The primary outcome was reduced perinatal deaths (stillbirths and neonatal deaths) and maternal deaths. Let's think about measurement throughout this causal chain.
+
+```{r jokhiologic, fig.cap="Logic model developed for Jokhio et al. (2005).", echo=F}
+knitr::include_graphics("images/JokhioLogic.png", dpi = NA)
+```
+
+### PROCESS INDICATORS
+
+Indicators that define inputs, activities, and outputs in a logic model can be decribed as **process indicators**. These steps in a logic model capture how a program is implemented. In short, the "M" (monitoring) in M&E.
+
+As researchers we care about collecting good process/monitoring data in order to develop a better understanding why programs do or don't work. For instance, we might want to track program costs so that we can estimate cost-effectiveness. Or we might want to know if the intervention was delivered according to plan or not. Researchers often rely on program parnters to deliver the intervention under investigation, so issues like fidelity to treatment and compliance with study protocols are important to track closely. Let's review a few examples of process indicators that intervention researchers often care about.
+
+#### Inputs{-}
+
+As you'll recall from the previous chapter, inputs are the resources needed to implement the program. The most basic input of all is money, therefore one indicator is program cost.
+
+Impact evaluations produce estimates of the effectiveness of a program or intervention. Does the program "work"? For some public health and behavioral health nerds, evidence of impact is enough because they are narrowly focused on developing and testing new interventions. Not true for policymakers who are thinking about delivering programs at scale with limited public funding; they want to know whether the intervention is *cost-effective*, not just effective.[^T4] A cost-effectiveness analysis requires close tracking of the cost of all program inputs. Jokhio et al. don't tell us about the cost of the TBA training program, other than to say the intervention was designed to be "low cost and sustainable".
+
+[^T4]: As discussed in Chapter 1, the gap between developing evidence of effective programs and actually implementing them at scale is an example of a "T4" translational research bottleneck.
+
+```{block, type='rmdpuzzle'}
+Cost effectiveness analysis (CEA) is not the same thing as cost-benefit analysis (CBA). The latter involves putting a dollar amount to benefits, such as the benefit to society of averting a maternal death. This is hard to do and quite subjective. This is why you will come across CEA much more frequently in global health. The typical calculation is the effect size divided by the costs. There is no effort to put costs and effects on the same dollar metric. See the ["WHO guide to cost-effectiveness analysis"](http://www.who.int/choice/publications/p_2003_generalised_cea.pdf) for additional guidance.
+```
+#### Activities/Outputs{-}
+
+##### Treatment fidelity{-}
+
+**Treatment fidelity** is a measure of how closely the actual implementation of a treatment or program reflects the intended design. The TBA intervention studied in Jokhio et al. included a 3-day training and the provision of delivery kits. If a trainer decided to skip portions of the training or knock off a day, the program would not be delivered as intended (aka, without fidelity to the treatment). The consequence of low treatment fidelity is usually an attenuation (aka, shrinking) of treatment effects. This is a threat to internal validity. If the study shows no effect but treatment fidelity is low, we can't be confident in the null result. *Implementation failure* rather than *theory or program failure* could be to blame. Low fidelity is also a threat to external validity because it isn't possible to truly replicate the study.
+
+The first step in developing a measure of fidelity is to identify what constitutes the intervention. Jokhio et al. did not discuss fidelity, but we can develop a basic plan based on what we know. The study involved training TBAs on the following topics:
+
+* giving advice on antepartum, intrapartum, and postpartum care; 
+* how to conduct a clean delivery; 
+* how to use the disposable delivery kit; 
+* when to refer women for emergency obstetrical
+care; 
+* and care of the newborn. 
+
+There are two levels of training we could evaluate: the quality of the training and the resulting knowledge of the TBAs who were trained.
+
+First, we want to make sure that the people training the TBAs (i) adhere to the training manual and (ii) correctly present all of the training material. We might do this by creating a TOT fidelity checklist that can be used to assess adherence and competence [@breitenstein:2010]. For instance:
+
+* **Adherence**
+	* trainer reviews didactic material on conducting a clean delivery
+	* trainer facilitates the demonstration activity on how to use the disposable delivery kit
+* **Competence**
+	* trainer correctly explains the key danger signs to look for during the antepartum period
+	* trainer demonstrates proper use of the delivery kits
+
+Second, we want to know that the TBAs learned something from the training. This could be as simple as administering a knowledge and practical test at the end of the training. To continually monitor fidelity over time, we could arrange to observe or record TBA interactions with patients and evaluate fidelity with another checklist. Depending on the situation, we could also use "mystery clients"—confederates who pose as real clients—to evaluate fidelity without the target's knowledge.
+
+##### Treatment compliance{-}
+
+**Treatment compliance** is a measure of the extent to which people (or units) were treated or not treated according to their study assignment. In a randomized trial, people (or other units like schools and clinics) are randomly assigned to different study arms. In Jokhio et al., subdistricts were randomly assigned to the TBA intervention group (treatment) or the no program group (control). Sometimes plans don't work out and people or units are "non-compliant" with these assignments. For instance:
+
+*  Some people assigned to the *treatment* group are never treated or only partially treated. Maybe some TBAs never showed up for the training program or stopped attending before the end.   
+
+*  Some people assigned to the *control* group receive the treatment despite their assignment to the inactive control group. An example would be if TBAs in control subdistricts heard about the nearby training and decided to attend.
+
+Just like low-treatment fidelity, non-compliance with the study protocol can attenuate treatment effects. We'll discuss these threats more in the chapter on experimental designs. The take home point for now is that close tracking of outputs can be critical for your analysis of treatment effects.
+
+### OUTCOME/IMPACT INDICATORS
+
+While process indicators are important to track for research purposes, researchers tend to spend the most time and effort defining measurement strategies for study outcomes and impacts. Jokhio et al. evaluated the effect of the TBA intervention on a set of outcomes that included the occurrence of major complications of pregnancy and referral to emergency obstetric care. The authors also examined the impact of the intervention on maternal mortality. 
+
+Jokhio et al. reported that the intervention reduced the odds of hemorrhage by 39%, but they did not provide the definition of postpartum hemorrhage used in their study. Commonly this is defined as vaginal bleeding greater than 500 mL after vaginal delivery or 1000 mL after cesarean delivery [@knight:2009]. Accurate measurement of postpartum hemorrhage is a challenge, but that's a topic for the next chapter.
+
+Jokhio et al. also reported a 26% reduction in maternal deaths, but the estimate was not very precise.[^mm] The authors defined maternal deaths as "deaths during pregnancy and up to 6 weeks postpartum, excluding those known to have been due to injury or accident".
+
+[^mm]: The study was only designed to detect a reduction in maternal deaths of 90%, so it is not surprising that they did not find a statistically significant effect. This indictor made sense in the theory of change, however: better equipped TBAs who are present at deliveries will reduce the incidence of major complications that are most likely to lead to maternal deaths; better access to emergency referrals will have the same life saving effect. So no definitive evidence about the impact of the intervention on maternal mortality, but large effects on the intermediate outcomes supports the underlying theory of change. 
+
+
+
+
+
+
 
 ## Share Feedback{-}
 

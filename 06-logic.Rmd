@@ -12,6 +12,13 @@ A **theory of change** articulates how an intervention—or a policy, program, o
 
 Developing a good theory of change is an essential part of designing effective programs, but I like to teach students about these models because they help us think through measurement issues. Before you can articulate how you will measure key study variables, you need to think through what these variables are in the first place. A theory of change can help you approach this task.
 
+```{block, type='rmdplay'}
+```
+
+```{r tocvideo, echo=F}
+knitr::include_url("https://www.youtube.com/embed/6zRre_gB6A4")
+```
+
 ## All Models are Wrong, But Some Are Useful
 
 Before I describe how to create a theory of change, I want to frame this discussion in a broader context. A theory of change falls under the larger umbrella of what are known as **conceptual models**. A **model** is a simplified representation of a more complex reality. A plastic replica of the human heart is a model. So is an epidemic model of Ebola tranmission. Neither model is perfect, but we can probably learn something from each one. As the mathemetician and statistican George Box famously wrote, "Essentially, all models are wrong, but some are useful" [@box:1987]. 
@@ -104,6 +111,13 @@ People are more likely to understand your diagram and your theory of change if y
 * process/sequence of change explained
 * underlying assumptions
 * presented as a diagram and narrative summary
+
+```{block, type='rmdplay'}
+```
+
+```{r tocchild, echo=F}
+knitr::include_url("https://www.youtube.com/embed/urU-a_FsS5Y")
+```
 
 ### TEMPLATE
 
