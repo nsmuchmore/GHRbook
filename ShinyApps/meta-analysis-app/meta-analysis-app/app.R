@@ -13,6 +13,7 @@ library(dplyr)
 library(magrittr)
 library(ggplot2)
 library(shiny)
+library(miniUI)
 
 # default data ================================================================
 
@@ -81,41 +82,48 @@ default <-
 
 
 # Define UI for application 
-ui <- fluidPage(
+ui <- miniPage(
    
    # Application title
-   titlePanel("Meta-Analysis"),
+   miniTitleBar("Meta-Analysis"),
    
    # check boxes to select studies to exclude
    
-   sidebarLayout(
-      sidebarPanel(
-        
-        
-        helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
-                 Watch as the summary updates.  
-                 How does the overall summary Risk Ratio depend on the included studies?"),
-        
-        checkboxGroupInput("study",
-                           label = "Check studies to exclude",
-                           choices=levels(default$study),
-                           selected=levels(default$study))
-        
-      ),
-      
-      
-      
-      # Show a forest plot and a table of included values
-      mainPanel(
-        
-        plotOutput("forestPlot"),
-        
-        dataTableOutput("table")
-        
 
-         
-      )
-   )
+  miniTabstripPanel(
+    
+    miniTabPanel("Parameters", icon=icon("sliders"),
+                 
+        miniContentPanel(
+          
+          helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
+                 Watch as the summary updates.  
+                   How does the overall summary Risk Ratio depend on the included studies?"),
+          
+          checkboxGroupInput("study",
+                             label = "Check studies to exclude",
+                             choices=levels(default$study),
+                             selected=levels(default$study))
+          
+          )
+        ),
+        
+    miniTabPanel("Visualize", icon = icon("area-chart"),
+                 
+        miniContentPanel(
+          
+            plotOutput("forestPlot", height="100%")
+            
+                     )
+        ),
+                     
+    miniTabPanel("Data", icon = icon("table"),
+                 
+        miniContentPanel(
+          
+            dataTableOutput("table")
+                     ))
+    )
 )
 
 # Define server logic to draw forestplot and table
@@ -132,7 +140,7 @@ server <- function(input, output) {
     summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
     colnames(summary) <- colnames(default)
     summary$study <- c("Summary")
-    summary$RR <- round(sum(a$RR*(a$Ty+a$CN))/sum(a$TN+a$CN), 2)
+    summary$RR <- round(sum(a$RR*a$weight)/sum(a$weight), 2)
     
     # and bind the result to toPlot
     a <- as.data.frame(rbind(summary, a))
