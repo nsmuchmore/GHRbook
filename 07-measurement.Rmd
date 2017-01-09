@@ -1,4 +1,6 @@
-# (PART) Part IV: Indicators and Data Colletion {-}
+--- 
+knit: "bookdown::preview_chapter"
+---
 
 # Indicators {#indicators}
 
@@ -24,7 +26,7 @@ The study design was a cluster randomized trial. Seven subdisticts of a rural di
 knitr::include_graphics("images/JokhioLogic.png", dpi = NA)
 ```
 
-### PROCESS INDICATORS{-}
+### PROCESS INDICATORS
 
 Indicators that define inputs, activities, and outputs in a logic model can be decribed as **process indicators**. These steps in a logic model capture how a program is implemented. In short, the "M" (monitoring) in M&E.
 
@@ -79,7 +81,7 @@ Second, we want to know that the TBAs learned something from the training. This 
 
 Just like low-treatment fidelity, non-compliance with the study protocol can attenuate treatment effects. We'll discuss these threats more in the chapter on experimental designs. The take home point for now is that close tracking of outputs can be critical for your analysis of treatment effects.
 
-### OUTCOME/IMPACT INDICATORS{-}
+### OUTCOME/IMPACT INDICATORS
 
 While process indicators are important to track for research purposes, researchers tend to spend the most time and effort defining measurement strategies for study outcomes and impacts. Jokhio et al. evaluated the effect of the TBA intervention on a set of outcomes that included the occurrence of major complications of pregnancy and referral to emergency obstetric care. The authors also examined the impact of the intervention on maternal mortality. 
 
@@ -113,7 +115,7 @@ customar**Y**     recognized standard
 ----------------  --------------------------
 
 
-### USE DREAMY INDICATORS™{-}
+### USE DREAMY INDICATORS™
 
 Jokhio and colleagues tested an intervention designed to make motherhood safer. The ultimate indicator of safe motherhood is reduced maternal mortality. Let's put this indicator to the DREAMY test. 
 
@@ -147,7 +149,7 @@ Jokhio et al.'s definition of maternal mortality will look familiar to folks who
 
 [^icd9]: The ICD-9 definition—which would have been the standard at the time of the study—is very similar. For more information, see [http://1.usa.gov/1JF0vnv](http://1.usa.gov/1JF0vnv).
 
-### USE INTERNATIONAL STANDARDS{-}
+### USE INTERNATIONAL STANDARDS
 
 #### WHO Global Reference List{-}
 

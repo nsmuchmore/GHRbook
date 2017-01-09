@@ -1,3 +1,7 @@
+--- 
+knit: "bookdown::preview_chapter"
+---
+
 # Data Collection Methods {#datacollection}
 
 Now that you know what indicators you want to measure, it's time to decide *how* to measure them. Sometimes it's possible to use existing data sources, such as administrative or medical records, but most likely part or all of your data will come from original data collection efforts. In this chapter we'll review common quantitative and qualitative methods that you can use. 
@@ -6,7 +10,7 @@ Now that you know what indicators you want to measure, it's time to decide *how*
 
 An **instrument** is a tool for measuring indicators [@glennerster:2013]. Many studies in global health rely on survey instruments, so we'll begin our tour with surveys before turning to non-survey instruments.
 
-### SURVEYS{-}
+### SURVEYS
 
 The most common type of data collection instrument in global health is surveys. Surveys are relatively cheap and easy to administer compared to some methods like biomarker testing, but care must be taken to pre-test the instrument, train enumerators, and monitor the administration.
 
@@ -421,7 +425,7 @@ knitr::kable(kohrt, format = "html") %>%
 
 Please keep this in mind: reliability and validity are established in particular samples. If your sample is representative of the population, reliability and validity should hold across new samples from this population. If you move to a new population, however, this becomes a very strong assumption.  
 
-### NON-SURVEY INSTRUMENTS{-}
+### NON-SURVEY INSTRUMENTS
 
 Surveys are widely used in global health, but researchers are constantly on the lookout for creative new low-cost and easy to use instruments that will obtain more valid measurements. Here are some examples that you will find in global health.[^nsi]
 
@@ -509,7 +513,7 @@ Whereas a good survey requires uniformity and structure, a good interview is fle
 Dr. Leslie Curry at the Yale School of Public Health produced six video modules on qualitative research that readers might find useful. You can watch all six videos [here](https://www.youtube.com/playlist?list=PLqHnHG5X2PXCsCMyN3_EzugAF7GKN2poQ). 
 ```
 
-### IN-DEPTH INTERVIEWS{-}
+### IN-DEPTH INTERVIEWS
 
 An **in-depth interview** is a method of eliciting a person's views and stories. The interviewee is the expert, and it's the interviewer's role to learn from this expertise. Typically interviews are conducted as a private conversation between two people. Some interviews are highly structured with a pre-determined set of questions and follow-up probes. Other interviews are designed to explore a general research topic and do not follow a specific format. All interviews need to be managed, however. The interviewer must guide the participant enough to find the desired narrative within the time constraints.
 
@@ -541,7 +545,7 @@ Combining direct and indirect probes with clarifying questions is typically a wi
 
 It is relatively easy to teach someone to be a good survey enumerator—to ask specific questions and record discrete answers. It is much harder to teach someone to be a good interviewer. Whereas you might be able to run a survey training over the course of a few days or a week, training qualitative interviewers could easily take a month or more to allow enough cycles of practice and feedback.
 
-### FOCUS GROUPS{-}
+### FOCUS GROUPS
 
 While interviews are a good method for understanding individual perspectives, focus groups are a better choice if the goal is to quickly gain insight into group norms and the range in group opinions. Focus groups can explore individual experiences to learn about these issues, but private stories are best left for individual interviews where confidentiality and privacy are under the interviewer's control.
 
@@ -555,7 +559,7 @@ If you have permission to capture an audio recording of the session, it is helpf
 
 Focus group activities do not need to be limited to discussion of questions posed by the moderator. Sometimes it can be helpful to design short exercises to stimulate conversation. For instance, **free listing** is a technique where participants brainstorm on a particular issue and the notetaker records ideas in rapid succession. The moderator might ask the group to think of what "depression" looks like among pregnant women and new mothers in that particular community. A potential follow-up activity is **card sorting** in which the group ranks the free listing ideas and/or sorts them into conceptual piles. As each activity unfolds, the moderator finds opportunities to probe and engage participants in a discussion.
 
-### PARTICIPANT OBSERVATION{-}
+### PARTICIPANT OBSERVATION
 
 Another approach is **participant observation**—making observations while participating to some extent in community life. This is not the same as some of the 'observation-for-quantification' approaches we discussed earlier, such as random spot checks. Participant observation typically happens over a much longer time—weeks, months, or years—and is designed to result in '[thick description](https://en.wikipedia.org/wiki/Thick_description)' of context, attitudes, and behaviors.
 

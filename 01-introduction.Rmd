@@ -1,0 +1,187 @@
+--- 
+knit: "bookdown::preview_chapter"
+---
+
+# (PART) What is Global Health Research? {-}
+
+# Introduction to Global Health Research {#science}
+
+Global health is the study and practice of "improving health and achieving equity in health for all people worldwide" [@koplan:2009]. The determinants of ill health and inequality are as vast and complex as this definition is ambitious, thus the search for global health solutions spans many disciplines, including:
+
+* public health
+* medicine
+* social behavioral sciences (e.g., economics, psychology, anthropology)
+* biomedical engineering
+* biostatistics
+* public policy
+* business
+
+This makes global health research multidisciplinary and interdisciplinary by design [@merson:2011]. Multidisciplinary in the sense that no one field can solve the great global health challenges of our time, and interdisciplinary in recognition that solutions can be found through collaboration on new approaches that integrate ideas from different scholarly and practice traditions. 
+
+The multidisciplinary nature of global health research—and the fact that the world "global" is in the title—means that it is a vast, spralling enterprise that involves many **stakeholders**. Let's survey the landscape of global health research before establishing some fundamentals about scientific research.
+
+```{block, type='rmdpuzzle'}
+Stakeholders can refer to a wide range of people and organizations. Typically we mean **donors** (i.e., the public and private organizations that fund research and programs), **policy makers** (i.e., government officials and bureaucrats at international bodies like the WHO), **program implementers** (i.e., organizations like Doctors Without Borders that actually deliver services to **beneficiaries**, a.k.a. people), and **scholars** who study the topic or policy issue. 
+```
+
+## Who Funds Global Health Research?
+
+Billions of dollars are spent on global health research every year.[^unclearamount] This funding comes from public institutions such as the National Institutes of Health (NIH) in the United States and private philanthropy such as the Bill and Melinda Gates Foundation.
+
+[^unclearamount]: The precise amount spend on global health research and development (R&D) is not clear [@schaferhoff:2015].
+
+In 2015, the international community disbursed $36.4 billion in development assistance for health, down from a peak of $38 billion in 2013 [@ihme:2016]. Figure \@ref(fig:funding) does not represent research dollars, per se, but it shows the source of global health financing, the channel through which it flows, and the health focus area (see [here](http://vizhub.healthdata.org/fgh/) for an interactive version you can explore).[^funding]  
+
+```{r funding, fig.cap="Flows of global health financing. Source: Institute for Health Metrics and Evaluation, http://vizhub.healthdata.org/fgh/", echo=F}
+knitr::include_graphics("images/ihmefunding.png", dpi = NA)
+```
+
+[^funding]: The [World RePort database](https://worldreport.nih.gov/app/) from the NIH—the [largest funder of health research in the world](http://www.healthresearchfunders.org/health-research-funding-organizations/)—lists health research projects totaling nearly $45 billion in 2015. It's possible to filter on the country of the recipient organization, but this does not count money disbursed to US and European organizations working on global health issues.
+
+The United States Government contributed one-third of all development assistance for health in 2015 ($13 billion). Over half of USG funding was directed to HIV/AIDS, malaria, TB, and other infectious diseases. Non-communicable diseases received less than 1 percent of resources, despite accounting for 7 out of the 10 leading causes of death globally (Figure \@ref(fig:cod)).
+
+```{r cod, fig.cap="Global deaths per 100,000. Source: Institute for Health Metrics and Evaluation, http://vizhub.healthdata.org/gbd-compare/", echo=F}
+knitr::include_graphics("images/cod.png", dpi = NA)
+```
+
+## Who Produces Global Health Research?
+
+Academic centers around the world, like the [Duke Global Health Institute](https://globalhealth.duke.edu/), are major contributors to global health research. Public and private donors like the USG, the Bill and Melinda Gates Foundation, and the World Bank make grants to university-affiliated faculty who partner with colleagues inside and outside of governments to plan and conduct research. Donors also channel research support to non-profit research organizations such as [FHI360](https://www.fhi360.org/) and [RTI International](https://www.rti.org/) who work in a similar fashion. 
+
+Interesting hybrid models include JPAL and IPA. [JPAL](http://www.povertyactionlab.org/), which stands for the Abdul Latif Jameel Poverty Action Lab, is a global network of university-affiliated professors from more than 40 universities that uses randomized evaluations (i.e., experiments) to answer policy questions related to poverty alleviation. The JPAL website, [http://www.povertyactionlab.org](http://www.povertyactionlab.org), contains excellent resources about the methods of randomized evaluations, published studies, and policy briefs. [Innovations for Poverty Action](http://www.poverty-action.org/), or IPA, is a sister organization of sorts that is also a leader in the use of randomized evaluations to study important policy questions about global poverty.
+
+## Where is Global Health Research Published?
+
+Global health research is published in medical journals (e.g., [The Lancet](http://www.thelancet.com/) and [JAMA](http://jamanetwork.com/journals/jama)), general science journals (e.g., [Science](http://science.sciencemag.org/) and [PLOS ONE](http://journals.plos.org/plosone/)), discipline-specific journals (e.g., [The Journal of Immunology](http://www.jimmunol.org/content/198/1/184.short) and [Epidemiology](http://journals.lww.com/epidem/pages/default.aspx)), and disease-specific journals (e.g., [AIDS](http://journals.lww.com/aidsonline/Pages/default.aspx) and [Malaria Journal](https://malariajournal.biomedcentral.com/)). There are also speciality global health journals such as [The Lancet Global Health](http://www.thelancet.com/journals/langlo/latestcontent), [BMJ Global Health](http://gh.bmj.com/), [Global Public Health](http://www.tandfonline.com/toc/rgph20/current), and [Global Health: Science and Practice](http://www.ghspjournal.org/).
+
+```{block, type='rmdplay'}
+```
+
+```{r whatis, echo=F}
+knitr::include_url("https://www.youtube.com/embed/HN6zpQGvkSA")
+```
+
+## What Constitutes Global Health Research?
+
+Global health research spans the spectrum from basic to applied.
+
+```{r basicapplied, fig.cap="A research taxonomy", echo=F}
+knitr::include_graphics("images/basicapplied.png", dpi = NA)
+```
+
+### BASIC RESEARCH
+
+ **Basic research**—or "pure" research—is the pursuit of fundamental knowledge of phenomena. An example would be the bench science to understand the parasitic life cycle and how parasites interact with humans at different stages. Or basic research in ecology to understand plant species diversity.
+
+
+```{block, type='rmdplay'}
+```
+
+```{r basicresearch, echo=F}
+knitr::include_url("https://www.youtube.com/embed/YkGaQ9MqgB8")
+```
+
+### APPLIED RESEARCH
+
+Basic research can be contrasted with **applied research** which is focused on specific problems or applications. For instance, an applied research question is how to increase the coverage and use of bed nets that prevent malaria transmission.
+
+Applied science takes many different forms, including [**clinical research**](https://en.wikipedia.org/wiki/Clinical_research). Clinical research is a broad field that encompasses patient-oriented research, epidemiological and behavioral studies, and outcomes research and health services research.[^cr] Basic research is the foundation of clinical research.
+
+[^cr]: Glossary of Terms for Human Subjects Protection and Inclusion Issues, based on the 1997 Report of the NIH Director’s Panel on Clinical Research, entry: “clinical research”. Available at [http://grants.nih.gov/grants/peer/tree_glossary.pdf](http://grants.nih.gov/grants/peer/tree_glossary.pdf).
+
+#### Clinical Trials{-}
+
+One type of clinical research is a clinical trial. Drugs and vaccines have to pass through different phases of clinical trials before regulatory bodies will approve their use with humans:
+
+* Preclinical research
+* Phase I
+* Phase II
+* Phase III
+* Phase IV 
+
+Behavioral research (e.g., development and evaluation of parenting interventions) does not follow the same exact phases of vaccine and drug development, but the broad principles are the same.
+
+```{block, type='rmdplay'}
+```
+
+```{r clinicaltrials, echo=F}
+knitr::include_url("https://www.youtube.com/embed/dsfPOpE-GEs")
+```
+
+Let's take the development of a vaccine for malaria as an example of the clinical trial life-cycle. A vaccine candidate called RTS,S, or Mosquirix™, [recently made news](http://money.cnn.com/2015/07/24/news/malaria-vaccine-bill-gates/) for getting one step closer to becoming a licensed vaccine after a successful Phase III trial. This moment was more than 30 years in the making.
+
+[Development of RTS,S](http://malariavaccine.org/files/UpdatedRTSS_FactSheet_21April2010.pdf) began in 1984 through a partnership between the pharmaceutical company GSK and the Walter Reed Army Institute of Research. The vaccine candidate was created in 1987 and entered **preclinical** research. During the pre-clinical phase, testing is performed in non-human subjects with the goal of collecting data on how well the vaccine works (efficacy), how much damage it can do to an organism (toxicity), and how it is affected by the body (pharmacokinetics).
+
+Clinical research on humans began in 1992. To obtain regulatory approval, the vaccine had to complete three phases of testing. Doherty et al. [-@doherty:1999] conducted a **Phase I** safety and immunogenicity trial with 20 adults in The Gambia in 1997. This small sample size is typical of Phase I trials where the objective is usually to find a safe dosing range and look for side effects. The authors reported that the vaccine did not have any significant toxicity but did produce the expected antibodies. 
+
+Several **Phase II** studies conducted over a decade (Phase IIa and Phase IIb) demonstrated **efficacy** of the vaccine against several endpoints (a.k.a. outcomes) [@moorthy:2009]. A Phase IIb trial began in Mozambique in 2003 with more than 2,000 children aged 1 to 4 [@alonso:2004]. Children were randomly assigned to receive three doses of RTS,S or a control vaccine. At 6-months, the prevalence of malaria was 37% lower in the treatment group compared to the control group. A follow-up study with 214 infants also showed partial protection [@aponte:2007]. This Phase II trial was an important proof-of-concept.
+
+Final results of a large **Phase III** trial with more than 15,000 infants and young children in seven African countries were published in *The Lancet* in 2015 [@rts:2015]. Children in the study were randomly assigned to 1 of 3 arms: 3 doses of RTS,S and a booster dose at month 20; 3 doses of RTS,S and a booster dose of a comparator vaccine at month 20; or 4 doses of a comparator vaccine. The study reported that RTS,S reduced clinical malaria cases by 28% and 18% among young children and infants, respectively, over a 3 to 4 year period. This is the goal of a Phase III trial—to show that a treatment is efficacious.
+
+On the basis of these results, the European Medicines Agency issued a "European scientific opinion", which could help inform the decision of the WHO and African national regulatory authorities. If RTS,S is approved for use and eventually hits the market, researchers will likely conduct **Phase IV** trials to evaluate the vaccine's long-term effects. 
+
+```{block, type='rmdplay'}
+```
+
+```{r rtss, echo=F}
+knitr::include_url("https://www.youtube.com/embed/Ww9jWFwfmHE")
+```
+
+#### Implementation Science and Translational Research{-}
+
+This will not be the end for research on RTS,S, however. The vaccine may be efficacious, but that does not mean it will be easy or cost-effective to deliver at scale to millions. Studies that assess how to best get efficacious treatments to the people who need it most fall under the domain of **implementation science**. 
+
+There are many stumbling blocks from getting interventions from "bench to bedside", so to speak. Practitioners of **translational research** point to four key bottlenecks:
+
+* T1: translation from basic science to clinical research
+* T2: translation from early clinical trials to Phase III trials and beyond with larger patient populations
+* T3: translation from efficacy (Phase III) to real-world effectiveness—the domain of implementation science
+* T4: translation from evidence about delivery at scale to new policy
+
+```{r translational, fig.cap="Source: MUSC, http://bit.ly/2iq2Blv", echo=F}
+knitr::include_graphics("images/translational.jpg", dpi = NA)
+```
+
+#### Monitoring and Evaluation{-}
+
+Another arena of applied work in global health is **monitoring and evaluation**, or M&E.
+
+##### Evaluation{-}
+
+In the U.S., program evaluation became commonplace by the end of the 1950s and grew dramatically in the 1960s as the federal government expanded and introduced new social programs. Lawmakers wanted accountability, and the evaluation of social programs took off [@rossi:2003]. ***But is program evaluation really research?***
+
+Methods giant [Donald Campbell](https://en.wikipedia.org/wiki/Donald_T._Campbell)[^campbell] thought so:
+
+> The United States and other modern nations should be ready for an experimental approach to social reform, an approach in which we try out new programs designed to cure specific problems, in which we learn whether or not these programs are effective, and in which we retain, imitate, modify or discard them on the basis of their effectiveness on the multiple imperfect criteria available [@campbell:1969].
+
+[^campbell]: Campbell had an outsized impact on the field. It's no surprise that an organization dedicated to synthesizing the best available evidence on social interventions, the [Campbell Collaboration](http://www.campbellcollaboration.org/), bears his name.
+
+Yet, not everyone agrees. Some have argued that program evaluation is really designed for program implementers and funders, and that the messy nature of programs required a loosening of research standards [@cronbach:1982]. The goal is just to learn what you can. 
+
+In their introductory text on evaluation, Rossi et al. [-@rossi:2003] strike a balance in views. Their answer is perhaps a bit unsatisfying, but I'd argue true nevertheless. 
+
+*It depends*. 
+
+Program evaluations should be as rigorous as logistics, ethics, politics, and resources permit. And no less. Is there a lower bound in terms of quality that should limit what is even worth doing? Probably, but the line is so context dependent that it is not sensible to attempt a definition. If there is one rule to follow, I'd suggest that it's this: "don't go beyond the data". Every organization wants to claim "impact", but not every evaluation can based on the design and implementation.
+
+##### Monitoring{-}
+
+Program monitoring is concerned with the implementation of programs, policies, or interventions. How are resources being used? Is the program being delivered as intended (a.k.a. with fidelity)? How many people participate, and does the program reach the intended targets? These are all program monitoring questions.
+
+Accurate monitoring is essential for reporting to funders, but it's also essential for all good evaluations. The reason is simple. If a program is shown to not "work"—to have no impact—the next question is why? Did the program fail to have an impact because the idea or theory behind the program was wrong (**theory failure**)? Or was it the case that the implementation of the program was so troubled that there was never a chance of having an impact (**implementation failure**)? Every trial should include ongoing monitoring or a formal process evaluation.
+
+```{block, type='rmdplay'}
+```
+
+```{r mae, echo=F}
+knitr::include_url("https://www.youtube.com/embed/owX0DcvVpsc")
+```
+
+## Share Feedback{-}
+
+This book is a work in progress. You'd be doing me a big favor by taking a moment to tell me what you think about this chapter.
+
+```{r CH01feedback, echo=F}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_bykt6KZav947UwJ",
+height="600px")
+```
