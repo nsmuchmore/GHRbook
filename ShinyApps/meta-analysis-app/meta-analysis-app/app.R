@@ -13,7 +13,6 @@ library(dplyr)
 library(magrittr)
 library(ggplot2)
 library(shiny)
-library(miniUI)
 
 # default data ================================================================
 
@@ -82,49 +81,42 @@ default <-
 
 
 # Define UI for application 
-ui <- miniPage(
-   
-   # Application title
-   miniTitleBar("Meta-Analysis"),
-   
-   # check boxes to select studies to exclude
-   
-
-  miniTabstripPanel(
+ui <- fluidPage(
+  
+  # Application title
+  titlePanel("Meta-Analysis"),
+  
+  # check boxes to select studies to exclude
+  
+  sidebarLayout(
+    sidebarPanel(
+      
+      
+      helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
+               Watch as the summary updates.  
+               How does the overall summary Risk Ratio depend on the included studies?"),
+      
+      checkboxGroupInput("study",
+                         label = "Check studies to exclude",
+                         choices=levels(default$study),
+                         selected=levels(default$study))
+      
+      ),
     
-    miniTabPanel("Parameters", icon = icon("sliders"),
-                 
-        miniContentPanel(
-          
-          helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
-                 Watch as the summary updates.  
-                   How does the overall summary Risk Ratio depend on the included studies?"),
-          
-          checkboxGroupInput("study",
-                             label = "Check studies to exclude",
-                             choices=levels(default$study),
-                             selected=levels(default$study))
-          
-          )
-        ),
-        
-    miniTabPanel("Visualize", icon = icon("area-chart"),
-                 
-        miniContentPanel(
-          
-            plotOutput("forestPlot", height="100%")
-            
-                     )
-        ),
-                     
-    miniTabPanel("Data", icon = icon("table"),
-                 
-        miniContentPanel(
-          
-            dataTableOutput("table")
-                     ))
+    
+    
+    # Show a forest plot and a table of included values
+    mainPanel(
+      
+      plotOutput("forestPlot"),
+      
+      dataTableOutput("table")
+      
+      
+      
     )
-)
+    )
+  )
 
 # Define server logic to draw forestplot and table
 
@@ -140,7 +132,7 @@ server <- function(input, output) {
     summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
     colnames(summary) <- colnames(default)
     summary$study <- c("Summary")
-    summary$RR <- round(sum(a$RR*a$weight)/sum(a$weight), 2) # doesn't sum to 1, 0.999
+    summary$RR <- round(sum(a$RR*(a$Ty+a$CN))/sum(a$TN+a$CN), 2)
     
     # and bind the result to toPlot
     a <- as.data.frame(rbind(summary, a))
@@ -149,50 +141,49 @@ server <- function(input, output) {
   })
   
   
-
+  
   output$table <- renderDataTable({
     
     
     toPlot() %>%
       select(study, weight, RR, ciLower, ciUpper)
-                  
+    
     
   })
-   
-   output$forestPlot <- renderPlot({
-     
-  # plot
-     
+  
+  output$forestPlot <- renderPlot({
+    
+    # plot
+    
     toPlot() %>%
-     ggplot(., aes(x=RR, y=factor(study, levels=toPlot()$study))) +
-       geom_point(shape=15, size=(toPlot()$weight*20), color="blue") +
-       
-       # summary has 0 weight so this prints over it
-       geom_point(aes(x=toPlot()$RR[toPlot()$study=="Summary"], y=toPlot()$study[toPlot()$study=="Summary"]), shape=18, size=10, color="black") +
-       
-       geom_errorbarh(aes(xmax=toPlot()$ciUpper, xmin=toPlot()$ciLower, height=0)) +
-       xlim(0,10) +
-       labs(title=paste0("Risk Ratio & 95% CI\n",
-                         "Outcome: Parasitaemia (mother)"),
-            y="Study", 
-            x="Risk Ratio") +
-       
-       
-       theme_bw() +
-       theme(
-         panel.grid.major = element_blank(),
-         panel.grid.minor = element_blank(),
-         panel.background = element_blank(),
-         plot.title = element_text(hjust=0.5)
-       ) +
-       geom_vline(xintercept=1)
-     
-   })
-   
-   
-
+      ggplot(., aes(x=RR, y=factor(study, levels=toPlot()$study))) +
+      geom_point(shape=15, size=(toPlot()$weight*20), color="blue") +
+      
+      # summary has 0 weight so this prints over it
+      geom_point(aes(x=toPlot()$RR[toPlot()$study=="Summary"], y=toPlot()$study[toPlot()$study=="Summary"]), shape=18, size=10, color="black") +
+      
+      geom_errorbarh(aes(xmax=toPlot()$ciUpper, xmin=toPlot()$ciLower, height=0)) +
+      xlim(0,10) +
+      labs(title=paste0("Risk Ratio & 95% CI\n",
+                        "Outcome: Parasitaemia (mother)"),
+           y="Study", 
+           x="Risk Ratio") +
+      
+      
+      theme_bw() +
+      theme(
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        plot.title = element_text(hjust=0.5)
+      ) +
+      geom_vline(xintercept=1)
+    
+  })
+  
+  
+  
 }
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-
