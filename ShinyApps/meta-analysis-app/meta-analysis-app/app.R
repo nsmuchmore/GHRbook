@@ -92,7 +92,7 @@ ui <- miniPage(
 
   miniTabstripPanel(
     
-    miniTabPanel("Parameters", icon=icon("sliders"),
+    miniTabPanel("Parameters", icon = icon("sliders"),
                  
         miniContentPanel(
           
@@ -140,7 +140,7 @@ server <- function(input, output) {
     summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
     colnames(summary) <- colnames(default)
     summary$study <- c("Summary")
-    summary$RR <- round(sum(a$RR*a$weight)/sum(a$weight), 2)
+    summary$RR <- round(sum(a$RR*a$weight)/sum(a$weight), 2) # doesn't sum to 1, 0.999
     
     # and bind the result to toPlot
     a <- as.data.frame(rbind(summary, a))
