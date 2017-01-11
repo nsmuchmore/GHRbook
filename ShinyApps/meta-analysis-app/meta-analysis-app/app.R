@@ -70,31 +70,54 @@ ui <- fluidPage(
     
     
     # Show a forest plot and a table of included values
-    mainPanel(
+    fluidRow(column(12,
       plotOutput("forestPlot", width="100%"),
       
-      helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
-               Watch as the summary updates.  
-               How does the overall summary Risk Ratio depend on the included studies?"),
+      helpText("Pick a study.  Change the number of events for treatment, control or both.")
+    )
+    ),
       
-      checkboxGroupInput("study",
-                         label = "Check studies to exclude",
-                         choices=levels(default$study),
-                         selected=levels(default$study))
+      fluidRow(
+        
+        column(4,
+        wellPanel(
+      
+      selectInput("study",
+                         label = "Choose study:",
+                         choices=levels(default$study)))),
+      
+      column(4,
+             wellPanel(
+      sliderInput("Tevent",
+                  label = "Intervention Event",
+                  min=1, max=max(default$TN[default$study=="Challis (2004)"]),
+                  value=default$Ty[default$study=="Challis (2004)"],
+                  step=1))),
+      
+      column(4,
+             wellPanel(
+      sliderInput("Cevent",
+                  label = "Control Event",
+                  min=1, max(default$CN[default$study=="Challis (2004)"]),
+                  value=default$Cy[default$study=="Challis (2004)"],
+                  step=1)))
       
     )
+
   )
+
 
 # Define server logic to draw forestplot and table
 
 server <- function(input, output) {
   
-  
+
   # group of studies to consider
   toPlot <- reactive({
     
-    a <- subset(default, default$study %in% input$study)
-    a <- droplevels(a)
+    a <- default
+    a$Ty[a$study==input$study] <- input$Tevent
+    a$Cy[a$study==input$study] <- input$Cevent
     
     return(a)
   })
