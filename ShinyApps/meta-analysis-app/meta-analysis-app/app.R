@@ -73,7 +73,9 @@ ui <- fluidPage(
     fluidRow(column(12,
       plotOutput("forestPlot", width="100%"),
       
-      helpText("Pick a study.  Change the number of events for treatment, control or both.")
+      helpText("Pick a study.  Change the number of events for treatment, 
+               control or both.  If you choose a value out of range,
+               no Risk Ratio will be calculated.")
     )
     ),
       
@@ -90,7 +92,7 @@ ui <- fluidPage(
              wellPanel(
       sliderInput("Tevent",
                   label = "Intervention Event",
-                  min=1, max=max(default$TN[default$study=="Challis (2004)"]),
+                  min=1, max=max(default$TN),
                   value=default$Ty[default$study=="Challis (2004)"],
                   step=1))),
       
@@ -98,7 +100,7 @@ ui <- fluidPage(
              wellPanel(
       sliderInput("Cevent",
                   label = "Control Event",
-                  min=1, max(default$CN[default$study=="Challis (2004)"]),
+                  min=1, max(default$CN),
                   value=default$Cy[default$study=="Challis (2004)"],
                   step=1)))
       
