@@ -5,7 +5,7 @@
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-# try using 
+
 
 # setup =======================================================================
 
@@ -13,6 +13,7 @@ library(dplyr)
 library(magrittr)
 library(ggplot2)
 library(shiny)
+library(meta)
 
 # default data ================================================================
 
@@ -27,11 +28,6 @@ study <- c("Fleming (1986)",
            "Challis (2004)",
            "Menendez (2008)")
 
-
-year <- c(1986, 1989, 1989, 1998,
-          1998, 1999, 2003, 2003,
-          2004, 2008)
-
 # treatment - yes, no, N
 Ty <- c(2, 4, 6, 34, 
         22, 30, 28, 22, 
@@ -39,7 +35,7 @@ Ty <- c(2, 4, 6, 34,
 TN <- c(106, 21, 23, 348, 
         327, 567, 172, 148, 
         208, 133)
-Tno <- TN-Ty
+
 
 # control - yes, no, N
 Cy <- c(5, 5, 6, 48, 
@@ -48,34 +44,18 @@ Cy <- c(5, 5, 6, 48,
 CN <- c(22, 13, 22, 178, 
         177, 564, 170, 134, 
         203, 127)
-Cno <- CN-Cy
 
-# weight
-weight <- c(0.045, 0.067, 0.077, 0.12, 
-            0.115, 0.122, 0.116, 0.116, 
-            0.111, 0.11)
 
 
 
 default <- data.frame(
   study=study,
-  year=year,
   Ty=as.numeric(Ty),
-  Tno=as.numeric(Tno),
   TN=as.numeric(TN),
   Cy=as.numeric(Cy),
-  Cno=as.numeric(Cno),
-  CN=as.numeric(CN),
-  weight=as.numeric(weight)
+  CN=as.numeric(CN)
 )
 
-# calculate RR, and 95% ci
-default <- 
-  default %>%
-  mutate(RR = round((Ty/TN)/(Cy/CN), 2),
-         ciUpper=round(exp(log(RR)+1.96*(sqrt((Tno/(Ty*TN)) + ((Cno/(Cy*CN)))))), 2),
-         ciLower=round(exp(log(RR)-1.96*(sqrt((Tno/(Ty*TN)) + ((Cno/(Cy*CN)))))), 2)
-  )
 
 
 
@@ -85,12 +65,13 @@ ui <- fluidPage(
   
   # Application title
   titlePanel("Meta-Analysis"),
+
   
-  # check boxes to select studies to exclude
-  
-  sidebarLayout(
-    sidebarPanel(
-      
+    
+    
+    # Show a forest plot and a table of included values
+    mainPanel(
+      plotOutput("forestPlot", width="100%"),
       
       helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
                Watch as the summary updates.  
@@ -101,20 +82,6 @@ ui <- fluidPage(
                          choices=levels(default$study),
                          selected=levels(default$study))
       
-      ),
-    
-    
-    
-    # Show a forest plot and a table of included values
-    mainPanel(
-      
-      plotOutput("forestPlot"),
-      
-      dataTableOutput("table")
-      
-      
-      
-    )
     )
   )
 
@@ -128,58 +95,26 @@ server <- function(input, output) {
     a <- subset(default, default$study %in% input$study)
     a <- droplevels(a)
     
-    # recalculate the summary according to the subset
-    summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
-    colnames(summary) <- colnames(default)
-    summary$study <- c("Summary")
-    summary$RR <- round(sum(a$RR*(a$Ty+a$CN))/sum(a$TN+a$CN), 2)
-    
-    # and bind the result to toPlot
-    a <- as.data.frame(rbind(summary, a))
-    
     return(a)
   })
   
-  
-  
-  output$table <- renderDataTable({
-    
-    
-    toPlot() %>%
-      select(study, weight, RR, ciLower, ciUpper)
-    
-    
-  })
+
   
   output$forestPlot <- renderPlot({
     
     # plot
     
-    toPlot() %>%
-      ggplot(., aes(x=RR, y=factor(study, levels=toPlot()$study))) +
-      geom_point(shape=15, size=(toPlot()$weight*20), color="blue") +
-      
-      # summary has 0 weight so this prints over it
-      geom_point(aes(x=toPlot()$RR[toPlot()$study=="Summary"], y=toPlot()$study[toPlot()$study=="Summary"]), shape=18, size=10, color="black") +
-      
-      geom_errorbarh(aes(xmax=toPlot()$ciUpper, xmin=toPlot()$ciLower, height=0)) +
-      xlim(0,10) +
-      labs(title=paste0("Risk Ratio & 95% CI\n",
-                        "Outcome: Parasitaemia (mother)"),
-           y="Study", 
-           x="Risk Ratio") +
-      
-      
-      theme_bw() +
-      theme(
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.background = element_blank(),
-        plot.title = element_text(hjust=0.5)
-      ) +
-      geom_vline(xintercept=1)
+    mh<-  metabin(event.e=toPlot()$Ty, n.e=toPlot()$TN, event.c=toPlot()$Cy, n.c=toPlot()$CN)
+    mh$studlab <- as.character(toPlot()$study)
     
-  })
+    forest(mh, studlab = T, comb.fixed=F, 
+           col.square="blue",
+           col.diamond="black",
+           squaresize=0.5
+             )
+
+    
+  }, height = 400, width = 700)
   
   
   
