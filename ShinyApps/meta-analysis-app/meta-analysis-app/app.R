@@ -92,6 +92,7 @@ server <- function(input, output) {
   
   # group of studies to consider
   toPlot <- reactive({
+    
     a <- subset(default, default$study %in% input$study)
     a <- droplevels(a)
     
@@ -110,11 +111,13 @@ server <- function(input, output) {
     forest(mh, studlab = T, comb.fixed=F, 
            col.square="blue",
            col.diamond="black",
-           squaresize=0.5
+           squaresize=0.5,
+           text.random="Summary",
+           plotwidth="4cm"
              )
 
     
-  }, height = 400, width = 700)
+  })
   
   
   
