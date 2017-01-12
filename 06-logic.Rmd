@@ -61,13 +61,7 @@ knitr::include_graphics("images/dag.jpg")
 
 #### Epidemic model {-}
 
-Epidemic models are used to explain or predict the spread of an epidemic. @kermack:1927 proposed a deterministic compartmental model called SIR that consists of the number of uninfected people susceptable to the disease (S), the number of infected (I), and the number of people removed (R) through death or immunization. @rivers:2014 used this basic framework to create a compartmental model of the 2014 Ebola outbreak in Liberia and Sierra Leone (Figure \@ref(fig:ebolamodel)).
-
-```{r ebolamodel, fig.cap="Compartmental flow of a mathematical model of the Ebola Epidemic in Liberia and Sierra Leone, 2014. Source: Rivers et al. (2014), http://bit.ly/2jkpl5G", echo=F}
-knitr::include_graphics("images/ebola_flow.png")
-```
-
-In this model, the population is divided into six compartments: 
+Epidemic models are used to explain or predict the spread of an epidemic. @kermack:1927 proposed a deterministic compartmental model called SIR that consists of the number of uninfected people susceptable to the disease (S), the number of infected (I), and the number of people removed (R) through death or immunization. @rivers:2014 used this basic framework to create a compartmental model of the 2014 Ebola outbreak in Liberia and Sierra Leone (Figure \@ref(fig:ebolamodel)):
 
 * Susceptible (S)
 * Exposed (E)
@@ -75,6 +69,10 @@ In this model, the population is divided into six compartments:
 * Hospitalized (H)
 * Funeral (F; handling bodies) 
 * Recovered/Removed (R)
+
+```{r ebolamodel, fig.cap="Compartmental flow of a mathematical model of the Ebola Epidemic in Liberia and Sierra Leone, 2014. Source: Rivers et al. (2014), http://bit.ly/2jkpl5G", echo=F}
+knitr::include_graphics("images/ebola_flow.png")
+```
 
 ```{block, type='rmdcomment'}
 @rivers:2014 published this model in November 2014, concluding:
@@ -165,13 +163,11 @@ Well, babies don't come from storks. They come from unprotected sex. It's harder
 
 ## Logic Model
 
-While a theory of change tends to be a high-level depiction of the "why", a **logic model**—or [logframe](https://www.gov.uk/government/publications/dfid-how-to-note-guidance-on-using-the-revised-logical-framework)—is more detailed and focuses on the "how". Logical models are a useful tool for program planning, monitoring program implementation, and program evaluation and reporting. You'll often see them presented in the "results chain" or "pipeline" format shown in Figure \@ref(fig:logicmodel).
+While a theory of change tends to be a high-level depiction of the "why", a **logic model**—or [logframe](https://www.gov.uk/government/publications/dfid-how-to-note-guidance-on-using-the-revised-logical-framework)—is more detailed and focuses on the "how". Logical models are a useful tool for program planning, monitoring program implementation, and program evaluation and reporting. You'll often see them presented in the "results chain" or "pipeline" format shown in Figure \@ref(fig:logicmodel). In a logic model, inputs and activities represent your planned work. Outputs, outcomes, and impact are your intended results.
 
 ```{r logicmodel, fig.cap="Logic model. Source: W.K. Kellogg Foundation, http://bit.ly/1My75Ay", echo=F}
 knitr::include_graphics("images/wkkflog.png", dpi = NA)
 ```
-
-In a logic model, inputs and activities represent your planned work. Outputs, outcomes, and impact are your intended results.
 
 <br>
 

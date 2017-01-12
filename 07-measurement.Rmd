@@ -2,23 +2,97 @@
 knit: "bookdown::preview_chapter"
 ---
 
-# Indicators {#indicators}
+# Measurement {#indicators}
 
-**Indicators** are observable measures of study constructs. Part of developing a good logic model is identifing indicators for each part of the hypothesized causal chain.  To define a construct in terms of an indicator and to specify its measurement is to **operationalize** the construct. In this chapter we'll frame the discussion of how to operationalize study constructs in terms of causal chains, but the lessons apply more broadly.
+In the last chapter you learned that outcomes are the intended results of your program. In this chapter you'll learn how to go from outcomes to indicators and how to specify a measurement plan for all parts of your logic or conceptual model.
 
-## Selecting Good Indicators
+## Terminology
 
-When designing a new program, the common advice is to create [SMART](https://en.wikipedia.org/wiki/SMART_criteria)™ targets and objectives:
+Regardless of what research design you are using, if your goal is to estimate the impact of a program/intervention/treatment/policy on **[blank]**, **[blank]** is your outcome. But what is the difference between an outcome and an indicator? Between an indicator and an instrument? @glennerster:2013 provide helpful definitions of the terms you'll come across in discussions of measurement and data collection. I expand on their list in the table below.
 
-----------------  --------------------------
-**S**ecific       clearly defined
-**M**easurable    able to be quantified
-**A**ttainable    target must be realistic
-**R**elevant      related to the construct
-**T**ime-bound    observed at specific times
-----------------  --------------------------
+<br>
+```{r terms, echo=F}
+terms <- data.frame(v1=c(
+  "**Construct**",
+  "**Outcome**",      
+  "**Indicator**", 
+  "**Instrument**",
+  "**Variable**",
+  "**Respondent**"
+),
+v2=c(
+  "A characteristic, behavior, or phenomenon to be assessed and studied. Often cannot be measured directly.",
+  "In an impact evaluation, 'constructs' will be referred to as outcomes—the intended results of your program. Also referred to as endpoint in a trial.",
+  "Observable measures of outcomes or other study constructs.",
+  "The tools used to measure indicators. Also referred to as a measure.",
+  "The numeric values of the indicators.",
+  "The person (or group) that we measure."
+     ),
+v3=c(
+  "depression",
+  "decreased depression",
+  "depression severity score on a depression scale",
+  "a depression scale, made up of questions/items about symtoms of depression",
+  "",
+  ""
+))
+names(terms) <- c("Term", "Definition", "Example")
 
-Measuring progress against SMART objectives and targets should be done through the use of DREAMY™ indicators. Here's what I think makes an indicator DREAMY:
+knitr::kable(terms, format = "html") %>%
+  html_table_width(c(100,350,150))
+```
+<br>
+
+Let's work through an example to highlight the terms. @patel:2016 designed a RCT in India to test the efficacy of a [lay counsellor-delivered brief psychological treatment](https://www.ted.com/talks/vikram_patel_mental_health_for_all_by_involving_all) for severe depression. The hypothesized outcome was a reduction in severe depression. In a theory of change or logic model, outcomes take on the language of change: increases and decreases.
+
+<br>
+```{r patel, echo=F}
+knitr::include_url("https://www.npr.org/player/embed/505733704/505811951",
+                   height="225px")
+```
+<br>
+
+But you'll also see the word "outcome" used more generally, and synonymously with "indicator", particularly in articles reporting study results. For example, @patel:2016 write:
+
+> Primary outcomes were depression symptom severity on the Beck Depression Inventory version II and remission from depression (PHQ-9 [Patient Health Questionnaire] score of <10) at 3 months in the intention-to-treat population, assessed by masked field researchers.
+
+Using the language in the table above, we could also say that the primary **outcome** was severe depression and the team measured two **indicators** of severe depression: (i) a depression symptom severity score on the Beck Depression Inventory version II (BDI-II) and (ii) a score of less than 10 on the PHQ-9. They used two **instruments** to measure depression: the PHQ-9 ([pdf](http://www.phqscreeners.com/sites/g/files/g10016261/f/201412/PHQ-9_English.pdf)) and the [BDI-II](https://en.wikipedia.org/wiki/Beck_Depression_Inventory).
+
+Outside of the impact evaluation literature, the word "outcome" will often be replaced with "dependent variable" or "response variable". Additional constructs of interest might be called "covariates", "independent variables", or "exposure variables".
+
+To make matters simple, I recommend asking yourself the following questions when you are planning a study:
+
+1. What is the key construct you want to study? What other constructs do you need to measure at the same time to fully understand your key construct?
+3. What are indicators for these constructs? In other words, how will you quantify these constructs?
+4. How will you measure these quantities? What instruments will you use? (This is the topic of the next chapter.)
+
+Fundamentally, there should be a logical flow from your research problem to your measurement of primary study outcomes/constructs. Figure \@ref(fig:flow) demonstrates this using @patel:2016 as an example. 
+
+```{r flow, fig.cap="From research problem to study instruments", echo=F}
+knitr::include_graphics("images/flow.png", dpi = NA)
+```
+
+```{block, type='rmdpuzzle'}
+The language of qualitative studies is a bit different. There is an emphasis on study constructs, but not on indicators or measures. Quantification is not the goal.
+```
+
+## Identify Constructs
+
+Most studies are designed to provide the best evidence possible about one or two **primary outcomes** linked directly to the main study objective. **Secondary outcomes** may be registered, investigated, and reported as well, but these analyses could be more exploratory if the study design is not ideal for measuring these additional outcomes. 
+
+For instance, @patel:2016 included the following secondary outcomes in addition to depression severity and remission from depression:
+
+> Secondary outcomes were disability on the WHO Disability Assessment Schedule II and total days unable to work in the previous month, behavioural activation on the five-item abbreviated Activation Scale based on the Behavioural Activation for Depression Scale-Short Form, suicidal thoughts or attempts in the past 3 months, intimate partner violence (not a prespecified hypothesis), and resource use and costs of illness estimated from the Client Service Receipt Inventory.
+
+These outcomes were labeled secondary because the study was powered on the primary outcomes (a topic of a later chapter):
+
+> ...we aimed to recruit 500 participants to detect the hypothesised effects (a standardised mean difference of 0·42), with 90% power for the primary continuous outcome of depression severity and 92% power to detect a recovery of 65% in the HAP group for our primary binary outcome of depression remission.
+
+The basic idea is that one study cannot definitively answer every possible research question. There are tradeoffs in terms of the time, money, and resources, and investigators must prioritize among all possible outcomes.  
+
+## Select Good Indicators
+
+To define a study construct in terms of an indicator and to specify its measurement is to **operationalize** the construct. Indicators should be DREAMY™:
 
 ----------------  --------------------------
 **D**efined       clearly specified
@@ -29,90 +103,356 @@ Measuring progress against SMART objectives and targets should be done through t
 customar**Y**     recognized standard
 ----------------  --------------------------
 
+### **D**EFINED
 
-### USE DREAMY INDICATORS™
+It is important to clearly specify and define all study variables, especially the indicators of primary outcomes. This is a basic requirement for a reader to critically appraise your work, as well as a building block for future replication attempts. 
 
-Jokhio and colleagues tested an intervention designed to make motherhood safer. The ultimate indicator of safe motherhood is reduced maternal mortality. Let's put this indicator to the DREAMY test. 
+For instance, the construct of interest in @patel:2016 was severe depression, and the two indicators were (i) depression symptom severity and (ii) remission from depression. The authors [pre-registered the trial](https://www.isrctn.com/ISRCTN95149997?q=ISRCTN95149997&filters=&sort=&offset=1&totalResults=1&page=1&pageSize=10&searchType=basic-search) and defined these outcomes as follows:
 
-##### Defined{-}
+1. Mean difference in total score measured by the Beck's Depression Inventory (BDI-II), at 3 months, a 21-item questionnaire assessment of depressive symptoms; each item is scored on a Likert scale of f 0 to 3. It measures depression severity based on symptom scores. 
 
-The first step to becoming a good indicator is having a clear definition. Jokhio et al. used the following definition of a maternal death: 
+2. Remission, defined as a score of <10 measured at 3 months by the Patient Health Questionnaire (PHQ-9), a nine-item questionnaire for the detection and diagnosis of depression based on DSM-IV criteria. It is scored on a scale of 0 to 3 based on frequency of symptoms.
 
-> Maternal deaths were defined as death of the mother during pregnancy, delivery, and up to six weeks postpartum, excluding deaths known to have been due to injury or accident.
+### **R**ELEVANT
 
-##### Relevant{-}
+Indicators should be relevant to the construct of interest. In @patel:2016, scores on the BDI-II and PHQ-9 are clearly measures of depression severity and remission. An example of a non-relevant indicator would be scores on the [Beck Anxiety Inventory](https://en.wikipedia.org/wiki/Beck_Anxiety_Inventory), a measure of anxiety. While anxiety and depression are often co-morbid, anxiety is a distinct construct.
 
-Maternal deaths are clearly relevant to the construct of safe motherhood. Perceptions about health facility quality might not be as relevant, however. 
+### **E**XPEDIENT
 
-##### Expedient{-}
+It should be feasible to collect data on the indicator given a particular set of resource constraints. Asking participants to complete a 21-item questionnaire and a 9-item questionnaire as in @patel:2016 does not represent a large burden on study staff or participants. However, collecting and analyzing biological samples such as hair, salavia, or blood might.
 
-Data on maternal deaths are not easy to collect at the national level, but the study authors devised a good measurement plan (the topic of the next chapter). Jokhio et al. relied on Lady Health Workers—a cadre of educated women with 3 to 6 months of training in primary health care and family planning—to collect oral reports on the cause of death from relatives, neighbors, and TBAs.
+### **A**CCURATE
 
-##### Accurate{-}
+Accurate is another word for "valid". Indicators must be valid measures of study constructs. In other words, we need to be sure that scores on the BDI-II and PHQ-9 measure this thing we're calling depression. I'll discuss this in more detail shortly.
 
-By using a definition that excludes deaths due to injuries and accidents, the authors focus on the causes of death that their intervention seeks to prevent. A reduction in these deaths would be a valid indicator of safe motherhood.
+### **M**EASUREABLE
 
-##### Measurable{-}
+Indicators must be quantifiable. Psychological constructs like depression are often measured through the use of scales such as the BDI-II and the PHQ-9. Other constructs require more creativity. For instance, @olken:2005 measured corruption in Indonesia by digging core samples of newly build roads to estimate the amount of materials used in construction and then compared cost estimates against reported expenditures to get a measure of corruption (i.e., missing expenditures).
 
-Maternal deaths can be quantified, but without a registry of death certificates indicating the cause of death, it's easy to make mistakes. Jokhio et al. relied on Lady Health Workers to obtain "oral reports" on the cause of death from relatives, neighbors, and TBAs. The authors do not use the term "[verbal autopsy](https://en.wikipedia.org/wiki/Verbal_autopsy)", but that is the inferred method. In this particular study, a VA is a reasonable choice because the timing of death was ascertainable for all women. It is possible that some deaths due to accident or injury were incorrectly labeled as maternal deaths, but there is no way to know.
+### CUSTOMAR**Y**
 
-##### customarY{-}
+Whenever possible, it's smart to use standard indicators and follow existing definitions and calculation methods. One way to learn about standards and customs is to keep up with the literature and find articles that measure the same constructs. If you want to publish the results of your impact evaluation of a microfinance program in an economics journal, read other papers by economists. How do they measure outcomes like income, consumption, and wealth? Study measurement is not a good opportunity to show your creative side unless you are explicitly trying to overcome limitations to the standard methods.
 
-Jokhio et al.'s definition of maternal mortality will look familiar to folks who study reproductive health issues because it largely follows the authoritative definition that comes from a set of classification standards known as the ["International Statistical Classification of Diseases and Related Health Problems"](http://www.who.int/classifications/icd/en/), or ICD. According to the latest version, the ICD-10:[^icd9]
-
-> A maternal death is the death of a woman while pregnant or within 42 days of termination of pregnancy, irrespective of the duration and the site of the pregnancy, from any cause related to or aggravated by the pregnancy or its management, but not from accidental or incidental causes.
-
-[^icd9]: The ICD-9 definition—which would have been the standard at the time of the study—is very similar. For more information, see [http://1.usa.gov/1JF0vnv](http://1.usa.gov/1JF0vnv).
-
-### USE INTERNATIONAL STANDARDS
-
-#### WHO Global Reference List{-}
-
-Whenever possible, you should seek out standard indicators and follow existing definitions and calculation methods. The WHO publishes a *Global Reference List* of the 100 core health indicators [@whocore:2015]. The 2015 version categorizes the indicators several ways:
-
-* domain
-	* health status
-	* risk factors
-	* service coverage
-	* health systems (service delivery, quality of care, health financing, essential medicines, the health workforce, health information)
-* subdomains
-	* communicable diseases (HIV/AIDS, sexually transmitted infections, tuberculosis, malaria, neglected tropical diseases, outbreaks, epidemic diseases)
-	* reproductive, maternal, newborn, child and adolescent health (including sexual health and reproductive rights and immunization), 
-	* noncommunicable diseases (including chronic disease, health promotion, nutrition, mental health and substance abuse)
-	* injuries and violence and the environment
-* levels of the results chain framework
-
-Here is the full list of indicators organized by steps in a logic model. 
+If you are studying population-level issues, it's likely that you can find your indicator in the World Health Organization's *Global Reference List* of the 100 core health indicators [@whocore:2015]:
 
 ```{r core100, fig.cap="WHO 100 core health indicators. Source: http://bit.ly/1NgGeLh", echo=F}
 knitr::include_graphics("images/grl.png", dpi = NA)
 ```
-#### Sustainable Development Goals{-}
+
+If 100 is not enough indicators for you, try the United Nations [Sustainable Development Goals](https://sustainabledevelopment.un.org/). There are 230 indicators to measure 169 targets for 17 goals! The SDG indicators even get their own [website](http://unstats.un.org/sdgs/).
 
 ```{r sgds, fig.cap="Sustainable Development Goals. Source: http://bit.ly/2cuDpWN.", echo=F}
 knitr::include_graphics("images/sdgs.png", dpi = NA)
 ```
-If 100 is not enough indicators for you, try the United Nations [Sustainable Development Goals](https://sustainabledevelopment.un.org/). There are 230 indicators to measure 169 targets for 17 goals! The SDG indicators even get their own [website](http://unstats.un.org/sdgs/).
 
-**Goal 3** is to "Ensure healthy lives and promote well-being for all at all ages". **Target 3.1** relates to maternal mortality:
+## Constructing Indicators
 
-> By 2030, reduce the global maternal mortality ratio to less than 70 per 100,000 live births
+### SINGLE ITEM INDICATORS
 
-There are two indicators to measure progress against this target:
+Some indicators are measured with responses to a single item (or a short series of items) on a survey. For instance, in Malaria Indicator Surveys the "[proportion of households with at least one ITN](http://www.rollbackmalaria.org/files/files/resources/tool_HouseholdSurveyIndicatorsForMalariaControl.pdf)" is the "number of households surveyed with at least one ITN" (numerator) divided by the "total number of households surveyed" (denominator).
 
-* **Indicator 3.1.1**: Maternal mortality ratio
-* **Indicator 3.1.2**: Proportion of births attended by skilled health personnel
+> The numerator for this indicator is obtained from asking the household respondent if there is any mosquito net in the house that can be used while sleeping and from determining whether each net found in a household is a factory-treated net that does not require any treatment (an LLIN) or a net that has been soaked with insecticide within the past 12 months. The denominator is the total number of surveyed households.
+ 
+To determine if a household has an ITN, enumerators ask the following sequence of [questions](http://malariasurveys.org/toolkit.cfm). 
 
-In the [meta-data file for Indicator 3.1.1](http://unstats.un.org/sdgs/metadata/files/Metadata-03-01-01.pdf), the maternal mortality ratio (MMR), is defined as:
+```{r itnq, echo=F}
+itnq <- data.frame(n=c(
+  "119",
+  "120",
+  "121",
+  "122",
+  "123",
+  "124",
+  "125"
+),
+q=c(
+"Does your household have any mosquito nets?",
+"How many mosquito nets does your household have?",
+"ASK THE RESPONDENT TO SHOW YOU ALL THE NETS IN THE HOUSEHOLD",
+"How many months ago did your household get the mosquito net?",
+"OBSERVE OR ASK BRAND/TYPE OF MOSQUITO NET",
+"Since you got the net, was it ever soaked or dipped in a liquid to kill or repel mosquitoes?",
+"How many months ago was the net last soaked or dipped?"
+)
+)
+names(itnq) <- c("Number", "Question")
 
-> The number of maternal deaths during a given time period per 100,000 live births during the same time period. It depicts the risk of maternal death relative to the number of live births and essentially captures the risk of death in a single pregnancy or a single live
-birth.
+knitr::kable(itnq, format = "html") %>%
+  html_table_width(c(50,550))
+```
 
-A maternal death is defined as:
+The end result is a binary indicator (yes/no) of whether the household has a bednet that has been dipped in the past 12 months or is factory-treated. In theory it is possible to ask this in one question—"Does your household have any factory-treated mosquito nets or nets that have been dipped in a liquid to kill or repel mosquitoes in the past 12 months?—but this is a long and complicated question. It's more effective to break up the question.
 
-> The annual number of female deaths from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes) during pregnancy and childbirth or within 42 days of termination of pregnancy, irrespective of the duration and site of the pregnancy, expressed per 100,000 live births, for a specified time period.
+Sometimes more abstract constructs can also be measured with just one item. For instance, Konrath et al. [-@konrath:2014] ran 11 studies and found that you can measure narcissism with one question:
 
-### Additional Resources on Indicators{-}
+> To what extent do you agree with this statement: "I am a narcissist." Response options range from "not very true about me" (1) to "very true of me" (7).[^skeptical]
+
+[^skeptical]: Skeptical? From the authors: "We recognize that some readers may be skeptical about whether simply asking people if they are narcissistic is an appropriate measure of narcissism, given that narcissism is associated with a host of defensive processes. Are people really aware of their own levels of narcissism? We would argue that, based on the evidence from the current studies, people who are willing to admit that they are relatively more narcissistic than others, actually are."
+
+Most often, however, constructs like narcissism and depression are measured with multiple items that are combined into indexes or scales. These two terms are often used interchangeably, but they are not synonyms. While sharing in common the fact that multiple items or observations go into their construction—making them **composite measures**—the method and purpose of combining these items or observations is distinct.
+
+### INDEXES
+
+**Indexes** combine items into an overall composite, often without concern for how the individual items relate to each other. For instance, the [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average) is a stock market index that represents a scaled average of stock prices of 30 major U.S. companies such as Walt Disney and McDonald's. The Dow Jones is a popular indicator of market strength and is constantly monitored during trading hours. Every index has its quirks, and the Dow Jones is no exception. Companies with larger share prices have more influence on the index.
+
+An index popular with the global health crowd is the [DHS wealth index](http://www.dhsprogram.com/topics/wealth-index/Wealth-Index-Construction.cfm). As a predictor of many health behaviors and outcomes, economic status is a covariate in high demand. Failing to measure economic status in a household survey would be like failing to note a respondent's gender or age, but measuring economic status is not nearly as easy.[^socioecon] 
+
+[^socioecon]: @dhswealth:2004 remind us that the wealth index is more appropriately referred to as a measure of economic status rather than socio-economic status because it does not include type of occupation and level of education.
+
+In an ideal data world every survey would include *accurate* information on household income and consumption as measures of household wealth. Income is volatile, however, and consumption is very hard to measure quickly. So in the late 1990s, researchers first proposed creating an index of household assets as a measure of a household's economic status [@dhswealth:2004].
+
+Data for the wealth index come from DHS surveys conducted in a particular country. Indicator variables include individual and household assets (e.g., phone, television, car), land ownership, and dwelling characteristics, such as water and sanitation facilities, housing materials (i.e., wall, floor, roof), persons sleeping per room, and cooking facilities. The figure below shows a snapshot of the DHS Household Questionnaire.
+
+```{r wealth, fig.cap="DHS Round 7 Household Questionnaire.", echo=F}
+knitr::include_graphics("images/wealth.png", dpi = NA)
+```
+
+A key decision when creating indexes like the wealth index is *whether to weight* the individual components. Should owning a car be given the same weight as owning a phone? In other words, in constructing an index that measures someone's wealth, should owning a phone contribute as much to the index as owning a car? Most readers would probably say no, so the next question is *how to assign differential weights* to the components. @filmer:2001 first proposed assigning weights via **[principal components analysis](https://en.wikipedia.org/wiki/Principal_component_analysis)**, or PCA. 
+
+PCA is a data reduction technique in which indicators are standardized (i.e., transformed into *z*-scores) so that they each have a mean of 0 and a variance of 1. If there are 10 items, the total variance is therefore 10, and there are 10 *principal components*. A principal component (aka eigenvector) is a linear combination of the original indicators, so every indicator (e.g., yes/no to owning a phone) has a factor loading that represents the correlation between the individual indicator and the principal component. 
+
+The first principal component always explains the most variance, and each component after the first explains a smaller and smaller amount of total variance. In constructing the wealth index, we assume that the first component measures this thing called "wealth", so we use the factor loadings on the first principal component to create a score for each household. Let's use the [2014 Bangladesh DHS survey](http://dhsprogram.com/what-we-do/survey/survey-display-461.cfm) as an example.  
+
+```{r wealthex, fig.cap="Example wealth index construction (abbreviated from 2014 Bangladesh DHS).", echo=F}
+knitr::include_graphics("images/wealthex.png")
+```
+
+As shown above, the factor loading for water piped into a dwelling (i.e., indoor plumbing) was 0.056 in the PCA run on the 2014 Bangladesh DHS data. In order to create the index, this loading gets converted into a score for whether the household has or does not have the asset, and these indicator scores are summed to get an overall index score for each household. Once every household has an index score, it's possible to assign every participant to of 1 of 5 wealth quintiles reflecting their economic status (*relative to the sample*). This makes it possible to examine the relationship between health outcomes and wealth.
+
+### SCALES
+
+In an index, indicators "cause" the concept that is being measured. For instance, a household's wealth is determined by the assets it owns (e.g., livestock, floor quality). Conversely, in a **scale**, the concept "causes" the indicators. 
+
+```{r scaleindex, fig.cap="Scale vs index.", echo=F}
+knitr::include_graphics("images/scalevsindex.png", dpi = NA)
+```
+
+Let's take an example like depression. There is not a blood test for depression, so depression is a construct that needs a definition. According to the Diagnostic Criteria for Major Depressive Disorder and Depressive Episodes, currently the DSM-V, the criteria for Major Depressive Disorder are as follows, A-E:
+
+***A. Five (or more) of the following symptoms have been present during the same 2-week period and represent a change from previous functioning; at least one of the symptoms is either (1) depressed mood or (2) loss of interest or pleasure.***
+
+1. Depressed mood most of the day, nearly every day, as indicated by either subjective report (e.g., feels sad, empty, hopeless) or observation made by others (e.g., appears tearful). 
+2. Markedly diminished interest or pleasure in all, or almost all, activities most of the day, nearly every day (as indicated by either subjective account or observation.)
+3. Significant weight loss when not dieting or weight gain (e.g., a change of more than 5% of body weight in a month), or decrease or increase in appetite nearly every day. 
+4. Insomnia or hypersomnia nearly every day.
+5. Psychomotor agitation or retardation nearly every day (observable by others, not merely subjective feelings of restlessness or being slowed down).
+6. Fatigue or loss of energy nearly every day.
+7. Feelings of worthlessness or excessive or inappropriate guilt (which may be delusional) nearly every day (not merely self-reproach or guilt about being sick).
+8. Diminished ability to think or concentrate, or indecisiveness, nearly every day (either by subjective account or as observed by others).
+9. Recurrent thoughts of death (not just fear of dying), recurrent suicidal ideation without a specific plan, or a suicide attempt or a specific plan for committing suicide.
+
+***B. The symptoms cause clinically significant distress or impairment in social, occupational, or other important areas of functioning.***
+
+***C. The episode is not attributable to the physiological effects of a substance or to another medical
+condition.***
+
+***D. The occurrence of the major depressive episode is not better explained by schizoaffective disorder, schizophrenia, schizophreniform disorder, delusional disorder, or other specified and unspecified schizophrenia spectrum and other psychotic disorders.***
+
+***E. There has never been a manic episode or a hypomanic episode.***
+
+If someone meets criteria A-E, they are diagnosed with Major Depressive Disorder. A diagnosis by a trained mental health professional like a psychiatrist would usually be considered the gold standard measure of depression. Gold standards are in short supply in many places, however, and we need more feasible methods of measuring this thing called depression. A reasonable alternative is to develop a set of questions—a scale—that we could administer to someone as a way of measuring their symptom severity. Presumably, if a person scored high enough on this scale, we'd classify them as depressed.
+
+In this example, depression is the **latent variable** that we can't measure directly. To get an indicator of depression, we need to measure a combination of **manifest variables** that are 'caused' by the latent variable depression. 
+
+@patel:2016 used the Beck Depression Inventory [@beck:1996] to measure depression severity. The BDI-II consists of 21 groups of statements, such as:
+
+1. **Sadness**
+	* (0) I do not feel sad
+	* (1) I feel sad much of the time
+	* (2) I am sad all the time
+	* (3) I am so sad or unhappy that I can't stand it
+2. **Pessimism**
+	* (0) I am not discouraged about my future
+	* (1) I feel more discouraged about my future than I used to be
+	* (2) I do not expect things to work out for me
+	* (3) I feel my future is hopeless and will only get worse
+
+Each item is a manifest variable—something that we measure directly by asking the question. The latent variable depression is measured indirectly by summing a person's responses to all 21 manifest variables to create the BDI-II scale score. 
+#### Determining the factor strucutre of scales {-}
+
+##### Exploratory factor analysis{-}
+
+Typically when developing a new scale, researchers will start with a large pool of potential items—many more than they could ever use an applied context where administration time is a relevant constraint—and use exploratory factor analysis or some other method of data reduction to shrink the pool.
+
+[**Exploratory factor analysis**](https://en.wikipedia.org/wiki/Exploratory_factor_analysis) (EFA) looks a lot like PCA, but they are conceptually and computationally distinct. Whereas PCA results in a linear combination of indicators that maximized total variance, factor analysis maximizes the common or shared variance. 
+
+Factor analysis helps us to understand the structure of the data. For instance, the BDI-II consists of 21 items that are thought to measure the latent construct of depression, but many studies have examined whether these items can be grouped into subfactors—different domains of depression.
+
+@manian:2013 administered the BDI-II to 953 new mothers "from a large East coast metropolitan area" and then conducted EFA on data from half of the sample.[^holdout] They looked for 2- to 4-factor solutions and found that a 3-factor model made the most sense empirically (based on data) and theoretically (based on their knowledge of the literature). Their model suggested that the latent variable of depression is composed of three subfactors as shown in the figure below: cognitive symptoms, affective symptoms, and somatic symptoms.  
+
+[^holdout]: This hold out approach allows you to develop the model using some of your data and cross-validate (aka, test) the model on new data not used to build the model. This is important because you can come up with the best EFA model ever, but if it is too closely fit to your data, it won't replicate. In other words, if you were to run a new study and collect new data, you might find that your model is not a good fit to the new data. It's certainly possible to run a new study to test EFA models, but most researchers prefer to recruit a large enough sample to allow them to divide the dataset into a training set (EFA) and test set (CFA).
+
+##### Confirmatory factor analysis{-}
+
+@manian:2013 then used the holdout data (i.e., data from their sample not used in the EFA) to test the fit of their 3-factor model through [**confirmatory factor analysis**](https://en.wikipedia.org/wiki/Confirmatory_factor_analysis) (CFA). It fit! The model is shown below.
+
+If you are using an existing scale in a new population or setting, CFA is a good technique to determine if the original factor structure generalizes to your context. A typical case is one in which the original scale is developed in a high-income setting and research suggests that it makes sense to construct an overall scale score (of some latent variable like depression) *AND* 2 or 3 subscale scores that correspond to subfactors like cognitive symptoms and affective symptoms. However, let's say that you recruit a sample in a completely new context and your CFA suggests that the original 2-factor model does not fit. Maybe in a different cultural context depression is not manifested along the same dimensions of cognitive and affective symptoms. Such a finding should make you question whether it makes sense to use the scale as is without further evaluation of its applicability.
+
+```{r factor3, fig.cap="Final 3-factor model of the BDI-II with standardized path coefficients. Source: @manian:2013.", echo=F}
+knitr::include_graphics("images/3factor.jpg", dpi = NA)
+```
+
+#### Constructing scale scores {-}
+
+An under-appreciated question when it comes to scales is how to actually construct scale scores. Let's say you come up with a bunch of items that you think measure this thing—this latent construct—called depression, administer the survey with these items to a few hundred people, and conduct EFA and CFA to determine the factor structure. Now what?
+
+Well, you have a few options. @distefano:2009 lump them into two buckets: refined and non-refined. 
+
+1. **Non-refined methods** are most commonly used because they are simple to compute and easy to compare across samples.
+	* **Sum raw scores.** If there are 21 items each with a possible range of 0 to 3, you just add up the scores on each item. This is what the BDI-II does, which gives it a possible range of 0 to 63.
+	* **Average raw scores.** Same idea as summing, but averaging keeps the possible range consistent with the response scale. For instance, if you average 21 items with response options that range from 0 to 3, the possible scale scores will range from 0 to 3. Some people think this makes more intuitive sense when presenting results.
+	* **Sum standardized scores.** With this method you would first standardize each item to have the same mean and standard deviation. It might be a good idea if the standard deviations of the items vary quite a bit. 
+2. **Refined methods** may produce more exact scores since items are weighted empirically (vs equal weighting in non-refined methods) and relationships between factors are reflected in the scoring, but they are more complex and require the analyst to make a number of decisions along the way that can produce very different results. 
+
+#### Evaluating psychometrics{-}
+
+When it comes to evaluating scales like the BDI-II, we often look at several **psychometric** properties that we can group generally into two buckets: reliability and validity. Here's a simple example that highlights the basic difference between these terms.
+
+Imagine your bathroom scale. If you stepped on, then off, then on again, and the scale read 210 lbs and then 180 lbs, you would realize that you are the owner of a broken, *unreliable* scale. So you head to the store and pick up a new scale. You step on and off your new scale, and it reads 400.12 lbs then 400.15 lbs. It's very reliable (*good precision*), but unfortunately very wrong (*poor accuracy*, *invalid*) since you actually weigh something closer to 195 lbs.
+
+##### Reliability{-} 
+
+A **reliable** instrument is a consistent instrument. Consistent over repeated use (as in the bathroom scale example), and consistent among it's component parts. There are several methods for assessing the reliability of an instrument. Here are a few common approaches.
+
+**Test-retest reliability.** This is sometimes referred to as stability. Participants complete your survey today and then again in after a short period of time, maybe a few days or a week. If each person's score is the exactly the same the second time, your instrument would be perfectly reliable. It won't be, but you'll hope for a high correlation coefficient (conventionally higher than 0.70). @beck:1996 assessed the test-retest reliability of the BDI-II by giving the screening to 26 outpatients in Philadelphia at their first and second therapy sessions, approximately 1 week apart. They reported a test-retest correlation was 0.93. The tricky thing with test-retest reliability is knowing when to conduct the retest. Wait too long and scores will change because people change. Don't wait long enough and you just get people repeating their answers from memory.
+
+**Interitem reliability.** This is when responses to items in your instrument are consistent. If not, you have to wonder if they are measuring the same underlying construct of depression. 
+
+1. One approach to finding unreliable items in your instrument is to calculate **item-total correlations**. It's easy: correlate responses on each item with the total scale score. Generally item-total correlations exceeding 0.30 are sufficient. @beck:1996 reported that item-total correlations for the 21 BDI-II items ranged from 0.39 to 0.70 in the outpatient sample.
+2. Another approach is **Cronbach's alpha**, a measure of **internal consistency**. @beck:1996 reported a coefficient alpha value of 0.92 for the outpatient sample. To understand Cronbach's alpha, you have to understand that instruments are imperfect, even the BDI-II. Every person's *observed score*—e.g., their total score on the BDI-II—is actually a function of their *'true' score* (which we can't know) plus some amount of *measurement error*. Cronbach's alpha gives you an estimate of how much variance in people's scores is measurement error. When you calculate Cronbach's alpha in a program like R or Stata, behind the scenes the program does the equivalent of splitting the dataset into two halves over and over again and calculating the correlation between total scores for the first half with total scores for the second half. Cronbach's alpha is the average of all possible correlation coefficients. Things to note about alpha:
+
+	* Alpha can range from 0 to 1
+	* 0.70 is a rough guide for the low-end of acceptable
+	* A value of 1 would indicate complete redundancy suggesting that the items are *too* similar!
+	* Alpha is sensitive to the number of items so a high alpha might just reflect that there are a lot of items included in the scale
+	* Alpha is not a property of the test, rather a characteristic of the test when used in a particular sample
+	* Alpha should not be used when a scale might tap different latent constructs—only use alpha when the scale is unidimensional
+	* @dunn:2014 and others reviewed the limitations of alpha and suggest coefficient *omega* as an alternative
+
+**Interrater reliability.** This is another type of reliability that indicates whether two observers are consistent in observational ratings. Instead of using self-report instrument like the BDI-II, we might want to have two observers watch a video of a parent and child interacting and 'code' the parent's behaviors using a depression rating system that we developed. If the observers agree a lot in their video ratings, they would be reliable. Things to note about interrater reliability:
+   
+   * Percent agreement is one method of evaluating two raters when the rating is binary, but it does not account for agreement that can happen by chance
+   * Cohen's kappa coefficient does account for agreement by chance; generally want a value greater than 0.40
+   * Weighted kappa is good when the rating scale is ordinal (e.g., good < better < best) and you need to account for the fact that *good vs best* represents more disagreement than *better vs best*
+   * Intraclass correlation is a good option when you have 2 or more raters
+
+##### Validity{-}
+
+Ask this three times: does your measure measure what you intend to measure with your measure? Or more simply: is the BDI-II an accurate measure this thing called 'depression'? If not, it's not a valid measure of depression. There are several types of **validity** that you can use to determine whether your instrument is valid.
+
+**Face validity.** This is the weakest form of validity. The basic idea is: if it looks like a duck, quacks like a duck, it's a duck. If people think your depression instrument asks about depression, then it has face validity as a measure of depression. This is a weak standard, however. A great looking instrument can perform very poorly in practice, and an instrument that appears to lack face validity might perform very well. The bottom line is that if you read an article and the only mention of validity is face validity, it's a lame duck.
+
+**Construct validity.** Depression is a hypothetical construct. If your new depression instrument has construct validity, it will be more strongly related to other instruments that are also thought to measure depression (**convergent validity**) and less strongly (or not at all related) to other instruments that claim to measure something other than depression (**discriminant validity**). For instance, @beck:1996 reported that the BDI-II was more positively correlated with the Hamilton Psychiatric Rating Scale for *Depression* (0.71; convergent) than the Hamilton Rating Scale for *Anxiety* (0.47, discriminant). If your instrument has both convergent and discriminant validity, you have more confidence that it measures the construct you think it measures.
+
+**Content validity.** This form of validity asks whether the components of an instrument—e.g., each question in a questionnaire—is relevant to the measurement of the larger construct. For instance, a question about difficulty sleeping is relevant to the measurement of depression since insomnia is a common symptom of depression. Conversely, a question about compulsive behaviors is probably not relevant since compulsive behaviors are not a typical symptom of the syndrome. Content validity also accounts for missing dimensions of a construct. If the BDI-II lacked a question about A5, "Psychomotor agitation", we might question its content validity.
+
+**Criterion-related validity.** An even more robust form of validity is criterion validity. Does an **index test** correctly classify people by their true disease status as determined by some gold standard **criterion reference**?
+
+* Does a new rapid diagnostic test correctly identify evidence of malaria parasites in human blood samples?
+* Do scores on the BDI-II correctly predict which people will be diagnosed with depression when evaluated independently by a mental health professional--the gold standard? 
+
+Let's use an example to explore criterion-related validity in more depth. Kim et al. [-@kim:2014] conducted a study with 562 HIV-positive adolescents in Malawi in which they had the adolescents complete the BDI-II and then participate in a separate clinical interview with clinicians trained to use a structured interview tool called the Children's Rating Scale, Revised (CDRS-R).
+
+1. **Index test**: With 21 items on the BDI-II—each with possible response values from 0 to 3—BDI-II scale scores can range from 0 to 63. Higher scores represent more severe depression. One goal of a validity study is to find a cutoff score on the index test that maximizes diagnostic accuracy. For instance, if the **cutoff score** is 15, anyone who scores greater than 15 is classified as depressed and everyone else is classified as not depressed.
+2. **Criterion reference**: In this study, independent clinician classification of depression was the gold standard. Every adolescent was classified as depressed or not depressed following a clinical interview.
+
+Taken together, there are four possible combinations of index test and gold standard results that we can display in a **confusion matrix**:
+
+* **true positive (a)**: both the test result and the gold standard indicate that the person is depressed
+* **true negative (d)**: both the test result and the gold standard indicate that the person is NOT depressed
+* **false positive (b)**: the test result suggests depression, but the gold standard disagrees
+* **false negative (c)**: the test result suggest no depression, but the gold standard disagrees
+
+```{r confusion, fig.cap="Confusion matrix based on @kim:2014.", echo=F}
+knitr::include_graphics("images/confusion.png", dpi = NA)
+```
+
+From this base set of numbers we can calculate a number of useful metrics about the index test (see the [STARD guidelines](http://www.equator-network.org/reporting-guidelines/stard/) for reporting in studies of diagnostic accuracy):
+
+```{r cm, echo=F}
+cm <- data.frame(m=c(
+  "**Prevalence**",
+  "**Accuracy**",
+  "**Sensitivity**",
+  "**False Negative Rate**",
+  "**Specificity**",
+  "**False Positive Rate**",
+  "**Positive Predictive Value**",
+  "**False Discovery Rate**",
+  "**Negative Predictive Value**",
+  "**False Omission Rate**",
+  "**Positive Likelihood Ratio**",
+  "**Negative Likelihood Ratio**"
+),
+d=c(
+"This is the proportion of the sample (with the right methods we can infer to the population) who have (or had) a certain characteristic such as depression. We will distinguish between point, period, and lifetime prevalence, as well as introduce important issues related to sampling and prevalence, in a later chapter.",
+"This is the total misclassification rate for a particular cutoff point. How often does the test misclassify people according to their 'true' disease state measured by the criterion reference? [Area under the curve, or AUC, is another useful metric of test accuracy. See below for more details.]",
+"Sensitivity is also referred to as the true positive rate. @kim:2014 reported an estimate of 0.75, which indicates that 75% of adolescents with depression correctly screened positive with a cutoff value of 15",
+"The flip side of sensitivity (true positives) is the false negative rate. In this example, 25% of depressed adolescents were misclassified by the test as not depressed.",
+"Specificity is also referred to as the true negative rate. @kim:2014 reported an estimate of 0.77, which indicates that 77% of non-depressed adolescents correctly screened negative with a cutoff value of 15.",
+"The inverse of specificity (true negatives) is the false positive rate. In this example, 33% of non-depressed adolescents were misclassified by the test as depressed.",
+"If someone tests positive, you want to know how likely it is that the person is actually positive. This is what PPV indicates, but there's a catch: the PPV (and NPV, below) depend on the prevalence of the condition in the sample, so they should only be used with representative samples obtained by probability sampling. @kim:2014 report PPV, but this is questionable given their use of convenience sampling. If this were a probability sample, we could interpret a PPV of 0.43 to mean that the probability of depression when testing positive with the BDI-II using a cutoff of 15 is 43 percent. *How is this different from sensitivity?* Sensitivity does not depend on prevalence, but PPV does. A test can be sensitive (i.e., high true positive rate) but still produce many false positives if the prevalence of the condition is low, resulting in a low PPV.",
+"This is the inverse of PPV. Whereas PPV is the probability of disease if the test is positive, the FDR is the probability of a false positive (a false discovery) if the test is positive.",
+"Similar to the PPV, the NPV asks if a person tests negative, what is the probability that they are actually negative. In the example shown, a NPV of 0.93 can be interpreted to mean that the probability of not being depressed when testing negative with the BDI-II using a cutoff of 15 is 93 percent.",
+"This is the inverse of NPV. Whereas NPV is the probability of no disease if the test is negative, the FDR is the probability of a false negative (a false omission) if the test is negative.",
+"This is a measure of how much more likely a positive test result occurs in people with the condition compared to people without the condition. A LR+ of 1 would mean that the result is equally likely, therefore the test is not very helpful. In @kim:2014 the LR+ is 2.3, which means that a positive test result is 2.3 times more likely if the person is actually depressed. This is fairly modest. As a clinician, you'd hope to see that the test had a LR+ ratio greater than 10 as a general rule.",
+"This is a measure of how much more likely a negative test result occurs in people with the condition compared to people without the condition. Again here a LR- of 1 signifies that the test is not useful. A ratio less than 1—particularly less than 0.1—is a good indicator that a negative result is diagnostically accurate."
+)
+)
+names(cm) <- c("Metric", "Details")
+
+knitr::kable(cm, format = "html") %>%
+  html_table_width(c(150,450))
+```
+
+In the sensitivity and specificity calculations shown above, the example cutoff score for depression on the BDI-II was set to 15. To determine if 15 is the best cut point, we could calculate the sensitivity and specificity again for several different cutoff points and plot the relationship in a **receiver operating characteristic** (ROC) curve. ROC curves plot sensitivity (the true positive rate) against 1 minus specificity for a range of different cutoff points. For instance, the figure below shows the ROC curve presented in @kim:2014.
+
+```{r roc, fig.cap="Receiver operating characteristic (ROC) curve for the BDI-II and CDI-II-S as compared to the CDRS-R. Source: @kim:2014. Circle annotation added.", echo=F}
+knitr::include_graphics("images/JIAS-17-18965-g001.jpg", dpi = NA)
+```
+The best cutoff is typically the one that maximizes sensitivity and specificity.[^tradeoff] In a ROC curve, this is the point that is closest to the top left of the graph—sensitivity of 1 and (1-specificity) of 0. In @kim:2014, the optimal cutoff did indeed turn out to be 15.
+
+[^tradeoff]: Decreasing false positives (higher specificity) could be favored to avoid labeling non-depressed patients as depressed and using resources for unnecessary additional evaluations. Doing so would mean missing more true positives, but it could be a defensible tradeoff.
+
+To evaluate the overall accuracy of the test, we can calculate the **area under the ROC curve** (AUC). In @kim:2014, the AUC for the BDI-II is 0.82, generally considered to be an accurate benchmark (1=perfect; 0.5=worthless). The BDI-II performs better than an alternative screening instrument also assessed in this study called the Children's Depression Inventory-II-Short (CDI-II-S); AUC=0.75.
+
+```{block, type='rmdpuzzle'}
+***What is the difference between overall accuracy `((true positives + true negatives) / total)` and AUC?*** Recall that the numbers you can calculate in a confusion matrix are dependent on the threshold you set for what counts as a positive test. Different thresholds (cutoffs) result in different patters of misclassification. AUC, on the other hand, takes into account sensitivity and specificity associated with all possible cutoffs. 
+```
+
+## Indicators Throughout the Causal Chain
+
+Indicators that define inputs, activities, and outputs in a logic model can be classified as **process indicators**. Process indicators capture how well a program is implemented. In short, the "M" (monitoring) in M&E.
+
+As researchers we care about collecting good process/monitoring data in order to develop a better understanding why programs do or don't work. For instance, we might want to track program costs so that we can estimate cost-effectiveness. Or we might want to know if the intervention was delivered according to plan or not. Researchers often rely on program partners to deliver the intervention under investigation, so issues like fidelity to treatment and compliance with study protocols are important to track closely. Let's refer once more to @patel:2016 to review a few examples of process indicators that intervention researchers often care about.
+
+```{r process, fig.cap="Indicators throughout the causal chain.", echo=F}
+knitr::include_graphics("images/patellogic.png", dpi = NA)
+```
+
+### INPUTS
+
+As you'll recall from the previous chapter, inputs are the resources needed to implement the program. The most basic input of all is money, therefore one indicator is program cost.
+
+Impact evaluations produce estimates of the effectiveness of a program or intervention. Does the program "work"? For some public health and behavioral health nerds, evidence of impact is enough because they are narrowly focused on developing and testing new interventions. Not true for policymakers who are thinking about delivering programs at scale with limited public funding; they want to know whether the intervention is *cost-effective*, not just effective.[^T4] 
+
+[^T4]: As discussed in Chapter 1, the gap between developing evidence of effective programs and actually implementing them at scale is an example of a "T4" translational research bottleneck.
+
+A cost-effectiveness analysis requires close tracking of the cost of all program inputs. @patel:2016 indicate that the HAP program costs $66 per person, or $181 per remission from depression at 3 months.
+
+### ACTIVITIES
+
+**Treatment fidelity** is a measure of how closely the actual implementation of a treatment or program reflects the intended design. The consequence of low treatment fidelity is usually an attenuation (aka, shrinking) of treatment effects. This is a threat to internal validity. If the study shows no effect but treatment fidelity is low, we can't be confident in the null result. *Implementation failure* rather than *theory or program failure* could be to blame. Low fidelity is also a threat to external validity because it isn't possible to truly replicate the study.
+
+@patel:2016 measured fidelity in several ways, including external ratings of a random 10 percent of all intervention sessions. An expert not involved in the program listened to recorded sessions and compared session content against the HAP manual.
+
+### OUTPUTS
+
+**Treatment compliance** is a measure of the extent to which people (or units) were treated or not treated according to their study assignment. Sometimes people assigned to the treatment group don't take up the treatment, or only complete part of the planned intervention. It's also possible for members of the control or comparison group to be treated accidentally. Both are examples of broken randomization. When there is only non-compliance to randomization on the treatment side, we call it **one-sided non-compliance**. When some members of the control group are also non-compliant with randomization, it's called **two-sided non-compliance**. 
+
+@patel:2016 randomly assigned 495 eligible adults to the HAP plus enhanced usual care condition (247) or the enhanced usual care condition alone (248). No one in the EUC only condition was treated with HAP, but 31 percent of the HAP group had an unplanned discharge and did not complete the treatment. We'll discuss analysis strategies for one- and two-sided non-compliance in a later chapter.
+
+## Additional Resources on Indicators{-}
 
 ```{r addresources, echo=F}
 addres <- data.frame(ar=c(
@@ -133,98 +473,6 @@ names(addres) <- c("Topic", "Resource")
 knitr::kable(addres, format = "html") %>%
   html_table_width(c(100,500))
 ```
-
-
-## Indicators Throughout the Causal Chain
-
-To demonstrate how to identify indicators throughout the causal chain, we'll use an example from Jokhio and colleagues [-@jokhio:2005] about the impact of training traditional birth attendants (TBA) in Pakistan on the occurrence of stillbirths, neonatal deaths, and maternal deaths. When this study was conducted in 1998, the maternal mortality ratio in Pakistan was more than 280 per 100,000 live births [@whomm:2014].[^mm2013] This represents more than 13,000 women who died giving birth.[^tragedy]
-
-[^mm2013]: The maternal mortality ratio in Pakistan was 170 in 2013.
-
-[^tragedy]: The tragedy in this number is that maternal mortality is preventable. Women continue to die before, during, and after childbirth because of three major delays: (i) delays in seeking healthcare; (ii) delays in reaching healthcare; and (iii) delays in receiving high quality healthcare upon reaching a medical facility [@thaddeus:1994]. The most common proximate causes of death are postpartum hemorrhage, hypertensive disorders, and sepsis [@say:2014]. 
-
-It's hard to predict who will suffer life threatening complications, so there is debate about how to best intervene. Some argue that we should invest in interventions to increase facility deliveries so that women would be better able to access emergency obstetric care if needed. Others point to the low frequency of complications and the high prevalence of poor quality care at medical facilities as a reason that women should be supported in their decision to stay at home where the family can better support them.
-
-At the time Jokhio and colleagues conducted this study, facility deliveries in Pakistan were rare. The authors cited descriptive studies showing that most women in Pakistan delivered at home (80%) without a skilled birth attendant (89%). Only 1 out of 20 women who experienced complications made it to a medical facility with emergency obstetric care.
-
-Given the high prevalence of home deliveries, Jokhio et al. tested an intervention that trained traditional birth attendants—the mothers, aunts, sisters, and neighbors who already help women through childbirth but have no formal medical training—and provided them with delivery kits. The training lasted 3 days and covered topics such as checking for danger signs, conducing a clean delivery using the provided kits, and making emergency referrals. Trained TBAs were asked to visit with women at least three times during the pregnancy to look for danger signs, and then again for the delivery.
-
-The study design was a cluster randomized trial. Seven subdisticts of a rural district were randomized to the TBA intervention or the standard of care. TBAs in subdistricts assigned to the control group did not receive any training or delivery kits. The primary outcome was reduced perinatal deaths (stillbirths and neonatal deaths) and maternal deaths. Let's think about measurement throughout this causal chain.
-
-```{r jokhiologic, fig.cap="Logic model developed for Jokhio et al. (2005).", echo=F}
-knitr::include_graphics("images/JokhioLogic.png", dpi = NA)
-```
-
-### PROCESS INDICATORS
-
-Indicators that define inputs, activities, and outputs in a logic model can be decribed as **process indicators**. These steps in a logic model capture how a program is implemented. In short, the "M" (monitoring) in M&E.
-
-As researchers we care about collecting good process/monitoring data in order to develop a better understanding why programs do or don't work. For instance, we might want to track program costs so that we can estimate cost-effectiveness. Or we might want to know if the intervention was delivered according to plan or not. Researchers often rely on program parnters to deliver the intervention under investigation, so issues like fidelity to treatment and compliance with study protocols are important to track closely. Let's review a few examples of process indicators that intervention researchers often care about.
-
-#### Inputs{-}
-
-As you'll recall from the previous chapter, inputs are the resources needed to implement the program. The most basic input of all is money, therefore one indicator is program cost.
-
-Impact evaluations produce estimates of the effectiveness of a program or intervention. Does the program "work"? For some public health and behavioral health nerds, evidence of impact is enough because they are narrowly focused on developing and testing new interventions. Not true for policymakers who are thinking about delivering programs at scale with limited public funding; they want to know whether the intervention is *cost-effective*, not just effective.[^T4] A cost-effectiveness analysis requires close tracking of the cost of all program inputs. Jokhio et al. don't tell us about the cost of the TBA training program, other than to say the intervention was designed to be "low cost and sustainable".
-
-[^T4]: As discussed in Chapter 1, the gap between developing evidence of effective programs and actually implementing them at scale is an example of a "T4" translational research bottleneck.
-
-```{block, type='rmdpuzzle'}
-Cost effectiveness analysis (CEA) is not the same thing as cost-benefit analysis (CBA). The latter involves putting a dollar amount to benefits, such as the benefit to society of averting a maternal death. This is hard to do and quite subjective. This is why you will come across CEA much more frequently in global health. The typical calculation is the effect size divided by the costs. There is no effort to put costs and effects on the same dollar metric. See the ["WHO guide to cost-effectiveness analysis"](http://www.who.int/choice/publications/p_2003_generalised_cea.pdf) for additional guidance.
-```
-#### Activities/Outputs{-}
-
-##### Treatment fidelity{-}
-
-**Treatment fidelity** is a measure of how closely the actual implementation of a treatment or program reflects the intended design. The TBA intervention studied in Jokhio et al. included a 3-day training and the provision of delivery kits. If a trainer decided to skip portions of the training or knock off a day, the program would not be delivered as intended (aka, without fidelity to the treatment). The consequence of low treatment fidelity is usually an attenuation (aka, shrinking) of treatment effects. This is a threat to internal validity. If the study shows no effect but treatment fidelity is low, we can't be confident in the null result. *Implementation failure* rather than *theory or program failure* could be to blame. Low fidelity is also a threat to external validity because it isn't possible to truly replicate the study.
-
-The first step in developing a measure of fidelity is to identify what constitutes the intervention. Jokhio et al. did not discuss fidelity, but we can develop a basic plan based on what we know. The study involved training TBAs on the following topics:
-
-* giving advice on antepartum, intrapartum, and postpartum care; 
-* how to conduct a clean delivery; 
-* how to use the disposable delivery kit; 
-* when to refer women for emergency obstetrical
-care; 
-* and care of the newborn. 
-
-There are two levels of training we could evaluate: the quality of the training and the resulting knowledge of the TBAs who were trained.
-
-First, we want to make sure that the people training the TBAs (i) adhere to the training manual and (ii) correctly present all of the training material. We might do this by creating a TOT fidelity checklist that can be used to assess adherence and competence [@breitenstein:2010]. For instance:
-
-* **Adherence**
-	* trainer reviews didactic material on conducting a clean delivery
-	* trainer facilitates the demonstration activity on how to use the disposable delivery kit
-* **Competence**
-	* trainer correctly explains the key danger signs to look for during the antepartum period
-	* trainer demonstrates proper use of the delivery kits
-
-Second, we want to know that the TBAs learned something from the training. This could be as simple as administering a knowledge and practical test at the end of the training. To continually monitor fidelity over time, we could arrange to observe or record TBA interactions with patients and evaluate fidelity with another checklist. Depending on the situation, we could also use "mystery clients"—confederates who pose as real clients—to evaluate fidelity without the target's knowledge.
-
-##### Treatment compliance{-}
-
-**Treatment compliance** is a measure of the extent to which people (or units) were treated or not treated according to their study assignment. In a randomized trial, people (or other units like schools and clinics) are randomly assigned to different study arms. In Jokhio et al., subdistricts were randomly assigned to the TBA intervention group (treatment) or the no program group (control). Sometimes plans don't work out and people or units are "non-compliant" with these assignments. For instance:
-
-*  Some people assigned to the *treatment* group are never treated or only partially treated. Maybe some TBAs never showed up for the training program or stopped attending before the end.   
-
-*  Some people assigned to the *control* group receive the treatment despite their assignment to the inactive control group. An example would be if TBAs in control subdistricts heard about the nearby training and decided to attend.
-
-Just like low-treatment fidelity, non-compliance with the study protocol can attenuate treatment effects. We'll discuss these threats more in the chapter on experimental designs. The take home point for now is that close tracking of outputs can be critical for your analysis of treatment effects.
-
-### OUTCOME/IMPACT INDICATORS
-
-While process indicators are important to track for research purposes, researchers tend to spend the most time and effort defining measurement strategies for study outcomes and impacts. Jokhio et al. evaluated the effect of the TBA intervention on a set of outcomes that included the occurrence of major complications of pregnancy and referral to emergency obstetric care. The authors also examined the impact of the intervention on maternal mortality. 
-
-Jokhio et al. reported that the intervention reduced the odds of hemorrhage by 39%, but they did not provide the definition of postpartum hemorrhage used in their study. Commonly this is defined as vaginal bleeding greater than 500 mL after vaginal delivery or 1000 mL after cesarean delivery [@knight:2009]. Accurate measurement of postpartum hemorrhage is a challenge, but that's a topic for the next chapter.
-
-Jokhio et al. also reported a 26% reduction in maternal deaths, but the estimate was not very precise.[^mm] The authors defined maternal deaths as "deaths during pregnancy and up to 6 weeks postpartum, excluding those known to have been due to injury or accident".
-
-[^mm]: The study was only designed to detect a reduction in maternal deaths of 90%, so it is not surprising that they did not find a statistically significant effect. This indictor made sense in the theory of change, however: better equipped TBAs who are present at deliveries will reduce the incidence of major complications that are most likely to lead to maternal deaths; better access to emergency referrals will have the same life saving effect. So no definitive evidence about the impact of the intervention on maternal mortality, but large effects on the intermediate outcomes supports the underlying theory of change. 
-
-
-
-
-
-
 
 ## Share Feedback{-}
 
