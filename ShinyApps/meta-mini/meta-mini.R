@@ -92,38 +92,43 @@ ui <- miniPage(
 
   miniTabstripPanel(
     
-    miniTabPanel("Parameters", icon = icon("sliders"),
-                 
         miniContentPanel(
           
-          helpText("Using the check boxes, exclude a study from the meta-analysis by unchecking it.  
-                 Watch as the summary updates.  
-                   How does the overall summary Risk Ratio depend on the included studies?"),
+          plotOutput("forestPlot", width="100%"),
           
-          checkboxGroupInput("study",
-                             label = "Check studies to exclude",
-                             choices=levels(default$study),
-                             selected=levels(default$study))
+          helpText("Pick a study.  Change the number of events for treatment, 
+                   control or both.  If you choose a value out of range,
+                   no Risk Ratio will be calculated."),
           
-          )
-        ),
-        
-    miniTabPanel("Visualize", icon = icon("area-chart"),
-                 
-        miniContentPanel(
-          
-            plotOutput("forestPlot", height="100%")
+          fluidRow(
             
-                     )
-        ),
+            column(4,
+                   wellPanel(
                      
-    miniTabPanel("Data", icon = icon("table"),
-                 
-        miniContentPanel(
-          
-            dataTableOutput("table")
-                     ))
+                     selectInput("study",
+                                 label = "Choose study:",
+                                 choices=levels(default$study)))),
+            
+            column(4,
+                   wellPanel(
+                     sliderInput("Tevent",
+                                 label = "Intervention Event",
+                                 min=1, max=max(default$TN),
+                                 value=default$Ty[default$study=="Challis (2004)"],
+                                 step=1))),
+            
+            column(4,
+                   wellPanel(
+                     sliderInput("Cevent",
+                                 label = "Control Event",
+                                 min=1, max(default$CN),
+                                 value=default$Cy[default$study=="Challis (2004)"],
+                                 step=1)))
+            
+          )
+
     )
+)
 )
 
 # Define server logic to draw forestplot and table
@@ -133,61 +138,33 @@ server <- function(input, output) {
   
   # group of studies to consider
   toPlot <- reactive({
-    a <- subset(default, default$study %in% input$study)
-    a <- droplevels(a)
     
-    # recalculate the summary according to the subset
-    summary <- as.data.frame(matrix(0, ncol=length(default), nrow=1))
-    colnames(summary) <- colnames(default)
-    summary$study <- c("Summary")
-    summary$RR <- round(sum(a$RR*a$weight)/sum(a$weight), 2) # doesn't sum to 1, 0.999
-    
-    # and bind the result to toPlot
-    a <- as.data.frame(rbind(summary, a))
+    a <- default
+    a$Ty[a$study==input$study] <- input$Tevent
+    a$Cy[a$study==input$study] <- input$Cevent
     
     return(a)
   })
   
   
-
-  output$table <- renderDataTable({
+  
+  output$forestPlot <- renderPlot({
     
+    # plot
     
-    toPlot() %>%
-      select(study, weight, RR, ciLower, ciUpper)
-                  
+    mh<-  metabin(event.e=toPlot()$Ty, n.e=toPlot()$TN, event.c=toPlot()$Cy, n.c=toPlot()$CN)
+    mh$studlab <- as.character(toPlot()$study)
+    
+    forest(mh, studlab = T, comb.fixed=F, 
+           col.square="blue",
+           col.diamond="black",
+           squaresize=0.5,
+           text.random="Summary",
+           plotwidth="4cm"
+    )
+    
     
   })
-   
-   output$forestPlot <- renderPlot({
-     
-  # plot
-     
-    toPlot() %>%
-     ggplot(., aes(x=RR, y=factor(study, levels=toPlot()$study))) +
-       geom_point(shape=15, size=(toPlot()$weight*20), color="blue") +
-       
-       # summary has 0 weight so this prints over it
-       geom_point(aes(x=toPlot()$RR[toPlot()$study=="Summary"], y=toPlot()$study[toPlot()$study=="Summary"]), shape=18, size=10, color="black") +
-       
-       geom_errorbarh(aes(xmax=toPlot()$ciUpper, xmin=toPlot()$ciLower, height=0)) +
-       xlim(0,10) +
-       labs(title=paste0("Risk Ratio & 95% CI\n",
-                         "Outcome: Parasitaemia (mother)"),
-            y="Study", 
-            x="Risk Ratio") +
-       
-       
-       theme_bw() +
-       theme(
-         panel.grid.major = element_blank(),
-         panel.grid.minor = element_blank(),
-         panel.background = element_blank(),
-         plot.title = element_text(hjust=0.5)
-       ) +
-       geom_vline(xintercept=1)
-     
-   })
    
    
 
