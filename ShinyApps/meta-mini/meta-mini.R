@@ -14,6 +14,7 @@ library(magrittr)
 library(ggplot2)
 library(shiny)
 library(miniUI)
+library(meta)
 
 # default data ================================================================
 

@@ -2,7 +2,7 @@
 knit: "bookdown::preview_chapter"
 ---
 
-# (PART) Part II: How to be a Better Consumer of Research {-}
+# (PART) Critical Appraisal {-}
 
 # Searching the Literature {#literature}
 
@@ -12,17 +12,22 @@ A lot deeper, actually.
 
 Google's former CEO Eric Schmidt has [said we create as much information every two days as we did from the beginning of time through 2003](http://techcrunch.com/2010/08/04/schmidt-data/). Two days! And he said this back in 2012, so it's an even shorter time span today. Of course the "cat photo" to "research finding" ratio is probably something like 1,000,000:1 nowadays, but this only makes the point that good information can be hard to find.
 
-In this chapter we'll discuss a strategy for quickly getting a sense for the state-of-the-art in health research, and then outline the steps you need to take to ask a good research question and search the literature for primary sources.
+In this chapter we'll discuss a strategy for quickly getting a sense for the state-of-the-art in health research, and then outline the steps you need to take to search the literature for primary sources.
+
+```{r cat, echo=FALSE}
+knitr::include_url("http://giphy.com/embed/o0vwzuFwCGAFO",
+                   height = "480px")
+```
 
 ## Start with Systematic Reviews and Meta-Analyses
 
 ```{block, type='rmdplay'}
-Systematic reviews and meta-analyses ([PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuU2lYSXZ4NWpndEE))
 ```
 
 ```{r ch2systematic, echo=F}
 knitr::include_url("https://warpwire.duke.edu/w/BFYBAA/")
 ```
+[PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuU2lYSXZ4NWpndEE)
 
 Repeat after me:
 
@@ -30,41 +35,74 @@ Repeat after me:
 > I will not start my research by Googling "malaria". 
 > I will not start my research by Googling "malaria".
 
-If your topic is malaria and you're not sure if the vector is mosquitos or monkeys, then [Wikipedia](https://en.wikipedia.org/wiki/Malaria) is probably a good place to start. There's no shame in that. Otherwise, it is always a good idea to begin with a check for relevant systematic reviews or meta-analyses. Finding a good review beats Googling "malaria" any day.  
+If your topic is malaria and you're not sure if the vector is mosquitoes or monkeys, then [Wikipedia](https://en.wikipedia.org/wiki/Malaria) is probably a good place to start. There's no shame in that. Otherwise, it is always a good idea to begin with a check for relevant systematic reviews or meta-analyses. Finding a good review beats Googling "malaria" any day.  
 
-### Meta-Analyses
+### META-ANALYSIS
 
-A **meta-analysis** is a quantitative approach in which the results from multiple studies are combined to estimate an overall effect size. We'll talk more about effect sizes later, but the concept is pretty simple. Let's use a meta-analysis by Radeva-Petrova et al. [-@radevapetrova:2014] as an example.
+A **meta-analysis** is a quantitative approach in which the results from multiple studies are combined to estimate an overall effect size. The results of a meta-analysis are typically summarized in a forest plot like the one shown in Figure \@ref(fig:forestguide). Let's take a look at this helpful guide from @ried:2006 that breaks it all down.
 
-The authors reviewed 17 studies of the effects of chemoprevention on pregnant women living in malaria-endemic areas. The basic question they set out to answer with their review was as follows: Do women who take antimalarial medication during pregnancy have a lower risk of getting infected with malaria, and thus a lower risk of experiencing the bad health outcomes that are associated with malaria?
-
-One **indicator** of malaria infection is parasitaemia, or the presence of malaria parasites in the blood. If chemoprevention has some preventive effect, you'd expect to see less parasitaemia among women exposed to the medication (aka, treatment). Few interventions are 100% effective, so we often talk about reductions in the risk of bad outcomes like malaria. This is one type of **effect size**, a measure of the strength or magnitude of a relationship, such as the relationship between taking a medicine and experiencing a bad outcome.
-
-Here is a **forest plot** from Radeva-Petrova et al. [-@radevapetrova:2014] that shows the results of 10 studies (8 trials) that compared cases of parasitaemia among 3,663 pregnant women who were randomized to an **intervention group** (*n*=2,053) that received some preventive antimalarial drug or to a control group (*n*=1,610) that received a **placebo** (or nothing). 
-
-```{r malariaforest, fig.cap="Source: Radeva-Petrova et al. (2014), http://bit.ly/2hwwpOI", echo=F}
-knitr::include_graphics("images/rpforest.png", dpi = NA)
+```{r forestguide, fig.cap="Source: Ried (2006), http://bit.ly/2j9pfSz", echo=F}
+knitr::include_graphics("images/forestguide.png", dpi = NA)
 ```
 
-```{block, type='rmdcomment'}
-Here's how Lewis and Clarke [-@lewis:2001] describe a forest plot:
+A forest plot summarizes the results of several studies that measured the effect of a particular intervention on a particular outcome. Each study result is described and plotted in one row, and the overall (aka the "pooled" or "meta") effect that takes all of the studies into account is displayed at the bottom. 
 
-> In a typical forest plot, the results of component studies are shown as squares centered on the point estimate of the result of each study. A horizontal line runs through the square to show its confidence interval—usually, but not always, a 95% confidence interval. The overall estimate from the meta-analysis and its confidence interval are put at the bottom, represented as a diamond. The center of the diamond represents the pooled point estimate, and its horizontal tips represent the confidence interval. Significance is achieved at the set level if the diamond is clear of the line of no effect.
- 
-> The plot allows readers to see the information from the individual studies that went into the meta-analysis at a glance. It provides a simple visual representation of the amount of variation between the results of the studies, as well as an estimate of the overall result of all the studies together. Forest plots increasingly feature in medical journals, and the growth of the Cochrane Collaboration has seen the publication of thousands in recent years.
+The study sample is divided into the intervention and control arms and presented in the `n/N` format where `n` represents the number of participants who experienced the outcome and `N` is the total number of participants in the study arm. For example, there were 141 people assigned to the intervention group in Study A. 1 out of these 141 people experienced the adverse outcome that the forest plot summarizes. 
 
-Lewis and Clarke [-@lewis:2001] discovered that the first forest plot was published in 1978, and first used in a meta-analysis in 1982. The name lagged behind, appearing first in 1996, apparently referring to the forest of lines typical of most forest plots.
+<<<<<<< HEAD:02-literature.Rmd
+```{r malariaforest, fig.cap="Source: Radeva-Petrova et al. (2014), http://bit.ly/2hwwpOI", echo=F}
+knitr::include_graphics("images/rpforest.png", dpi = NA)
+=======
+Next comes a plot of the **effect size** and the **confidence interval**. An effect size is a measure of the strength or magnitude of a relationship, such as the relationship between taking a medicine and experiencing a bad outcome. This guide shows one particular type of effect size: relative risk. Each study's point estimate of the relative risk is plotted around a line of "no effect". A risk of 1 means that there is no difference between the intervention and control groups. When the outcome is something bad, like death, you want your intervention to reduce the risk, which is a risk ratio less than 1.
+
+```{block, type='rmdtip'}
+We talk about "estimates" of the effect because research can only approximate the truth. Recall from our discussion of scientific research in the previous chapter that this is the concept of uncertainty. Forest plots show uncertainty in the form of confidence intervals.
+>>>>>>> master:03-literature.Rmd
+```
+
+The size of the effect estimate symbol is based on how much the study contributed to the meta-analysis. All studies are not created equal, and the weight parameter lets researchers reflect this in the analysis.
+
+Each point estimate is surrounded by a confidence interval (typically 95%) that is summarized numerically in the final column. I'll cover effect sizes and confidence intervals in a later chapter, but the basic idea is that if you were to conduct the study 100 times, you'd expect the effect size to be in this interval 95% of the time. The key point to grasp now is that when this interval crosses the line of no effect, we have to acknowledge that the effect could be null or even run in the opposite direction. We'd say that the result is not "statistically significant".
+
+Finally, note the test for **heterogeneity** toward the bottom. Heterogeneity means diversity (and is the opposite of homogeneity). Heterogeneity in a forest plot refers to the diversity in effect size estimates across studies. Heterogeneity complicates the interpretation of a meta-analysis; it signals that we might be comparing apples and oranges. For instance, maybe the intervention works differently in different contexts, and the included studies come from all over the world. In such a case, it might not make sense to try to come up with one, overall, meta effect size from a comparison of apples and oranges.
+
+The first way to assess heterogeneity is to just look at the plots. Do the confidence intervals from each study form a vertical column, even if the point estimates shift within? If so, heterogeneity is probably low. You can also summarize heterogeneity numerically. Two estimates of heterogeneity are often presented: Chi-square and I^2. I^2 is generally seen as the preferred metric. Values greater than 75% might lead you to change how you run your meta-analysis (random vs fixed effects). The details are not important now; just know that if you see a high I^2 reported, you should expect the authors to address heterogeneity in the methods or limitations.
+
+```{block, type='rmdtip'}
+@lewis:2001 discovered that the first forest plot was published in 1978, and first used in a meta-analysis in 1982. The name lagged behind, appearing first in 1996, apparently referring to the forest of lines typical of most forest plots.
+```
+
+#### Example {-}
+
+Let's consider a meta-analysis by Radeva-Petrova et al. [-@radevapetrova:2014] as an example. The authors reviewed 17 studies of the effects of chemoprevention on pregnant women living in malaria-endemic areas. The basic question they set out to answer with their review was as follows: 
+
+> Do women who take antimalarial medication during pregnancy have a lower risk of getting infected with malaria, and thus a lower risk of experiencing the bad health outcomes that are associated with malaria?
+
+One **indicator** of malaria infection is parasitaemia, or the presence of malaria parasites in the blood. If chemoprevention has some preventive effect, you'd expect to see less parasitaemia among women exposed to the medication (aka, treatment). Few interventions are 100% effective, so we often talk about reductions in the risk of bad outcomes like malaria.
+
+The forest plot shown in Figure \@ref(fig:malariaforest) displays the results of 10 studies (8 trials) that compared cases of parasitaemia among 3,663 pregnant women who were randomized to an **intervention group** (*n*=2,053) that received some preventive antimalarial drug or to a control group (*n*=1,610) that received a **placebo** (or nothing). 
+
+```{r malariaforest, fig.cap="Source: Radeva-Petrova et al. (2014), http://bit.ly/1U3q2Oj", echo=F}
+knitr::include_graphics("images/rpforest.png", dpi = NA)
 ```
 
 Details about each study are reported as rows in this figure. Take a look at the study by Shulman et al. [-@shulman:1999] in row 6. This study found that 30 of the 567 women in the intervention group tested positive for parasitaemia (i.e., malaria). This compared to 199 of the 564 woman in the control group. This is a risk ratio of 0.15—`(30/567)/(199/564) = 0.15`—which means that chemoprevention reduced the risk of parasitaemia by 85%. This is a huge effect size!
 
-The effect size for each study is presented in the far right column and depicted graphically in the size of point estimate square. All of the point estimates fall to the left of the line of no effect (<1), thus favoring chemoprevention because you want to reduce the risk of this bad outcome. [A risk ratio of 1 would indicate no difference in risk, and a ratio >1 would mean the risk is higher among the intervention group, thus favoring the control group.] The overall (pooled) effect size is shown last as 0.39, or a 61% reduction in the risk of parasitaemia.
+The effect size for each study is presented in the far right column and depicted graphically in the size of point estimate square. All of the point estimates fall to the left of the line of no effect (<1), thus favoring chemoprevention because you want to reduce the risk of parasitaemia. [A risk ratio of 1 would indicate no difference in risk, and a ratio >1 would mean the risk is higher among the intervention group, thus favoring the control group.] The overall (pooled) effect size is shown last as 0.39, or a 61% reduction in the risk of parasitaemia.
 
 We won't bother ourselves with the calculation of this pooled effect size, other than to note that it's not as simple as averaging the 10 studies. This is because the studies were not given equal weight, as you can see in the "weight" column. For instance, Greenwood et al. [-@greenwood:1989] only had a sample size of `21+13=34` children. As a result, the effect size estimate is very noisy. The 95% confidence interval is wide and crosses 1. Consequently, its weight of 6.7% is lower than the others. Simply put, studies weaker research designs get less weight in the analysis.
 
 So here in one figure we get a summary of the best available evidence and an estimate of the overall effect size, with uncertainly intervals. You can't get that from a Google search.
 
-### Systematic Reviews
+```{block, type='rmdshiny'}
+Exploring meta-analysis ([link to full browser app](https://globalhealthresearch.shinyapps.io/meta-analysis-app/))
+```
+
+```{r shiny_ma, echo=F}
+knitr::include_app("https://globalhealthresearch.shinyapps.io/meta-analysis-app/", height = "600px")
+```
+
+### SYSTEMATIC REVIEW
 
 You might be wondering how Radeva-Petrova et al. [-@radevapetrova:2014] found these studies in the first place. The answer is through a **systematic review** of the literature. 
 
@@ -190,9 +228,9 @@ Reading the appendices will give you a sense of what it takes to put together a 
 
 Hopefully at this point you'll agree that it's a good idea to start with a systematic review, not a search engine. Of course not every topic has been the subject of a recent systematic review or meta-analysis, so you'll sometimes need to search the primary literature yourself. I'll show you how, but first you need to clearly define what you're looking for.
 
-### Asking a research question
+### ASKING A RESEARCH QUESTION
 
-Here's a helpful mnemonic for creating a good clinical question: [PICO](http://guides.mclibrary.duke.edu/c.php?g=158178&p=1035882).
+Let's come back to our helpful mnemonic [PICO](http://guides.mclibrary.duke.edu/c.php?g=158178&p=1035882) introduced in the previous chapter. PICO can help you create a good clinical question.
 
 ```{r pico, echo=FALSE}
   pico <- data.frame(letter=c("**P**", "**I**", "**C**", "**O**"),
@@ -204,7 +242,7 @@ Here's a helpful mnemonic for creating a good clinical question: [PICO](http://g
   knitr::kable(pico, col.names=NA)
 ```
 
-Let's use PICO to develop a well-focused, searchable research question on treating malaria during pregnancy. The **problem** we want to address is malaria infections. The **population** is pregnant women living in malaria-endemic areas.  
+We'll use PICO to develop a well-focused, searchable research question on treating malaria during pregnancy. The **problem** we want to address is malaria infections. The **population** is pregnant women living in malaria-endemic areas.
 
 Not every clinical question involves testing of a treatment or **intervention**, but we'll focus a lot on these types of questions in this book. For the example at hand, the intervention would be malaria chemoprevention. [Prognostic factor refers to covariates that could influence the prognosis of the patient. An exposure would be something that we think might increase the risk of an outcome.]
 
@@ -218,11 +256,15 @@ We can combine all of this into a research question:
 
 > Among pregnant women living in malaria-endemic areas, is chemoprevention more effective than a placebo at preventing parasitaemia?
 
-### Approaches
+```{block, type='rmdtip'}
+Remember, not all research questions fit into PICO. That's OK. Go back to [Chapter 2](#research101) to remember how to make your questions FINER.
+```
+
+### APPROACHES
 
 With your basic research question outlined, you're ready to begin searching. At the beginning you might take a quick and dirty™ approach to get started. Eventually you'll need to graduate to a proper search strategy to be more systematic, even if your end goal is not a capital "S" Systematic review. 
 
-#### Quick and dirty{-}
+#### Quick and dirty™{-}
 
 A reasonable initial approach is to find a few recent articles to get a quick sense of what is out there. Google Scholar *could* come in handy here. For instance, my advanced Google Scholar search for PICO terms "malaria pregnant chemoprevention parasitaemia" (limited to recent years) identified a paper by Braun et al. [-@braun:2015] on the use of intermittent preventive treatment in pregnancy (IPTp) with sulfadoxine–pyrimethamine (SP)—a specific type of chemoprevention—on malaria infections among pregnant women in western Uganda.
 
@@ -256,7 +298,7 @@ Every good systematic review will include a table or appendix like this one to m
 knitr::include_graphics("images/search.png")
 ```
 
-For the purposes of your literature review, you don't necessarily need to ensure that other people can recreate your results, but you should make sure that *you* can. 
+For the purposes of your literature review, you don't necessarily need to ensure that other people can recreate your results, but you should make sure that *you* can 2 weeks from now.
 
 ```{block, type='rmdtip'}
 Create an account within the database you are searching to login and save your search approaches and make it easier to retrace your steps at a later date. Also, differences in the design of each database and interface often require you to customize your search. If you are conducting an actual systematic review that you wish to publish—as opposed to just searching the literature systematically—then you should consult with a librarian who will be familiar with the intricacies of building search strategies.
@@ -304,7 +346,7 @@ Turns out there are a lot of ways that we refer to breast cancer! The following 
 * Breast Carcinoma
 * Cancer of the Breast
 
-Back in the world of mosquitos, the MeSH term for "malaria" is "malaria", conveniently, and a search for this term in PubMed actually searches:
+Back in the world of mosquitoes, the MeSH term for "malaria" is "malaria", conveniently, and a search for this term in PubMed actually searches:
 
 `"malaria"[MeSH Terms] OR malaria[All fields]`
 
@@ -367,7 +409,6 @@ Once you are satisfied with your results, you could choose to apply the same sea
 Oh hey, here's one now:
 
 ```{block, type='rmdplay'}
-5 tips for PubMed searching
 ```
 
 ```{r fivetips, echo=F}
@@ -429,19 +470,17 @@ A tutorial is beyond the scope of this chapter, but it's worth mentioning some f
 
 So next time you see someone typing references and complaining about APA formatting, open your laptop and run your reference manager. Watch them weep!
 
+## Why Does Any of This Matter?
+
+Most of the time we don't search the literature to conduct our own systematic review. We search the literature to keep up with developments in our field and to appreciate where there are gaps in our collective knowledge. We search the literature to write FINER research questions. Questions that are **I**nteresting, and **N**ovel, and **R**elevant. We search the literature to understand how people in our field conceptualize study designs, plan study measurement, and report results. 
+
+It takes practice to know how and where to search and to quickly evaluate and digest studies. Especially when you are just starting out, effective search strategies can help you avoid the rabbit holes that someone more experienced would ignore.
+
 ## Share Feedback{-}
 
 This book is a work in progress. You'd be doing me a big favor by taking a moment to tell me what you think about this chapter.
 
-```{r CH02feedback, echo=F}
+```{r CH03bfeedback, echo=F}
 knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_737a1xu4Igskgxn",
 height="600px")
 ```
-
-## Test Yourself{-}
-
-```{r CH02rq, echo=F}
-knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_ebuqsfKPPCXwAYJ",
-height="1000px")
-```
-

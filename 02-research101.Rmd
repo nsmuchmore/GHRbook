@@ -1,0 +1,368 @@
+--- 
+knit: "bookdown::preview_chapter"
+---
+
+# Research 101 {#research101}
+
+At its core, global health research is based on common principles of scientific research that each discipline follows (to a greater or lesser extent), but different disciplinary traditions and emphasis can amplify what is unique over what is shared. This book is designed to teach you about what is shared while highlighting unique aspects along the way.
+
+## Scientific Research
+
+What counts as **"scientific research"**? @king:1994 offer a useful definition in their book, "Designing Social Inquiry". They point to several main characteristics:
+
+1. The goal is inference
+2. The procedures are public
+3. The conclusions are uncertain
+
+### ALL ABOUT INFERENCE
+
+By stating that the goal of scientific research is inference, we mean that science goes beyond the collection of facts. When we talk about **inference**, we are referring to the process of making conclusions about some unobserved or unmeasured phenomenon based on our direct observations of the world. We use what we know to infer something about the things we don't know. This process can be deductive or inductive. 
+
+In **deductive** reasoning, we start from general theories, make hypotheses, collect data, and make conclusions based on the data. **Inductive** reasoning flows the other direction, from specific observations to the generation of hypotheses and theories. Remember it this way: if you are testing a specific hypothesis, you are using deductive reasoning. If you are starting with your observations and making more general statements, then you are using inductive reasoning. To say that quantitative research is deductive and qualitative research is inductive is not quite right, but it's often true.[^box]
+
+[^box]: But as we will see later, studies will not necessarily fit into one box. Often in global health research, you will see studies using **mixed methods** approaches and both types of reasoning.
+
+For instance, @singla:2015 report the results of a cluster randomized trial of a parenting intervention in rural Uganda. This study is an example of deductive reasoning because the authors started with a hypothesis, collected quantitative data, and inferred something about the impact of the intervention:
+
+* This study used quantitative methods; the primary outcomes of this study were cognitive and receptive language development of the children of participating caregivers measured with the [Bayley Scales of Infant Development](https://en.wikipedia.org/wiki/Bayley_Scales_of_Infant_Development).
+* The authors hypothesized that the intervention would improve child development.
+* They found effects on cognitive and receptive language but not height-for-age, and inferred that the difference observed between the treatment and control groups was due to the parenting intervention.[^inf]   
+
+[^inf]: This is also an example of causal inference, a major focus in this book. Does X impact Y? Does this program cause a specific outcome? As we will discuss later, this is also an example of statistical inference. The authors recruited one sample of adult-child dyads, collected data, and used inferential statistics to generalize from the sample to the population. Don't worry, by the time you close this book, all these terms will make sense. Repetition, repetition, repetition.
+
+We can contrast the Singla et al. trial with a qualitative study by @sahoo:2015. Sahoo and colleagues used a grounded theory approach to conduct and analyze interviews with 56 women in Odisha, India about their sources of stress and sanitation practices.[^gt] This study is an example of inductive reasoning because the authors started with the data—their observations—looked for themes and patterns, and came to some conclusions about the nature of sanitation-related stress.[^di] One result of this work was a conceptual framework for thinking about sanitation-related psychosocial stress.[^sahooresults]
+
+[^gt]: Grounded theory will come up again in a later chapter as a specific example of approaches to qualitative inquiry. Without getting into the weeds here, we can just say that it is an approach that involves iterative data collection and analysis. Most importantly, data come first in grounded theory. It is only through the iterative process of data collection and analysis that theories and broader implications emerge.
+
+[^di]: @sahoo:2015 is also an example of descriptive inference. Unlike with causal inference, descriptive inference does not seek to establish that X caused Y. Yet descriptive inference goes beyond basic description—or the collection of facts—to say something about how the individual experiences and opinions of these women tell us something more universal about the nature of sanitation-related stress and its possible connections to factors like a woman's life stage and her behavior.
+
+[^sahooresults]: Sahoo et al. observed that "sanitation" encompassed much more than defecation and urination, such as washing, bathing, and menstrual management. These sanitation activities brought numerous challenges that could be classified as environmental, social, or sexual and understood in the context of a woman's life stage, living environment, and access to sanitation facilities.  
+
+The point to take away about inference is that, regardless of the approach to reasoning, the goal of scientific research is to use what we observe to make conclusions about what we do not or cannot observe directly. This is sometimes referred to as **empiricism**, and our systematic observations as **empirical evidence**. Empiricism is at the heart of scientific research.
+
+```{block, type='rmdplay'}
+```
+
+```{r inference, echo=F}
+knitr::include_url("https://www.youtube.com/embed/WkOinijQmPU")
+```
+
+### RESEARCH AS A PUBLIC ACT
+
+Scientific research uses public methods that can be examined and replicated. **Replication** is a core principle of scientific research. No one study rules the day. If the results of your study are robust, another research group should be able to follow your methods and replicate the findings. When findings are replicated, we all have more confidence in the results.
+
+Replications are relatively rare, however. For one, there are often few resources for replicating studies, especially when it comes to big field experiments. Second, journal space is limited (especially if there is still a print version) and peer review takes a lot of resources. Journals want to use their space and resources to publish novel ideas (ironically, novelty can sometimes mean small effects with a lot of noise that might fail to replicate). Without the promise of a publication, researchers have little incentive to spend time and money trying to replicate published findings. Publications are a key criterion for tenure and promotion in academia, so many researchers don't waste their efforts on studies that won't get published.
+
+What happens when replications are attempted? The short answer is bitterness. Replicators grab more headlines when they "debunk" findings, and the original authors almost invariably call into question the quality of the replication. It often leads to hard feelings on both sides. Just see [#wormwars](https://twitter.com/hashtag/wormwars) to learn what happened when a famous de-worming study was re-examined. Or Google [social psychology and priming](https://en.wikipedia.org/wiki/Replication_crisis). Yikes! 
+
+```{block, type='rmdplay'}
+```
+
+```{r worms, echo=F}
+knitr::include_url("https://www.youtube.com/embed/9SCFlYlNlLQ")
+```
+
+
+```{block, type='rmdcomment'}
+A related issue is **reproducibility**, the ability to generate a study's findings given the original dataset and sometimes the original analysis code. Think irreproducible findings are rare? Think again. The *[Quarterly Journal of Political Science](http://thepoliticalmethodologist.com/2014/12/09/a-decade-of-replications-lessons-from-the-quarterly-journal-of-political-science/)* found that slightly more than half of their published empirical papers subjected to review had results that could not be reproduced *with the author's own code*.
+
+On the positive side, it's becoming more common for authors to share their data and analysis code. This has been standard practice in economics for some time, but the idea is pretty revolutionary in medicine and public health. We'll explore why this is so important and easier than ever to do.
+```
+
+### LIVING WITH UNCERTAINTY
+
+Every method has limitations, every measurement has error, and every model is wrong to some extent. In short, research is an imperfect process. Sometimes researchers make outright mistakes. These mistakes may or may not be detected and corrected in the **peer review** process, or during post-publication review if authors share their data and analysis code. Other findings are free of obvious mistakes, but fail to be replicated, and over time run counter to a growing body of literature that points in the other direction. In this way science is said to be self-correcting. We'll discuss how this ideal can fall short in the face of challenges like **publication bias**, but the point here is to get comfortable in the short term with the idea of uncertainty.
+
+A good example of uncertainty comes from the estimation of maternal mortality (see Figure \@ref(fig:hogan)). @hogan:2010 published estimates for 181 countries. Some countries like the United States have vast amounts of data; vital registries that attempt to track all births and deaths. Countries with vital registries struggle with changing definitions over time, but the uncertainty interval around their estimates is typically tight because there is a lot of good data. In many low-income countries the situation is very different, however. As shown in Figure \@ref(fig:hogan), there are only four data points! No wonder the uncertainty interval is so great.
+
+The takeaway message is that there is uncertainty in everything. Don't take any single estimate as the "Truth". Instead, try to learn about the origin of estimates and recognize the limitations of what we know.
+
+```{r hogan, fig.cap="Estimates of maternal mortality 1990-2010. LEFT: United States. RIGHT: Afghanistan. Squint and you will see that the confidence intervale for the US estimate is less than 10 out of 100,000, compared to more than 3,000 out of 100,000 in Afghanistan. Source: Hogan et al. (2010), http://bit.ly/1JBCelO", echo=F, out.width = '50%', fig.show = 'hold'}
+knitr::include_graphics(c("images/usa.png", "images/afg.png"), dpi = NA)
+```
+
+[^est]: You might be wondering how they even come up with any estimates without much data. The answer is statistical modeling. Afghanistan may not have much data on maternal mortality, but there are data on other indicators like total fertility rate, gross domestic product per head, HIV seroprevalence, female education, etc. Using the data we do have from all countries and all years, we can model how these variables are related to maternal mortality. We take this equation, plug in values for Afghanistan, and solve for maternal mortality. More or less.
+
+```{block, type='rmdcomment'}
+So how many women die during pregnancy or within 42 days of delivery? The same research group that published Hogan et al., the [Institute for Health Metrics and Evaluation](http://www.healthdata.org/), estimated that there were 292,982 maternal deaths globally in 2013, with a 95% uncertainty interval ranging from 261,017 to 327,792; that's a range of 66,775 for everyone who struggles with mental math [@kassebaum:2014]. This might seem like a lot, but remember that we're talking about global statistics for a world population of more than 7 billion people.[^whomm]
+```
+
+[^whomm]: The World Health Organization (WHO) and partners [published their own estimates for 2013](http://www.who.int/reproductivehealth/publications/monitoring/maternal-mortality-2013/en/). They estimated that there were 289,000 maternal deaths, which is pretty close to the IHME estimate of almost 293,000. As [@kassebaum:2014](http://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)62421-1/abstract) explain, however, the consistency in these estimates masks substantial disagreements, including estimates that diverge at least 20% in 120 countries in 2013 and different perspectives on progress toward achieving the Millennium Development Goal 5.
+
+```{block, type='rmdplay'}
+```
+
+```{r mmuncertain, echo=F}
+knitr::include_url("https://www.youtube.com/embed/LilKcFUhuNw")
+```
+
+## Stages in the Research Process
+
+Just as you learned that every story has a beginning, middle, and end, I am here to tell you that every scientific article has an introduction, methods, results, and discussion. Follow these steps and you will have all of the pieces you need to write each section.
+
+### FIND A RESEARCH PROBLEM
+
+Every study begins with a research problem. A **research problem** represents a gap in our knowledge. In academic research, this is another way of saying a gap in "the literature". 
+
+```{block, type='rmdpuzzle'}
+Usually when people speak of "the literature", they mean [scholarly](https://en.wikipedia.org/wiki/Academic_publishing) or [peer-reviewed](https://en.wikipedia.org/wiki/Peer_review) journal articles. There is also something called "[grey literature](https://en.wikipedia.org/wiki/Grey_literature)" that is more encompassing and harder to search systematically. Grey literature sources are typically disseminated through channels other than peer-reviewed journals. Examples could include technical reports or [white papers](https://en.wikipedia.org/wiki/White_paper) published on the web.
+```
+
+Research problems are typically broad. For instance, stakeholders might want to know how to increase the use of bed nets for children under 5 years of age. Or whether all children should receive deworming medication prophylactically. 
+
+These problems have something in common: they are solvable. In his introductory text on behavioral research methods, @leary:2012 writes that this is another key criterion for scientific research. The problems must be solvable. This does not mean easy; it just means that we can use systematic, public methods to gather and analyze data on the problem. Think of it this way: we can come up with a method for studying how to get more parents to ensure that their kids sleep under a mosquito net every night, but we don't yet have a scientific method for determining whether there is a mosquito afterlife where these pests get to buzz around for all of eternity.
+
+### ARTICULATE A RESEARCH QUESTION
+
+In order to study a broad research problem, we must narrow to a more specific **research question**. @devaus:2001 says there are essentially two types of research questions: 
+
+* Descriptive—what is going on?
+* Explanatory—why is it going on?
+
+Let's say we want to study uptake or use of bed nets. We might ask a descriptive research question like, "How many children sleep under bed nets?" But this is too general. Children of what age? Living where? We also need to operationalize what we mean by sleeping under a bed net. It's common in this line of research to ask about the previous night, as in the night before the survey.[^recalldiff] A better way to phrase the question might be, "What percentage of children under 5 years of age in Kenya slept under an insecticide treated net the previous night?" An explanatory research question on the same topic might be, "What are the predictors of the use of insecticide treated net among children under 5 years of age in Kenya?"
+
+[^recalldiff]: As we will discuss in the chapter on measurement, we have to consider challenges to getting valid information, such as recall difficulties.
+
+One helpful mnemonic for asking good research questions is to make them FINER: feasible, interesting, novel, ethical, and relevant [@hully:2007].
+
+<br>
+
+```{r finer, echo=FALSE}
+  fine <- data.frame(letter=c("**Feasible**", "**Interesting**", 
+                              "**Novel**", "**Ethical**", 
+                              "**Relevant**"),
+                     label=c("Some resarch questions will take a long time to answer, cost too much, require too many participants, require skills or equipment that you do not have, or will be too complex to implement.",
+                             "Research requires funding and effort. If you do not ask a sufficiently interesting question, you will not get funding. If you manage to get funding but lose interest in the question, you might not finish. Unlike other domains, global health research tends to have long timelines, and it's important to work on things you will find interesting over the long term.",
+                             "Replication is an important part of science, but the majority of funding goes to research that asks new and interesting questions.",
+                             "It would be very interesting to create a prison simulation to determine whether charactristics of the people or situation cause abusive behavior, but this would not be ethical because it could lead to the harmful treatment of research subjects. [Right?](https://en.wikipedia.org/wiki/Stanford_prison_experiment)",
+                             "In addition to being interesting, a research question should also be relevant. The answer should move the field forward in some way. Making this determination requires a thorough review of the literature and conversations with senior colleagues."))
+  names(fine) <- NULL
+  knitr::kable(fine, col.names=NA)
+```
+
+<br>
+
+Here's another helpful mnemonic for creating a good clinical question: [PICO](http://guides.mclibrary.duke.edu/c.php?g=158178&p=1035882).
+
+<br>
+
+```{r picotbl, echo=FALSE}
+  picotbl <- data.frame(letter=c("**P**", "**I**", "**C**", "**O**"),
+                     label=c("Patient, Population, or Problem",
+                             "Intervention, Prognostic Factor, or Exposure",
+                             "Comparison",
+                             "Outcome"))
+  names(picotbl) <- NULL
+  knitr::kable(picotbl, col.names=NA)
+```
+
+<br>
+
+We could use PICO to develop a research question about the efficacy of bednets in preventing malaria. The **problem** is malaria infections. The **population** is children under 5 years of age. Intervention studies tend to be smaller in reach than nationally representative surveys, so we might add "living around the Lake Victoria basin in Kenya". The **intervention** is an insecticide treated net. [Prognostic factor refers to covariates that could influence the prognosis of the patient. An exposure would be something that we think might increase the risk of an outcome.] The comparison group might be children living in families who are provided a untreated bednet. One **outcome** could be parasitaemia.
+
+We can combine all of this into a research question: 
+
+> Among children under 5 years of age living around the Lake Victoria basin in Kenya, are insecticide treated nets more effective than untreated nets at preventing parasitaemia?
+
+Here is some good advice if you are writing qualitative research questions:
+
+```{block, type='rmdplay'}
+```
+
+```{r qualq, echo=F}
+knitr::include_url("https://www.youtube.com/embed/_0HxMpJsm0I")
+```
+
+### IDENTIFY RELEVANT THEORY
+
+@leary:2012 defines a **theory** as "a set of propositions that attempts to explain the relationships among a set of concepts". In quantitative research, you could replace "propositions" with "hypotheses" and "concepts" with "variables".
+
+Some studies set out to develop theory (inductive), while others may test theory (deductive). Much of applied global health is atheoretical, however. Many impact evaluations fit the label of "black box evaluations", meaning that they don't focus on why programs do or don't have an impact. The evaluation is not guided by theory, and the hypotheses are as simple as "the program will have an impact on the outcome". White (2009) outlines a strategy for changing this and moving to **theory-based impact evaluations** [@white:2009]. I talk more about this in [Chapter 6](#logic) on developing a theory of change and logic model.
+
+A good resource for understanding the (potential) role of theory in global health is the journal [*Social Science & Medicine*](https://www.journals.elsevier.com/social-science-and-medicine/). For instance, @green:2015 frame their cluster randomized trial of an economic assistance program for women in terms of the literature on engaging men in efforts to reduce intimate partner violence.
+
+> The rationale for addressing IPV through men's discussion groups is based on the belief that socially constructed gender norms about inequality are a root cause of violence (Barker et al., 2010). Girls and boys learn gender roles and normative behavior, such as gender-based violence, by watching others and observing rewards and punishments; this is the basis of social learning theory (Bandura, 1973), one of several theoretical etiologies of IPV (for a review see Dixon and Graham-Kevan, 2011). Understanding and addressing the connection between violence and masculinity is also critical, gender theorists argue (Jewkes et al., 2014). ‘Gender-transformative’ programs are therefore designed to change gender norms and to promote gender equality among men and boys, most often by raising awareness and targeting attitudes throughout the social ecology.
+
+```{block, type='rmdtip'}
+Search for the words "theory" or "conceptual" in the *Introduction* or *Discussion* sections of articles to see how authors frame their work in theoretical and conceptual terms.
+```
+
+### DEVELOP HYPOTHESES
+
+The logical approach in quantitative research is often deductive. You start with theory and develop research hypotheses that are then tested. A **hypothesis** is an a priori prediction about what will occur—about how constructs are related. If the hypothesis is supported by the data, you have support for the underlying theory. If your study is well designed, it might be given more weight as other researchers consider the evidence in support of the theory.
+
+For a hypothesis to be scientific it should be falsifiable, or testable. To return to a silly example from earlier, the following would not be a research hypothesis because it cannot be tested: "if a mosquito is killed, it goes to mosquito heaven". Maybe, but we can't test this hypothesis. Science progresses through the possibility of falsification, so hypotheses must be engineered to potentially fail.
+
+Not all studies test hypotheses, however. Qualitative research is generally inductive and "hypothesis generating". Without fail, students panic when they write a study proposal for the first time and get to the "develop hypotheses" step. They come to office hours all disheveled, proclaiming "I don't have a hypothesis!" It's OK. You might not.
+
+```{block, type='rmdcomment'}
+<span style="font-variant:small-caps; font-size: 150%;">**Can you prove a theory?**</span>
+
+Some people advocate against the free distribution of ITNs out of the belief that there is a "sunk cost" effect when having to spend money for a bed net; people will use the net more to justify their purchase [@arkes:1985]. In this case, the theory is one of sunk costs directing behavior. @cohen:2010 designed a study to test the falsifiable hypothesis that people who paid a non-zero price for an ITN would use the ITN more than those who received the ITN for free. They did not find support for this hypothesis.
+
+So the theory of sunk costs is rejected, right?
+
+Not necessarily. @leary:2012 offers some helpful advice for thinking about proof and disproof. Proof is logically impossible, whereas disproof is practically impossible. Frustrating, right? 
+
+#### Proof is Not Possible{-}
+
+It helps to state the theory and hypothesis as an if-then statement. For example, "If the theory of sunk cost effects is true, then people who pay for an ITN will be more likely to use it than people who get an ITN for free." If the theory is true, the hypothesis will be true.
+
+What happens if you flip this statement? If you find evidence that the hypothesis is true, does it mean that the theory is true?
+
+Let's say that I have a fever and my theory is that the fever is a symptom of malaria. My hypothesis is that I must have been bitten by a mosquito.
+
+I pull back my sleeve and, voila, there are a few mosquito bites. My hypothesis was supported by data! So therefore, if my hypothesis is correct, my theory is proven, right?
+
+Well, no. I was bitten by a mosquito, but maybe the scene of the crime was my backyard in the eastern United States where we don't worry about malaria. So in this case, the hypothesis was true, but it doesn't prove the theory.
+
+#### Disproof is Possible, but Uncommon{-}
+
+What if the hypothesis was not supported, and I was not bitten by mosquitos? Could my "theory" be true—could my fever be malaria? 
+
+No. If the hypothesis is derived from the theory, and if the hypothesis is not supported, the logical inference is that the theory is wrong. Yet, we still shy away from concluding that the theory is wrong. The reason is simple: complexity. 
+
+A study like @cohen:2010 could fail to reject the null hypothesis that use does not differ between free and subsidized clients—thus not supporting the hypothesis of different use rates—but there are many practical reasons for this. For instance, maybe their measure of bed net use was systematically flawed and hid the difference as a result. The possibilities are endless. This is partly why journals are hesitant to publish **null results**.
+
+#### So what do we learn when a study does or does not support a theory?
+
+In short, no one study is enough to lead people to discard a theory. But several null results might be. Conversely, no study ever proves a theory, but an accumulation of studies showing support for the theory-derived hypothesis builds confidence in the theory. Particularly when the studies are conducted by different researchers, across different populations, and triangulating with multiple methods.
+
+Of course you see the challenge here. How do researchers know that several studies have failed to support a certain theory if journals are reluctant to publish null results? And if negative evidence is missing, won't the positive evidence be over-represented in the literature? Yes. This is the problem of publication bias, or the **file drawer problem**, and there is not an easy answer. Efforts like [AllTrials](http://www.alltrials.net/) to register and report the results of all trials, regardless of outcome, seem like a step in the right direction.
+```
+
+### SELECT A RESEARCH DESIGN
+
+As @glennerster:2013 explain in their excellent practical guide to running randomized evaluations, different research questions require different research designs. The most common designs you'll come across can be lumped into the following four categories: 
+
+* descriptive (can be quantitative or qualitative)
+* correlational/observational
+* quasi-experimental
+* experimental
+
+It can be overwhelming for new researchers to decide on the best design to answer a particular research question. And as they say, whenever you're feeling overwhelmed, it's best to consult a flow chart.
+
+```{r cyoa2, fig.cap="Research design choose your own adventure. PDF download, https://drive.google.com/open?id=0Bxn_jkXZ1lxuWkhFcTUzdWVkZ0E", echo=F}
+knitr::include_graphics("images/cyoa.png", dpi = NA)
+```
+
+I introduce these designs in [Chapter 5](#causeeffect) and then spend all of Part V and VI going over them in detail.
+
+### IDENTIFY KEY VARIABLES
+
+A **variable** is something that can take on different values [@diez:2015]. Variables can be **numeric** or **categorical**. Numeric variables can be further classified as **continuous** or **discrete**. You can add, subtract, and take the mean of continuous and discrete numeric variables. The distinction between continuous and discrete is that discrete numeric variables cannot be negative and must be whole numbers. For instance, a count of the number of mosquitos captured in a light trap is a discrete number. Conversely, the blood meal volume observed in trapped mosquitos is continuous because volume does not need to be a whole number.
+
+```{block, type='rmdpuzzle'}
+Continuous variables can also be classified as interval or ratio. The key difference is that ratio variables have a meaningful zero, so it's OK to compute a ratio. For instance, if you trap 10 mosquitos and I trap 20, first, I win, but second, I beat you by a ratio of 2 to 1. Interval variables like temperature don't have this meaningful zero. I've never come across other example of interval variables besides temperature, so suggest an edit if you think of one.
+```
+
+The type of mosquito trapped is an example of a categorical variable (e.g., Anopheles, Aedes, Culex). Specifically, it's a **nominal** or unordered categorical variable. If you ask someone to rate how often they've been bitten by one of these guys in the past week—let's say on a 4-point scale from never to often—their response would be an example of the other type of categorical variable: **ordinal**. An ordinal variable is what you think: some categories are greater than others. Variable with two levels (yes and no) will often be called **binary**.
+
+```{block, type='rmdtip'}
+Some disciplines such as economics also refer to categorical variables as "qualitative" variables, not to be confused with qualitative methods. Super clear, right?
+```
+
+Variables are also classified as dependent and independent variables, depending on how you plan to use them. If you want to study the impact of ITN use on parasitaemia, parasitaemia would be your **dependent variable** and ITN use would be your **independent variable**. Or maybe you want to know what predicts ITN use. In this case, ITN use would be the dependent variable and other factors like education level would be independent variables. See below for other ways you'll see these terms described in the literature. 
+
+<br>
+
+| Dependent Variable (DV) | Independent Variable (IV) |
+|:--                      |:--                        |
+| Response                | Explanatory |
+| Outcome, Endpoint       | Predictor, Risk Factor |
+| Y                       | X |
+
+```{block, type='rmdpuzzle'}
+Qualitative researchers do not typically talk about the measurement of dependent and independent variables, but rather concepts and constructs. This is because in qualitative research, the goal is not to test a hypothesis that some independent variable predicts some dependent variable. Instead, the goal is to explore some phenomenon and describe it in as much detail—thick description—as possible. Some researchers will quantify qualitative data, however, so it's not necessarily a number free zone  (e.g., frequencies).
+```
+
+### SELECT APPROPRIATE RESEARCH METHODS
+
+If research designs are strategies for answering research questions with the best possible evidence, then **research methods** are the tactics for obtaining the evidence ([Chapter 8](#datacollection)). Often methods are divided into three broad categories:
+
+* quantitative
+* qualitative
+* mixed
+
+**Quantitative methods** are used to collect and analyze numerical data. This includes binary or dichotomous** data (e.g., hospitalized or not), categorical data (e.g., wealth quintile), and continuous data (e.g., hematocrit). A good example of a quantitative method is a survey in which people are asked to answer questions with fixed response options or provide numerical values, such as their monthly income. Lab tests resulting in disease classifications (yes/no) or a measurement such as the number of blood cells in a sample of blood are also examples of quantitative methods.
+
+**Qualitative methods** focus on non-numerical data. [Participant observation](https://en.wikipedia.org/wiki/Participant_observation), interviews, and focus group discussion are common qualitative methods in global health. Qualitative methods are well-suited for obtaining thick description and for exploration.
+
+Often qualitative methods are seen as being less rigorous because they are more flexible and do not lead to the same type of hypothesis testing and results compared to quantitative methods. But this is not true. As we'll discuss in a later chapter, rigor is a characteristic of how the methods are applied rather than the methods themselves.
+
+Your choice of methods should be based on your research question. It's often the case that impact evaluations use quantitative methods, but there is not a 1-to-1 match between research designs and methods. Many studies incorporate both quantitative and qualitative methods, and we refer to this as **mixed methods**. Sometimes the goal of mixing methods is **triangulation** of results with respect to the same research question. Other times we begin with qualitative work to develop the tools and measures that we will use in a trial. When qualitative work follows a quantitative phase, the goal is often to explain or explore results in more depth that was not possible with the quantitative data.
+
+```{block, type='rmdcomment'}
+Increasingly you will see RCTs complement their use of quantitative methods with qualitative inquiry [@ocathain:2013]. @alaii:2003 provide a good example. The authors of this paper incorporated qualitative interviews on non-adherence into a larger randomized trial of the efficacy of ITNs on child morbidity and mortality in Kenya [@phillipshoward:2003]. They wanted to better understand why people, particularly children under the age of 5, were not using their ITNs correctly. Alaii et al. found that more than a quarter of individuals were non-adherent, often due to excessive heat.
+```
+
+### SPECIFY AN ANALYSIS PLAN
+
+This is not a book about data analysis, but it's important to note that a pre-specified analysis plan is an important component of qualitative and quantitative research proposals. On a practical level, you need to think through your plan to make sure that the study you've designed will produce the data you need to carry out a specific analysis. 
+
+More generally, however, pre-specified and registered analysis plans help to promote transparency and confidence in study results. The basic reason is that researchers make tens or hundreds of small decisions during the course of data processing and analysis that can alter the results. I'm not even talking about fraud. I'm talking about legitimate, defensible decisions. The problem occurs when these decisions are made after seeing the data. 
+
+For instance, a researcher might run a test and find that a relationship is not statistically significant. The researcher then makes a small change in how a variable is defined, and runs the test again. This time the relationship is significant. Whoohoo! Publication! Tenure! Not having to move your family to a new state!
+
+The following video is a great introduction to some of these thorny issues that we'll tackle in a later chapter. For now, I'd just like to convince you of the benefits of **pre-registration**, or publishing your analysis plan in advance of getting the data. If you're working on drug trials, you might not have a choice if the research is regulated by the FDA; you'll be required to register the study on [clinicaltrials.gov](http://clinicaltrials.gov/). If you're working in another area you might not have a regulatory requirement to register your study, but your journal of choice [might require that you do so in order to publish the results](http://icmje.org/recommendations/browse/publishing-and-editorial-issues/clinical-trial-registration.html). 
+
+```{block, type='rmdplay'}
+```
+
+```{r phacking, echo=F}
+knitr::include_url("https://www.youtube.com/embed/42QuXLucH3Q")
+```
+
+### OBTAIN ETHICAL APPROVAL
+
+Research involving human subjects must be reviewed and approved by an [**intstitutional review board** (IRB)](https://en.wikipedia.org/wiki/Institutional_review_board) prior to commencing. According to the U.S. Department of Health & Human Services, [45 CFR 46](https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/), "research" is defined as
+
+> a systematic investigation, including research development, testing and evaluation, designed to develop or contribute to *generalizable knowledge*.
+
+As shown in Figure \@ref(fig:exempt), there are several categories of research with human subjects that are designated as [exempt](https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/#46.101).
+
+```{r exempt, fig.cap="Is the human subjects research eligible for exemption?; Source: http://bit.ly/2brlbKR.", echo=F}
+knitr::include_graphics("images/chart2exemptions2016.gif")
+```
+
+Unless your study is exempt from review or meets the requirements for [expedited review](https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/#46.101), you should expect to have your proposal reviewed by the full committee at a regularly scheduled IRB meeting.
+
+If you are conducting international research, you likely have to leave sufficient time for your proposal to be reviewed by an in-country IRB in addition to your home institution's IRB. "Sufficient" could mean 6 weeks or 6 months, so you must start early. Global health research is collaborative by design and necessity, so rely on the local expertise of partners to advise on IRB procedures.
+
+### RECRUITT A SAMPLE AND COLLECT DATA
+
+Unless you are planning a **secondary analysis** of existing data (e.g., medical record review), you must identify a sampling strategy and outline procedures for data collection. I cover these topics in Chapters [9](#sampling) and [8](#datacollection), respectively.
+
+### ANALYZE THE DATA AND WRITE UP THE RESULTS
+
+Complex global health research typically involves specialists in data analysis, most commonly biostatisticians. It is wise to consult with these experts early in the process of designing a study so you can ensure that you will have the raw materials you need for your planned analysis.
+
+Writing manuscripts in global health is a collaborative process. Some disciplines like economics tend to have very few authors. Some medical studies conducted at multiple sites can have dozens. The [International Committee of Medical Journal Editors](http://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html) suggests that authors be defined by four criteria:
+
+* Substantial contributions to the conception or design of the work; or the acquisition, analysis, or interpretation of data for the work; AND
+* Drafting the work or revising it critically for important intellectual content; AND
+* Final approval of the version to be published; AND
+* Agreement to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved.
+
+Any contributors who do not meet these criteria should be acknowledged.
+
+[Author order](https://en.wikipedia.org/wiki/Academic_authorship) is handled differently by different disciplines. In psychology, for instance, the author listed first is supposed to be the "lead" author who contributed the most. The last author could be the person who contributed the least, or it could be the senior-most member of the "lab" that produced the work. In economics, it pays to be Prof A. rather than Prof C. because author order tends to be alphabetical, but not always. For senior researchers author order may be an afterthought, but junior scholars need to establish a record of first author publications to signal their emergence as an independent scientist.
+
+### MAKE YOUR RESEARCH HAVE AN IMPACT
+
+It's not uncommon in global health for an intervention study to span 5 to 10 years from proposal to final publication in the scientific literature. And there is an important distinction to make between publication and impact. While there are metrics to track the *impact* that [journals](https://en.wikipedia.org/wiki/Impact_factor), [articles](https://en.wikipedia.org/wiki/Citation_impact#Article-level), and [authors](https://en.wikipedia.org/wiki/H-index) have on a field, we can also think about impact in terms of real-world change. Does your work lead to new policies or programs? Does it change the way that people think? Is your work used—or if we want to be fancy, "utilized"?
+
+We'd like to think that if you just do good work, others will take it up. In reality, however, there is a gap between research and practice/policy. Many ideas—p-values less than 0.05—are sitting on the shelf collecting dust. In response, some have advocated for a **research utilization** framework to promote the advance planning that is needed to engage the potential users of research before the study even collects any data.
+
+```{r ru, fig.cap="Research utilization framework. Source: http://bit.ly/2j1dLfL", echo=F}
+knitr::include_graphics("images/ru.png", dpi = NA)
+```
+
+## Share Feedback{-}
+
+This book is a work in progress. You'd be doing me a big favor by taking a moment to tell me what you think about this chapter.
+
+```{r CH02feedback, echo=F}
+knitr::include_url("https://duke.qualtrics.com/SE/?SID=SV_bykt6KZav947UwJ",
+height="600px")
+```
