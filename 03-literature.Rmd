@@ -49,15 +49,14 @@ A forest plot summarizes the results of several studies that measured the effect
 
 The study sample is divided into the intervention and control arms and presented in the `n/N` format where `n` represents the number of participants who experienced the outcome and `N` is the total number of participants in the study arm. For example, there were 141 people assigned to the intervention group in Study A. 1 out of these 141 people experienced the adverse outcome that the forest plot summarizes. 
 
-<<<<<<< HEAD:02-literature.Rmd
 ```{r malariaforest, fig.cap="Source: Radeva-Petrova et al. (2014), http://bit.ly/2hwwpOI", echo=F}
 knitr::include_graphics("images/rpforest.png", dpi = NA)
-=======
+```
+
 Next comes a plot of the **effect size** and the **confidence interval**. An effect size is a measure of the strength or magnitude of a relationship, such as the relationship between taking a medicine and experiencing a bad outcome. This guide shows one particular type of effect size: relative risk. Each study's point estimate of the relative risk is plotted around a line of "no effect". A risk of 1 means that there is no difference between the intervention and control groups. When the outcome is something bad, like death, you want your intervention to reduce the risk, which is a risk ratio less than 1.
 
 ```{block, type='rmdtip'}
 We talk about "estimates" of the effect because research can only approximate the truth. Recall from our discussion of scientific research in the previous chapter that this is the concept of uncertainty. Forest plots show uncertainty in the form of confidence intervals.
->>>>>>> master:03-literature.Rmd
 ```
 
 The size of the effect estimate symbol is based on how much the study contributed to the meta-analysis. All studies are not created equal, and the weight parameter lets researchers reflect this in the analysis.
