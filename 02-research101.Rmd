@@ -329,7 +329,7 @@ Unless your study is exempt from review or meets the requirements for [expedited
 
 If you are conducting international research, you likely have to leave sufficient time for your proposal to be reviewed by an in-country IRB in addition to your home institution's IRB. "Sufficient" could mean 6 weeks or 6 months, so you must start early. Global health research is collaborative by design and necessity, so rely on the local expertise of partners to advise on IRB procedures.
 
-### RECRUIRT A SAMPLE AND COLLECT DATA
+### RECRUITT A SAMPLE AND COLLECT DATA
 
 Unless you are planning a **secondary analysis** of existing data (e.g., medical record review), you must identify a sampling strategy and outline procedures for data collection. I cover these topics in Chapters [9](#sampling) and [8](#datacollection), respectively.
 

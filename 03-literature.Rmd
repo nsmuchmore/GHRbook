@@ -225,7 +225,7 @@ Hopefully at this point you'll agree that it's a good idea to start with a syste
 
 ### ASKING A RESEARCH QUESTION
 
-Let's come back to our helpful mnemonic PICO introduced in the previous chapter. PICO can help you create a good clinical question: [PICO](http://guides.mclibrary.duke.edu/c.php?g=158178&p=1035882).
+Let's come back to our helpful mnemonic [PICO](http://guides.mclibrary.duke.edu/c.php?g=158178&p=1035882) introduced in the previous chapter. PICO can help you create a good clinical question.
 
 ```{r pico, echo=FALSE}
   pico <- data.frame(letter=c("**P**", "**I**", "**C**", "**O**"),
@@ -237,7 +237,8 @@ Let's come back to our helpful mnemonic PICO introduced in the previous chapter.
   knitr::kable(pico, col.names=NA)
 ```
 
-We'll use PICO to develop a well-focused, searchable research question on treating malaria during pregnancy. The **problem** we want to address is malaria infections. The **population** is pregnant women living in malaria-endemic areas.  
+We'll use PICO to develop a well-focused, searchable research question on treating malaria during pregnancy. The **problem** we want to address is malaria infections. The **population** is pregnant women living in malaria-endemic areas.
+
 Not every clinical question involves testing of a treatment or **intervention**, but we'll focus a lot on these types of questions in this book. For the example at hand, the intervention would be malaria chemoprevention. [Prognostic factor refers to covariates that could influence the prognosis of the patient. An exposure would be something that we think might increase the risk of an outcome.]
 
 Similarly, not every question involves a **comparison** group.[^RCTcomp] In this example, the comparison is nothing or a placebo.

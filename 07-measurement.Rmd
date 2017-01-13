@@ -48,7 +48,7 @@ Let's work through an example to highlight the terms. @patel:2016 designed a RCT
 <br>
 ```{r patel, echo=F}
 knitr::include_url("https://www.npr.org/player/embed/505733704/505811951",
-                   height="225px")
+                   height="250px")
 ```
 <br>
 
@@ -183,6 +183,13 @@ knitr::kable(itnq, format = "html") %>%
 
 The end result is a binary indicator (yes/no) of whether the household has a bednet that has been dipped in the past 12 months or is factory-treated. In theory it is possible to ask this in one question—"Does your household have any factory-treated mosquito nets or nets that have been dipped in a liquid to kill or repel mosquitoes in the past 12 months?—but this is a long and complicated question. It's more effective to break up the question.
 
+```{block, type='rmdplay'}
+```
+
+```{r itnaccess, echo=F}
+knitr::include_url("https://www.youtube.com/embed/YfTXcc13GOI")
+```
+
 Sometimes more abstract constructs can also be measured with just one item. For instance, Konrath et al. [-@konrath:2014] ran 11 studies and found that you can measure narcissism with one question:
 
 > To what extent do you agree with this statement: "I am a narcissist." Response options range from "not very true about me" (1) to "very true of me" (7).[^skeptical]
@@ -304,20 +311,23 @@ Well, you have a few options. @distefano:2009 lump them into two buckets: refine
 	* **Sum standardized scores.** With this method you would first standardize each item to have the same mean and standard deviation. It might be a good idea if the standard deviations of the items vary quite a bit. 
 2. **Refined methods** may produce more exact scores since items are weighted empirically (vs equal weighting in non-refined methods) and relationships between factors are reflected in the scoring, but they are more complex and require the analyst to make a number of decisions along the way that can produce very different results. 
 
-#### Evaluating psychometrics{-}
+### EVALUATING PSYCHOMETRICS
 
 When it comes to evaluating scales like the BDI-II, we often look at several **psychometric** properties that we can group generally into two buckets: reliability and validity. Here's a simple example that highlights the basic difference between these terms.
 
 Imagine your bathroom scale. If you stepped on, then off, then on again, and the scale read 210 lbs and then 180 lbs, you would realize that you are the owner of a broken, *unreliable* scale. So you head to the store and pick up a new scale. You step on and off your new scale, and it reads 400.12 lbs then 400.15 lbs. It's very reliable (*good precision*), but unfortunately very wrong (*poor accuracy*, *invalid*) since you actually weigh something closer to 195 lbs.
 
-##### Reliability{-} 
+#### Reliability{-} 
 
 A **reliable** instrument is a consistent instrument. Consistent over repeated use (as in the bathroom scale example), and consistent among it's component parts. There are several methods for assessing the reliability of an instrument. Here are a few common approaches.
 
-**Test-retest reliability.** This is sometimes referred to as stability. Participants complete your survey today and then again in after a short period of time, maybe a few days or a week. If each person's score is the exactly the same the second time, your instrument would be perfectly reliable. It won't be, but you'll hope for a high correlation coefficient (conventionally higher than 0.70). @beck:1996 assessed the test-retest reliability of the BDI-II by giving the screening to 26 outpatients in Philadelphia at their first and second therapy sessions, approximately 1 week apart. They reported a test-retest correlation was 0.93. The tricky thing with test-retest reliability is knowing when to conduct the retest. Wait too long and scores will change because people change. Don't wait long enough and you just get people repeating their answers from memory.
+##### Test-retest reliability {-}
 
-**Interitem reliability.** This is when responses to items in your instrument are consistent. If not, you have to wonder if they are measuring the same underlying construct of depression. 
+This is sometimes referred to as stability. Participants complete your survey today and then again in after a short period of time, maybe a few days or a week. If each person's score is the exactly the same the second time, your instrument would be perfectly reliable. It won't be, but you'll hope for a high correlation coefficient (conventionally higher than 0.70). @beck:1996 assessed the test-retest reliability of the BDI-II by giving the screening to 26 outpatients in Philadelphia at their first and second therapy sessions, approximately 1 week apart. They reported a test-retest correlation was 0.93. The tricky thing with test-retest reliability is knowing when to conduct the retest. Wait too long and scores will change because people change. Don't wait long enough and you just get people repeating their answers from memory.
 
+##### Interitem reliability{-}
+
+This is when responses to items in your instrument are consistent. If not, you have to wonder if they are measuring the same underlying construct of depression. 
 1. One approach to finding unreliable items in your instrument is to calculate **item-total correlations**. It's easy: correlate responses on each item with the total scale score. Generally item-total correlations exceeding 0.30 are sufficient. @beck:1996 reported that item-total correlations for the 21 BDI-II items ranged from 0.39 to 0.70 in the outpatient sample.
 2. Another approach is **Cronbach's alpha**, a measure of **internal consistency**. @beck:1996 reported a coefficient alpha value of 0.92 for the outpatient sample. To understand Cronbach's alpha, you have to understand that instruments are imperfect, even the BDI-II. Every person's *observed score*—e.g., their total score on the BDI-II—is actually a function of their *'true' score* (which we can't know) plus some amount of *measurement error*. Cronbach's alpha gives you an estimate of how much variance in people's scores is measurement error. When you calculate Cronbach's alpha in a program like R or Stata, behind the scenes the program does the equivalent of splitting the dataset into two halves over and over again and calculating the correlation between total scores for the first half with total scores for the second half. Cronbach's alpha is the average of all possible correlation coefficients. Things to note about alpha:
 
@@ -329,24 +339,34 @@ A **reliable** instrument is a consistent instrument. Consistent over repeated u
 	* Alpha should not be used when a scale might tap different latent constructs—only use alpha when the scale is unidimensional
 	* @dunn:2014 and others reviewed the limitations of alpha and suggest coefficient *omega* as an alternative
 
-**Interrater reliability.** This is another type of reliability that indicates whether two observers are consistent in observational ratings. Instead of using self-report instrument like the BDI-II, we might want to have two observers watch a video of a parent and child interacting and 'code' the parent's behaviors using a depression rating system that we developed. If the observers agree a lot in their video ratings, they would be reliable. Things to note about interrater reliability:
+##### Interrater reliability{-}
+
+This is another type of reliability that indicates whether two observers are consistent in observational ratings. Instead of using self-report instrument like the BDI-II, we might want to have two observers watch a video of a parent and child interacting and 'code' the parent's behaviors using a depression rating system that we developed. If the observers agree a lot in their video ratings, they would be reliable. Things to note about interrater reliability:
    
    * Percent agreement is one method of evaluating two raters when the rating is binary, but it does not account for agreement that can happen by chance
    * Cohen's kappa coefficient does account for agreement by chance; generally want a value greater than 0.40
    * Weighted kappa is good when the rating scale is ordinal (e.g., good < better < best) and you need to account for the fact that *good vs best* represents more disagreement than *better vs best*
    * Intraclass correlation is a good option when you have 2 or more raters
 
-##### Validity{-}
+#### Validity{-}
 
 Ask this three times: does your measure measure what you intend to measure with your measure? Or more simply: is the BDI-II an accurate measure this thing called 'depression'? If not, it's not a valid measure of depression. There are several types of **validity** that you can use to determine whether your instrument is valid.
 
-**Face validity.** This is the weakest form of validity. The basic idea is: if it looks like a duck, quacks like a duck, it's a duck. If people think your depression instrument asks about depression, then it has face validity as a measure of depression. This is a weak standard, however. A great looking instrument can perform very poorly in practice, and an instrument that appears to lack face validity might perform very well. The bottom line is that if you read an article and the only mention of validity is face validity, it's a lame duck.
+##### Face validity {-}
 
-**Construct validity.** Depression is a hypothetical construct. If your new depression instrument has construct validity, it will be more strongly related to other instruments that are also thought to measure depression (**convergent validity**) and less strongly (or not at all related) to other instruments that claim to measure something other than depression (**discriminant validity**). For instance, @beck:1996 reported that the BDI-II was more positively correlated with the Hamilton Psychiatric Rating Scale for *Depression* (0.71; convergent) than the Hamilton Rating Scale for *Anxiety* (0.47, discriminant). If your instrument has both convergent and discriminant validity, you have more confidence that it measures the construct you think it measures.
+This is the weakest form of validity. The basic idea is: if it looks like a duck, quacks like a duck, it's a duck. If people think your depression instrument asks about depression, then it has face validity as a measure of depression. This is a weak standard, however. A great looking instrument can perform very poorly in practice, and an instrument that appears to lack face validity might perform very well. The bottom line is that if you read an article and the only mention of validity is face validity, it's a lame duck.
 
-**Content validity.** This form of validity asks whether the components of an instrument—e.g., each question in a questionnaire—is relevant to the measurement of the larger construct. For instance, a question about difficulty sleeping is relevant to the measurement of depression since insomnia is a common symptom of depression. Conversely, a question about compulsive behaviors is probably not relevant since compulsive behaviors are not a typical symptom of the syndrome. Content validity also accounts for missing dimensions of a construct. If the BDI-II lacked a question about A5, "Psychomotor agitation", we might question its content validity.
+##### Construct validity {-}
 
-**Criterion-related validity.** An even more robust form of validity is criterion validity. Does an **index test** correctly classify people by their true disease status as determined by some gold standard **criterion reference**?
+Depression is a hypothetical construct. If your new depression instrument has construct validity, it will be more strongly related to other instruments that are also thought to measure depression (**convergent validity**) and less strongly (or not at all related) to other instruments that claim to measure something other than depression (**discriminant validity**). For instance, @beck:1996 reported that the BDI-II was more positively correlated with the Hamilton Psychiatric Rating Scale for *Depression* (0.71; convergent) than the Hamilton Rating Scale for *Anxiety* (0.47, discriminant). If your instrument has both convergent and discriminant validity, you have more confidence that it measures the construct you think it measures.
+
+##### Content validity {-}
+
+This form of validity asks whether the components of an instrument—e.g., each question in a questionnaire—is relevant to the measurement of the larger construct. For instance, a question about difficulty sleeping is relevant to the measurement of depression since insomnia is a common symptom of depression. Conversely, a question about compulsive behaviors is probably not relevant since compulsive behaviors are not a typical symptom of the syndrome. Content validity also accounts for missing dimensions of a construct. If the BDI-II lacked a question about A5, "Psychomotor agitation", we might question its content validity.
+
+##### Criterion-related validity {-}
+
+An even more robust form of validity is criterion validity. Does an **index test** correctly classify people by their true disease status as determined by some gold standard **criterion reference**?
 
 * Does a new rapid diagnostic test correctly identify evidence of malaria parasites in human blood samples?
 * Do scores on the BDI-II correctly predict which people will be diagnosed with depression when evaluated independently by a mental health professional--the gold standard? 
@@ -354,6 +374,7 @@ Ask this three times: does your measure measure what you intend to measure with 
 Let's use an example to explore criterion-related validity in more depth. Kim et al. [-@kim:2014] conducted a study with 562 HIV-positive adolescents in Malawi in which they had the adolescents complete the BDI-II and then participate in a separate clinical interview with clinicians trained to use a structured interview tool called the Children's Rating Scale, Revised (CDRS-R).
 
 1. **Index test**: With 21 items on the BDI-II—each with possible response values from 0 to 3—BDI-II scale scores can range from 0 to 63. Higher scores represent more severe depression. One goal of a validity study is to find a cutoff score on the index test that maximizes diagnostic accuracy. For instance, if the **cutoff score** is 15, anyone who scores greater than 15 is classified as depressed and everyone else is classified as not depressed.
+
 2. **Criterion reference**: In this study, independent clinician classification of depression was the gold standard. Every adolescent was classified as depressed or not depressed following a clinical interview.
 
 Taken together, there are four possible combinations of index test and gold standard results that we can display in a **confusion matrix**:
@@ -403,6 +424,13 @@ names(cm) <- c("Metric", "Details")
 
 knitr::kable(cm, format = "html") %>%
   html_table_width(c(150,450))
+```
+
+```{block, type='rmdplay'}
+```
+
+```{r senspe, echo=F}
+knitr::include_url("https://www.youtube.com/embed/UF1T7KzRnrs")
 ```
 
 In the sensitivity and specificity calculations shown above, the example cutoff score for depression on the BDI-II was set to 15. To determine if 15 is the best cut point, we could calculate the sensitivity and specificity again for several different cutoff points and plot the relationship in a **receiver operating characteristic** (ROC) curve. ROC curves plot sensitivity (the true positive rate) against 1 minus specificity for a range of different cutoff points. For instance, the figure below shows the ROC curve presented in @kim:2014.
