@@ -14,7 +14,6 @@ library(magrittr)
 library(ggplot2)
 library(shiny)
 library(meta)
-library(shinyjs)
 
 # default data ================================================================
 
@@ -66,8 +65,6 @@ toChange <- "Shulman (1999)"
 # Define UI for application
 ui <- fluidPage(
 
-  useShinyjs(),
-  id="defaults",
 
   # Application title
   titlePanel("Meta-Analysis"),
@@ -78,91 +75,67 @@ ui <- fluidPage(
                   plotOutput("forestPlot", width="100%"),
 
                   # instructions
-                  helpText("Shulman (1999), mentioned in the text, was the largest study of
-                           those in the meta-analysis.  The RR was 0.15 and the 95% confidence
-                           interval was relatively small (95% CI: 0.10, 0.22) due to the large
-                           number of individuals in the trial.  Use the sliders
-                           below to change the number of people in each group and the
-                           number of events in each group.",
-
-                           "1. What happens to the RR for Shulman (1999)
-                           if 100 people in the Intervention group got Parasitaemia?",
-                           "Reset the study to the original values.",
-                           "2. What happens to the confidence interval if the risk ratio of the study
-                           stays the same, but the study was smaller? (hint: reset the Intervention Event to
-                           3, the Control Event to 20, the Intervention N to 57 and the Control N to 56).",
-                           "If you forget the original values, scroll up in the book."
+                  helpText("Use the buttons below to explore what happens to the meta-analysis
+                            results when Shulman (1999) has no effect, when the experimental 
+                            results favour the control and when the Shulman (1999) study has 
+                            the same risk ratio but was a much smaller study."
                   )
   ),
 
+  actionButton("noEffect", "No effect"),
+  actionButton("favorsControl", "Favours Control"),
+  actionButton("smallN", "Small Sample"),
   actionButton("reset", "Reset to original values."),
   tags$hr()
 
 
-  ),
-
-  fluidRow(
-
-    column(6,
-           sliderInput("Tevent",
-                       label = "Intervention Event",
-                       min=1, max=max(default$TN),
-                       value=default$Ty[default$study==toChange],
-                       step=1, width="50%")),
-
-    column(6,
-           sliderInput("Cevent",
-                       label = "Control Event",
-                       min=1, max(default$CN),
-                       value=default$Cy[default$study==toChange],
-                       step=1, width="50%"))
-
-
-  ),
-
-  fluidRow(
-
-    column(6,
-           sliderInput("TN",
-                       label = "Intervention N",
-                       min=1, max=max(default$TN),
-                       value=default$TN[default$study==toChange],
-                       step=1, width="50%")),
-
-    column(6,
-           sliderInput("CN",
-                       label = "Control N",
-                       min=1, max(default$CN),
-                       value=default$CN[default$study==toChange],
-                       step=1, width="50%"))
-
   )
-
-
                   )
 
 
 # Define server logic to draw forestplot and table
 
 server <- function(input, output) {
-
+  
+  values <- reactiveValues(default=default)
+  
   observeEvent(input$reset, {
-    shinyjs::reset("defaults")
+
+    values$default <- default
+    
   })
 
 
-  # group of studies to consider
-  toPlot <- reactive({
-
-    a <- default
-    a$Ty[a$study==toChange] <- input$Tevent
-    a$Cy[a$study==toChange] <- input$Cevent
-
-    a$TN[a$study==toChange] <- input$TN
-    a$CN[a$study==toChange] <- input$CN
-
-    return(a)
+  observeEvent(input$noEffect, {
+    
+    values$default$Ty[values$default$study==toChange] <- 200
+    values$default$Cy[values$default$study==toChange] <- 199
+    
+    values$default$TN[values$default$study==toChange] <- 567
+    values$default$CN[values$default$study==toChange] <- 564
+    
   })
+  
+  observeEvent(input$favorsControl, {
+    
+    values$default$Ty[values$default$study==toChange] <- 500
+    values$default$Cy[values$default$study==toChange] <- 50
+    
+    values$default$TN[values$default$study==toChange] <- 567
+    values$default$CN[values$default$study==toChange] <- 564
+    
+  })
+  
+  observeEvent(input$smallN, {
+    
+    values$default$Ty[values$default$study==toChange] <- 3
+    values$default$Cy[values$default$study==toChange] <- 20
+    
+    values$default$TN[values$default$study==toChange] <- 57
+    values$default$CN[values$default$study==toChange] <- 56
+    
+  })
+
 
 
 
@@ -170,8 +143,8 @@ server <- function(input, output) {
 
     # plot
 
-    mh<-  metabin(event.e=toPlot()$Ty, n.e=toPlot()$TN, event.c=toPlot()$Cy, n.c=toPlot()$CN)
-    mh$studlab <- as.character(toPlot()$study)
+    mh<-  metabin(event.e=values$default$Ty, n.e=values$default$TN, event.c=values$default$Cy, n.c=values$default$CN)
+    mh$studlab <- as.character(values$default$study)
 
     forest(mh, studlab = T, comb.fixed=F,
            col.square="blue",
