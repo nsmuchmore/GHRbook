@@ -86,6 +86,7 @@ ui <- fluidPage(
   actionButton("favorsControl", "Favours Control"),
   actionButton("smallN", "Small Sample"),
   actionButton("reset", "Reset to original values."),
+  tags$style(type="text/css", "#noEffect { margin-left: 25px; }"),
   tags$hr()
 
 
