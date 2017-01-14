@@ -82,7 +82,7 @@ ui <- fluidPage(
                   actionButton("noEffect", "No effect"),
                   actionButton("favorsControl", "Favours Control"),
                   actionButton("smallN", "Small Sample"),
-                  actionButton("reset", "Reset to original values."),
+                  actionButton("reset", "Reset to original values"),
                   tags$style(type="text/css", "#noEffect { margin-left: 2px; }"),
 
                   plotOutput("forestPlot", width="100%")
