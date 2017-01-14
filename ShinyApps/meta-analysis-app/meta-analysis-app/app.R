@@ -71,23 +71,25 @@ ui <- fluidPage(
 
   # Show a forest plot and a table of included values
   fluidRow(column(12,
-
-                  plotOutput("forestPlot", width="100%"),
-
+                  
                   # instructions
                   helpText("Use the buttons below to explore what happens to the meta-analysis
                             results when Shulman (1999) has no effect, when the intervention 
                             results favour the control and when the Shulman (1999) study has 
                             the same risk ratio but was a much smaller study."
-                  )
-  ),
+                  ),
+                  
+                  actionButton("noEffect", "No effect"),
+                  actionButton("favorsControl", "Favours Control"),
+                  actionButton("smallN", "Small Sample"),
+                  actionButton("reset", "Reset to original values."),
+                  tags$style(type="text/css", "#noEffect { margin-left: 2px; }"),
 
-  actionButton("noEffect", "No effect"),
-  actionButton("favorsControl", "Favours Control"),
-  actionButton("smallN", "Small Sample"),
-  actionButton("reset", "Reset to original values."),
-  tags$style(type="text/css", "#noEffect { margin-left: 25px; }"),
-  tags$hr()
+                  plotOutput("forestPlot", width="100%")
+
+
+  )
+
 
 
   )
