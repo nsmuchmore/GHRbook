@@ -76,7 +76,7 @@ ui <- fluidPage(
 
                   # instructions
                   helpText("Use the buttons below to explore what happens to the meta-analysis
-                            results when Shulman (1999) has no effect, when the experimental 
+                            results when Shulman (1999) has no effect, when the intervention 
                             results favour the control and when the Shulman (1999) study has 
                             the same risk ratio but was a much smaller study."
                   )
@@ -147,7 +147,7 @@ server <- function(input, output) {
     mh$studlab <- as.character(values$default$study)
 
     forest(mh, studlab = T, comb.fixed=F,
-           col.square="blue",
+           col.square=ifelse(mh$studlab=="Shulman (1999)", "orange", "blue"),
            col.diamond="black",
            squaresize=0.5,
            text.random="Summary",
