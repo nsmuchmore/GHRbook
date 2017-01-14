@@ -169,11 +169,7 @@ server <- function(input, output) {
     mh$studlab <- as.character(values$default$study)
 
     forest(mh, studlab = T, comb.fixed=F,
-           col.square=ifelse(mh$studlab=="Shulman (1999)" & mh$event.e==30, "blue", 
-                             ifelse(mh$studlab=="Shulman (1999)" & mh$event.e==3, "#E7A34D",
-                               ifelse(mh$studlab=="Shulman (1999)" & mh$event.e==200, "#6781CF",
-                                      ifelse(mh$studlab=="Shulman (1999)" & mh$event.e==500, "#6781CF",
-                                      "blue")))),
+           col.square=ifelse(mh$studlab=="Shulman (1999)", "orange", "blue"),
            col.diamond="black",
            squaresize=0.5,
            text.random="Summary",
