@@ -67,7 +67,8 @@ ui <- fluidPage(
 
 
   # Application title
-  titlePanel("Meta-Analysis"),
+  tags$div(title="App created by Amy Finnegan & Eric Green, Jan '17.",
+  titlePanel("Meta-Analysis")),
 
   # Show a forest plot and a table of included values
   fluidRow(column(12,
