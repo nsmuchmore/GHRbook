@@ -67,6 +67,7 @@ ui <- navbarPage("Global Health Research",
                  #theme="http://bootswatch.com/spacelab/bootstrap.css",
                  #inverse=TRUE,
                  windowTitle="Shiny GHR",
+                 collapsible=TRUE,
                  tabPanel(
                    title="Meta-Analysis App",
                    dashboardPage(
@@ -78,10 +79,11 @@ ui <- navbarPage("Global Health Research",
 fluidPage(
 
   # Show a forest plot and a table of included values
-  fluidRow(column(12, align="center",
-
-                  # instructions
-                  h4("This Shiny app reproduces the results of a meta-analysis
+  
+  fluidRow(column(12, align="left",
+           
+           # instructions
+           h4("This Shiny app reproduces the results of a meta-analysis
                            of the effects of chemoprevention on parasitaemia
                            (Radeva-Petrova et al., 2014). Note that the pooled risk ratio
                            is 0.39, which favors chemoprevention. Use the buttons below
@@ -93,8 +95,10 @@ fluidPage(
                            one-tenth as big? Reset to the original sample size and then
                            explore what happens if there is no effect, or if the study
                            results flip to favoring the control group."
-                  ),
-
+           ))),
+           
+           
+  fluidRow(column(12, align="center",
 
                   actionButton("smallN", "Small Sample",
                                style="color: #fff; background-color: #E7A34D"),
@@ -127,13 +131,45 @@ tabPanel(
     body=dashboardBody(
       fluidPage(
 
-        # Show a forest plot and a table of included values
-        fluidRow(column(12,
+        # about text
+        fluidRow(column(12, align="left",
 
-                        # instructions
+                        # credits
                         h4("About"
-                        )))))))
-                        )
+                        ),
+                        
+                        withTags({
+                          
+                          div(class="header",
+                          
+                          p("This app was created by ",
+                            
+                            a("Amy Finnegan",
+                              href="https://sites.google.com/site/amyfinnegan/home"),
+                            
+                            "and Eric Green for the online textbook" ,
+                          
+                          a("Global Health Research: Designs and Methods.",
+                            href="http://www.designsandmethods.com/book/"),
+                          
+                          "It is based on the following systematic review:"),
+                          
+                          
+                            
+                          p("Radeva-Petrova, D., Kayentao, K., ter Kuile, F. O., Sinclair, D., 
+                          & Garner, P. (", 
+                          
+                          a("2014", 
+                            href="http://onlinelibrary.wiley.com/doi/10.1002/14651858.CD000169.pub3/abstract"),
+                          
+                          "). Drugs for preventing malaria in pregnant 
+                          women in endemic areas: any drug regimen versus placebo or no treatment. 
+                          Cochrane Database Syst Rev, 10, CD000169.")
+                          )
+                        })
+                          
+                        ))))))
+)
 
 
 # Define server logic to draw forestplot and table
