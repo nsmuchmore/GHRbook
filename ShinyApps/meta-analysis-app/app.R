@@ -62,17 +62,25 @@ toChange <- "Shulman (1999)"
 
 # Define UI for application
 
-ui <- navbarPage("Global Health Research",
+ui <- navbarPage(
+                title=HTML("<a href=\"http://www.designsandmethods.com/book/\">
+                            Global Health Research</a>"),
+                 
+                 # title=HTML("<img src=logo.png style=width:42px;height:42px;border:0;align:right;>
+                 #            <a href=\"http://www.designsandmethods.com/book/\">
+                 #            Global Health Research</a>"),
+                 
                  id="nav",
                  #theme="http://bootswatch.com/spacelab/bootstrap.css",
                  #inverse=TRUE,
                  windowTitle="Shiny GHR",
                  collapsible=TRUE,
+                 
                  tabPanel(
                    title="Meta-Analysis App",
                    dashboardPage(
                      #header=dashboardHeader(title=tags$a(href='http://www.designsandmethods.com/',
-                    #                                     tags$img(src='logo.png'))),
+                                                         #tags$img(src='logo.png'))),
                      header=dashboardHeader(disable=TRUE),
                      sidebar=dashboardSidebar(disable = TRUE),
                      body=dashboardBody(
