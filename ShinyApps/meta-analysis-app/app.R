@@ -14,10 +14,7 @@ library(magrittr)
 library(ggplot2)
 library(shiny)
 library(meta)
-<<<<<<< HEAD
 library(shinydashboard)
-=======
->>>>>>> origin/master
 
 # default data ================================================================
 
@@ -49,9 +46,6 @@ CN <- c(22, 13, 22, 178,
         177, 564, 170, 134,
         203, 127)
 
-
-
-
 default <- data.frame(
   study=study,
   Ty=as.numeric(Ty),
@@ -68,7 +62,6 @@ toChange <- "Shulman (1999)"
 
 # Define UI for application
 
-<<<<<<< HEAD
 ui <- navbarPage("Global Health Research",
                  id="nav",
                  #theme="http://bootswatch.com/spacelab/bootstrap.css",
@@ -121,55 +114,10 @@ fluidPage(
 
 
                   )
-=======
-
-  # Application title
-  tags$div(title="App created by Amy Finnegan & Eric Green, Jan '17.",
-  titlePanel("Meta-Analysis")),
-
-  # Show a forest plot and a table of included values
-  fluidRow(column(12,
-                  
-                  # instructions
-                  helpText("This Shiny app reproduces the results of a meta-analysis 
-                           of the effects of chemoprevention on parasitaemia 
-                           (Radeva-Petrova et al., 2014). Note that the pooled risk ratio 
-                           is 0.39, which favors chemoprevention. Use the buttons below 
-                           to explore two key drivers of meta-analysis results: 
-                           study sample size and effect size estimates. The study with 
-                           the largest sample size is an RCT by Shulman et al. (1999) 
-                           with 1,131 women. What happens to the confidence interval on 
-                           the Shulman et al. effect size estimate if the sample size is 
-                           one-tenth as big? Reset to the original sample size and then 
-                           explore what happens if there is no effect, or if the study 
-                           results flip to favoring the control group."
-                  ),
-                  
-                  
-                  actionButton("smallN", "Small Sample",
-                                style="color: #fff; background-color: #E7A34D"),
-                  
-                  actionButton("noEffect", "No effect",
-                                style="color: #fff; background-color: #6781CF"),
-                  
-                  actionButton("favorsControl", "Favours Control",
-                                style="color: #fff; background-color: #6781CF"),
-                  
-                  actionButton("reset", "Reset to original values", icon("undo"),
-                               style="color: #fff; background-color: #337ab7; border-color: #2e6da4"),
-                  
-                  tags$style(type="text/css", "#noEffect { margin-left: 2px; }"),
-
-                  plotOutput("forestPlot", width="100%")
-
-
-  )
->>>>>>> origin/master
 
 
 
   )
-<<<<<<< HEAD
   )))),
 tabPanel(
   title="About",
@@ -186,15 +134,11 @@ tabPanel(
                         h4("About"
                         )))))))
                         )
-=======
-                  )
->>>>>>> origin/master
 
 
 # Define server logic to draw forestplot and table
 
 server <- function(input, output) {
-<<<<<<< HEAD
 
   values <- reactiveValues(default=default)
 
@@ -212,30 +156,11 @@ server <- function(input, output) {
     values$default$TN[values$default$study==toChange] <- 57
     values$default$CN[values$default$study==toChange] <- 56
 
-=======
-  
-  values <- reactiveValues(default=default)
-  
-  observeEvent(input$reset, {
 
-    values$default <- default
-    
-  })
-  
-  observeEvent(input$smallN, {
-    
-    values$default$Ty[values$default$study==toChange] <- 3
-    values$default$Cy[values$default$study==toChange] <- 20
-    
-    values$default$TN[values$default$study==toChange] <- 57
-    values$default$CN[values$default$study==toChange] <- 56
-    
->>>>>>> origin/master
   })
 
 
   observeEvent(input$noEffect, {
-<<<<<<< HEAD
 
     values$default$Ty[values$default$study==toChange] <- 200
     values$default$Cy[values$default$study==toChange] <- 199
@@ -254,33 +179,6 @@ server <- function(input, output) {
     values$default$CN[values$default$study==toChange] <- 564
 
   })
-=======
-    
-    values$default$Ty[values$default$study==toChange] <- 200
-    values$default$Cy[values$default$study==toChange] <- 199
-    
-    values$default$TN[values$default$study==toChange] <- 567
-    values$default$CN[values$default$study==toChange] <- 564
-    
-  })
-  
-  observeEvent(input$favorsControl, {
-    
-    values$default$Ty[values$default$study==toChange] <- 500
-    values$default$Cy[values$default$study==toChange] <- 50
-    
-    values$default$TN[values$default$study==toChange] <- 567
-    values$default$CN[values$default$study==toChange] <- 564
-    
-  })
-  
-
-
->>>>>>> origin/master
-
-
-
-
 
 
   output$forestPlot <- renderPlot({
@@ -310,7 +208,3 @@ server <- function(input, output) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
