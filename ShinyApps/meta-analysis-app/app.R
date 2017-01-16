@@ -63,11 +63,11 @@ toChange <- "Shulman (1999)"
 # Define UI for application
 
 ui <- navbarPage(
-                title=HTML("<a href=\"http://www.designsandmethods.com/book/\">
+                title=HTML("<a href=\"http://www.designsandmethods.com/book/\" target=_blank>
                             Global Health Research</a>"),
                  
                  # title=HTML("<img src=logo.png style=width:42px;height:42px;border:0;align:right;>
-                 #            <a href=\"http://www.designsandmethods.com/book/\">
+                 #            <a href=\"http://www.designsandmethods.com/book/\" target="_blank">
                  #            Global Health Research</a>"),
                  
                  id="nav",
@@ -153,12 +153,12 @@ tabPanel(
                           p("This app was created by ",
                             
                             a("Amy Finnegan",
-                              href="https://sites.google.com/site/amyfinnegan/home"),
+                              href="https://sites.google.com/site/amyfinnegan/home", target="_blank"),
                             
                             "and Eric Green for the online textbook" ,
                           
                           a("Global Health Research: Designs and Methods.",
-                            href="http://www.designsandmethods.com/book/"),
+                            href="http://www.designsandmethods.com/book/", target="_blank"),
                           
                           "It is based on the following systematic review:"),
                           
@@ -168,7 +168,8 @@ tabPanel(
                           & Garner, P. (", 
                           
                           a("2014", 
-                            href="http://onlinelibrary.wiley.com/doi/10.1002/14651858.CD000169.pub3/abstract"),
+                            href="http://onlinelibrary.wiley.com/doi/10.1002/14651858.CD000169.pub3/abstract",
+                            target="_blank"),
                           
                           "). Drugs for preventing malaria in pregnant 
                           women in endemic areas: any drug regimen versus placebo or no treatment. 
