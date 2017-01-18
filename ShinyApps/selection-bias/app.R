@@ -1,5 +1,5 @@
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# this app uses the example from
+# This app uses the example from
 # Webster, Jayne, Daniel Chandramohan, Tim Freeman, Brian Greenwood, Amin Ullah 
 # Kamawal, Fazle Rahim, and Mark Rowland. 2003. “A Health Facility Based 
 # Case–control Study of Effectiveness of Insecticide Treated Nets: Potential for 
@@ -27,12 +27,12 @@ mNoNet <- 9
 noMNet <- 87
 noMNoNet <- 104
 
-RR <- (mNet/noMNet)/(mNoNet/noMNoNet)
+RR <- round((mNet/noMNet)/(mNoNet/noMNoNet), 2)
 
 se <- sqrt(1/mNet + 1/mNoNet + 1/noMNet + 1/noMNoNet)
 
-ciUpper <- exp(log(RR)+(1.96*se))
-ciLower <- exp(log(RR)-(1.96*se))
+ciUpper <- round(exp(log(RR)+(1.96*se)), 2)
+ciLower <- round(exp(log(RR)-(1.96*se)), 2)
   
 
 
@@ -78,14 +78,14 @@ ui <- navbarPage(
                           ))),
           
           
-          fluidRow(column(12, 
+          fluidRow(column(12, align="center", 
                           
-              sliderInput("s1", "Misclassified Net Users",
-                          min=0, max=1, value=0, step=.01),
+              div(style="display:inline-block",sliderInput("s1", "Misclassified Net Users (%)",
+                          min=0, max=1, value=0, step=.01)),
               
               
-              sliderInput("s2", "Misclassified Non Net Users",
-                          min=0, max=1, value=0, step=.01),
+              div(style="display:inline-block", sliderInput("s2", "Misclassified Non Net Users (%)",
+                          min=0, max=1, value=0, step=.01)),
                           
               plotOutput("RRPlot")))
                           
@@ -184,12 +184,12 @@ server <- function(input, output) {
 
   output$RRPlot <- renderPlot({
     
-    
+    # adjusted estimate
     plot(RR.bias()$RR, 1,
          xlim=c(0,ifelse(RR.bias()$ciUpper < 10, 10, RR.bias()$ciUpper+1)),
          ylim=c(0,3),
          yaxt="n",
-         main="Risk Ratio",
+         main="Risk of Malaria given Bednet Use",
          xlab="Risk Ratio",
          ylab="",
          pch=19,
@@ -199,10 +199,21 @@ server <- function(input, output) {
     abline(v=1, lty=2)
     legend(8,3, c("Favors Bednets", "Favors No Bednets"),
            pch=19, col=c("purple", "orange"))
-    text(RR.bias()$ciUpper+1, 1.5, labels=paste(RR.bias()$RR, 
-                           ", 95% CI [", RR.bias()$ciLower,
-                           ",", RR.bias()$ciUpper, "]",
+    text(RR.bias()$ciUpper+1, 1.2, labels=paste("OR ", RR.bias()$RR, 
+                           "; 95% CI ", RR.bias()$ciLower,
+                           "-", RR.bias()$ciUpper,
                            sep=""))
+    text(RR.bias()$ciUpper+1, 1.4, labels="Estimate considering bias:")
+    
+    # original estimate
+    points(RR, 2,
+           pch=19)
+    segments(ciLower, 2, ciUpper, 2)
+    text(ciUpper+1, 2.2, labels=paste("OR ", RR, 
+                                                "; 95% CI ", ciLower,
+                                                "-", ciUpper,
+                                                sep=""))
+    text(ciUpper+1, 2.4, labels="Original Estimate:")
     
   })
   
