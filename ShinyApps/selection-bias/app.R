@@ -21,6 +21,19 @@ library(shinydashboard)
 
 # default data ================================================================
 
+mNet <- 5
+mNoNet <- 9
+  
+noMNet <- 87
+noMNoNet <- 104
+
+RR <- (mNet/noMNet)/(mNoNet/noMNoNet)
+
+se <- sqrt(1/mNet + 1/mNoNet + 1/noMNet + 1/noMNoNet)
+
+ciUpper <- exp(log(RR)+(1.96*se))
+ciLower <- exp(log(RR)-(1.96*se))
+  
 
 
 
@@ -56,27 +69,25 @@ ui <- navbarPage(
           fluidRow(column(12, align="left",
                           
                           # instructions
-                          h4("This Shiny app reproduces..."
+                          h4("This Shiny app reproduces the results from the ARC
+                             community in Webster, et al. (2003).  The user
+                             can manipulate the sliders to increase or decrease
+                             the percentage of cases that are misclassified as controls
+                             because they had taken chloroquine before visiting the clinic
+                             for a fever."
                           ))),
           
           
-          fluidRow(column(12, align="center",
+          fluidRow(column(12, 
                           
-                          actionButton("smallN", "Small Sample",
-                                       style="color: #fff; background-color: #E7A34D"),
+              sliderInput("s1", "Misclassified Net Users",
+                          min=0, max=1, value=0, step=.01),
+              
+              
+              sliderInput("s2", "Misclassified Non Net Users",
+                          min=0, max=1, value=0, step=.01),
                           
-                          actionButton("noEffect", "No effect",
-                                       style="color: #fff; background-color: #6781CF"),
-                          
-                          actionButton("favorsControl", "Favours Control",
-                                       style="color: #fff; background-color: #6781CF"),
-                          
-                          actionButton("reset", "Reset to original values", icon("undo"),
-                                       style="color: #fff; background-color: #337ab7; border-color: #2e6da4"),
-                          
-                          tags$style(type="text/css", "#noEffect { margin-left: 2px; }"),
-                          
-                          plotOutput("forestPlot", width="100%")
+              plotOutput("RRPlot")))
                           
                           
           )
@@ -84,7 +95,8 @@ ui <- navbarPage(
           
           
           )
-        )))),
+        )),
+  
   tabPanel(
     title="About",
     dashboardPage(
@@ -141,68 +153,58 @@ ui <- navbarPage(
 
 server <- function(input, output) {
   
-  values <- reactiveValues(default=default)
   
-  observeEvent(input$reset, {
+  
+  RR.bias <- reactive({
     
-    values$default <- default
+    netBias <- noMNet*input$s1
+    noNetBias <- noMNoNet*input$s2
+    
+    mNet <- 5 + netBias
+    mNoNet <- 9 + noNetBias
+    
+    noMNet <- 87 - netBias
+    noMNoNet <- 104 - noNetBias
+    
+    RR <- round((mNet/noMNet)/(mNoNet/noMNoNet), 2)
+    
+    se <- sqrt(1/mNet + 1/mNoNet + 1/noMNet + 1/noMNoNet)
+    
+    ciUpper <- round(exp(log(RR)+(1.96*se)), 2)
+    ciLower <- round(exp(log(RR)-(1.96*se)), 2)
+    
+    df <- data.frame(RR=RR,
+                    ciUpper=ciUpper,
+                    ciLower=ciLower)
+    
+    return(df)
     
   })
   
-  observeEvent(input$smallN, {
-    
-    values$default$Ty[values$default$study==toChange] <- 3
-    values$default$Cy[values$default$study==toChange] <- 20
-    
-    values$default$TN[values$default$study==toChange] <- 57
-    values$default$CN[values$default$study==toChange] <- 56
+
+  output$RRPlot <- renderPlot({
     
     
-  })
-  
-  
-  observeEvent(input$noEffect, {
-    
-    values$default$Ty[values$default$study==toChange] <- 200
-    values$default$Cy[values$default$study==toChange] <- 199
-    
-    values$default$TN[values$default$study==toChange] <- 567
-    values$default$CN[values$default$study==toChange] <- 564
-    
-  })
-  
-  observeEvent(input$favorsControl, {
-    
-    values$default$Ty[values$default$study==toChange] <- 500
-    values$default$Cy[values$default$study==toChange] <- 50
-    
-    values$default$TN[values$default$study==toChange] <- 567
-    values$default$CN[values$default$study==toChange] <- 564
+    plot(RR.bias()$RR, 1,
+         xlim=c(0,ifelse(RR.bias()$ciUpper < 10, 10, RR.bias()$ciUpper+1)),
+         ylim=c(0,3),
+         yaxt="n",
+         main="Risk Ratio",
+         xlab="Risk Ratio",
+         ylab="",
+         pch=19,
+         col=ifelse(RR.bias()$ciUpper < 1, "purple", 
+                    ifelse(RR.bias()$ciLower > 1, "orange", "black")))
+    segments(RR.bias()$ciLower, 1, RR.bias()$ciUpper, 1)
+    abline(v=1, lty=2)
+    legend(8,3, c("Favors Bednets", "Favors No Bednets"),
+           pch=19, col=c("purple", "orange"))
+    text(RR.bias()$ciUpper+1, 1.5, labels=paste(RR.bias()$RR, 
+                           ", 95% CI [", RR.bias()$ciLower,
+                           ",", RR.bias()$ciUpper, "]",
+                           sep=""))
     
   })
-  
-  
-  output$forestPlot <- renderPlot({
-    
-    # plot
-    
-    mh<-  metabin(event.e=values$default$Ty, n.e=values$default$TN, event.c=values$default$Cy, n.c=values$default$CN)
-    mh$studlab <- as.character(values$default$study)
-    
-    forest(mh, studlab = T, comb.fixed=F,
-           col.square=ifelse(mh$studlab=="Shulman (1999)", "orange", "blue"),
-           col.diamond="black",
-           squaresize=0.5,
-           text.random="Summary",
-           plotwidth="4cm",
-           label.right="Favours control", col.label.right="black",
-           label.left="Favours chemoprevention", col.label.left="black",
-           lab.e="Intervention", lab.c="Control"
-    )
-    
-    
-  })
-  
   
   
 }
