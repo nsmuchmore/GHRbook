@@ -21,11 +21,11 @@ library(shinydashboard)
 
 # default data ================================================================
 
-mNet <- 5
-mNoNet <- 9
+mNet <- 15
+mNoNet <-36
   
-noMNet <- 87
-noMNoNet <- 104
+noMNet <- 77
+noMNoNet <- 77
 
 RR <- round((mNet/noMNet)/(mNoNet/noMNoNet), 2)
 
@@ -80,14 +80,15 @@ ui <- navbarPage(
           
           fluidRow(column(12, align="center", 
                           
-              div(style="display:inline-block",sliderInput("s1", "Misclassified Net Users (%)",
-                          min=0, max=1, value=0, step=.01)),
+              div(style="display:inline-block",sliderInput("s1", "Number of Misclassifed Cases",
+                          min=0, max=35, value=0, step=1)),
               
               
-              div(style="display:inline-block", sliderInput("s2", "Misclassified Non Net Users (%)",
-                          min=0, max=1, value=0, step=.01)),
+              div(style="display:inline-block", sliderInput("s2", "Favors Treatment or Control",
+                          min=-1, max=1, value=0, step=.1)),
                           
-              plotOutput("RRPlot")))
+              plotOutput("RRPlot")),
+              tableOutput("nums"))
                           
                           
           )
@@ -157,15 +158,25 @@ server <- function(input, output) {
   
   RR.bias <- reactive({
     
-    netBias <- noMNet*input$s1
-    noNetBias <- noMNoNet*input$s2
+    mNet <- mNet
+    mNoNet <- mNoNet
     
-    mNet <- 5 + netBias
-    mNoNet <- 9 + noNetBias
+    # favors control (input$s2 > 0), subtract from no malaria group and add to malaria group
+    # favors treatment (input$s2 < 0), subtract from malaria group and add to no malaria group
     
-    noMNet <- 87 - netBias
-    noMNoNet <- 104 - noNetBias
+    mNoNet <- ifelse(input$s2 > 0, mNoNet-(input$s1*abs(input$s2)), mNoNet+(input$s1*abs(input$s2)))
+    noMNoNet <- ifelse(input$s2 > 0, noMNoNet+(input$s1*abs(input$s2)), noMNoNet-(input$s1*abs(input$s2)))
     
+    # old w/2 sliders
+    # netBias <- noMNet*input$s1
+    # noNetBias <- noMNoNet*input$s2
+    # 
+    # mNet <- 5 + netBias
+    # mNoNet <- 9 + noNetBias
+    # 
+    # noMNet <- 87 - netBias
+    # noMNoNet <- 104 - noNetBias
+    # 
     RR <- round((mNet/noMNet)/(mNoNet/noMNoNet), 2)
     
     se <- sqrt(1/mNet + 1/mNoNet + 1/noMNet + 1/noMNoNet)
@@ -180,6 +191,8 @@ server <- function(input, output) {
     return(df)
     
   })
+  
+  
   
 
   output$RRPlot <- renderPlot({
