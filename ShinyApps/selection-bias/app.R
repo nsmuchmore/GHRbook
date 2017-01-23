@@ -21,19 +21,45 @@ library(shinydashboard)
 
 # default data ================================================================
 
-mNet <- 15
-mNoNet <-36
-  
-noMNet <- 77
-noMNoNet <- 77
+ur <- data.frame(x=c(seq(1,10,1), seq(1,10,1),
+                     seq(1,10,1), seq(1,10,1),
+                     seq(1,10,1), seq(1,10,1),
+                     seq(1,10,1), seq(1,10,1),
+                     seq(1,10,1), seq(1,10,1),
+                     seq(1,10,1)),
+                 y=c(rep(1,10), rep(2,10),
+                     rep(3,10), rep(4,10),
+                     rep(5,10), rep(6,10),
+                     rep(7,10), rep(8,10),
+                     rep(9,10), rep(10,10),
+                     rep(11,10)),
+                 count=seq(1,110,1))
 
-RR <- round((mNet/noMNet)/(mNoNet/noMNoNet), 2)
+ul <- ur
+ul$x <- ul$x*-1
 
-se <- sqrt(1/mNet + 1/mNoNet + 1/noMNet + 1/noMNoNet)
+ll <- ul
+ll$y <- ll$y*-1
 
-ciUpper <- round(exp(log(RR)+(1.96*se)), 2)
-ciLower <- round(exp(log(RR)-(1.96*se)), 2)
-  
+lr <- ll
+lr$x <- lr$x*-1
+
+all <- rbind(ul, ur, ll, lr)
+
+
+
+# now w/count, we can subset and add firebrick or grey points
+malaria.net <- subset(ul, count>(110-5))
+no.malaria.net <- subset(ur, count>(110-87))
+
+malaria.no.net <- subset(ll, count<=9)
+no.malaria.no.net <- subset(lr, count<=104)
+
+# do the risk ratio using max from each
+RR <- (length(malaria.net$count)/length(no.malaria.net$count))/
+  (length(malaria.no.net$count)/length(no.malaria.no.net$count))
+
+
 
 
 
@@ -81,14 +107,14 @@ ui <- navbarPage(
           fluidRow(column(12, align="center", 
                           
               div(style="display:inline-block",sliderInput("s1", "Number of Misclassifed Cases",
-                          min=0, max=35, value=0, step=1)),
+                          min=0, max=87, value=0, step=1)),
               
               
-              div(style="display:inline-block", sliderInput("s2", "Favors Treatment or Control",
-                          min=-1, max=1, value=0, step=.1)),
+              div(style="display:inline-block", sliderInput("s2", "% of Bednet Group",
+                          min=0, max=1, value=0, step=.1)),
                           
-              plotOutput("RRPlot")),
-              tableOutput("nums"))
+              plotOutput("grid")),
+              textOutput("nums"))
                           
                           
           )
@@ -150,86 +176,63 @@ ui <- navbarPage(
 )
 
 
-# Define server logic to draw forestplot and table
+# Define server logic to draw grid and table
 
 server <- function(input, output) {
   
-  
-  
-  RR.bias <- reactive({
+  misclass <- reactive({
     
-    mNet <- mNet
-    mNoNet <- mNoNet
-    
-    # favors control (input$s2 > 0), subtract from no malaria group and add to malaria group
-    # favors treatment (input$s2 < 0), subtract from malaria group and add to no malaria group
-    
-    mNoNet <- ifelse(input$s2 > 0, mNoNet-(input$s1*abs(input$s2)), mNoNet+(input$s1*abs(input$s2)))
-    noMNoNet <- ifelse(input$s2 > 0, noMNoNet+(input$s1*abs(input$s2)), noMNoNet-(input$s1*abs(input$s2)))
-    
-    # old w/2 sliders
-    # netBias <- noMNet*input$s1
-    # noNetBias <- noMNoNet*input$s2
-    # 
-    # mNet <- 5 + netBias
-    # mNoNet <- 9 + noNetBias
-    # 
-    # noMNet <- 87 - netBias
-    # noMNoNet <- 104 - noNetBias
-    # 
-    RR <- round((mNet/noMNet)/(mNoNet/noMNoNet), 2)
-    
-    se <- sqrt(1/mNet + 1/mNoNet + 1/noMNet + 1/noMNoNet)
-    
-    ciUpper <- round(exp(log(RR)+(1.96*se)), 2)
-    ciLower <- round(exp(log(RR)-(1.96*se)), 2)
-    
-    df <- data.frame(RR=RR,
-                    ciUpper=ciUpper,
-                    ciLower=ciLower)
-    
-    return(df)
-    
-  })
-  
-  
-  
+    pctBYes <- input$s1*input$s2 # number to circle in bednet yes
 
-  output$RRPlot <- renderPlot({
+    pctBNo <- input$s1*(1-input$s2) # number to circle in bednet no
+
+    misclass.net <- subset(no.malaria.net, count>(110-pctBYes))
+    misclass.no.net <- subset(no.malaria.no.net, count<=pctBNo)
     
-    # adjusted estimate
-    plot(RR.bias()$RR, 1,
-         xlim=c(0,RR.bias()$ciUpper+2.5),
-         ylim=c(0,3),
-         yaxt="n",
-         main="Risk of Malaria given Bednet Use",
-         xlab="Risk Ratio",
-         ylab="",
-         pch=19,
-         col=ifelse(RR.bias()$ciUpper < 1, "purple", 
-                    ifelse(RR.bias()$ciLower > 1, "orange", "black")))
-    segments(RR.bias()$ciLower, 1, RR.bias()$ciUpper, 1)
-    abline(v=1, lty=2)
-    legend(8,3, c("Favors Bednets", "Favors No Bednets"),
-           pch=19, col=c("purple", "orange"))
-    text(RR.bias()$ciUpper+1, 1.2, labels=paste("OR ", RR.bias()$RR, 
-                           "; 95% CI ", RR.bias()$ciLower,
-                           "-", RR.bias()$ciUpper,
-                           sep=""))
-    text(RR.bias()$ciUpper+1, 1.4, labels="Estimate considering bias:")
-    
-    # original estimate
-    points(RR, 2,
-           pch=19)
-    segments(ciLower, 2, ciUpper, 2)
-    text(ciUpper+1, 2.2, labels=paste("OR ", RR, 
-                                                "; 95% CI ", ciLower,
-                                                "-", ciUpper,
-                                                sep=""))
-    text(ciUpper+1, 2.4, labels="Original Estimate:")
+    return(list(misclass.net, misclass.no.net))
     
   })
+
   
+  
+  output$grid <- renderPlot({
+    
+    ggplot(all, aes(x=x, y=y)) +
+      geom_point(colour="white", size=10) +
+      
+      # draw grid
+      geom_hline(yintercept=0) +
+      geom_vline(xintercept=0) +
+      
+      # color malaria points
+      geom_point(data=malaria.net, color="firebrick", size=5, alpha=0.8) +
+      geom_point(data=malaria.no.net, color="firebrick", size=5, alpha=0.8) +
+      
+      # color no-malaria points
+      geom_point(data=no.malaria.net, color="grey25", size=5, alpha=0.5) +
+      geom_point(data=no.malaria.no.net, color="grey25", size=5, alpha=0.5) +
+      
+      # color misclassed points - data in a misclass() reactive list
+      geom_point(data=misclass()[[1]], color="firebrick", size=5, shape=1, stroke=1) +
+      geom_point(data=misclass()[[2]], color="firebrick", size=5, shape=1, stroke=1) +
+      
+      labs(title="          Malaria              No Malaria",
+           y="Bednet Use \n NO          YES") +
+      theme_bw() +
+      theme(panel.grid=element_blank(),
+            plot.margin=unit(c(2,2,0,2), "cm"),
+            legend.position = "none",
+            axis.text.x=element_blank(),
+            axis.text.y=element_blank(),
+            axis.ticks.x=element_blank(),
+            axis.ticks.y=element_blank(),
+            axis.title.x=element_blank(),
+            plot.title=element_text(face="bold", size=22),
+            axis.title=element_text(face="bold", size=22)) +
+      coord_fixed(ratio=1)
+    
+    
+  })
   
 }
 
