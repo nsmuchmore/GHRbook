@@ -18,6 +18,7 @@ library(magrittr)
 library(ggplot2)
 library(shiny)
 library(shinydashboard)
+library(DT)
 
 # default data ================================================================
 
@@ -55,13 +56,6 @@ no.malaria.net <- subset(ur, count>(110-87))
 malaria.no.net <- subset(ll, count<=9)
 no.malaria.no.net <- subset(lr, count<=104)
 
-# do the risk ratio using max from each
-RR <- (length(malaria.net$count)/length(no.malaria.net$count))/
-  (length(malaria.no.net$count)/length(no.malaria.no.net$count))
-
-
-
-
 
 
 # Define UI for application
@@ -90,7 +84,6 @@ ui <- navbarPage(
       body=dashboardBody(
         fluidPage(
           
-          # Show a forest plot and a table of included values
           
           fluidRow(column(12, align="left",
                           
@@ -107,14 +100,18 @@ ui <- navbarPage(
           fluidRow(column(12, align="center", 
                           
               div(style="display:inline-block",sliderInput("s1", "Number of Misclassifed Cases",
-                          min=0, max=87, value=0, step=1)),
+                          min=0, max=86, value=0, step=1)),
               
               
               div(style="display:inline-block", sliderInput("s2", "% of Bednet Group",
-                          min=0, max=1, value=0, step=.1)),
+                          min=0, max=1, value=0, step=.1)))
+              ),
+          
+          fluidRow(column(12, align="center",
                           
-              plotOutput("grid")),
-              textOutput("nums"))
+              div(tableOutput("t1"), style="font-family: Verdana, Geneva, sans-serif"),
+                          
+              plotOutput("grid")))
                           
                           
           )
@@ -152,7 +149,7 @@ ui <- navbarPage(
                                   a("Global Health Research: Designs and Methods.",
                                     href="http://www.designsandmethods.com/book/", target="_blank"),
                                   
-                                  "It is based on the following systematic review:"),
+                                  "It is based on the following article:"),
                                 
                                 
                                 p("Webster, Jayne, Daniel Chandramohan, Tim Freeman, Brian Greenwood, Amin Ullah 
@@ -189,11 +186,30 @@ server <- function(input, output) {
     misclass.net <- subset(no.malaria.net, count>(110-pctBYes))
     misclass.no.net <- subset(no.malaria.no.net, count<=pctBNo)
     
-    return(list(misclass.net, misclass.no.net))
+    a <- round(5+pctBYes,0)
+    b <- round(87-pctBYes, 0)
+    c <- round(9+pctBNo, 0)
+    d <- round(104-pctBNo, 0)
+    
+    
+    # table of RR
+    df <- data.frame(Cases=c(a,c,NA),
+                     Controls=c(b,d,NA),
+                      RR=c(a/b, c/d, (a/b)/(c/d)),
+                      CIL=c(NA,NA, exp(log((a/b)/(c/d))-1.96*(sqrt(1/a+1/b+1/c+1/d)))),
+                      CIU=c(NA, NA, exp(log((a/b)/(c/d))+1.96*(sqrt(1/a+1/b+1/c+1/d)))))
+    
+    rownames(df) <- c("Bednet", "No Bednet", "Odds of Malaria")
+    colnames(df) <- c("Cases", "Controls", "RR", "95% CI Lower", "95% CI Upper")
+    
+    return(list(misclass.net, misclass.no.net, df))
     
   })
-
   
+  output$t1 <- renderTable({
+    misclass()[[3]]
+  })
+
   
   output$grid <- renderPlot({
     
@@ -216,7 +232,7 @@ server <- function(input, output) {
       geom_point(data=misclass()[[1]], color="firebrick", size=5, shape=1, stroke=1) +
       geom_point(data=misclass()[[2]], color="firebrick", size=5, shape=1, stroke=1) +
       
-      labs(title="          Malaria              No Malaria",
+      labs(title="      Cases           Controls",
            y="Bednet Use \n NO          YES") +
       theme_bw() +
       theme(panel.grid=element_blank(),
@@ -233,6 +249,8 @@ server <- function(input, output) {
     
     
   })
+  
+
   
 }
 
