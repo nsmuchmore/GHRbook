@@ -199,7 +199,7 @@ server <- function(input, output) {
     
     # adjusted estimate
     plot(RR.bias()$RR, 1,
-         xlim=c(0,ifelse(RR.bias()$ciUpper < 10, 10, RR.bias()$ciUpper+1)),
+         xlim=c(0,RR.bias()$ciUpper+2.5),
          ylim=c(0,3),
          yaxt="n",
          main="Risk of Malaria given Bednet Use",
