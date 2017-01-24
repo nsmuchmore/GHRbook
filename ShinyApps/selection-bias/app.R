@@ -88,12 +88,15 @@ ui <- navbarPage(
           fluidRow(column(12, align="left",
                           
                           # instructions
-                          h4("This Shiny app reproduces the results from the ARC
-                             community in Webster, et al. (2003).  The user
-                             can manipulate the sliders to increase or decrease
-                             the percentage of cases that are misclassified as controls
-                             because they had taken chloroquine before visiting the clinic
-                             for a fever."
+                          h4("This Shiny app reproduces results from Webster et al. 
+                             (2003), a case-control study of the effectiveness of 
+                             insecticide treated nets for the prevention of malaria. 
+                             The authors found that some people with malaria pretreat 
+                             themselves with chloroquine before coming to the clinic, 
+                             thus testing negative for malaria. This represents a 
+                             misclassification of malaria cases as controls. Use the 
+                             sliders below to see what happens when the rate of 
+                             misclassification increases and is associated with reported bednet use."
                           ))),
           
           
@@ -103,14 +106,17 @@ ui <- navbarPage(
                           min=0, max=86, value=0, step=1)),
               
               
-              div(style="display:inline-block", sliderInput("s2", "% of Bednet Group",
+              div(style="display:inline-block", sliderInput("s2", "Degree of Bias",
                           min=0, max=1, value=0, step=.1)))
               ),
           
           fluidRow(column(12, align="center",
                           
-              div(tableOutput("t1"), style="font-family: Verdana, Geneva, sans-serif"),
-                          
+              div(tableOutput("t1"), style="font-family: Verdana, Geneva, sans-serif"))),
+          
+          fluidRow(align="center",
+            splitLayout(cellWidths=c("50%", "50%"),
+              plotOutput("forestPlot"),
               plotOutput("grid")))
                           
                           
@@ -152,17 +158,17 @@ ui <- navbarPage(
                                   "It is based on the following article:"),
                                 
                                 
-                                p("Webster, Jayne, Daniel Chandramohan, Tim Freeman, Brian Greenwood, Amin Ullah 
-                                  Kamawal, Fazle Rahim, and Mark Rowland. (",
+                                p("Webster, J., Chandramohan, D., Freeman, T., Greenwood, B., Kamawal, A.U., 
+                                  Rahim, F., &Rowland, M. (",
                                   
                                   a("2003",
                                     href="http://onlinelibrary.wiley.com/doi/10.1046/j.1365-3156.2003.01013.x/full",
                                     target="_blank"),
                                   
-                                  "). “A Health Facility Based 
-                                  Case–control Study of Effectiveness of Insecticide Treated Nets: Potential for 
-                                  Selection Bias Due to Pre-Treatment with Chloroquine.” Tropical Medicine & 
-                                  International Health 8 (3): 196–201.")
+                                  "). “A health facility based case–control study of effectiveness of 
+                                  insecticide treated nets: Potential for selection bias due to 
+                                  pre-treatment with chloroquine. Tropical Medicine & International Health, 
+                                  8 (3), 196–201.")
                                 
                             )
                                   
@@ -247,6 +253,38 @@ server <- function(input, output) {
             axis.title=element_text(face="bold", size=22)) +
       coord_fixed(ratio=1)
     
+    
+  })
+  
+  output$forestPlot <- renderPlot({
+    
+    # original estimate
+    plot(0.66, 2,
+           pch=19,
+         xlim=c(0,round(misclass()[[3]][3,5],2)+2.5),
+         ylim=c(0,3),
+         yaxt="n",
+         main="Odds of Malaria given Bednet Use",
+         xlab="Risk Ratio & 95% CI",
+         ylab="")
+    segments(0.21, 2, 2.06, 2)
+    text(0.66, 2.2, labels=paste("OR ", "0.66", 
+                                      "; 95% CI ", "0.21",
+                                      "-", "2.06",
+                                      sep=""))
+    text(0.66, 2.4, labels="Original Estimate:")
+    
+    # estimate after bias
+    points(round(misclass()[[3]][3,3],2), 1, pch=19)
+    segments(round(misclass()[[3]][3,4],2), 1, round(misclass()[[3]][3,5],2), 1)
+    abline(v=1, lty=2)
+    legend(8,3, c("Favors Bednets", "Favors No Bednets"),
+           pch=19, col=c("purple", "orange"))
+    text(misclass()[[3]][3,3], 1.2, labels=paste("OR ", round(misclass()[[3]][3,3],2), 
+                                                "; 95% CI ", round(misclass()[[3]][3,4],2),
+                                                "-", round(misclass()[[3]][3,5],2),
+                                                sep=""))
+    text(misclass()[[3]][3,3], 1.4, labels="Estimate considering bias:")
     
   })
   
