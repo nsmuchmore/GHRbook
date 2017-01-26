@@ -19,6 +19,7 @@ library(ggplot2)
 library(shiny)
 library(shinydashboard)
 library(DT)
+library(plotly)
 
 # default data ================================================================
 
@@ -102,17 +103,20 @@ ui <- navbarPage(
           
           fluidRow(column(12, align="center", 
                           
-              div(style="display:inline-block",sliderInput("s1", "Number of Misclassifed Cases",
-                          min=0, max=86, value=0, step=1)),
+ 
+                          
+                          
+               div(style="display:inline-block",sliderInput("s1", "Number of Misclassifed Cases",
+                           min=0, max=30, value=0, step=2)),
               
               
-              div(style="display:inline-block", sliderInput("s2", "Degree of Bias",
-                          min=0, max=1, value=0, step=.1)))
+               div(style="display:inline-block", sliderInput("s2", "- Direction of Bias +",
+                           min=-.2, max=.2, value=0, step=.1, ticks=FALSE)))
               ),
           
-          fluidRow(column(12, align="center",
-                          
-              div(tableOutput("t1"), style="font-family: Verdana, Geneva, sans-serif"))),
+          # fluidRow(column(12, align="center",
+          #                 
+          #     div(tableOutput("t1"), style="font-family: Verdana, Geneva, sans-serif"))),
           
           fluidRow(align="center",
             splitLayout(cellWidths=c("50%", "50%"),
@@ -159,7 +163,7 @@ ui <- navbarPage(
                                 
                                 
                                 p("Webster, J., Chandramohan, D., Freeman, T., Greenwood, B., Kamawal, A.U., 
-                                  Rahim, F., &Rowland, M. (",
+                                  Rahim, F., & Rowland, M. (",
                                   
                                   a("2003",
                                     href="http://onlinelibrary.wiley.com/doi/10.1046/j.1365-3156.2003.01013.x/full",
@@ -185,9 +189,19 @@ server <- function(input, output) {
   
   misclass <- reactive({
     
-    pctBYes <- input$s1*input$s2 # number to circle in bednet yes
-
-    pctBNo <- input$s1*(1-input$s2) # number to circle in bednet no
+    if(input$s2==0) {
+      pctBYes <- input$s1/2
+      pctBNo <- input$s1/2
+    }
+    if(input$s2 > 0) {
+      pctBYes <- input$s1*(abs(input$s2)+.5) # number to circle in bednet yes
+      pctBNo <- input$s1*(1-(abs(input$s2)+.5)) # number to circle in bednet no
+    }
+    if(input$s2 < 0) {
+      pctBYes <- input$s1*(1-(abs(input$s2)+.5))
+      pctBNo <- input$s1*(abs(input$s2)+.5)
+    }
+      
 
     misclass.net <- subset(no.malaria.net, count>(110-pctBYes))
     misclass.no.net <- subset(no.malaria.no.net, count<=pctBNo)
@@ -258,33 +272,92 @@ server <- function(input, output) {
   
   output$forestPlot <- renderPlot({
     
-    # original estimate
-    plot(0.66, 2,
-           pch=19,
-         xlim=c(0,round(misclass()[[3]][3,5],2)+2.5),
-         ylim=c(0,3),
-         yaxt="n",
-         main="Odds of Malaria given Bednet Use",
-         xlab="Risk Ratio & 95% CI",
-         ylab="")
-    segments(0.21, 2, 2.06, 2)
-    text(0.66, 2.2, labels=paste("OR ", "0.66", 
-                                      "; 95% CI ", "0.21",
-                                      "-", "2.06",
-                                      sep=""))
-    text(0.66, 2.4, labels="Original Estimate:")
+    # original
+    df <- data.frame(x=c(NA,NA,0.66,NA),
+                     y=c("", "With\nMisclassification\nBias", "Original", ""))
     
-    # estimate after bias
-    points(round(misclass()[[3]][3,3],2), 1, pch=19)
-    segments(round(misclass()[[3]][3,4],2), 1, round(misclass()[[3]][3,5],2), 1)
-    abline(v=1, lty=2)
-    legend(8,3, c("Favors Bednets", "Favors No Bednets"),
-           pch=19, col=c("purple", "orange"))
-    text(misclass()[[3]][3,3], 1.2, labels=paste("OR ", round(misclass()[[3]][3,3],2), 
-                                                "; 95% CI ", round(misclass()[[3]][3,4],2),
-                                                "-", round(misclass()[[3]][3,5],2),
-                                                sep=""))
-    text(misclass()[[3]][3,3], 1.4, labels="Estimate considering bias:")
+    olimits <- data.frame(x1=c(NA,NA,0.21,NA),
+                          xend=c(NA,NA,2.06, NA),
+                          y1=rep("Original", 4),
+                          yend=rep("Original", 4))
+    
+    # adjusted
+    df2 <- data.frame(x=c(NA,misclass()[[3]][3,3],NA,NA),
+                      y=c("", "With\nMisclassification\nBias", "Original", ""))
+    
+    
+    alimits <- data.frame(x1=c(NA,NA,misclass()[[3]][3,4],NA),
+                          xend=c(NA,NA,misclass()[[3]][3,5], NA),
+                          y1=rep("With\nMisclassification\nBias", 4),
+                          yend=rep("With\nMisclassification\nBias", 4))
+    
+    
+    ggplot(df, aes(x=x, y=y)) +
+      geom_point(color="black") +
+      
+      # add adjusted
+      geom_point(data=df2, color="#6781CF") +
+      
+      # line of no effect
+      geom_vline(xintercept=1) +
+      
+      geom_segment(aes(x=x1, y=y1, xend=xend, yend=yend),
+                   data=olimits) +
+      
+      geom_segment(aes(x=x1, y=y1, xend=xend, yend=yend,
+                       colour="red"),
+                   data=alimits) +
+      
+      # xlimits & labels
+      xlim(0,4) +
+      #xlim(0,ifelse(df2[2,1]+1>df[3,1]+1,df[2,1]+1,df[3,1]+1)) +
+      labs(title="Odds of Malaria",
+           x="Odds Ratio & 95% CI") +
+      
+      # theme stuff
+      theme_bw() +
+      theme(panel.grid=element_blank(),
+            plot.margin=unit(c(2,2,0,2), "cm"),
+            legend.position = "none",
+            
+            axis.text.y=element_text(face="bold", size=15),
+            axis.text.x=element_text(face="bold", size=15),
+            
+            axis.ticks.y=element_blank(),
+            axis.title.y=element_blank(),
+            axis.title.x=element_text(face="bold", size=15),
+            
+            plot.title=element_text(face="bold", size=22, hjust=0.5))
+    
+
+    
+    # # original estimate
+    # plot(0.66, 2,
+    #        pch=19,
+    #      xlim=c(0,round(misclass()[[3]][3,5],2)+2.5),
+    #      ylim=c(0,3),
+    #      yaxt="n",
+    #      main="Odds of Malaria given Bednet Use",
+    #      xlab="Risk Ratio & 95% CI",
+    #      ylab="")
+    # segments(0.21, 2, 2.06, 2)
+    # text(0.66, 2.2, labels=paste("OR ", "0.66", 
+    #                                   "; 95% CI ", "0.21",
+    #                                   "-", "2.06",
+    #                                   sep=""))
+    # text(0.66, 2.4, labels="Original Estimate:")
+    # 
+    # # estimate after bias
+    # points(round(misclass()[[3]][3,3],2), 1, pch=19)
+    # segments(round(misclass()[[3]][3,4],2), 1, round(misclass()[[3]][3,5],2), 1)
+    # abline(v=1, lty=2)
+    # legend(8,3, c("Favors Bednets", "Favors No Bednets"),
+    #        pch=19, col=c("purple", "orange"))
+    # text(misclass()[[3]][3,3], 1.2, labels=paste("OR ", round(misclass()[[3]][3,3],2), 
+    #                                             "; 95% CI ", round(misclass()[[3]][3,4],2),
+    #                                             "-", round(misclass()[[3]][3,5],2),
+    #                                             sep=""))
+    # text(misclass()[[3]][3,3], 1.4, labels="Estimate considering bias:")
     
   })
   
