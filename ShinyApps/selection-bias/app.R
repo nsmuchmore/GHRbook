@@ -21,6 +21,8 @@ library(shinydashboard)
 library(DT)
 library(plotly)
 
+
+
 # default data ================================================================
 
 ur <- data.frame(x=c(seq(1,10,1), seq(1,10,1),
@@ -57,9 +59,36 @@ no.malaria.net <- subset(ur, count>(110-87))
 malaria.no.net <- subset(ll, count<=9)
 no.malaria.no.net <- subset(lr, count<=104)
 
+# function to change values ===================================================
 
+vals <- function(pctBYes, pctBNo) {
+  
+  misclass.net <- subset(no.malaria.net, count>(110-pctBYes))
+  misclass.no.net <- subset(no.malaria.no.net, count<=pctBNo)
+  
+  a <- round(5+pctBYes,0)
+  b <- round(87-pctBYes, 0)
+  c <- round(9+pctBNo, 0)
+  d <- round(104-pctBNo, 0)
+  
+  
+  # table of RR
+  df <- data.frame(Cases=c(a,c,NA),
+                   Controls=c(b,d,NA),
+                   RR=c(a/b, c/d, (a/b)/(c/d)),
+                   CIL=c(NA,NA, exp(log((a/b)/(c/d))-1.96*(sqrt(1/a+1/b+1/c+1/d)))),
+                   CIU=c(NA, NA, exp(log((a/b)/(c/d))+1.96*(sqrt(1/a+1/b+1/c+1/d)))))
+  
+  rownames(df) <- c("Bednet", "No Bednet", "Odds of Malaria")
+  colnames(df) <- c("Cases", "Controls", "RR", "95% CI Lower", "95% CI Upper")
+  
+  return(list(misclass.net, misclass.no.net, df))
+  
+}
 
-# Define UI for application
+misclass <- vals(0,0)
+
+# Define UI for application ===================================================
 
 ui <- navbarPage(
   title=HTML("<a href=\"http://www.designsandmethods.com/book/\" target=_blank>
@@ -96,27 +125,35 @@ ui <- navbarPage(
                              themselves with chloroquine before coming to the clinic, 
                              thus testing negative for malaria. This represents a 
                              misclassification of malaria cases as controls. Use the 
-                             sliders below to see what happens when the rate of 
-                             misclassification increases and is associated with reported bednet use."
+                             buttons below to see what happens when the rate of 
+                             misclassification changes and is associated with reported bednet use."
                           ))),
           
           
           fluidRow(column(12, align="center", 
                           
  
-                          
-                          
-               div(style="display:inline-block",sliderInput("s1", "Number of Misclassifed Cases",
-                           min=0, max=30, value=0, step=2)),
-              
-              
-               div(style="display:inline-block", sliderInput("s2", "- Direction of Bias +",
-                           min=-1, max=1, value=0, step=.1, ticks=FALSE)))
-              ),
+               actionButton("one4", "1:4",
+                            style="color: #fff; background-color: #E7A34D"),
+               
+               actionButton("two3", "2:3",
+                            style="color: #fff; background-color: #E7A34D"),
+               
+               actionButton("fifty50", "1:1",
+                            style="color: #fff; background-color: #337ab7"),
+               
+               actionButton("three2", "3:2",
+                            style="color: #fff; background-color: #6781CF"),
+               
+               actionButton("four1", "4:1",
+                            style="color: #fff; background-color: #6781CF"),
+               
+               actionButton("reset", "Ignore Bias", icon("undo"),
+                            style="color: #fff; background-color: #337ab7; border-color: #2e6da4"),
+               
+               tags$style(type="text/css", "#noEffect { margin-left: 2px; }")
+              )),
           
-          # fluidRow(column(12, align="center",
-          #                 
-          #     div(tableOutput("t1"), style="font-family: Verdana, Geneva, sans-serif"))),
           
           fluidRow(align="center",
             splitLayout(cellWidths=c("50%", "50%"),
@@ -187,47 +224,53 @@ ui <- navbarPage(
 
 server <- function(input, output) {
   
-  misclass <- reactive({
+  # generic values
+  values <- reactiveValues(misclass=misclass)
+  
+  observeEvent(input$reset, {
     
-    if(input$s2==0) {
-      pctBYes <- input$s1/2
-      pctBNo <- input$s1/2
-    }
-    if(input$s2 > 0) {
-      pctBYes <- input$s1*(abs(input$s2)) # number to circle in bednet yes
-      pctBNo <- input$s1*(1-(abs(input$s2))) # number to circle in bednet no
-    }
-    if(input$s2 < 0) {
-      pctBYes <- input$s1*(1-(abs(input$s2)))
-      pctBNo <- input$s1*(abs(input$s2))
-    }
-      
-
-    misclass.net <- subset(no.malaria.net, count>(110-pctBYes))
-    misclass.no.net <- subset(no.malaria.no.net, count<=pctBNo)
-    
-    a <- round(5+pctBYes,0)
-    b <- round(87-pctBYes, 0)
-    c <- round(9+pctBNo, 0)
-    d <- round(104-pctBNo, 0)
-    
-    
-    # table of RR
-    df <- data.frame(Cases=c(a,c,NA),
-                     Controls=c(b,d,NA),
-                      RR=c(a/b, c/d, (a/b)/(c/d)),
-                      CIL=c(NA,NA, exp(log((a/b)/(c/d))-1.96*(sqrt(1/a+1/b+1/c+1/d)))),
-                      CIU=c(NA, NA, exp(log((a/b)/(c/d))+1.96*(sqrt(1/a+1/b+1/c+1/d)))))
-    
-    rownames(df) <- c("Bednet", "No Bednet", "Odds of Malaria")
-    colnames(df) <- c("Cases", "Controls", "RR", "95% CI Lower", "95% CI Upper")
-    
-    return(list(misclass.net, misclass.no.net, df))
+    values$misclass <- misclass
     
   })
   
+  
+  # 1:4
+  observeEvent(input$one4, {
+    
+              values$misclass <- vals(6,24)
+    
+  })
+  
+  # 2:3
+  observeEvent(input$two3, {
+    
+              values$misclass <- vals(12,18)
+  
+    })
+  
+  # 50:50
+  observeEvent(input$fifty50, {
+    
+              values$misclass <- vals(15,15)
+    })
+  
+  # 3:2
+  observeEvent(input$three2, {
+               
+               values$misclass <- vals(18,12)
+    })
+  
+  # 1:4
+  observeEvent(input$four1, {
+    
+              values$misclass <- vals(24,6)
+    
+  })
+  
+    
+  # in case you want to re-introduce the table
   output$t1 <- renderTable({
-    misclass()[[3]]
+    values$misclass[[3]]
   })
 
   
@@ -249,8 +292,8 @@ server <- function(input, output) {
       geom_point(data=no.malaria.no.net, color="grey25", size=5, alpha=0.5) +
       
       # color misclassed points - data in a misclass() reactive list
-      geom_point(data=misclass()[[1]], color="firebrick", size=5, shape=1, stroke=1) +
-      geom_point(data=misclass()[[2]], color="firebrick", size=5, shape=1, stroke=1) +
+      geom_point(data=values$misclass[[1]], color="firebrick", size=5, shape=1, stroke=1) +
+      geom_point(data=values$misclass[[2]], color="firebrick", size=5, shape=1, stroke=1) +
       
       labs(title="      Cases           Controls",
            y="Bednet Use \n NO          YES") +
@@ -282,12 +325,12 @@ server <- function(input, output) {
                           yend=rep("Original", 4))
     
     # adjusted
-    df2 <- data.frame(x=c(NA,misclass()[[3]][3,3],NA,NA),
+    df2 <- data.frame(x=c(NA,values$misclass[[3]][3,3],NA,NA),
                       y=c("", "With\nMisclassification\nBias", "Original", ""))
     
     
-    alimits <- data.frame(x1=c(NA,NA,misclass()[[3]][3,4],NA),
-                          xend=c(NA,NA,misclass()[[3]][3,5], NA),
+    alimits <- data.frame(x1=c(NA,NA,values$misclass[[3]][3,4],NA),
+                          xend=c(NA,NA,values$misclass[[3]][3,5], NA),
                           y1=rep("With\nMisclassification\nBias", 4),
                           yend=rep("With\nMisclassification\nBias", 4))
     
@@ -309,8 +352,8 @@ server <- function(input, output) {
                    data=alimits) +
       
       # xlimits & labels
-      #xlim(0,4) +
-      xlim(0,ifelse(df2[2,1]+1>df[3,1]+1,df[2,1]+1,df[3,1]+1)) +
+      xlim(0,8) +
+      #xlim(0,ifelse(df2[2,1]+1>df[3,1]+1,df[2,1]+1,df[3,1]+1)) +
       labs(title="Odds of Malaria",
            x="Odds Ratio & 95% CI") +
       
@@ -331,33 +374,6 @@ server <- function(input, output) {
     
 
     
-    # # original estimate
-    # plot(0.66, 2,
-    #        pch=19,
-    #      xlim=c(0,round(misclass()[[3]][3,5],2)+2.5),
-    #      ylim=c(0,3),
-    #      yaxt="n",
-    #      main="Odds of Malaria given Bednet Use",
-    #      xlab="Risk Ratio & 95% CI",
-    #      ylab="")
-    # segments(0.21, 2, 2.06, 2)
-    # text(0.66, 2.2, labels=paste("OR ", "0.66", 
-    #                                   "; 95% CI ", "0.21",
-    #                                   "-", "2.06",
-    #                                   sep=""))
-    # text(0.66, 2.4, labels="Original Estimate:")
-    # 
-    # # estimate after bias
-    # points(round(misclass()[[3]][3,3],2), 1, pch=19)
-    # segments(round(misclass()[[3]][3,4],2), 1, round(misclass()[[3]][3,5],2), 1)
-    # abline(v=1, lty=2)
-    # legend(8,3, c("Favors Bednets", "Favors No Bednets"),
-    #        pch=19, col=c("purple", "orange"))
-    # text(misclass()[[3]][3,3], 1.2, labels=paste("OR ", round(misclass()[[3]][3,3],2), 
-    #                                             "; 95% CI ", round(misclass()[[3]][3,4],2),
-    #                                             "-", round(misclass()[[3]][3,5],2),
-    #                                             sep=""))
-    # text(misclass()[[3]][3,3], 1.4, labels="Estimate considering bias:")
     
   })
   
