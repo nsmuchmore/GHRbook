@@ -111,7 +111,7 @@ ui <- navbarPage(
               
               
                div(style="display:inline-block", sliderInput("s2", "- Direction of Bias +",
-                           min=-.2, max=.2, value=0, step=.1, ticks=FALSE)))
+                           min=-1, max=1, value=0, step=.1, ticks=FALSE)))
               ),
           
           # fluidRow(column(12, align="center",
@@ -194,12 +194,12 @@ server <- function(input, output) {
       pctBNo <- input$s1/2
     }
     if(input$s2 > 0) {
-      pctBYes <- input$s1*(abs(input$s2)+.5) # number to circle in bednet yes
-      pctBNo <- input$s1*(1-(abs(input$s2)+.5)) # number to circle in bednet no
+      pctBYes <- input$s1*(abs(input$s2)) # number to circle in bednet yes
+      pctBNo <- input$s1*(1-(abs(input$s2))) # number to circle in bednet no
     }
     if(input$s2 < 0) {
-      pctBYes <- input$s1*(1-(abs(input$s2)+.5))
-      pctBNo <- input$s1*(abs(input$s2)+.5)
+      pctBYes <- input$s1*(1-(abs(input$s2)))
+      pctBNo <- input$s1*(abs(input$s2))
     }
       
 
@@ -309,8 +309,8 @@ server <- function(input, output) {
                    data=alimits) +
       
       # xlimits & labels
-      xlim(0,4) +
-      #xlim(0,ifelse(df2[2,1]+1>df[3,1]+1,df[2,1]+1,df[3,1]+1)) +
+      #xlim(0,4) +
+      xlim(0,ifelse(df2[2,1]+1>df[3,1]+1,df[2,1]+1,df[3,1]+1)) +
       labs(title="Odds of Malaria",
            x="Odds Ratio & 95% CI") +
       
