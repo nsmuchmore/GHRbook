@@ -39,16 +39,46 @@ ur <- data.frame(x=c(seq(1,10,1), seq(1,10,1),
                      rep(11,10)),
                  count=seq(1,110,1))
 
+
 ul <- ur
 ul$x <- ul$x*-1
+#ul$count <- 111-ul$count
+
 
 ll <- ul
 ll$y <- ll$y*-1
 
 lr <- ll
 lr$x <- lr$x*-1
+#lr$count <- 111-lr$count
 
 all <- rbind(ul, ur, ll, lr)
+
+# # reverse ur
+# all$count <- ifelse(all$y==1 & all$x > 0, all$count+100, all$count)
+# all$count <- ifelse(all$y==2 & all$x >0, all$count+80, all$count)
+# all$count <- ifelse(all$y==3 & all$x >0, all$count+60, all$count)
+# all$count <- ifelse(all$y==4 & all$x >0, all$count+40, all$count)
+# all$count <- ifelse(all$y==5 & all$x >0, all$count+20, all$count)
+# #all$count <- ifelse(all$y==6 & all$x >0, all$count+10, all$count)
+# all$count <- ifelse(all$y==7 & all$x >0, all$count-20, all$count)
+# all$count <- ifelse(all$y==8 & all$x >0, all$count-40, all$count)
+# all$count <- ifelse(all$y==9 & all$x >0, all$count-60, all$count)
+# all$count <- ifelse(all$y==10 & all$x >0, all$count-80, all$count)
+# all$count <- ifelse(all$y==11 & all$x > 0, all$count-100, all$count)
+# 
+# # reverse ll
+# all$count <- ifelse(all$y==-1 & all$x < 0, all$count-100, all$count)
+# all$count <- ifelse(all$y==-2 & all$x < 0, all$count-80, all$count)
+# all$count <- ifelse(all$y==-3 & all$x < 0, all$count-60, all$count)
+# all$count <- ifelse(all$y==-4 & all$x < 0, all$count-40, all$count)
+# all$count <- ifelse(all$y==-5 & all$x < 0, all$count-20, all$count)
+# #all$count <- ifelse(all$y==6 & all$x >0, all$count+10, all$count)
+# all$count <- ifelse(all$y==-7 & all$x < 0, all$count+20, all$count)
+# all$count <- ifelse(all$y==-8 & all$x < 0, all$count+40, all$count)
+# all$count <- ifelse(all$y==-9 & all$x < 0, all$count+60, all$count)
+# all$count <- ifelse(all$y==-10 & all$x < 0, all$count+80, all$count)
+# all$count <- ifelse(all$y==-11 & all$x < 0, all$count-100, all$count)
 
 
 
@@ -118,41 +148,59 @@ ui <- navbarPage(
           fluidRow(column(12, align="left",
                           
                           # instructions
-                          h4("This Shiny app reproduces results from Webster et al. 
+                          p(h4("This Shiny app reproduces results from Webster et al. 
                              (2003), a case-control study of the effectiveness of 
                              insecticide treated nets for the prevention of malaria. 
                              The authors found that some people with malaria pretreat 
                              themselves with chloroquine before coming to the clinic, 
                              thus testing negative for malaria. This represents a 
-                             misclassification of malaria cases as controls. Use the 
-                             buttons below to see what happens when the rate of 
-                             misclassification changes and is associated with reported bednet use."
-                          ))),
-          
-          
-          fluidRow(column(12, align="center", 
+                             misclassification of malaria cases as controls.")),
                           
- 
-               actionButton("one4", "1:4",
-                            style="color: #fff; background-color: #E7A34D"),
-               
-               actionButton("two3", "2:3",
-                            style="color: #fff; background-color: #E7A34D"),
-               
-               actionButton("fifty50", "1:1",
-                            style="color: #fff; background-color: #337ab7"),
-               
-               actionButton("three2", "3:2",
-                            style="color: #fff; background-color: #6781CF"),
-               
-               actionButton("four1", "4:1",
-                            style="color: #fff; background-color: #6781CF"),
-               
-               actionButton("reset", "Ignore Bias", icon("undo"),
-                            style="color: #fff; background-color: #337ab7; border-color: #2e6da4"),
-               
-               tags$style(type="text/css", "#noEffect { margin-left: 2px; }")
-              )),
+                          p(h4("191 people tested negative for malaria and were classified as controls.
+                            Let's say that 30 of them were actually cases but tested
+                            negtative because they pretreated with chloroquine.")),
+                          
+                          div(
+                            style="display: inline-block; vertical-align: text-top; ",
+                          
+                          
+                          p(h4("What happens when misclassification is 1.5x more likely
+                            among non-bednet users?")),
+                          
+                          
+                          actionButton("two3", "1.5x non-bednet",
+                                       style="color: #fff; background-color: firebrick;
+                                        border-color: firebrick"),   
+                          
+                          p(h4("What if the association is stronger?")),
+                          
+                          actionButton("one4", "4x non-bednet",
+                                       style="color: #fff; background-color: firebrick;
+                                       border-color: firebrick"),                           
+                          
+                          p(h4("What if the association runs in the oppositie direction?")),
+                          
+                          actionButton("three2", "1.5x bednet",
+                                       style="color: #fff; background-color: firebrick;
+                                       border-color: firebrick"),                       
+                          
+                       
+                          actionButton("four1", "4x bednet",
+                                       style="color: #fff; background-color: firebrick;
+                                       border-color: firebrick"))
+                              )
+                          ),
+          
+          
+          fluidRow(column(12, align="left",
+                          
+                          p(h4("Reset to original values.")),
+                          
+                          actionButton("reset", "Reset", icon("undo"),
+                                       style="color: #fff; background-color: #337ab7; border-color: #2e6da4")                          
+                          
+                          )),
+        
           
           
           fluidRow(align="center",
@@ -354,7 +402,7 @@ server <- function(input, output) {
       # xlimits & labels
       xlim(0,8) +
       #xlim(0,ifelse(df2[2,1]+1>df[3,1]+1,df[2,1]+1,df[3,1]+1)) +
-      labs(title="Odds of Malaria",
+      labs(title="Effect of Bednet Use on Malaria",
            x="Odds Ratio & 95% CI") +
       
       # theme stuff
