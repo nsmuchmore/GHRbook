@@ -20,6 +20,7 @@ library(shiny)
 library(shinydashboard)
 library(DT)
 library(plotly)
+library(miniUI)
 
 
 
@@ -120,157 +121,149 @@ misclass <- vals(0,0)
 
 # Define UI for application ===================================================
 
-ui <- navbarPage(
-  title=HTML("<a href=\"http://www.designsandmethods.com/book/\" target=_blank>
-                            Global Health Research</a>"),
+ui <- miniPage(
   
-  # title=HTML("<img src=logo.png style=width:42px;height:42px;border:0;align:right;>
-  #            <a href=\"http://www.designsandmethods.com/book/\" target="_blank">
-  #            Global Health Research</a>"),
+  # Application title
+  miniTitleBar("Selection Bias"),
   
-  id="nav",
-  #theme="http://bootswatch.com/spacelab/bootstrap.css",
-  #inverse=TRUE,
-  windowTitle="Shiny GHR",
-  collapsible=TRUE,
+  # check boxes to select studies to exclude
   
-  tabPanel(
-    title="Selection Bias App",
-    dashboardPage(
-      #header=dashboardHeader(title=tags$a(href='http://www.designsandmethods.com/',
-      #tags$img(src='logo.png'))),
-      header=dashboardHeader(disable=TRUE),
-      sidebar=dashboardSidebar(disable = TRUE),
-      body=dashboardBody(
-        fluidPage(
-          
-          
-          fluidRow(column(12, align="left",
-                          
-                          # instructions
-                          p(h4("This Shiny app reproduces results from Webster et al. 
-                             (2003), a case-control study of the effectiveness of 
-                             insecticide treated nets for the prevention of malaria. 
-                             The authors found that some people with malaria pretreat 
-                             themselves with chloroquine before coming to the clinic, 
-                             thus testing negative for malaria. This represents a 
-                             misclassification of malaria cases as controls.")),
-                          
-                          p(h4("191 people tested negative for malaria and were classified as controls.
-                            Let's say that 30 of them were actually cases but tested
-                            negtative because they pretreated with chloroquine.")),
-                          
-                          div(
-                            style="display: inline-block; vertical-align: text-top; ",
-                          
-                          
-                          p(h4("What happens when misclassification is 1.5x more likely
-                            among non-bednet users?")),
-                          
-                          
-                          actionButton("two3", "1.5x non-bednet",
-                                       style="color: #fff; background-color: firebrick;
-                                        border-color: firebrick"),   
-                          
-                          p(h4("What if the association is stronger?")),
-                          
-                          actionButton("one4", "4x non-bednet",
-                                       style="color: #fff; background-color: firebrick;
-                                       border-color: firebrick"),                           
-                          
-                          p(h4("What if the association runs in the oppositie direction?")),
-                          
-                          actionButton("three2", "1.5x bednet",
-                                       style="color: #fff; background-color: firebrick;
-                                       border-color: firebrick"),                       
-                          
-                       
-                          actionButton("four1", "4x bednet",
-                                       style="color: #fff; background-color: firebrick;
-                                       border-color: firebrick"))
-                              )
-                          ),
-          
-          
-          fluidRow(column(12, align="left",
-                          
-                          p(h4("Reset to original values.")),
-                          
-                          actionButton("reset", "Reset", icon("undo"),
-                                       style="color: #fff; background-color: #337ab7; border-color: #2e6da4")                          
-                          
-                          )),
-        
-          
-          
-          fluidRow(align="center",
-            splitLayout(cellWidths=c("50%", "50%"),
-              plotOutput("forestPlot"),
-              plotOutput("grid")))
-                          
-                          
-          )
-          
-          
-          
-          )
-        )),
   
-  tabPanel(
-    title="About",
-    dashboardPage(
-      header=dashboardHeader(disable=TRUE),
-      sidebar=dashboardSidebar(disable = TRUE),
-      body=dashboardBody(
-        fluidPage(
-          
-          # about text
-          fluidRow(column(12, align="left",
-                          
-                          # credits
-                          img(src='logo.png', align = "left"),
-                          
-                          withTags({
-                            
-                            div(class="header",
-                                
-                                p("This app was created by ",
-                                  
-                                  a("Amy Finnegan",
-                                    href="https://sites.google.com/site/amyfinnegan/home", target="_blank"),
-                                  
-                                  "and Eric Green for the online textbook" ,
-                                  
-                                  a("Global Health Research: Designs and Methods.",
-                                    href="http://www.designsandmethods.com/book/", target="_blank"),
-                                  
-                                  "It is based on the following article:"),
-                                
-                                
-                                p("Webster, J., Chandramohan, D., Freeman, T., Greenwood, B., Kamawal, A.U., 
-                                  Rahim, F., & Rowland, M. (",
-                                  
-                                  a("2003",
-                                    href="http://onlinelibrary.wiley.com/doi/10.1046/j.1365-3156.2003.01013.x/full",
-                                    target="_blank"),
-                                  
-                                  "). “A health facility based case–control study of effectiveness of 
-                                  insecticide treated nets: Potential for selection bias due to 
-                                  pre-treatment with chloroquine. Tropical Medicine & International Health, 
-                                  8 (3), 196–201.")
-                                
-                            )
-                                  
-                                  
-                          })
-                          
-          ))))))
+  miniTabstripPanel(
+    
+    miniTabPanel("Parameters", icon = icon("sliders"),
+                 
+                 miniContentPanel(
+                  
+                                   
+                                   # instructions
+                                   p(h4("This Shiny app reproduces results from Webster et al. 
+                                        (2003), a case-control study of the effectiveness of 
+                                        insecticide treated nets for the prevention of malaria. 
+                                        The authors found that some people with malaria pretreat 
+                                        themselves with chloroquine before coming to the clinic, 
+                                        thus testing negative for malaria. This represents a 
+                                        misclassification of malaria cases as controls.")),
+                                   
+                                   p(h4("191 people tested negative for malaria and were classified as controls.
+                                        Let's say that 30 of them were actually cases but tested
+                                        negtative because they pretreated with chloroquine.")),
+                                   
+                                   div(
+                                     style="display: inline-block; vertical-align: text-top; ",
+                                     
+                                     
+                                     p(h4("What happens when misclassification is 1.5x more likely
+                                          among non-bednet users?")),
+                                     
+                                     
+                                     actionButton("two3", "1.5x non-bednet",
+                                                  style="color: #fff; background-color: firebrick;
+                                                  border-color: firebrick"),   
+                                     
+                                     p(h4("What if the association is stronger?")),
+                                     
+                                     actionButton("one4", "4x non-bednet",
+                                                  style="color: #fff; background-color: firebrick;
+                                                  border-color: firebrick"),                           
+                                     
+                                     p(h4("What if the association runs in the oppositie direction?")),
+                                     
+                                     actionButton("three2", "1.5x bednet",
+                                                  style="color: #fff; background-color: firebrick;
+                                                  border-color: firebrick"),                       
+                                     
+                                     
+                                     actionButton("four1", "4x bednet",
+                                                  style="color: #fff; background-color: firebrick;
+                                                  border-color: firebrick")),
+                                   
+                                   fluidRow(column(12, align="left",
+                                                   
+                                                   p(h4("Reset to original values.")),
+                                                   
+                                                   actionButton("reset", "Reset", icon("undo"),
+                                                                style="color: #fff; background-color: #337ab7; border-color: #2e6da4")                          
+                                                   
+                                   ))
+                                     )
+                                     ),
+                   
+                   
+    
+    miniTabPanel("Visualize", icon = icon("area-chart"),
+                 
+                 miniContentPanel(
+                  
+                   
+                   
+                   
+                   fluidRow(align="center",
+                            splitLayout(cellWidths=c("50%", "50%"),
+                                        plotOutput("forestPlot"),
+                                        plotOutput("grid")))
+                   
+                   
+                 )
+                 
+                 
+                 
+    ),
+    
+    miniTabPanel("About", icon= icon("bookmark"),
+                 miniContentPanel(
+                   
+                   # about text
+                   fluidRow(column(12, align="left",
+                                   
+                                   # credits
+                                   img(src='logo.png', align = "left"),
+                                   
+                                   withTags({
+                                     
+                                     div(class="header",
+                                         
+                                         p("This app was created by ",
+                                           
+                                           a("Amy Finnegan",
+                                             href="https://sites.google.com/site/amyfinnegan/home", target="_blank"),
+                                           
+                                           "and Eric Green for the online textbook" ,
+                                           
+                                           a("Global Health Research: Designs and Methods.",
+                                             href="http://www.designsandmethods.com/book/", target="_blank"),
+                                           
+                                           "It is based on the following article:"),
+                                         
+                                         
+                                         p("Webster, J., Chandramohan, D., Freeman, T., Greenwood, B., Kamawal, A.U., 
+                                           Rahim, F., & Rowland, M. (",
+                                           
+                                           a("2003",
+                                             href="http://onlinelibrary.wiley.com/doi/10.1046/j.1365-3156.2003.01013.x/full",
+                                             target="_blank"),
+                                           
+                                           "). “A health facility based case–control study of effectiveness of 
+                                           insecticide treated nets: Potential for selection bias due to 
+                                           pre-treatment with chloroquine. Tropical Medicine & International Health, 
+                                           8 (3), 196–201.")
+                                         
+                                           )
+                                     
+                                     
+                                   })
+                   ))
+                   
+                 ))
+  )
 )
 
 
-# Define server logic to draw grid and table
+
+# Define server logic =========================================================
 
 server <- function(input, output) {
+  
   
   # generic values
   values <- reactiveValues(misclass=misclass)
@@ -285,42 +278,42 @@ server <- function(input, output) {
   # 1:4
   observeEvent(input$one4, {
     
-              values$misclass <- vals(6,24)
+    values$misclass <- vals(6,24)
     
   })
   
   # 2:3
   observeEvent(input$two3, {
     
-              values$misclass <- vals(12,18)
-  
-    })
+    values$misclass <- vals(12,18)
+    
+  })
   
   # 50:50
   observeEvent(input$fifty50, {
     
-              values$misclass <- vals(15,15)
-    })
+    values$misclass <- vals(15,15)
+  })
   
   # 3:2
   observeEvent(input$three2, {
-               
-               values$misclass <- vals(18,12)
-    })
+    
+    values$misclass <- vals(18,12)
+  })
   
   # 1:4
   observeEvent(input$four1, {
     
-              values$misclass <- vals(24,6)
+    values$misclass <- vals(24,6)
     
   })
   
-    
+  
   # in case you want to re-introduce the table
   output$t1 <- renderTable({
     values$misclass[[3]]
   })
-
+  
   
   output$grid <- renderPlot({
     
@@ -402,7 +395,7 @@ server <- function(input, output) {
       # xlimits & labels
       xlim(0,8) +
       #xlim(0,ifelse(df2[2,1]+1>df[3,1]+1,df[2,1]+1,df[3,1]+1)) +
-      labs(title="Effect of Bednet Use on Malaria",
+      labs(title="Effect of Bednet Use\non Malaria",
            x="Odds Ratio & 95% CI") +
       
       # theme stuff
@@ -420,12 +413,12 @@ server <- function(input, output) {
             
             plot.title=element_text(face="bold", size=22, hjust=0.5))
     
-
+    
     
     
   })
   
-
+  
   
 }
 
