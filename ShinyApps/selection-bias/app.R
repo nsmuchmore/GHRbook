@@ -131,7 +131,7 @@ ui <- miniPage(
   
   miniTabstripPanel(
     
-    miniTabPanel("Parameters", icon = icon("sliders"),
+    miniTabPanel("Home", icon = icon("home"),
                  
                  miniContentPanel(
                   
@@ -191,7 +191,7 @@ ui <- miniPage(
                    
                    
     
-    miniTabPanel("Forest Plot", icon = icon("play"),
+    miniTabPanel("Forest Plot", icon = icon("sliders"),
                  
                  miniContentPanel(
                   
@@ -205,7 +205,7 @@ ui <- miniPage(
                  
     ),
     
-    miniTabPanel("Grid", icon = icon("play"),
+    miniTabPanel("Grid", icon = icon("table"),
                  
                  miniContentPanel(
                    
