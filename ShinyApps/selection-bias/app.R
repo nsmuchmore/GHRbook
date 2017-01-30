@@ -191,17 +191,29 @@ ui <- miniPage(
                    
                    
     
-    miniTabPanel("Visualize", icon = icon("area-chart"),
+    miniTabPanel("Forest Plot", icon = icon("play"),
                  
                  miniContentPanel(
                   
                    
+                                        plotOutput("forestPlot")
+                   
+                   
+                 )
+                 
+                 
+                 
+    ),
+    
+    miniTabPanel("Grid", icon = icon("play"),
+                 
+                 miniContentPanel(
+                   
+                   
                    
                    
                    fluidRow(align="center",
-                            splitLayout(cellWidths=c("50%", "50%"),
-                                        plotOutput("forestPlot"),
-                                        plotOutput("grid")))
+                                        plotOutput("grid"))
                    
                    
                  )
