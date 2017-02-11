@@ -1,10 +1,25 @@
-## Only run examples in interactive R sessions
+# :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# this app uses Kim (2014)
+# to explore cutpoints on a ROC curve
+# created by: Amy Finnegan
+# :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+
+
+
+# setup =======================================================================
+
+library(dplyr)
+library(magrittr)
 library(ggplot2)
+library(shiny)
+library(shinydashboard)
 library(plotly)
 
+# default data ================================================================
 
-BDI <- data.frame(scale=rep("BDI", 12),
+
+BDI <- data.frame(Scale=rep("BDI-II", 12),
                   cutoff=c("max",11,12,13,14,15,16,17,18,19,20,"min"),
                   specificity=c(0, 0.588, 0.638, 0.686,
                                 0.739, 0.774, 0.794,
@@ -15,7 +30,7 @@ BDI <- data.frame(scale=rep("BDI", 12),
 rownames(BDI) <- BDI$cutoff
 
 
-CDI <- data.frame(scale=rep("CDI", 11),
+CDI <- data.frame(Scale=rep("CDI-II-S", 11),
                   cutoff=c("max",47,48,50,52,53,54,56,57,58,"min"),
                   specificity=c(0, 0.456, 0.474, 0.553,
                                 0.662, 0.667, 0.735,
@@ -26,12 +41,40 @@ CDI <- data.frame(scale=rep("CDI", 11),
                                 0.472, 0))
 rownames(CDI) <- CDI$cutoff
 
-
+ui <- navbarPage(
+  title=HTML("<a href=\"http://www.designsandmethods.com/book/\" target=_blank>
+             Global Health Research</a>"),
   
-  ui <- fluidPage(
-    
-    
-            mainPanel(
+  # title=HTML("<img src=logo.png style=width:42px;height:42px;border:0;align:right;>
+  #            <a href=\"http://www.designsandmethods.com/book/\" target="_blank">
+  #            Global Health Research</a>"),
+  
+  id="nav",
+  #theme="http://bootswatch.com/spacelab/bootstrap.css",
+  #inverse=TRUE,
+  windowTitle="Shiny GHR",
+  collapsible=TRUE,
+  
+  tabPanel(
+    title="Reciever Operating Characteristic Curve (ROC)",
+    dashboardPage(
+      #header=dashboardHeader(title=tags$a(href='http://www.designsandmethods.com/',
+      #tags$img(src='logo.png'))),
+      header=dashboardHeader(disable=TRUE),
+      sidebar=dashboardSidebar(disable = TRUE),
+      body=dashboardBody(
+        
+        fluidPage(
+          
+          fluidRow(column(12, align="left",
+                          
+                          # instructions
+                          h4("This Shiny app reproduces a Receiver Operating Characteristic Curve (ROC)
+                                from Kim, et al. (2014) that compares cut-points on two scales to
+                                measure depression among adolescents in Malawi. Haver over each point 
+                                to see the cut-point on the depression scale. Which one maximizes the 
+                                sensitivy and specificity of the scale's measure of depression?"
+                          ))),
               
               fluidRow(
                 column(12, align="center",
@@ -42,8 +85,60 @@ rownames(CDI) <- CDI$cutoff
 
                 
             )
+    ))),
+
+tabPanel(
+  title="About",
+  dashboardPage(
+    header=dashboardHeader(disable=TRUE),
+    sidebar=dashboardSidebar(disable = TRUE),
+    body=dashboardBody(
+      fluidPage(
+        
+        # about text
+        fluidRow(column(12, align="left",
+                        
+                        # credits
+                        img(src='logo.png', align = "left"),
+                        
+                        withTags({
+                          
+                          div(class="header",
+                              
+                              p("This app was created by ",
+                                
+                                a("Amy Finnegan",
+                                  href="https://sites.google.com/site/amyfinnegan/home", target="_blank"),
+                                
+                                "and Eric Green for the online textbook" ,
+                                
+                                a("Global Health Research: Designs and Methods.",
+                                  href="http://www.designsandmethods.com/book/", target="_blank"),
+                                
+                                "It is based on the following article:"),
+                              
+                              
+                              
+                              p("Kim, et al. (",
+                                
+                                a("2014",
+                                  href="http://jiasociety.org/index.php/jias/article/view/18965/3868",
+                                  target="_blank"),
+                              
+                              "). Prevalence of Depression and Validation of the Beck Depression 
+                              Inventory-Ii and the Children’s Depression Inventory-Short Amongst 
+                              Hiv-Positive Adolescents in Malawi.” Journal of the International AIDS Society 17 (1).")
+                              
+                              
+                                )
+                        })
+                        
+                        ))))))
+)
+
+
                 
-   )
+   
   
   server <- function(input, output) {
 
@@ -52,7 +147,7 @@ rownames(CDI) <- CDI$cutoff
       
          
          gg <-
-         ggplot(CDI, aes(x=1-specificity, y=sensitivity, group=scale, color=scale, text = paste("Cut Point:", cutoff))) +
+         ggplot(CDI, aes(x=1-specificity, y=sensitivity, group=Scale, color=Scale, text = paste("Cut Point:", cutoff))) +
            geom_line() +
            geom_point() +
            geom_line(aes(x=1-specificity, y=sensitivity), data=BDI,
