@@ -14,7 +14,7 @@ library(magrittr)
 library(shiny)
 library(shinydashboard)
   
-layoutPct <- c("10%", "20%", "20%", "20%", "25%")
+layoutPct <- c("5%", "20%", "20%", "5%", "20%", "20%")
 
 # app =========================================================================
 
@@ -46,7 +46,9 @@ ui <- navbarPage(
            
            fluidRow(column(12, align="left",
                            
-                           h4("This Shiny app displays a confusion matrix.")
+                           h4("This Shiny app displays a confusion matrix.
+                              Change the True Positives and True Negatives to 
+                              see how the accuracy of a judgement can affect all calculations.")
                            )),
            
            fluidRow(
@@ -72,6 +74,9 @@ ui <- navbarPage(
                 h3(""),
                 
                 #5. Nothing
+                h3(""),
+    
+                #6. Nothing
                 h3("")),
     
     hr(),
@@ -91,11 +96,15 @@ ui <- navbarPage(
                 #3. False Pos
                 h5("False Positive (b)"),
                 
-                #4. PPV
+                #4. total
+                h5("Total", br(),
+                   "a+b"),
+                
+                #5. PPV
                 h5("Positive Predictive", br(), "Value (PPV)", br(),
                    "a/(a+b)"),
                 
-                #5. FDR
+                #6. FDR
                 h5("False Discovery", br(), 
                    "Rate (FDR)", br(), 
                    "1-PPV")),
@@ -114,12 +123,15 @@ ui <- navbarPage(
                 numericInput("a", label=NULL, 79, min=0, max=182),
                 
                 #3. False Pos
-                numericInput("b", label=NULL, 103, min=0, max=182),
+                verbatimTextOutput("b"),
                 
-                #4. PPV
+                #4. total
+                verbatimTextOutput("ab"),
+                
+                #5. PPV
                 verbatimTextOutput("PPV"),
                 
-                #5. FDR
+                #6. FDR
                 verbatimTextOutput("FDR")),
     
     hr(),
@@ -139,12 +151,15 @@ ui <- navbarPage(
                 #3. True Neg
                 h5("True Negative (d)"),
                 
-                #4. NPV
+                #4. total
+                h5("c+d"),
+                
+                #5. NPV
                 h5("Negative Predictive", br(), 
                    "Value (NPV)", br(),
                    "c/(c+d)"),
                 
-                #5. FOR
+                #6. FOR
                 h5("False Omission", br(), 
                    "Rate (FOR)", br(),
                    "1-NPV")),
@@ -159,20 +174,75 @@ ui <- navbarPage(
                 h3(""),
                 
                 #2. False Neg
-                numericInput("c", label=NULL, 27, min=0, max=380),
+                verbatimTextOutput("c"),
                 
                 #3. True Neg
                 numericInput("d", label=NULL, 353, min=0, max=380),
                 
-                #4. NPV
+                #4. total
+                verbatimTextOutput("cd"),
+                
+                #5. NPV
                 verbatimTextOutput("NPV"),
                 
-                #5. FOR
+                #6. FOR
                 verbatimTextOutput("FOR")), 
     
     hr(),
     
     # headings - row 4
+    
+    splitLayout(cellWidths=layoutPct,
+                
+                align="center",
+                
+                #1 nothing
+                h3(""),
+                
+                #2 a+c
+                h5("a+c"),
+                
+                #3 b+d
+                h5("b+d"),
+                
+                #4 nothing
+                h5("a+b+", br(), "c+d"),
+                
+                #5 nothing
+                h3(""),
+                
+                #6 nothing
+                h3("")
+                
+                ),
+    
+    # values - row 4
+    
+    splitLayout(cellWidths=layoutPct,
+                
+                align="center",
+                
+                #1 nothing
+                h3(""),
+                
+                #2 a+c
+                verbatimTextOutput("ac"),
+                
+                #3 b+d
+                verbatimTextOutput("bd"),
+                
+                #4 a+b+c+d
+                verbatimTextOutput("abcd"),
+                
+                #5 nothing
+                h3(""),
+                
+                #6 nothing
+                h3("")
+                
+    ),
+    
+    # headings - row 5
     splitLayout(cellWidths=layoutPct,
                 
                 align="center",
@@ -188,16 +258,19 @@ ui <- navbarPage(
                 h5("Specificity", br(), "True Negative Rate (TNR)", br(),
                    "d/(b+d)"),
                 
-                #4. Prevalence
+                #4. total
+                h3(""),
+                
+                #5. Prevalence
                 h5("Prevalence", br(),
                    "(a+c)/(b+d)"),
                 
-                #5. LR+
+                #6. LR+
                 h5("Pos Likelihood", br(), 
                    "Ratio (LR+)", br(),
                    "TPR/FPR")),
     
-    # values - row 4
+    # values - row 5
     splitLayout(cellWidths=layoutPct,
                 
                 align="center",
@@ -211,15 +284,18 @@ ui <- navbarPage(
                 #3. TNR
                 verbatimTextOutput("TNR"),
                 
-                #4. Prevalence
+                #4. total
+                h3(""),
+                
+                #5. Prevalence
                 verbatimTextOutput("prevalence"),
                 
-                #5. LR+
+                #6. LR+
                 verbatimTextOutput("PLR")),
     
     hr(),
     
-    # headings - row 5
+    # headings - row 6
     splitLayout(cellWidths=layoutPct,
                 
                 align="center",
@@ -235,15 +311,18 @@ ui <- navbarPage(
                 h5("False Positive Rate (FPR)", br(),
                    "1-specificity"),
                 
-                #4. Accuracy
+                #4. total
+                h3(""),
+                
+                #5. Accuracy
                 h5("Accuracy", br(),
                    "(a+c)/(b+d)"),
                 
-                #5. LR-
+                #6. LR-
                 h5("Neg Likelihood Ratio (LR-)", br(),
                    "FNR/TNR")),
     
-    # values - row 5
+    # values - row 6
     splitLayout(cellWidths=layoutPct,
                 
                 align="center",
@@ -257,10 +336,13 @@ ui <- navbarPage(
                 #3. FPR
                 verbatimTextOutput("FPR"),
                 
-                #4. Accuracy
+                #4. total
+                h3(""),
+                
+                #5. Accuracy
                 verbatimTextOutput("accuracy"),
                 
-                #5. LR-
+                #6. LR-
                 verbatimTextOutput("NLR")),
     
     hr()
@@ -324,28 +406,54 @@ ui <- navbarPage(
   
   
   server <- function(input, output) {
+    
+    
+    c <- reactive({
+      
+      x <- 380-input$d
+      
+      return(x)
+      
+    })
+    
+    b <- reactive({
+      
+      x <- 182-input$a
+      
+      return(x)
+      
+    })
 
     # column 1
-    output$TPR <- renderText({ round(input$a/(input$a+input$c), 2) })
-    output$FNR <- renderText({ round(1-(input$a/(input$a+input$c)), 2) })
+    output$c <- renderText({ c() })
+    output$ac <- renderText({ input$a + c() })
+    output$TPR <- renderText({ round(input$a/(input$a+c()), 2) })
+    output$FNR <- renderText({ round(1-(input$a/(input$a+c())), 2) })
     
     # column 2
-    output$TNR <- renderText({ round(input$d/(input$b+input$d), 2) })
-    output$FPR <- renderText({ round(1-(input$d/(input$b+input$d)), 2) })
+    output$b <- renderText({ b() })
+    output$bd <- renderText({ b() + input$d })
+    output$TNR <- renderText({ round(input$d/(b()+input$d), 2) })
+    output$FPR <- renderText({ round(1-(input$d/(b()+input$d)), 2) })
     
     # column 3
-    output$PPV <- renderText({ round(input$a/(input$a+input$b), 2)  })
-    output$NPV <- renderText({  round(input$c/(input$c+input$d), 2) })
+    output$ab <- renderText({ input$a + b() })
+    output$cd <- renderText({ c() + input$d })
+    output$abcd <- renderText({ input$a + b() + c() + input$d })
     
-    output$prevalence <- renderText({ round((input$a+input$c)/(input$b+input$d), 2)  })
-    output$accuracy <- renderText({ round((input$a+input$d)/(input$a+input$b+input$c+input$d), 2)  })
-    
-    # column 4
-    output$FDR <- renderText({ 1-round(input$a/(input$a+input$b), 2) })
-    output$FOR <- renderText({ 1-round(input$c/(input$c+input$d), 2) })
-    
-    output$PLR <- renderText({  round((input$a/(input$a+input$c))/(1-(input$d/(input$b+input$d))), 2) })
-    output$NLR <- renderText({  round(round(1-(input$a/(input$a+input$c)), 2)/round(input$d/(input$b+input$d), 2), 2) })
+    # # column 4
+    output$PPV <- renderText({ round(input$a/(input$a+b()), 2)  })
+    output$NPV <- renderText({  round(c()/(c()+input$d), 2) })
+     
+    output$prevalence <- renderText({ round((input$a+c())/(b()+input$d), 2)  })
+    output$accuracy <- renderText({ round((input$a+input$d)/(input$a+b()+c()+input$d), 2)  })
+     
+    # column 5
+    output$FDR <- renderText({ 1-round(input$a/(input$a+b()), 2) })
+    output$FOR <- renderText({ 1-round(c()/(c()+input$d), 2) })
+     
+    output$PLR <- renderText({  round((input$a/(input$a+c()))/(1-(input$d/(b()+input$d))), 2) })
+    output$NLR <- renderText({  round(round(1-(input$a/(input$a+c())), 2)/round(input$d/(b()+input$d), 2), 2) })
     
     
   }
