@@ -79,7 +79,11 @@ ui <- navbarPage(
               fluidRow(
                 column(12, align="center",
                     plotlyOutput("ROC", width="900px", height="700px")
-                       )
+                       ),
+                fluidRow(column(12, align="left",
+                                
+                                h4("Answer: BDI-II's accuracy is best at a cutpoint of 15.  
+                                   CDI-II-S's accuracy is best at a cupoint of 53.")))
               )
                 
 
