@@ -78,7 +78,7 @@ ui <- navbarPage(
               
               fluidRow(
                 column(12, align="center",
-                    plotlyOutput("ROC", width="900px", height="700px")
+                    plotlyOutput("ROC", width="547px", height="426px")
                        ),
                 fluidRow(column(12, align="left",
                                 
@@ -163,9 +163,9 @@ tabPanel(
                 x="1-Specificity",
                 y="Sensitivity") +
            geom_abline(intercept=0, slope=1) +
-           annotate(geom="text", x=0.17, y=0.9, label="better than random", size=7) +
-           annotate(geom="text", x=0.7, y=0.28, label="worse than random", size=7) +
-           annotate(geom="text", x=0.75, y=0.70, label="no diagnostic benefit", size=7) +
+           annotate(geom="text", x=0.24, y=0.9, label="better than random", size=4) +
+           annotate(geom="text", x=0.7, y=0.28, label="worse than random", size=4) +
+           annotate(geom="text", x=0.75, y=0.70, label="no diagnostic benefit", size=4) +
            theme_bw() +
            scale_colour_manual(values=c("black", "black")) +
            theme(plot.title=element_text(hjust=0.5, size=rel(2)),
