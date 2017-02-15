@@ -211,6 +211,14 @@ However, Panel B shows that this effect might be an underestimate. If we move th
 In Panel A, the effect was biased toward the null, meaning that the effect looked smaller than it probably is in reality. This bias results in **confounding**, and we would call chloroquine use a **confounding variable**. Confounding variables are correlated with both the "treatment" (i.e., bednet use) and the outcome (i.e., malaria).
 ```
 
+```{block, type='rmdshiny'}
+Exploring selection bias
+```
+
+```{r shiny_sb, echo=F}
+knitr::include_app("https://globalhealthresearch.shinyapps.io/selection-bias2/", height = "750px")
+```
+
 As we'll explore later, an experimental design typically overcomes the risk of bias and confounding through random assignment. If the sample size is large enough, potential confounding variables like chloroquine use from the example above should be equally likely likely for all groups. 
 
 The key word here is "typically". Things can still go wrong in an experimental design that result in a risk of bias. For this reason, every Cochrane systematic review assess several types of known risks of bias in RCTs [@cochrane]:

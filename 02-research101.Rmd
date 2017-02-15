@@ -158,7 +158,7 @@ Here's another helpful mnemonic for creating a good clinical question: [PICO](ht
 
 <br>
 
-We could use PICO to develop a research question about the efficacy of bednets in preventing malaria. The **problem** is malaria infections. The **population** is children under 5 years of age. Intervention studies tend to be smaller in reach than nationally representative surveys, so we might add "living around the Lake Victoria basin in Kenya". The **intervention** is an insecticide treated net. [Prognostic factor refers to covariates that could influence the prognosis of the patient. An exposure would be something that we think might increase the risk of an outcome.] The comparison group might be children living in families who are provided a untreated bednet. One **outcome** could be parasitaemia.
+We could use PICO to develop a research question about the efficacy of bednets in preventing malaria. The **problem** is malaria infections. The **population** is children under 5 years of age. Intervention studies tend to be smaller in reach than nationally representative surveys, so we might add "living around the Lake Victoria basin in Kenya". The **intervention** is an insecticide treated net. [Prognostic factor refers to covariates that could influence the prognosis of the patient. An exposure would be something that we think might increase the risk of an outcome.] The comparison group might be children living in families who are provided an untreated bednet. One **outcome** could be parasitaemia.
 
 We can combine all of this into a research question: 
 
@@ -315,7 +315,7 @@ knitr::include_url("https://www.youtube.com/embed/42QuXLucH3Q")
 
 ### OBTAIN ETHICAL APPROVAL
 
-Research involving human subjects must be reviewed and approved by an [**intstitutional review board** (IRB)](https://en.wikipedia.org/wiki/Institutional_review_board) prior to commencing. According to the U.S. Department of Health & Human Services, [45 CFR 46](https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/), "research" is defined as
+Research involving human subjects must be reviewed and approved by an [**institutional review board** (IRB)](https://en.wikipedia.org/wiki/Institutional_review_board) prior to commencing. According to the U.S. Department of Health & Human Services, [45 CFR 46](https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/), "research" is defined as
 
 > a systematic investigation, including research development, testing and evaluation, designed to develop or contribute to *generalizable knowledge*.
 
@@ -329,7 +329,7 @@ Unless your study is exempt from review or meets the requirements for [expedited
 
 If you are conducting international research, you likely have to leave sufficient time for your proposal to be reviewed by an in-country IRB in addition to your home institution's IRB. "Sufficient" could mean 6 weeks or 6 months, so you must start early. Global health research is collaborative by design and necessity, so rely on the local expertise of partners to advise on IRB procedures.
 
-### RECRUITT A SAMPLE AND COLLECT DATA
+### RECRUIT A SAMPLE AND COLLECT DATA
 
 Unless you are planning a **secondary analysis** of existing data (e.g., medical record review), you must identify a sampling strategy and outline procedures for data collection. I cover these topics in Chapters [9](#sampling) and [8](#datacollection), respectively.
 
