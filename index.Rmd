@@ -7,6 +7,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib, ghr.bib]
 biblio-style: apalike
 link-citations: yes
+url: 'http\://designsandmethods.com/ebook/'
+description: "Online textbook about global health research methods"
 ---
 
 ```{r setup, echo=F}

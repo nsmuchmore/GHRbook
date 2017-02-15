@@ -274,7 +274,9 @@ In this example, depression is the **latent variable** that we can't measure dir
 	* (2) I do not expect things to work out for me
 	* (3) I feel my future is hopeless and will only get worse
 
-Each item is a manifest variable—something that we measure directly by asking the question. The latent variable depression is measured indirectly by summing a person's responses to all 21 manifest variables to create the BDI-II scale score. 
+Each item is a manifest variable—something that we measure directly by asking the question. The latent variable depression is measured indirectly by summing a person's responses to all 21 manifest variables to create the BDI-II scale score.
+
+
 #### Determining the factor strucutre of scales {-}
 
 ##### Exploratory factor analysis{-}
@@ -331,22 +333,22 @@ This is when responses to items in your instrument are consistent. If not, you h
 1. One approach to finding unreliable items in your instrument is to calculate **item-total correlations**. It's easy: correlate responses on each item with the total scale score. Generally item-total correlations exceeding 0.30 are sufficient. @beck:1996 reported that item-total correlations for the 21 BDI-II items ranged from 0.39 to 0.70 in the outpatient sample.
 2. Another approach is **Cronbach's alpha**, a measure of **internal consistency**. @beck:1996 reported a coefficient alpha value of 0.92 for the outpatient sample. To understand Cronbach's alpha, you have to understand that instruments are imperfect, even the BDI-II. Every person's *observed score*—e.g., their total score on the BDI-II—is actually a function of their *'true' score* (which we can't know) plus some amount of *measurement error*. Cronbach's alpha gives you an estimate of how much variance in people's scores is measurement error. When you calculate Cronbach's alpha in a program like R or Stata, behind the scenes the program does the equivalent of splitting the dataset into two halves over and over again and calculating the correlation between total scores for the first half with total scores for the second half. Cronbach's alpha is the average of all possible correlation coefficients. Things to note about alpha:
 
-	* Alpha can range from 0 to 1
-	* 0.70 is a rough guide for the low-end of acceptable
-	* A value of 1 would indicate complete redundancy suggesting that the items are *too* similar!
-	* Alpha is sensitive to the number of items so a high alpha might just reflect that there are a lot of items included in the scale
-	* Alpha is not a property of the test, rather a characteristic of the test when used in a particular sample
-	* Alpha should not be used when a scale might tap different latent constructs—only use alpha when the scale is unidimensional
-	* @dunn:2014 and others reviewed the limitations of alpha and suggest coefficient *omega* as an alternative
+* Alpha can range from 0 to 1
+* 0.70 is a rough guide for the low-end of acceptable
+* A value of 1 would indicate complete redundancy suggesting that the items are *too* similar!
+* Alpha is sensitive to the number of items so a high alpha might just reflect that there are a lot of items included in the scale
+* Alpha is not a property of the test, rather a characteristic of the test when used in a particular sample
+* Alpha should not be used when a scale might tap different latent constructs—only use alpha when the scale is unidimensional
+* @dunn:2014 and others reviewed the limitations of alpha and suggest coefficient *omega* as an alternative
 
 ##### Interrater reliability{-}
 
 This is another type of reliability that indicates whether two observers are consistent in observational ratings. Instead of using self-report instrument like the BDI-II, we might want to have two observers watch a video of a parent and child interacting and 'code' the parent's behaviors using a depression rating system that we developed. If the observers agree a lot in their video ratings, they would be reliable. Things to note about interrater reliability:
    
-   * Percent agreement is one method of evaluating two raters when the rating is binary, but it does not account for agreement that can happen by chance
-   * Cohen's kappa coefficient does account for agreement by chance; generally want a value greater than 0.40
-   * Weighted kappa is good when the rating scale is ordinal (e.g., good < better < best) and you need to account for the fact that *good vs best* represents more disagreement than *better vs best*
-   * Intraclass correlation is a good option when you have 2 or more raters
+* Percent agreement is one method of evaluating two raters when the rating is binary, but it does not account for agreement that can happen by chance
+* Cohen's kappa coefficient does account for agreement by chance; generally want a value greater than 0.40
+* Weighted kappa is good when the rating scale is ordinal (e.g., good < better < best) and you need to account for the fact that *good vs best* represents more disagreement than *better vs best*
+* Intraclass correlation is a good option when you have 2 or more raters
 
 #### Validity{-}
 
@@ -435,10 +437,15 @@ knitr::include_url("https://www.youtube.com/embed/UF1T7KzRnrs")
 
 In the sensitivity and specificity calculations shown above, the example cutoff score for depression on the BDI-II was set to 15. To determine if 15 is the best cut point, we could calculate the sensitivity and specificity again for several different cutoff points and plot the relationship in a **receiver operating characteristic** (ROC) curve. ROC curves plot sensitivity (the true positive rate) against 1 minus specificity for a range of different cutoff points. For instance, the figure below shows the ROC curve presented in @kim:2014.
 
-```{r roc, fig.cap="Receiver operating characteristic (ROC) curve for the BDI-II and CDI-II-S as compared to the CDRS-R. Source: @kim:2014. Circle annotation added.", echo=F}
-knitr::include_graphics("images/JIAS-17-18965-g001.jpg", dpi = NA)
+```{block, type='rmdshiny'}
+Receiver operating characteristic (ROC) curve for the BDI-II and CDI-II-S as compared to the CDRS-R. Source: @kim:2014.
 ```
-The best cutoff is typically the one that maximizes sensitivity and specificity.[^tradeoff] In a ROC curve, this is the point that is closest to the top left of the graph—sensitivity of 1 and (1-specificity) of 0. In @kim:2014, the optimal cutoff did indeed turn out to be 15.
+
+```{r shiny_roc, echo=F}
+knitr::include_app("https://globalhealthresearch.shinyapps.io/ROC-curve/", height = "750px")
+```
+
+The best cutoff is typically the one that maximizes sensitivity and specificity.[^tradeoff] In a ROC curve, this is the point that is closest to the top left of the graph—sensitivity of 1 and (1-specificity) of 0. In @kim:2014, the optimal cutoff did indeed turn out to be 15.
 
 [^tradeoff]: Decreasing false positives (higher specificity) could be favored to avoid labeling non-depressed patients as depressed and using resources for unnecessary additional evaluations. Doing so would mean missing more true positives, but it could be a defensible tradeoff.
 
