@@ -409,7 +409,7 @@ cm <- data.frame(m=c(
 ),
 d=c(
 "This is the proportion of the sample (with the right methods we can infer to the population) who have (or had) a certain characteristic such as depression. We will distinguish between point, period, and lifetime prevalence, as well as introduce important issues related to sampling and prevalence, in a later chapter.",
-"This is the total misclassification rate for a particular cutoff point. How often does the test misclassify people according to their 'true' disease state measured by the criterion reference? [Area under the curve, or AUC, is another useful metric of test accuracy. See below for more details.]",
+"This is the total correct classification rate for a particular cutoff point. How often does the test correctly classify people according to their 'true' disease state measured by the criterion reference? 1-misclassification. [Area under the curve, or AUC, is another useful metric of test accuracy. See below for more details.]",
 "Sensitivity is also referred to as the true positive rate. @kim:2014 reported an estimate of 0.75, which indicates that 75% of adolescents with depression correctly screened positive with a cutoff value of 15",
 "The flip side of sensitivity (true positives) is the false negative rate. In this example, 25% of depressed adolescents were misclassified by the test as not depressed.",
 "Specificity is also referred to as the true negative rate. @kim:2014 reported an estimate of 0.77, which indicates that 77% of non-depressed adolescents correctly screened negative with a cutoff value of 15.",
