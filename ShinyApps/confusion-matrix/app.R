@@ -44,6 +44,29 @@ ui <- navbarPage(
   
          fluidPage( 
            
+           tags$head(
+             tags$style(HTML("
+
+              h5 {
+                  color: #000000;
+                  background-color: #FFFFFF;
+                  border-style: outset;
+                  padding-top: 10px;
+                  #padding-bottom: 10px;
+              }
+
+              body {
+                  color: #000000;
+                  background-color: #FFFFFF;
+              }
+
+            #blue {
+                color: #1663D5;
+            }
+
+            "))),
+               
+           
            fluidRow(column(12, align="left",
                            
                            h4("This Shiny app displays a confusion matrix.
@@ -91,50 +114,55 @@ ui <- navbarPage(
                 h3("Pos"),
                 
                 #2. True Pos
-                h5("True Positive (a)"),
+                h5("True Positive", br(), br(), "(a)",
+                   numericInput("a", label=NULL, 79, min=0, max=182)),
                 
                 #3. False Pos
-                h5("False Positive (b)"),
+                h5("False Positive", br(), br(),  "(b)",
+                   verbatimTextOutput("b")),
                 
                 #4. total
-                h5("Total", br(),
-                   "a+b"),
+                h5("Total", br(), br(),
+                   "a+b",
+                   verbatimTextOutput("ab")),
                 
                 #5. PPV
                 h5("Positive Predictive", br(), "Value (PPV)", br(),
-                   "a/(a+b)"),
+                   "a/(a+b)",
+                   verbatimTextOutput("PPV")),
                 
                 #6. FDR
-                h5("False Discovery", br(), 
-                   "Rate (FDR)", br(), 
-                   "1-PPV")),
+                h5("False Discovery", 
+                   "Rate (FDR)", br(), br(),
+                   "1-PPV",
+                   verbatimTextOutput("FDR"))),
     
     
-    # values - row 2
-    splitLayout(cellWidths=layoutPct,
-                
-                align="center",
-                
-                
-                #1. POS
-                h3(""),
-                
-                #2. True Pos
-                numericInput("a", label=NULL, 79, min=0, max=182),
-                
-                #3. False Pos
-                verbatimTextOutput("b"),
-                
-                #4. total
-                verbatimTextOutput("ab"),
-                
-                #5. PPV
-                verbatimTextOutput("PPV"),
-                
-                #6. FDR
-                verbatimTextOutput("FDR")),
+    # # values - row 2
+    # splitLayout(cellWidths=layoutPct,
+    #             
+    #             align="center",
+    #             
+    #             
+    #             #1. POS
+    #             h3(""),
+    #             
+    #             #2. True Pos
+    #             numericInput("a", label=NULL, 79, min=0, max=182),
+    #             
+    #             #3. False Pos
+    #             verbatimTextOutput("b"),
+    #             
+    #             #4. total
+    #             verbatimTextOutput("ab"),
+    #             
+    #             #5. PPV
+    #             verbatimTextOutput("PPV"),
+    #             
+    #             #6. FDR
+    #             verbatimTextOutput("FDR")),
     
-    hr(),
+    #hr(),
     
     # headings - row 3
     splitLayout(cellWidths=layoutPct,
@@ -146,49 +174,54 @@ ui <- navbarPage(
                 h3("Neg"),
                 
                 #2. False Neg
-                h5("False Negative (c)"),
+                h5("False Negative", br(), br(), "(c)",
+                   verbatimTextOutput("c")),
                 
                 #3. True Neg
-                h5("True Negative (d)"),
+                h5("True Negative", br(), br(),  "(d)",
+                   numericInput("d", label=NULL, 353, min=0, max=380)),
                 
                 #4. total
-                h5("c+d"),
+                h5(br(), br(), "c+d",
+                   verbatimTextOutput("cd")),
                 
                 #5. NPV
                 h5("Negative Predictive", br(), 
                    "Value (NPV)", br(),
-                   "c/(c+d)"),
+                   "c/(c+d)",
+                   verbatimTextOutput("NPV")),
                 
                 #6. FOR
                 h5("False Omission", br(), 
                    "Rate (FOR)", br(),
-                   "1-NPV")),
+                   "1-NPV",
+                verbatimTextOutput("FOR"))),
     
-    # values - row 3
-    splitLayout(cellWidths=layoutPct,
-                
-                align="center",
-                
-                
-                #1. NEG
-                h3(""),
-                
-                #2. False Neg
-                verbatimTextOutput("c"),
-                
-                #3. True Neg
-                numericInput("d", label=NULL, 353, min=0, max=380),
-                
-                #4. total
-                verbatimTextOutput("cd"),
-                
-                #5. NPV
-                verbatimTextOutput("NPV"),
-                
-                #6. FOR
-                verbatimTextOutput("FOR")), 
+    # # values - row 3
+    # splitLayout(cellWidths=layoutPct,
+    #             
+    #             align="center",
+    #             
+    #             
+    #             #1. NEG
+    #             h3(""),
+    #             
+    #             #2. False Neg
+    #             verbatimTextOutput("c"),
+    #             
+    #             #3. True Neg
+    #             numericInput("d", label=NULL, 353, min=0, max=380),
+    #             
+    #             #4. total
+    #             verbatimTextOutput("cd"),
+    #             
+    #             #5. NPV
+    #             verbatimTextOutput("NPV"),
+    #             
+    #             #6. FOR
+    #             verbatimTextOutput("FOR")), 
     
-    hr(),
+    #hr(),
     
     # headings - row 4
     
@@ -200,13 +233,16 @@ ui <- navbarPage(
                 h3(""),
                 
                 #2 a+c
-                h5("a+c"),
+                h5(br(), "a+c",
+                  verbatimTextOutput("ac")),
                 
                 #3 b+d
-                h5("b+d"),
+                h5(br(),"b+d",
+                   verbatimTextOutput("bd")),
                 
                 #4 nothing
-                h5("a+b+", br(), "c+d"),
+                h5("a+b+", br(), "c+d",
+                   verbatimTextOutput("abcd")),
                 
                 #5 nothing
                 h3(""),
@@ -216,31 +252,31 @@ ui <- navbarPage(
                 
                 ),
     
-    # values - row 4
-    
-    splitLayout(cellWidths=layoutPct,
-                
-                align="center",
-                
-                #1 nothing
-                h3(""),
-                
-                #2 a+c
-                verbatimTextOutput("ac"),
-                
-                #3 b+d
-                verbatimTextOutput("bd"),
-                
-                #4 a+b+c+d
-                verbatimTextOutput("abcd"),
-                
-                #5 nothing
-                h3(""),
-                
-                #6 nothing
-                h3("")
-                
-    ),
+    # # values - row 4
+    # 
+    # splitLayout(cellWidths=layoutPct,
+    #             
+    #             align="center",
+    #             
+    #             #1 nothing
+    #             h3(""),
+    #             
+    #             #2 a+c
+    #             verbatimTextOutput("ac"),
+    #             
+    #             #3 b+d
+    #             verbatimTextOutput("bd"),
+    #             
+    #             #4 a+b+c+d
+    #             verbatimTextOutput("abcd"),
+    #             
+    #             #5 nothing
+    #             h3(""),
+    #             
+    #             #6 nothing
+    #             h3("")
+    #             
+    # ),
     
     # headings - row 5
     splitLayout(cellWidths=layoutPct,
@@ -252,48 +288,52 @@ ui <- navbarPage(
                 
                 #2. TPR
                 h5("Sensitivity", br(), "True Positive Rate (TPR)", br(),
-                   "a/(a+c)"),
+                   "a/(a+c)",
+                   verbatimTextOutput("TPR")),
                 
                 #3. TNR
                 h5("Specificity", br(), "True Negative Rate (TNR)", br(),
-                   "d/(b+d)"),
+                   "d/(b+d)",
+                    verbatimTextOutput("TNR")),
                 
                 #4. total
                 h3(""),
                 
                 #5. Prevalence
-                h5("Prevalence", br(),
-                   "(a+c)/(b+d)"),
+                h5("Prevalence", br(), br(),
+                   "(a+c)/(b+d)",
+                   verbatimTextOutput("prevalence")),
                 
                 #6. LR+
                 h5("Pos Likelihood", br(), 
                    "Ratio (LR+)", br(),
-                   "TPR/FPR")),
+                   "TPR/FPR",
+                   verbatimTextOutput("PLR"))),
     
-    # values - row 5
-    splitLayout(cellWidths=layoutPct,
-                
-                align="center",
-                
-                #1. nothing
-                h3(""),
-                
-                #2. TPR
-                verbatimTextOutput("TPR"),
-                
-                #3. TNR
-                verbatimTextOutput("TNR"),
-                
-                #4. total
-                h3(""),
-                
-                #5. Prevalence
-                verbatimTextOutput("prevalence"),
-                
-                #6. LR+
-                verbatimTextOutput("PLR")),
+    # # values - row 5
+    # splitLayout(cellWidths=layoutPct,
+    #             
+    #             align="center",
+    #             
+    #             #1. nothing
+    #             h3(""),
+    #             
+    #             #2. TPR
+    #             verbatimTextOutput("TPR"),
+    #             
+    #             #3. TNR
+    #             verbatimTextOutput("TNR"),
+    #             
+    #             #4. total
+    #             h3(""),
+    #             
+    #             #5. Prevalence
+    #             verbatimTextOutput("prevalence"),
+    #             
+    #             #6. LR+
+    #             verbatimTextOutput("PLR")),
     
-    hr(),
+   # hr(),
     
     # headings - row 6
     splitLayout(cellWidths=layoutPct,
@@ -305,45 +345,50 @@ ui <- navbarPage(
                 
                 #2. FNR
                 h5("False Negative Rate (FNR)", br(),
-                   "1-sensitivity"),
+                   "1-sensitivity",
+                   verbatimTextOutput("FNR")),
                 
                 #3. FPR
                 h5("False Positive Rate (FPR)", br(),
-                   "1-specificity"),
+                   "1-specificity",
+                   verbatimTextOutput("FPR")),
                 
                 #4. total
                 h3(""),
                 
                 #5. Accuracy
                 h5("Accuracy", br(),
-                   "(a+c)/(b+d)"),
+                   "(a+c)/(b+d)",
+                   verbatimTextOutput("accuracy")),
                 
                 #6. LR-
                 h5("Neg Likelihood Ratio (LR-)", br(),
-                   "FNR/TNR")),
+                   "FNR/TNR",
+                   verbatimTextOutput("NLR"))),
     
-    # values - row 6
-    splitLayout(cellWidths=layoutPct,
-                
-                align="center",
-                
-                #1. nothing
-                h3(""),
-                
-                #2. FNR
-                verbatimTextOutput("FNR"),
-                
-                #3. FPR
-                verbatimTextOutput("FPR"),
-                
-                #4. total
-                h3(""),
-                
-                #5. Accuracy
-                verbatimTextOutput("accuracy"),
-                
-                #6. LR-
-                verbatimTextOutput("NLR")),
+    # # values - row 6
+    # splitLayout(cellWidths=layoutPct,
+    #             
+    #             align="center",
+    #             
+    #             #1. nothing
+    #             h3(""),
+    #             
+    #             #2. FNR
+    #             verbatimTextOutput("FNR"),
+    #             
+    #             #3. FPR
+    #             verbatimTextOutput("FPR"),
+    #             
+    #             #4. total
+    #             h3(""),
+    #             
+    #             #5. Accuracy
+    #             verbatimTextOutput("accuracy"),
+    #             
+    #             #6. LR-
+    #             h5("Neg Liklihood Ratio (LR-)",
+    #                br(), "FNR/TNR")),
     
     hr()
                 
