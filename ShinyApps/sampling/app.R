@@ -106,15 +106,16 @@ server <- function(input, output) {
     
     
     
-    ggplot(sample()$age, aes(ageN, group=type, fill=type, alpha=0.8)) +
-      geom_density() +
+    ggplot(sample()$age, aes(ageN, group=type, fill=type)) +
+      geom_density(aes(colour=type), alpha=0.8) +
       geom_vline(xintercept=mean(sample()$age$ageN[sample()$age$type=="Population"]), col=cols[1]) +
       geom_vline(xintercept=mean(sample()$age$ageN[sample()$age$type=="Sample"]), col=cols[3]) +
       theme_bw() +
       labs(title="Distribution of Age") +
       theme(plot.title=element_text(hjust=0.5, size=18),
             axis.text=element_text(size=12),
-            axis.title.x=element_blank())
+            axis.title.x=element_blank(),
+            legend.title=element_blank())
     
   })
   
@@ -127,7 +128,8 @@ server <- function(input, output) {
       labs(title="Distribution of Sex") +
       theme(plot.title=element_text(hjust=0.5, size=18),
             axis.text=element_text(size=12),
-            axis.title.x=element_blank())
+            axis.title.x=element_blank(),
+            legend.title=element_blank())
     
   })
   
@@ -140,7 +142,8 @@ server <- function(input, output) {
       labs(title="Distribution of Race") +
       theme(plot.title=element_text( hjust=0.5, size=18),
             axis.text=element_text(size=12),
-            axis.title.x=element_blank())
+            axis.title.x=element_blank(),
+            legend.title=element_blank())
     
   })
   
