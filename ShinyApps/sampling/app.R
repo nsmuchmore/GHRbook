@@ -25,11 +25,17 @@ cols <- gg_color_hue(n)
 
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
+ui <- miniPage(
   
-  fluidRow(
+  miniTitleBar("Simple Random Sampling"),
+  
+  miniContentPanel(
    
         align="center",
+        
+        h4("Use the slider below to select the number of observations to draw at random from
+           the population of North Carolina surveyed in the 1880 Census.  How does the comprability
+           of the sample compare to the population distribution as the number of observations drawn changes?"),
         
         #100 sample
         sliderInput("draw", "Select Size of Draw:",
@@ -39,8 +45,8 @@ ui <- fluidPage(
         # population
          plotOutput("agePop"),
          plotOutput("sexPop"),
-         plotOutput("racePop"))
-)
+         plotOutput("racePop")
+))
         
                       
 
