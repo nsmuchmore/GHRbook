@@ -204,9 +204,9 @@ To determine if this misclassification of cases as controls could introduce sele
 
 Panels A and B show cases (those who tested positive for malaria) and controls by their reported bednet usage. In Panel A, there are 4 patients who are misclassified as controls, meaning that they tested negative for malaria but only because they treated themselves with chloroquine prior to the test. You can see that chloroquine use is less common among net users.
 
-Still in Panel A, we see that the odds of malaria (cases) among bednet users is 12/30 and the odds of malaria among non-users is 12/18. This is an odds ratio of 0.60, suggesting that bednets protect against malaria (a value of 1 would indicate no effect).
+Still in Panel A, we see that the odds of malaria (cases) among bednet users is 12/18 and the odds of malaria among non-users is 12/6. This is an odds ratio of 0.34, suggesting that bednets protect against malaria (a value of 1 would indicate no effect).
 
-However, Panel B shows that this effect might be an underestimate. If we move the misclassified control patients to the case group where they belong, the odds change. Now the odds of malaria among bednet users is 13/30 and the odds among non-users is 15/18. This is an odds ratio of 0.52, suggesting an even greater protective effect.
+However, Panel B shows that this effect might be an underestimate. If we move the misclassified control patients to the case group where they belong, the odds change. Now the odds of malaria among bednet users is 13/17 and the odds among non-users is 15/3. This is an odds ratio of 0.15, suggesting an even greater protective effect.
 
 In Panel A, the effect was biased toward the null, meaning that the effect looked smaller than it probably is in reality. This bias results in **confounding**, and we would call chloroquine use a **confounding variable**. Confounding variables are correlated with both the "treatment" (i.e., bednet use) and the outcome (i.e., malaria).
 ```
@@ -230,14 +230,6 @@ The key word here is "typically". Things can still go wrong in an experimental d
 * reporting bias
 
 We'll discuss these sources of bias more in **[Chapter 11](experimental)**, but the takeaway should be that every study has a potential for bias and, as a reviewer or general research consumer, you should assess the risks of bias that might challenge the validity of the results. As you'll see later, this type of validity—are the study results "correct"?—is typically referred to as **internal validity** [@cochrane]. At the end of this chapter you'll read about another dimension of validity called external validity.
-
-```{block, type='rmdplay'}
-```
-
-```{r ch3bias, echo=F}
-knitr::include_url("https://warpwire.duke.edu/w/SFYBAA/")
-```
-[PDF slide deck](https://drive.google.com/open?id=0Bxn_jkXZ1lxuNW1XM21PT1ZQTGM)
 
 #### Who (or what) was the subject of study and how were these subjects recruited and/or selected?{-}
 
