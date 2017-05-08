@@ -12,7 +12,7 @@ A lot deeper, actually.
 
 Google's former CEO Eric Schmidt has [said we create as much information every two days as we did from the beginning of time through 2003](http://techcrunch.com/2010/08/04/schmidt-data/). Two days! And he said this back in 2012, so it's an even shorter time span today. Of course the "cat photo" to "research finding" ratio is probably something like 1,000,000:1 nowadays, but this only makes the point that good information can be hard to find.
 
-In this chapter we'll discuss a strategy for quickly getting a sense for the state-of-the-art in health research, and then outline the steps you need to take to search the literature for primary sources.
+In this chapter we'll discuss a strategy for quickly getting a sense for the state-of-the-art in health research, and then we'll outline the steps you need to take to search the literature for primary sources.
 
 ```{r cat, echo=FALSE}
 knitr::include_url("http://giphy.com/embed/o0vwzuFwCGAFO",
@@ -31,9 +31,9 @@ knitr::include_url("https://warpwire.duke.edu/w/BFYBAA/")
 
 Repeat after me:
 
-> I will not start my research by Googling "malaria". 
-> I will not start my research by Googling "malaria". 
-> I will not start my research by Googling "malaria".
+> I will not start my research by Googling "malaria." 
+> I will not start my research by Googling "malaria." 
+> I will not start my research by Googling "malaria."
 
 If your topic is malaria and you're not sure if the vector is mosquitoes or monkeys, then [Wikipedia](https://en.wikipedia.org/wiki/Malaria) is probably a good place to start. There's no shame in that. Otherwise, it is always a good idea to begin with a check for relevant systematic reviews or meta-analyses. Finding a good review beats Googling "malaria" any day.  
 
@@ -137,7 +137,7 @@ caption = 'Comparing systematic reviews and literature reviews.'
  
 #### Where to find systematic reviews{-}
 
-Three excellent sources for finding systematic reviews (and meta-analyses) in global health are the [Cochrane Library](http://www.cochranelibrary.com/), the [Campbell Collaboration](http://www.campbellcollaboration.org/), and [3ie](http://www.3ieimpact.org/evidence/systematic-reviews/). You can also get to many of the reviews in these databases by searching within PubMed using the [Clinical Queries](http://www.ncbi.nlm.nih.gov/pubmed/clinical) feature.
+Three excellent sources for finding systematic reviews (and meta-analyses) in global health are the [Cochrane Library](http://www.cochranelibrary.com/), the [Campbell Collaboration](http://www.campbellcollaboration.org/), and [3ie](http://www.3ieimpact.org/evidence/systematic-reviews/). You can also get to many of the reviews in these databases by searching within PubMed using the [Clinical Queries](http://www.ncbi.nlm.nih.gov/pubmed/clinical/) feature.
 
 #### How to read systematic reviews{-}
 

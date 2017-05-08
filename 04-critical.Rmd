@@ -4,11 +4,11 @@ knit: "bookdown::preview_chapter"
 
 # Critical Appraisal {#critical}
 
-Whether you are a clinician treating patients, a public health official making policy recommendations, or a representative of a donor agency responsible for setting funding priorities, your decisions should be based on evidence, not beliefs. The phase "evidence-based" first came into use in the 1990s, nearly two decades after the likes of Archie Cochrane highlighted how medical practice lagged behind what science had to say about "what works". Medical schools soon began teaching their students [**evidence-based medicine**](https://en.wikipedia.org/wiki/Evidence-based_medicine) (EBM), defined by @sackett:1996 as:
+Whether you are a clinician treating patients, a public health official making policy recommendations, or a representative of a donor agency responsible for setting funding priorities, your decisions should be based on evidence, not beliefs. The phase "evidence-based" first came into use in the 1990s, nearly two decades after Archie Cochrane highlighted how medical practice lagged behind what science had to say about "what works". Medical schools soon began teaching their students [**evidence-based medicine**](https://en.wikipedia.org/wiki/Evidence-based_medicine) (EBM), defined by @sackett:1996 as:
 
 > The conscientious, explicit and judicious use of current best evidence in making decisions about the care of the individual patient. It means integrating individual clinical expertise with the best available external clinical evidence from systematic research.
 
-From there we witnessed an expansion of the "evidence-based" idea to evidence-based practice more generally, as well as to population-level approaches such as evidence-based public health [@brownson:2009] and evidence-based global health policy [@yamey:2011]. Just as in EBM, the aim of these newer conceptualizations is to adopt policies and programs that have been shown to save lives and improve health at scale. But before policymakers can make evidence-based decisions, the scientific community must evaluate the strength of the evidence. This is commonly referred to as **critical appraisal**, the topic of this chapter.
+Thereafter, we witnessed an expansion of the "evidence-based" idea to evidence-based practice more generally, as well as to population-level approaches such as evidence-based public health [@brownson:2009] and evidence-based global health policy [@yamey:2011]. As in EBM, these newer conceptualizations aim to adopt policies and programs that have been shown to save lives and improve health at scale. But before policy makers can make evidence-based decisions, the scientific community must evaluate the strength of the evidence. This is commonly referred to as **critical appraisal**, the topic of this chapter.
 
 ```{block, type='rmdplay'}
 ```
@@ -19,16 +19,14 @@ knitr::include_url("https://www.youtube.com/embed/Z_yiUf3f92s")
 
 ## Be Skeptical of News Reports and Press Releases
 
-Much of what we learn about scientific results from the media comes in the form of clickbait, such as [this article in Discover Magazine](http://blogs.discovermagazine.com/seriouslyscience/2016/07/27/your-next-mosquito-repellant-could-be-made-from-chicken-odor/#.V6HRqJMrLwc) titled "Want to avoid malaria? Just wear a chicken." Would you be surprised if I told you that the study did not actually require people to wear chickens?[^jaleta]
+Much of what we learn about scientific results from the media comes in the form of click bait, such as [this article in Discover Magazine](http://blogs.discovermagazine.com/seriouslyscience/2016/07/27/your-next-mosquito-repellant-could-be-made-from-chicken-odor/#.V6HRqJMrLwc) titled "Want to avoid malaria? Just wear a chicken." Would you be surprised to know that the study did not actually require people to wear chickens?[^jaleta]
 
-[^jaleta]: So what did this study actually do and find? Jaleta et al. [-@jaleta:2016] placed [CDC mini-light traps](http://www.cdc.gov/museum/history/mosquito.html) at the foot of a bed in 11 homes in an Ethiopian village called Wama Kusaye and introduced 11 "treatments" over 11 days in a [Latin Square](https://en.wikipedia.org/wiki/Latin_square) experimental design and recorded the number of mosquitoes caught in the traps overnight. One of the treatments was indeed a live chicken, but fortunately no human participants were asked to carry it around or let it crawl into bed. Interestingly, a blood meal analysis suggested that *An. arabiensis* avoids biting chickens, and sticking a live chicken in a cage resulted in a significant reduction in the number of mosquitoes caught in the traps. So did odor compounds specific to the air around chickens.
+[^jaleta]: What did this study actually do and find? Jaleta et al. [-@jaleta:2016] placed [CDC mini-light traps](http://www.cdc.gov/museum/history/mosquito.html) at the foot of a bed in each of 11 homes in an Ethiopian village called Wama Kusaye. They introduced 11 "treatments" over 11 days in a [Latin Square](https://en.wikipedia.org/wiki/Latin_square) experimental design and recorded the number of mosquitoes caught in the traps overnight. One of the treatments was indeed a live chicken, but fortunately no human participants were asked to carry it around or let it crawl into bed. Interestingly, a blood meal analysis suggested that *Anopheles arabiensis* avoids biting chickens, and sticking a live chicken in a cage resulted in a significant reduction in the number of mosquitoes caught in the traps. Odor compounds specific to the air around chickens also achieved this result.
 
-> Are you worried about getting malaria? Well, according to [this study](http://malariajournal.biomedcentral.com/articles/10.1186/s12936-016-1386-3), you might be able to avoid it by carrying a chicken everywhere you go. These findings...give “tastes like chicken” a whole new meaning!
-
-Despite the outlandish title, this news report got it mostly right, so it's better than most. If you turn on the news or read a university press release, you'll often find summaries and claims that go far beyond the conclusions of the original article. This is because most studies give us a small glimpse at the "truth", but the measured and careful language of scientific articles does not always capture the attention of the public.
+> According to [this study](http://malariajournal.biomedcentral.com/articles/10.1186/s12936-016-1386-3), malaria might be avoided by carrying a chicken everywhere. Despite the outlandish title, this news report got it mostly right. If you turn on the news or read a university press release, you'll often find summaries and claims that go far beyond the conclusions of the original article. Most studies give do us a small glimpse of the "truth," but the measured and careful language of scientific articles does not always capture the attention of the public.
 
 ```{block, type='rmdcomment'}
-Part of the problem is also that good science writers are hard to come by. One of the best is Ben Goldacre, a British psychiatrist who runs the [EMB Data Lab](https://ebmdatalab.net/) at the [Centre for Evidence-Based Medicine](http://www.cebm.net/) at the University of Oxford. He wrote the *Guardian's* ["Bad Science"](https://www.theguardian.com/science/series/badscience) column for a decade, and later published a [great book](http://amzn.to/2aKLGaQ) with the same title. Check out his more recent work on [AllTrials](http://www.alltrials.net/).
+Part of the problem is also that good science writers are hard to come by. One of the best is Ben Goldacre, a British psychiatrist who runs the [EMB Data Lab](https://ebmdatalab.net/) at the [Centre for Evidence-Based Medicine](http://www.cebm.net/) at the University of Oxford. He wrote the *Guardian's* ["Bad Science"](https://www.theguardian.com/science/series/badscience) column for a decade, and later published a [great book](http://amzn.to/2aKLGaQ) with the same title. His more recent work can be reviewed on [AllTrials](http://www.alltrials.net/).
 ```
 
 ```{block, type='rmdplay'}
@@ -40,9 +38,9 @@ knitr::include_url("https://www.youtube.com/embed/0Rnq1NpHdmw")
 
 ## Peer-Reviewed Does Not Mean "Correct"
 
-Journalists and communications professionals can and do make mistakes in summarizing and interpreting scientific findings, but sometimes the problem is further upstream with the study authors. 
+Journalists and communications professionals can and do make mistakes in summarizing and interpreting scientific findings, but sometimes the problem is with the study authors. 
 
-*But how can published research be flawed, you ask? It was peer-reviewed!*
+*How can published research be flawed if it was peer-reviewed?*
 
 **Peer review** is an important component of the scientific process, but it is not a guarantee of "truth" or a certification of the results. So what is peer review?
 
@@ -51,16 +49,16 @@ Exhibit A for peer review does not mean "correct": a *Lancet* article published 
 
 The MVP was founded by economist [Jeffrey Sachs](https://en.wikipedia.org/wiki/Jeffrey_Sachs) as a proof of [his concept](http://amzn.to/2aUF9dJ) that extreme poverty could be solved, and the [**Millennium Development Goals**](https://en.wikipedia.org/wiki/Millennium_Development_Goals) met, with a big financial push. The basic idea behind a Millennium Village is to intervene across sectors simultaneously—water, sanitation, education, health, etc.—to give communities a chance to escape the poverty trap. 
 
-Sachs and his colleagues published their first comprehensive report on the MVP in the *Lancet*—***a peer-reviewed journal***—with the stated aim to "assess progress towards the MDGs and child survival over the project's first 3 years and compare these changes to local trends". The authors examined child mortality rates across 9 Millennium Villages and concluded:  
+Sachs and his colleagues published their first comprehensive report on the MVP in *The Lancet*—***a high-impact, peer-reviewed journal***—with the stated aim to "assess progress towards the MDGs and child survival over the project's first 3 years and compare these changes to local trends." The authors examined child mortality rates across nine Millennium Villages and concluded the following:  
 
-> <span style="color:white">*The average annual rate of reduction of mortality in children younger than 5 years of age was three-times faster in Millennium Village sites than in the most recent 10-year national rural trends (7·8% vs 2·6%).*
+> <span style="color:white">*The average annual rate of reduction of mortality in children younger than 5 years of age was three times faster in Millennium Village sites than in the most recent 10-year national rural trends (7·8% vs 2·6%).*
 </span>
 
-When this PEER REVIEWED article was published online, Bump et al. [-@bump:2012] challenged the calculation of both of these figures and the resulting interpretation that the MVP had a large impact on child mortality. One of the authors of this criticism, Gabriel Demombynes, explained the errors in [this post](http://blogs.worldbank.org/impactevaluations/the-millennium-villages-project-impacts-on-child-mortality).
+When this PEER-REVIEWED article was published online, Bump et al. [-@bump:2012] challenged the calculation of both of these figures and the resulting interpretation that the MVP had a large impact on child mortality. One of the authors of this criticism, Gabriel Demombynes, explained the errors in [this post](http://blogs.worldbank.org/impactevaluations/the-millennium-villages-project-impacts-on-child-mortality).
 
-First, Pronyk et al. [-@pronyk:2012] annualized (aka, divided) the 21.7% cumulative decline in mortality by 3 for the number of years the intervention was active rather than by 4, the correct time window for this retrospective assessment of mortality. This correction reduces the annual rate of decline among Millennium Villages from a claim of 7.8% to an actual 5.4%.
+First, Pronyk et al. [-@pronyk:2012] annualized (aka, divided) the 21.7% cumulative decline in mortality by 3 for the number of years the intervention was active rather than by 4, the correct time window in this retrospective assessment of mortality. This correction reduced the annual rate of decline among Millennium Villages from a claim of 7.8% to an actual 5.4%.
 
-Second, Pronyk et al. [-@pronyk:2012] compared their estimated annual decline after 2006 (7.8%) to the results of national surveys in MVP countries from 2001-10. A more appropriate comparison using all of the available post-2006 data suggests an average annual rate of decline of 6.4% across the 9 MVP countries.
+Second, Pronyk et al. [-@pronyk:2012] compared their estimated annual decline after 2006 (7.8%) to the results of national surveys in MVP countries from 2001 to 2010. A more appropriate comparison using all of the available post-2006 data suggests an average annual rate of decline of 6.4% across the 9 MVP countries.
 
 ![](images/mvpredo.png)
 
